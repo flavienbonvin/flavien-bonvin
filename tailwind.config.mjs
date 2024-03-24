@@ -10,9 +10,9 @@ export default {
                 background: "hsl(208.4, 25.3%, 14.7%)",
                 "font-color": "hsl(222, 11%, 91%)",
                 "font-color-foreground": "hsl(60, 11%, 98%)",
-                "nav-active": "hsl(27, 90% , 88%)"
-            }
+                "nav-active": "hsl(27, 90% , 88%)",
+            },
         },
     },
-    plugins: [require('@tailwindcss/typography')],
+    plugins: [require("@tailwindcss/typography")],
 };

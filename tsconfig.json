@@ -6,7 +6,7 @@
             "@layouts/*": ["layouts/*"],
             "@components/*": ["components/*"],
             "@data/*": ["lib/data/*"],
-            "@helpers/*": ["lib/helpers/*"],
+            "@helpers/*": ["lib/helpers/*"]
         }
     }
 }
