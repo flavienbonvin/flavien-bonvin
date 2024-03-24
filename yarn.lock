@@ -129,6 +129,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@astrojs/rss@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "@astrojs/rss@npm:4.0.5"
+  dependencies:
+    fast-xml-parser: "npm:^4.2.7"
+    kleur: "npm:^4.1.5"
+  checksum: 10c0/b8dfe1a9121101b8554e37f9c2e0f7c4f6a06958fade69a88fb43bfea896f98d65c303955641274ff2c4152c9834e957228e4f0ae6fc7fb62b65fb174978f733
+  languageName: node
+  linkType: hard
+
 "@astrojs/sitemap@npm:^3.1.1":
   version: 3.1.1
   resolution: "@astrojs/sitemap@npm:3.1.1"
@@ -2422,6 +2432,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-xml-parser@npm:^4.2.7":
+  version: 4.3.6
+  resolution: "fast-xml-parser@npm:4.3.6"
+  dependencies:
+    strnum: "npm:^1.0.5"
+  bin:
+    fxparser: src/cli/cli.js
+  checksum: 10c0/9ebe2ac142c6978cae423c39c2a9b561edb76be584317d578768ed4a006a61fc0e83abf8c6fe31029139c4ad15ea1f2e7b6720ba9e6eda0e5266d7f2770fb079
+  languageName: node
+  linkType: hard
+
 "fastq@npm:^1.6.0":
   version: 1.17.1
   resolution: "fastq@npm:1.17.1"
@@ -2482,6 +2503,7 @@ __metadata:
   resolution: "flavien-bonvin@workspace:."
   dependencies:
     "@astrojs/check": "npm:^0.5.9"
+    "@astrojs/rss": "npm:^4.0.5"
     "@astrojs/sitemap": "npm:^3.1.1"
     "@astrojs/tailwind": "npm:^5.1.0"
     "@tailwindcss/typography": "npm:^0.5.10"
@@ -5337,6 +5359,13 @@ __metadata:
   version: 2.0.1
   resolution: "strip-json-comments@npm:2.0.1"
   checksum: 10c0/b509231cbdee45064ff4f9fd73609e2bcc4e84a4d508e9dd0f31f70356473fde18abfb5838c17d56fb236f5a06b102ef115438de0600b749e818a35fbbc48c43
+  languageName: node
+  linkType: hard
+
+"strnum@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "strnum@npm:1.0.5"
+  checksum: 10c0/64fb8cc2effbd585a6821faa73ad97d4b553c8927e49086a162ffd2cc818787643390b89d567460a8e74300148d11ac052e21c921ef2049f2987f4b1b89a7ff1
   languageName: node
   linkType: hard
 
