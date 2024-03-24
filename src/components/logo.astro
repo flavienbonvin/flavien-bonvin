@@ -1,7 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { PATHS } from "../constants";
 ---
 
 <a href={PATHS.home}>
-    <span>Flavien Bonvin</span>
+    <Image src="/logo.svg" alt="Flavien Bonvin Logo" width="200" height="50" />
 </a>

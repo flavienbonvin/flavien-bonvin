@@ -22,16 +22,14 @@ import "@fontsource/tinos";
         <meta name="generator" content={Astro.generator} />
         <title>Flavien Bonvin</title>
     </head>
-    <body class="flex h-screen flex-col bg-background text-font-color">
-        <header class="flex justify-between p-6 sm:p-10">
+    <body class="mx-auto flex h-screen max-w-2xl flex-col bg-background text-font-color">
+        <header class="flex justify-between py-6 sm:py-10">
             <Logo />
             <Navigation />
         </header>
 
-        <main class="grow">
+        <main class="mt-10 grow px-8 md:px-0">
             <slot />
         </main>
-
-        <footer>footer</footer>
     </body>
 </html>
