@@ -3,6 +3,7 @@ import Logo from "@components/logo.astro";
 import Navigation from "@components/navigation.astro";
 import "@fontsource-variable/open-sans";
 import "@fontsource/tinos";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import "@fontsource/tinos";
             title="Flavien Bonvin"
             href={`${Astro.site}rss.xml`}
         />
+        <ViewTransitions />
 
         <meta name="generator" content={Astro.generator} />
         <title>Flavien Bonvin</title>
