@@ -1,0 +1,15 @@
+---
+import { getFormattedDate } from "@helpers/article";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+    article: CollectionEntry<"blog">;
+}
+
+const { article } = Astro.props;
+const formattedTime = getFormattedDate(article.data.publicationDate);
+---
+
+<header>
+    <h2>{article.data.title}</h2>
+    <time datetime={article.data.publicationDate}>{formattedTime}</time>
+</header>

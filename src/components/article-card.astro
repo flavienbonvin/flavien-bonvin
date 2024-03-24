@@ -1,0 +1,18 @@
+---
+import { getArticleLink, getFormattedDate } from "@helpers/article";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+    article: CollectionEntry<"blog">;
+}
+
+const { article } = Astro.props;
+const { title, publicationDate, slug } = article.data;
+const formattedTime = getFormattedDate(publicationDate);
+---
+
+<a href={getArticleLink(slug)}>
+    <article>
+        <h2>{title}</h2>
+        <time datetime={publicationDate}>{formattedTime}</time>
+    </article>
+</a>
