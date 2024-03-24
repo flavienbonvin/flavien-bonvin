@@ -1,0 +1,39 @@
+---
+import { PATHS } from "../constants";
+
+const { pathname } = Astro.url;
+const navLinks = [
+    {
+        href: PATHS.dev,
+        text: "Dev articles",
+    },
+    {
+        href: PATHS.musing,
+        text: "Random musing",
+    },
+    {
+        href: PATHS.about,
+        text: "About",
+    },
+];
+---
+
+<nav>
+    <ul class="flex gap-6 sm:gap-10">
+        {
+            navLinks.map(({ href, text }) => (
+                <li>
+                    <a
+                        class:list={[
+                            "hover:text-font-color-foreground",
+                            pathname === href && "text-nav-active",
+                        ]}
+                        href={href}
+                    >
+                        {text}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
