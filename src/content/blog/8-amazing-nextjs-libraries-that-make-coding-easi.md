@@ -2,6 +2,7 @@
 title: "8 Amazing NextJS Libraries That Make Coding Easier"
 slug: "next-js-amazing-libraries"
 publicationDate: "2023-01-10"
+dev: true
 tags: ['nextjs', 'javascript', 'typescript']
 ---
 
@@ -229,8 +230,6 @@ export default function ExamplePage() {
   return <div>{example}</div> // <div>Using a variable 42</div>
 }
 ```
-
-Doc: [GitHub - vinissimus/next-translate: Next.js plugin + i18n API for Next.js 🌍  -  Load page translations and use them in an easy way!
 
 ```bash
 npm i next-translate

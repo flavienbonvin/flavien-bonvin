@@ -1,7 +1,11 @@
 ---
+import ArticleList from "@components/article-list.astro";
+import { getNonDevArticles } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
+
+const articles = await getNonDevArticles();
 ---
 
 <PageLayout>
-    <h1>Musing</h1>
+    <ArticleList articles={articles} />
 </PageLayout>

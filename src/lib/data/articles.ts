@@ -9,3 +9,15 @@ export const getAllPublishedArticles = () => {
 export const getArticle = (slug: string) => {
     return getEntry("blog", slug);
 };
+
+export const getDevArticles = () => {
+    return getCollection("blog", ({ data }) => {
+        return data.dev;
+    });
+};
+
+export const getNonDevArticles = () => {
+    return getCollection("blog", ({ data }) => {
+        return !data.dev;
+    });
+};
