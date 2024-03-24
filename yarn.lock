@@ -818,6 +818,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource-variable/open-sans@npm:^5.0.28":
+  version: 5.0.28
+  resolution: "@fontsource-variable/open-sans@npm:5.0.28"
+  checksum: 10c0/0851394dc06c476ace8ffc1a4f4592466c395ce11e92fdaf4d11ddf4bb717c07f186dfa6f375e6d02a5b0368e5d54d4b19a0e2aa49c7b3a7446f19cd99ef59a4
+  languageName: node
+  linkType: hard
+
+"@fontsource/ibm-plex-sans@npm:^5.0.19":
+  version: 5.0.19
+  resolution: "@fontsource/ibm-plex-sans@npm:5.0.19"
+  checksum: 10c0/ebadbc7a84dc49c9d757a914219220158e6919ed67870b5ab9721e7b4ebcfc2a018b9e0cf7598c646be0546205774daeec5ad9c4b3f3602b3bb669a16d411316
+  languageName: node
+  linkType: hard
+
+"@fontsource/open-sans@npm:^5.0.27":
+  version: 5.0.27
+  resolution: "@fontsource/open-sans@npm:5.0.27"
+  checksum: 10c0/cc8f22a5e5f59448589e7e00e0bd6867eeaadfafccf0cb9caf5cf6e60ab73538668189cce4d464d0e0ce0002f373b9031f409c3f7d664c6e449ffad4ed8602d6
+  languageName: node
+  linkType: hard
+
+"@fontsource/tinos@npm:^5.0.12":
+  version: 5.0.12
+  resolution: "@fontsource/tinos@npm:5.0.12"
+  checksum: 10c0/a86c54a841a7a07ae51b8343c234034568fcedfd7c958db5c0aa9ce01e2b8e8227ed21e25830093423e0a05ceaf96baa52c9e6563906278fd0a937812f4c96e6
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -2669,6 +2697,10 @@ __metadata:
     "@astrojs/rss": "npm:^4.0.5"
     "@astrojs/sitemap": "npm:^3.1.1"
     "@astrojs/tailwind": "npm:^5.1.0"
+    "@fontsource-variable/open-sans": "npm:^5.0.28"
+    "@fontsource/ibm-plex-sans": "npm:^5.0.19"
+    "@fontsource/open-sans": "npm:^5.0.27"
+    "@fontsource/tinos": "npm:^5.0.12"
     "@tailwindcss/typography": "npm:^0.5.10"
     astro: "npm:^4.5.8"
     prettier-plugin-astro: "npm:^0.13.0"

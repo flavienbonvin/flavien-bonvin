@@ -10,6 +10,6 @@ const formattedTime = getFormattedDate(article.data.publicationDate);
 ---
 
 <header>
-    <h2>{article.data.title}</h2>
-    <time datetime={article.data.publicationDate}>{formattedTime}</time>
+    <h1 class="mb-2 mt-10 text-4xl text-font-color">{article.data.title}</h1>
+    <time class="font-serif" datetime={article.data.publicationDate}>{formattedTime}</time>
 </header>

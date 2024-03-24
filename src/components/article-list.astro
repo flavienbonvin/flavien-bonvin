@@ -9,6 +9,6 @@ interface Props {
 const { articles } = Astro.props;
 ---
 
-<section class="container">
+<section class="container px-8 md:px-0">
     {articles.map((article) => <ArticleCard {article} />)}
 </section>
