@@ -4,5 +4,24 @@ import { PATHS } from "../constants";
 ---
 
 <a href={PATHS.home}>
-    <Image src="/logo.svg" alt="Flavien Bonvin Logo" width="200" height="22" />
+    <Image src="/logo.svg" class="logo" alt="Flavien Bonvin Logo" width="200" height="22" />
 </a>
+
+<script>
+    import { isDarkMode } from "@helpers/style";
+
+    const setImageSrc = () => {
+        const logo = document.querySelector<HTMLImageElement>(".logo");
+        if (logo) {
+            logo.src = isDarkMode() ? "/logo.svg" : "/logo-light.svg";
+        }
+    };
+
+    document.addEventListener("astro:page-load", () => {
+        setImageSrc();
+    });
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+        setImageSrc();
+    });
+</script>

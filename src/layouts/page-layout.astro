@@ -4,6 +4,7 @@ import Navigation from "@components/navigation.astro";
 import "@fontsource-variable/open-sans";
 import "@fontsource/tinos";
 import { ViewTransitions } from "astro:transitions";
+import DefineVars from "./define-vars.astro";
 ---
 
 <!doctype html>
@@ -25,7 +26,9 @@ import { ViewTransitions } from "astro:transitions";
         <meta name="generator" content={Astro.generator} />
         <title>Flavien Bonvin</title>
     </head>
+
     <body class="mx-auto flex h-screen max-w-2xl flex-col bg-background text-font-color">
+        <DefineVars />
         <header
             class="flex flex-col justify-between gap-10 px-6 py-6 sm:flex-row sm:gap-0 sm:px-0 sm:py-10"
         >
