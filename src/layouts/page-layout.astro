@@ -1,4 +1,5 @@
 ---
+import Footer from "@components/footer.astro";
 import Logo from "@components/logo.astro";
 import Navigation from "@components/navigation.astro";
 import "@fontsource-variable/open-sans";
@@ -55,5 +56,8 @@ import { ViewTransitions } from "astro:transitions";
         <main class="mt-10 grow px-8 md:px-0">
             <slot />
         </main>
+        <footer class="px-8 py-8 md:px-0">
+            <Footer />
+        </footer>
     </body>
 </html>
