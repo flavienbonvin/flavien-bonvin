@@ -2,7 +2,7 @@
 title: "8 Amazing NextJS Libraries That Make Coding Easier"
 slug: "next-js-amazing-libraries"
 publicationDate: "2023-01-10"
-dev: true
+category: 'dev'
 tags: ['nextjs', 'javascript', 'typescript']
 ---
 

@@ -2,7 +2,7 @@
 title: "Quit Spotlight and Alfred, 10+ best Raycast extensions for web developers"
 slug: "amazing-raycast-extensions"
 publicationDate: "2023-05-10"
-dev: false
+category: 'musing'
 tags: ['raycast', 'productivity']
 ---
 

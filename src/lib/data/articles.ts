@@ -1,4 +1,5 @@
 import { getCollection, getEntry } from "astro:content";
+import { BlogType } from "content/config";
 
 export const getAllPublishedArticles = () => {
     return getCollection("blog", ({ data }) => {
@@ -12,12 +13,12 @@ export const getArticle = (slug: string) => {
 
 export const getDevArticles = () => {
     return getCollection("blog", ({ data }) => {
-        return data.dev;
+        return data.category === BlogType.dev;
     });
 };
 
 export const getNonDevArticles = () => {
     return getCollection("blog", ({ data }) => {
-        return !data.dev;
+        return data.category === BlogType.musing;
     });
 };
