@@ -1,10 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import { PATHS } from "../constants";
+import { Icon } from "astro-icon/components";
 ---
 
-<a href={PATHS.home}>
-    <Image src="/logo.svg" class="logo" alt="Flavien Bonvin Logo" width="200" height="22" />
+<a href={PATHS.home} class="relative">
+    <Icon name="logo" class="logo absolute" width={200} height={22} />
+    <Icon name="logo-light" class="logo-light absolute" width={200} height={22} />
 </a>
 
 <script>
@@ -12,8 +14,14 @@ import { PATHS } from "../constants";
 
     const setImageSrc = () => {
         const logo = document.querySelector<HTMLImageElement>(".logo");
-        if (logo) {
-            logo.src = isDarkMode() ? "/logo.svg" : "/logo-light.svg";
+        const logoLight = document.querySelector<HTMLImageElement>(".logo-light");
+
+        if (isDarkMode()) {
+            logo?.style.setProperty("display", "block");
+            logoLight?.style.setProperty("display", "none");
+        } else {
+            logo?.style.setProperty("display", "none");
+            logoLight?.style.setProperty("display", "block");
         }
     };
 
