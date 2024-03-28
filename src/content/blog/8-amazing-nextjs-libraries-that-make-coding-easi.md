@@ -8,6 +8,8 @@ tags: ['nextjs', 'javascript', 'typescript']
 
 It’s a secret to few React developers that NextJS is an amazing product. It has been the default framework for building web app at my current company for the last two years and its adoption is rapidly increasing.
 
+![Sunset over Lake Geneva](../assets/sunset.jpeg "Title")
+
 Being able to control the way pages are built, where and when to fetch data is such a great experience.
 
 By default NextJS is remarkable but it’s just the start. React has a broad library ecosystem that NextJS project can also enjoy. In this article we’ll go through the default libraries, I use in all my projects.
