@@ -8,13 +8,13 @@ interface Props {
 <title>{Astro.props.title}</title>
 <meta name="description" content={Astro.props.description} />
 
-<link rel="canonical" href={Astro.url.toString()} />
+<link rel="canonical" href={Astro.request.url} />
 
 <meta property="og:site_name" content="Flavien Bonvin" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={Astro.props.title} />
 <meta property="og:description" content={Astro.props.description} />
-<meta property="og:url" content={Astro.url.toString()} />
+<meta property="og:url" content={Astro.request.url} />
 <!-- <meta property="og:image" content="" /> -->
 <!-- <meta property="og:image:width" content="" /> -->
 <!-- <meta property="og:image:height" content="" /> -->
@@ -22,9 +22,9 @@ interface Props {
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content={Astro.props.title} />
 <meta name="twitter:description" content={Astro.props.description} />
-<meta name="twitter:url" content={Astro.url.toString()} />
+<meta name="twitter:url" content={Astro.request.url} />
 <meta name="twitter:label1" content="Written by" />
 <meta name="twitter:data1" content="Flavien Bonvin" />
-<meta name="twitter:site" content="@flavienbonvin" />
-<meta name="twitter:creator" content="@flavienbonvin" />
+<meta name="twitter:site" content="@FlavienBonvin" />
+<meta name="twitter:creator" content="@FlavienBonvin" />
 <!-- <meta property="og:image" content={} /> -->
