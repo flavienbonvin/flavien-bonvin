@@ -3,15 +3,12 @@ import ArticleList from "@components/article-list.astro";
 import { getAllPublishedArticles } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
+import { CONFIG } from "const";
 
 const allBlogPosts = await getAllPublishedArticles();
 ---
 
 <PageLayout>
-    <SeoPage
-        slot="head"
-        title="Flavien Bonvin"
-        description="My personal blog where I write about software development, and any other topic that spark my interest."
-    />
+    <SeoPage slot="head" title={CONFIG.author} description={CONFIG.description} />
     <ArticleList title="My latest articles" articles={allBlogPosts} />
 </PageLayout>

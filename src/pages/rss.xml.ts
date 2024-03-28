@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getAllPublishedArticles } from "@data/articles";
 import { getArticleLink } from "@helpers/article";
+import { CONFIG } from "const";
 import MarkdownIt from "markdown-it";
 import sanitize from "sanitize-html";
 const parser = new MarkdownIt();
@@ -14,10 +15,9 @@ export const GET = async ({ site }: { site: string | undefined }) => {
         };
     }
 
-    // TODO update site description
     return rss({
-        title: "Flavien Bonvin",
-        description: "Flavien Bonvin's blog",
+        title: CONFIG.author,
+        description: CONFIG.description,
         site: site,
         items: articles.map((article) => ({
             title: article.data.title,

@@ -1,4 +1,4 @@
-import { PATHS } from "../../constants";
+import { PATHS } from "const";
 
 export const getArticleLink = (slug: string) => `${PATHS.articles}/${slug}`;
 

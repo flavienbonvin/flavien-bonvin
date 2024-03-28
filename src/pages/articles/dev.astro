@@ -3,6 +3,7 @@ import ArticleList from "@components/article-list.astro";
 import { getDevArticles } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
+import { CONFIG } from "const";
 
 const articles = await getDevArticles();
 ---
@@ -10,7 +11,7 @@ const articles = await getDevArticles();
 <PageLayout>
     <SeoPage
         slot="head"
-        title="Web development article | Flavien Bonvin"
+        title=`Web development article | ${CONFIG.author}`
         description="A collection of articles about web development."
     />
     <ArticleList title="Let's discuss code" articles={articles} />

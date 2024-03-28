@@ -5,6 +5,7 @@ import Navigation from "@components/navigation.astro";
 import "@fontsource-variable/open-sans";
 import "@fontsource/tinos";
 import { ViewTransitions } from "astro:transitions";
+import { CONFIG } from "const";
 ---
 
 <!doctype html>
@@ -15,7 +16,7 @@ import { ViewTransitions } from "astro:transitions";
         <meta name="referrer" content="no-referrer-when-downgrade" />
         <meta name="theme-color" content="#1C262F" />
         <meta name="generator" content={Astro.generator} />
-        <meta property="og:site_name" content="Flavien Bonvin" />
+        <meta property="og:site_name" content=`${CONFIG.author}` />
         <slot name="head" />
 
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -23,7 +24,7 @@ import { ViewTransitions } from "astro:transitions";
         <link
             rel="alternate"
             type="application/rss+xml"
-            title="Flavien Bonvin"
+            title=`${CONFIG.author}`
             href={`${Astro.site}rss.xml`}
         />
 

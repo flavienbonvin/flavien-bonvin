@@ -4,7 +4,7 @@ import { getAllPublishedArticles, getArticle } from "@data/articles";
 import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoArticle from "@layouts/seo-article.astro";
-import { PATHS } from "../../constants";
+import { CONFIG, PATHS } from "const";
 
 export async function getStaticPaths() {
     const allArticles = await getAllPublishedArticles();
@@ -33,7 +33,7 @@ const { Content } = await article.render();
     </ArticleLayout>
     <hr class="mb-8 h-px border-0 bg-gray-200 dark:bg-gray-700" />
     <div class="flex flex-row justify-between">
-        <a href={PATHS.home}>Flavien Bonvin &middot; {new Date().getFullYear()}</a>
+        <a href={PATHS.home}>${CONFIG.author} &middot; {new Date().getFullYear()}</a>
         <a
             target="_blank"
             rel="noopener noreferrer"
@@ -43,3 +43,4 @@ const { Content } = await article.render();
         </a>
     </div>
 </PageLayout>
+../../const

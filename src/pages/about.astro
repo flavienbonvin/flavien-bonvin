@@ -2,15 +2,12 @@
 import H1 from "@components/h1.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
+import { CONFIG } from "const";
 ---
 
 <PageLayout>
-    <SeoPage
-        slot="head"
-        title="About Flavien Bonvin"
-        description="My personal blog where I write about software development, and any other topic that spark my interest."
-    />
-    <H1>Hello 👋 I'm Flavien Bonvin</H1>
+    <SeoPage slot="head" title=`About ${CONFIG.author}` description={CONFIG.description} />
+    <H1>Hello 👋 I'm {CONFIG.author}</H1>
     <section>
         <h2>Hi I'm Flavien</h2>
     </section>

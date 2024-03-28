@@ -1,4 +1,6 @@
 ---
+import { CONFIG } from "const";
+
 interface Props {
     title: string;
     description: string;
@@ -10,7 +12,7 @@ interface Props {
 
 <link rel="canonical" href={Astro.request.url} />
 
-<meta property="og:site_name" content="Flavien Bonvin" />
+<meta property="og:site_name" content=`${CONFIG.author}` />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={Astro.props.title} />
 <meta property="og:description" content={Astro.props.description} />
@@ -24,7 +26,7 @@ interface Props {
 <meta name="twitter:description" content={Astro.props.description} />
 <meta name="twitter:url" content={Astro.request.url} />
 <meta name="twitter:label1" content="Written by" />
-<meta name="twitter:data1" content="Flavien Bonvin" />
-<meta name="twitter:site" content="@FlavienBonvin" />
-<meta name="twitter:creator" content="@FlavienBonvin" />
+<meta name="twitter:data1" content=`${CONFIG.author}` />
+<meta name="twitter:site" content=`@${CONFIG.twitter}` />
+<meta name="twitter:creator" content=`@${CONFIG.twitter}` />
 <!-- <meta property="og:image" content={} /> -->
