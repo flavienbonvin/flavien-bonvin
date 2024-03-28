@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import ArticleCard from "./article-card.astro";
+import H1 from "./h1.astro";
 
 interface Props {
     title: string;
@@ -8,7 +9,7 @@ interface Props {
 }
 ---
 
-<h1 class="mb-10 text-2xl">{Astro.props.title}</h1>
+<H1>{Astro.props.title}</H1>
 <section>
     {Astro.props.articles.map((article) => <ArticleCard {article} />)}
 </section>

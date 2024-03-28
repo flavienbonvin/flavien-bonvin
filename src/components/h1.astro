@@ -1,0 +1,7 @@
+---
+interface Props {
+    classes?: string;
+}
+---
+
+<h1 class:list={["mb-10 text-2xl", Astro.props.classes]}><slot /></h1>

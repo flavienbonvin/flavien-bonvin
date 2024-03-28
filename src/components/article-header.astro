@@ -1,6 +1,7 @@
 ---
 import { getFormattedDate } from "@helpers/article";
 import type { CollectionEntry } from "astro:content";
+import H1 from "./h1.astro";
 interface Props {
     article: CollectionEntry<"blog">;
 }
@@ -10,6 +11,6 @@ const formattedTime = getFormattedDate(article.data.publicationDate);
 ---
 
 <header class="mb-10">
-    <h1 class="mb-2 text-4xl text-font-color">{article.data.title}</h1>
+    <H1 classes="text-4xl mb-2">{article.data.title}</H1>
     <time class="font-serif" datetime={article.data.publicationDate}>{formattedTime}</time>
 </header>
