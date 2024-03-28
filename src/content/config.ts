@@ -9,6 +9,7 @@ const blogCollection = defineCollection({
     type: "content",
     schema: z.object({
         title: z.string(),
+        excerpts: z.string(),
         slug: z.string(),
         category: z.nativeEnum(BlogType),
         publicationDate: z.string(),

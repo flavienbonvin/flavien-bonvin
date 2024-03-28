@@ -1,8 +1,15 @@
 ---
 import PageLayout from "@layouts/page-layout.astro";
+import SeoPage from "@layouts/seo-page.astro";
 ---
 
 <PageLayout>
+    <SeoPage
+        slot="head"
+        title="About Flavien Bonvin"
+        description="My personal blog where I write about software development, and any other topic that spark my interest."
+    />
+    <h1 class="mb-10 text-2xl">Hello 👋 I'm Flavien Bonvin</h1>
     <section>
         <h2>Hi I'm Flavien</h2>
     </section>

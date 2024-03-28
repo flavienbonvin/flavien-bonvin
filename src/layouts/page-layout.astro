@@ -12,40 +12,44 @@ import { ViewTransitions } from "astro:transitions";
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="referrer" content="no-referrer-when-downgrade" />
+        <meta name="theme-color" content="#1C262F" />
+        <meta name="generator" content={Astro.generator} />
+        <meta property="og:site_name" content="Flavien Bonvin" />
+        <slot name="head" />
+
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="sitemap" href="/sitemap-index.xml" />
-        <meta name="theme-color" content="#1C262F" />
         <link
             rel="alternate"
             type="application/rss+xml"
             title="Flavien Bonvin"
             href={`${Astro.site}rss.xml`}
         />
+
         <ViewTransitions />
 
-        <meta name="generator" content={Astro.generator} />
-        <title>Flavien Bonvin</title>
         <script is:inline data-domain="flavienbonvin.com" src="https://plausible.io/js/script.js"
         ></script>
-    </head>
 
-    <style>
-        :root {
-            --background: 0 100% 100%;
-            --font-color: 208.4, 25.3%, 14.7%;
-            --font-color-foreground: 0.58, 6%, 40%;
-            --nav-active: 0.58, 6%, 40%;
-        }
-
-        @media (prefers-color-scheme: dark) {
+        <style>
             :root {
-                --background: 208.4, 25.3%, 14.7%;
-                --font-color: 222, 11%, 91%;
-                --font-color-foreground: 60, 11%, 98%;
-                --nav-active: 27, 90%, 88%;
+                --background: 0 100% 100%;
+                --font-color: 208.4, 25.3%, 14.7%;
+                --font-color-foreground: 0.58, 6%, 40%;
+                --nav-active: 0.58, 6%, 40%;
             }
-        }
-    </style>
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --background: 208.4, 25.3%, 14.7%;
+                    --font-color: 222, 11%, 91%;
+                    --font-color-foreground: 60, 11%, 98%;
+                    --nav-active: 27, 90%, 88%;
+                }
+            }
+        </style></head
+    >
 
     <body class="mx-auto flex h-screen max-w-2xl flex-col bg-background text-font-color">
         <header

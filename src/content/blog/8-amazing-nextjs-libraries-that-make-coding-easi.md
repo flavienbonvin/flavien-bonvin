@@ -1,5 +1,6 @@
 ---
 title: "8 Amazing NextJS Libraries That Make Coding Easier"
+excerpts: Elevate your NextJS projects with essential libraries! Discover tools for smoother development and efficient coding in just one click.
 slug: "next-js-amazing-libraries"
 publicationDate: "2023-01-10"
 category: 'dev'

@@ -3,12 +3,12 @@ import type { CollectionEntry } from "astro:content";
 import ArticleCard from "./article-card.astro";
 
 interface Props {
+    title: string;
     articles: CollectionEntry<"blog">[];
 }
-
-const { articles } = Astro.props;
 ---
 
+<h1 class="mb-10 text-2xl">{Astro.props.title}</h1>
 <section>
-    {articles.map((article) => <ArticleCard {article} />)}
+    {Astro.props.articles.map((article) => <ArticleCard {article} />)}
 </section>

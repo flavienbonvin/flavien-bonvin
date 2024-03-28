@@ -1,5 +1,6 @@
 ---
 title: "Quit Spotlight and Alfred, 10+ best Raycast extensions for web developers"
+excerpts: "Discover why Raycast is the ultimate Spotlight and Alfred replacement for macOS users."
 slug: "amazing-raycast-extensions"
 publicationDate: "2023-05-10"
 category: 'musing'

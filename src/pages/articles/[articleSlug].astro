@@ -3,6 +3,7 @@ import ArticleHeader from "@components/article-header.astro";
 import { getAllPublishedArticles, getArticle } from "@data/articles";
 import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
+import SeoArticle from "@layouts/seo-article.astro";
 
 export async function getStaticPaths() {
     const allArticles = await getAllPublishedArticles();
@@ -24,6 +25,7 @@ const { Content } = await article.render();
 ---
 
 <PageLayout>
+    <SeoArticle slot="head" />
     <ArticleLayout>
         <ArticleHeader article={article} />
         <Content />

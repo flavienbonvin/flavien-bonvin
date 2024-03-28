@@ -2,10 +2,16 @@
 import ArticleList from "@components/article-list.astro";
 import { getDevArticles } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
+import SeoPage from "@layouts/seo-page.astro";
 
 const articles = await getDevArticles();
 ---
 
 <PageLayout>
-    <ArticleList articles={articles} />
+    <SeoPage
+        slot="head"
+        title="Web development article | Flavien Bonvin"
+        description="A collection of articles about web development."
+    />
+    <ArticleList title="Let's discuss code" articles={articles} />
 </PageLayout>
