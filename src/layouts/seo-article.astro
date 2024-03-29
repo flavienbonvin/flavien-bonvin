@@ -3,7 +3,7 @@ import { getEntryBySlug } from "astro:content";
 import { CONFIG } from "const";
 
 const params = Astro.params;
-if (!params.slug || (params.slug && typeof params.slug !== "string")) {
+if (!params.slug) {
     return null;
 }
 

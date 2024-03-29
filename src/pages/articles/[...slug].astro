@@ -4,7 +4,7 @@ import { getAllPublishedArticles } from "@data/articles";
 import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoArticle from "@layouts/seo-article.astro";
-import { getEntryBySlug } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 import { CONFIG, PATHS } from "const";
 
 export async function getStaticPaths() {
@@ -12,17 +12,13 @@ export async function getStaticPaths() {
     return allArticles.map((article) => {
         return {
             params: { slug: article.slug },
+            props: article,
         };
     });
 }
+type Props = CollectionEntry<"blog">;
 
-const article = await getEntryBySlug("blog", Astro.params.slug);
-if (!article) {
-    return {
-        status: 404,
-    };
-}
-
+const article = Astro.props;
 const { Content } = await article.render();
 ---
 

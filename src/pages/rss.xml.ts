@@ -24,7 +24,7 @@ export const GET = async ({ site }: { site: string | undefined }) => {
             pubDate: article.data.publicationDate,
             description: sanitize(article.body).slice(0, 150).trim().concat("..."),
             content: sanitize(parser.render(article.body)),
-            link: getArticleLink(article.data.slug),
+            link: getArticleLink(article.slug),
         })),
     });
 };

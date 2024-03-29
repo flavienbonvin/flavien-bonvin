@@ -23,7 +23,7 @@ export const getDevArticles = async () => {
     });
 };
 
-export const getNonDevArticles = async () => {
+export const getMusingArticle = async () => {
     return getCollection("blog", ({ data }) => {
         return data.category === BlogType.musing;
     }).then((articles) => {

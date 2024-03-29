@@ -1,11 +1,11 @@
 ---
 import ArticleList from "@components/article-list.astro";
-import { getNonDevArticles } from "@data/articles";
+import { getMusingArticle } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
 import { CONFIG } from "const";
 
-const articles = await getNonDevArticles();
+const articles = await getMusingArticle();
 ---
 
 <PageLayout>
