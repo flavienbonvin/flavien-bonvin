@@ -6,17 +6,14 @@ const navLinks = [
     {
         href: PATHS.dev,
         text: "Web dev",
-        active: "decoration-dev",
     },
     {
         href: PATHS.musing,
         text: "Musing",
-        active: "decoration-musing",
     },
     {
         href: PATHS.about,
         text: "About",
-        active: "decoration-accent",
     },
 ];
 ---
@@ -24,12 +21,15 @@ const navLinks = [
 <nav>
     <ul class="flex gap-4">
         {
-            navLinks.map(({ href, text, active }) => (
+            navLinks.map(({ href, text }) => (
                 <li>
                     <a
                         class:list={[
                             "hover:text-font-color-foreground font-serif text-lg tracking-tight",
-                            pathname === href && `${active} underline`,
+                            pathname === href && "font-bold underline",
+                            pathname === href && href === PATHS.dev && "decoration-dev",
+                            pathname === href && href === PATHS.musing && "decoration-musing",
+                            pathname === href && href === PATHS.about && "decoration-accent",
                         ]}
                         href={href}
                     >
