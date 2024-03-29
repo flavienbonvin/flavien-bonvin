@@ -25,11 +25,16 @@ const navLinks = [
                 <li>
                     <a
                         class:list={[
-                            "hover:text-font-color-foreground font-serif text-lg tracking-tight",
-                            pathname === href && "font-bold underline",
-                            pathname === href && href === PATHS.dev && "decoration-dev",
-                            pathname === href && href === PATHS.musing && "decoration-musing",
-                            pathname === href && href === PATHS.about && "decoration-accent",
+                            "font-serif text-lg tracking-tight",
+                            href === PATHS.dev &&
+                                pathname.includes(href) &&
+                                "font-bold underline decoration-dev",
+                            href === PATHS.musing &&
+                                pathname.includes(href) &&
+                                "font-bold underline decoration-musing",
+                            href === PATHS.about &&
+                                pathname.includes(href) &&
+                                "font-bold underline decoration-accent",
                         ]}
                         href={href}
                     >
