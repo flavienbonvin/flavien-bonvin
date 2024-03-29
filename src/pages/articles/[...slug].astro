@@ -1,21 +1,22 @@
 ---
 import ArticleHeader from "@components/article-header.astro";
-import { getAllPublishedArticles, getArticle } from "@data/articles";
+import { getAllPublishedArticles } from "@data/articles";
 import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoArticle from "@layouts/seo-article.astro";
+import { getEntryBySlug } from "astro:content";
 import { CONFIG, PATHS } from "const";
 
 export async function getStaticPaths() {
     const allArticles = await getAllPublishedArticles();
     return allArticles.map((article) => {
         return {
-            params: { articleSlug: article.data.slug },
+            params: { slug: article.slug },
         };
     });
 }
 
-const article = await getArticle(Astro.params.articleSlug);
+const article = await getEntryBySlug("blog", Astro.params.slug);
 if (!article) {
     return {
         status: 404,

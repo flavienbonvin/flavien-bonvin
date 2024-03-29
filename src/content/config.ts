@@ -5,19 +5,20 @@ export enum BlogType {
     musing = "musing",
 }
 
-const blogCollection = defineCollection({
+const blog = defineCollection({
     type: "content",
-    schema: z.object({
-        title: z.string(),
-        excerpts: z.string(),
-        slug: z.string(),
-        category: z.nativeEnum(BlogType),
-        publicationDate: z.string(),
-        preview: z.boolean().optional(),
-        tags: z.array(z.string()),
-    }),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            excerpts: z.string(),
+            category: z.nativeEnum(BlogType),
+            publicationDate: z.coerce.date(),
+            preview: z.boolean().optional(),
+            tags: z.array(z.string()),
+            ogImage: image(),
+        }),
 });
 
-export const collection = {
-    blog: blogCollection,
+export const collections = {
+    blog,
 };

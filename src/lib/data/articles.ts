@@ -1,11 +1,9 @@
-import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { BlogType } from "content/config";
 
 const sortArticles = (articles: CollectionEntry<"blog">[]) => {
     return articles.sort((a, b) => {
-        return (
-            new Date(b.data.publicationDate).getTime() - new Date(a.data.publicationDate).getTime()
-        );
+        return b.data.publicationDate.getTime() - a.data.publicationDate.getTime();
     });
 };
 
@@ -15,10 +13,6 @@ export const getAllPublishedArticles = async () => {
     }).then((articles) => {
         return sortArticles(articles);
     });
-};
-
-export const getArticle = (slug: string) => {
-    return getEntry("blog", slug);
 };
 
 export const getDevArticles = async () => {

@@ -12,7 +12,8 @@ const formattedTime = getFormattedDate(article.data.publicationDate);
 
 <header class="mb-10">
     <H1 classes="text-3xl leading-tight mb-2">{article.data.title}</H1>
-    <time class="text-font-color-muted font-serif" datetime={article.data.publicationDate}
-        >{formattedTime}</time
+    <time
+        class="font-serif text-font-color-muted"
+        datetime={article.data.publicationDate.toDateString()}>{formattedTime}</time
     >
 </header>
