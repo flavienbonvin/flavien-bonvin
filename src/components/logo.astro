@@ -19,7 +19,6 @@ import { Icon } from "astro-icon/components";
         const logoDark = document.querySelectorAll<HTMLImageElement>(".logo-dark");
         const logoLight = document.querySelectorAll<HTMLImageElement>(".logo-light");
 
-        console.log(isDarkMode());
         if (isDarkMode()) {
             logoDark.forEach((el) => el.style.setProperty("display", "none"));
             logoLight.forEach((el) => el.style.setProperty("display", "block"));
