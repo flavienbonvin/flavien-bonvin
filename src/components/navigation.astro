@@ -5,11 +5,11 @@ const { pathname } = Astro.url;
 const navLinks = [
     {
         href: PATHS.dev,
-        text: "Dev articles",
+        text: "Web dev",
     },
     {
         href: PATHS.musing,
-        text: "Random musing",
+        text: "Musing",
     },
     {
         href: PATHS.about,
@@ -19,13 +19,13 @@ const navLinks = [
 ---
 
 <nav>
-    <ul class="flex gap-6 sm:gap-10">
+    <ul class="flex gap-4">
         {
             navLinks.map(({ href, text }) => (
                 <li>
                     <a
                         class:list={[
-                            "hover:text-font-color-foreground",
+                            "font-serif text-lg tracking-tight hover:text-font-color-foreground",
                             pathname === href && "text-nav-active",
                         ]}
                         href={href}
