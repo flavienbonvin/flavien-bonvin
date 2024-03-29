@@ -33,7 +33,9 @@ const { Content } = await article.render();
     </ArticleLayout>
     <hr class="mb-8 h-px border-0 bg-gray-200 dark:bg-gray-700" />
     <div class="flex flex-row justify-between">
-        <a href={PATHS.home}>${CONFIG.author} &middot; {new Date().getFullYear()}</a>
+        <a class="font-serif" href={PATHS.home}
+            >{CONFIG.author} &middot; {new Date().getFullYear()}</a
+        >
         <a
             target="_blank"
             rel="noopener noreferrer"
