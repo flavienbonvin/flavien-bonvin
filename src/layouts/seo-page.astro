@@ -1,10 +1,17 @@
 ---
+import { getImage } from "astro:assets";
 import { CONFIG } from "const";
 
 interface Props {
     title: string;
     description: string;
 }
+
+const ogImage = await getImage({
+    src: "/main_og.png",
+    width: 1920,
+    height: 1080,
+});
 ---
 
 <title>{Astro.props.title}</title>
@@ -17,7 +24,7 @@ interface Props {
 <meta property="og:title" content={Astro.props.title} />
 <meta property="og:description" content={Astro.props.description} />
 <meta property="og:url" content={Astro.request.url} />
-<meta property="og:image" content="/main-og.png" />
+<meta property="og:image" content={ogImage.src} />
 <meta property="og:image:width" content="1920" />
 <meta property="og:image:height" content="1080" />
 
@@ -29,4 +36,4 @@ interface Props {
 <meta name="twitter:data1" content=`${CONFIG.author}` />
 <meta name="twitter:site" content=`@${CONFIG.twitter}` />
 <meta name="twitter:creator" content=`@${CONFIG.twitter}` />
-<meta property="og:image" content="/main-og.png" />
+<meta property="og:image" content={ogImage.src} />
