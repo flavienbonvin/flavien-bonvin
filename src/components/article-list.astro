@@ -9,7 +9,7 @@ interface Props {
 }
 ---
 
-<H1>{Astro.props.title}</H1>
+<H1 classes="font-serif">{Astro.props.title}</H1>
 <section>
     {Astro.props.articles.map((article) => <ArticleCard {article} />)}
 </section>
