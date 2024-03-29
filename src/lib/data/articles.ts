@@ -1,9 +1,19 @@
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
 import { BlogType } from "content/config";
 
-export const getAllPublishedArticles = () => {
+const sortArticles = (articles: CollectionEntry<"blog">[]) => {
+    return articles.sort((a, b) => {
+        return (
+            new Date(b.data.publicationDate).getTime() - new Date(a.data.publicationDate).getTime()
+        );
+    });
+};
+
+export const getAllPublishedArticles = async () => {
     return getCollection("blog", ({ data }) => {
         return !data.preview;
+    }).then((articles) => {
+        return sortArticles(articles);
     });
 };
 
@@ -11,14 +21,18 @@ export const getArticle = (slug: string) => {
     return getEntry("blog", slug);
 };
 
-export const getDevArticles = () => {
-    return getCollection("blog", ({ data }) => {
+export const getDevArticles = async () => {
+    return await getCollection("blog", ({ data }) => {
         return data.category === BlogType.dev;
+    }).then((articles) => {
+        return sortArticles(articles);
     });
 };
 
-export const getNonDevArticles = () => {
+export const getNonDevArticles = async () => {
     return getCollection("blog", ({ data }) => {
         return data.category === BlogType.musing;
+    }).then((articles) => {
+        return sortArticles(articles);
     });
 };
