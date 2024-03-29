@@ -1,6 +1,6 @@
 ---
 title: First blog post
-excerpts: This is my first blog post
+description: This is my first blog post
 category: dev
 publicationDate: 2024-03-20
 tags: [dev, typescript]

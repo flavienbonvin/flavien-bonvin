@@ -22,7 +22,7 @@ export const GET = async ({ site }: { site: string | undefined }) => {
         items: articles.map((article) => ({
             title: article.data.title,
             pubDate: article.data.publicationDate,
-            description: sanitize(article.body).slice(0, 150).trim().concat("..."),
+            description: article.data.description,
             content: sanitize(parser.render(article.body)),
             link: getArticleLink(article.slug),
         })),
