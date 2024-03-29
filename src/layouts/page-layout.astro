@@ -35,18 +35,22 @@ import { CONFIG } from "const";
 
         <style>
             :root {
-                --background: 0 100% 100%;
-                --font-color: 208.4, 25.3%, 14.7%;
-                --font-color-foreground: 0.58, 6%, 40%;
-                --nav-active: 0.58, 6%, 40%;
+                --background: lch(98% 0 0);
+                --font-color: lch(20% 0 0);
+                --font-color-muted: lch(55% 0 0);
+                --dev: lch(75% 100 253);
+                --musing: lch(70% 90 40);
+                --accent: lch(50% 50 180);
             }
 
             @media (prefers-color-scheme: dark) {
                 :root {
-                    --background: 208.4, 25.3%, 14.7%;
-                    --font-color: 222, 11%, 91%;
-                    --font-color-foreground: 60, 11%, 98%;
-                    --nav-active: 27, 90%, 88%;
+                    --background: lch(15% 0 0);
+                    --font-color: lch(95% 0 0);
+                    --font-color-muted: lch(68.36% 0 0);
+                    --dev: lch(54% 130 253);
+                    --musing: lch(58% 75 50);
+                    --accent: lch(48% 48 180);
                 }
             }
         </style></head

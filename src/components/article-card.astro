@@ -1,18 +1,36 @@
 ---
 import { getArticleLink, getFormattedDate } from "@helpers/article";
 import type { CollectionEntry } from "astro:content";
+import { BlogType } from "content/config";
 interface Props {
     article: CollectionEntry<"blog">;
 }
 
 const { article } = Astro.props;
-const { title, publicationDate, slug } = article.data;
+const { title, publicationDate, slug, category } = article.data;
 const formattedTime = getFormattedDate(publicationDate);
+const isHome = Astro.url.pathname === "/";
 ---
 
 <a href={getArticleLink(slug)}>
     <article class="mb-16">
-        <h2 class="text-2xl font-bold leading-tight tracking-tight sm:w-5/6 md:w-4/5">{title}</h2>
-        <time class="font-serif text-lg" datetime={publicationDate}>{formattedTime}</time>
+        <h2 class="text-2xl font-bold leading-tight tracking-tight sm:w-5/6 md:w-4/5">
+            {title}
+            {
+                isHome && (
+                    <span
+                        class:list={[
+                            "font-medium",
+                            category === BlogType.dev ? "text-dev" : "text-musing",
+                        ]}
+                    >
+                        *
+                    </span>
+                )
+            }
+        </h2>
+        <time class="font-serif text-lg text-font-color-muted" datetime={publicationDate}
+            >{formattedTime}</time
+        >
     </article>
 </a>
