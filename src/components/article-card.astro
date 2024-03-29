@@ -12,7 +12,7 @@ const formattedTime = getFormattedDate(publicationDate);
 
 <a href={getArticleLink(slug)}>
     <article class="mb-16">
-        <h2 class="text-2xl font-semibold md:w-2/3 lg:w-1/2">{title}</h2>
-        <time class="font-serif" datetime={publicationDate}>{formattedTime}</time>
+        <h2 class="text-2xl font-bold sm:w-5/6 md:w-4/5">{title}</h2>
+        <time class="font-serif text-lg" datetime={publicationDate}>{formattedTime}</time>
     </article>
 </a>
