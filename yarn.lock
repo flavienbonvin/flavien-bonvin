@@ -835,13 +835,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource-variable/open-sans@npm:^5.0.28":
-  version: 5.0.28
-  resolution: "@fontsource-variable/open-sans@npm:5.0.28"
-  checksum: 10c0/0851394dc06c476ace8ffc1a4f4592466c395ce11e92fdaf4d11ddf4bb717c07f186dfa6f375e6d02a5b0368e5d54d4b19a0e2aa49c7b3a7446f19cd99ef59a4
-  languageName: node
-  linkType: hard
-
 "@fontsource/ia-writer-mono@npm:^5.0.7":
   version: 5.0.7
   resolution: "@fontsource/ia-writer-mono@npm:5.0.7"
@@ -849,10 +842,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/open-sauce-sans@npm:^5.0.7":
-  version: 5.0.7
-  resolution: "@fontsource/open-sauce-sans@npm:5.0.7"
-  checksum: 10c0/b5be484a201141942a3d68a968264ef793ba757a1bb01f52e09b9969572b6ba435d9fa46908bb0b04ac36f6fa989defd42d821682743c0d4a16cb7584c837bef
+"@fontsource/open-sans@npm:^5.0.27":
+  version: 5.0.27
+  resolution: "@fontsource/open-sans@npm:5.0.27"
+  checksum: 10c0/cc8f22a5e5f59448589e7e00e0bd6867eeaadfafccf0cb9caf5cf6e60ab73538668189cce4d464d0e0ce0002f373b9031f409c3f7d664c6e449ffad4ed8602d6
   languageName: node
   linkType: hard
 
@@ -3027,9 +3020,8 @@ __metadata:
     "@astrojs/rss": "npm:^4.0.5"
     "@astrojs/sitemap": "npm:^3.1.2"
     "@astrojs/tailwind": "npm:^5.1.0"
-    "@fontsource-variable/open-sans": "npm:^5.0.28"
     "@fontsource/ia-writer-mono": "npm:^5.0.7"
-    "@fontsource/open-sauce-sans": "npm:^5.0.7"
+    "@fontsource/open-sans": "npm:^5.0.27"
     "@fontsource/tinos": "npm:^5.0.12"
     "@tailwindcss/typography": "npm:^0.5.12"
     "@types/markdown-it": "npm:^13.0.7"
