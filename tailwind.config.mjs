@@ -11,6 +11,7 @@ export default {
             fontFamily: {
                 sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
                 serif: ["Tinos", ...defaultTheme.fontFamily.serif],
+                mono: ["iA Writer Mono", ...defaultTheme.fontFamily.mono],
             },
             colors: {
                 background: "var(--background)",

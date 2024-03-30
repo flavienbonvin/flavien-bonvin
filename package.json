@@ -12,6 +12,7 @@
         "@astrojs/mdx": "^2.2.2",
         "@astrojs/rss": "^4.0.5",
         "@fontsource-variable/open-sans": "^5.0.28",
+        "@fontsource/ia-writer-mono": "^5.0.7",
         "@fontsource/tinos": "^5.0.12",
         "astro": "^4.5.12",
         "astro-icon": "^1.1.0",
