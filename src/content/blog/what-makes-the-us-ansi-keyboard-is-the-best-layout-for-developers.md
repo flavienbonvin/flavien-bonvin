@@ -31,7 +31,7 @@ Besides that, languages are vastly different and having one layout for everybody
 
 It also made sense that the first computers adopted the layout of the typewriter, since it was known by people. Computers offered more options than the typewriter, and the layout evolved with time to become what we know today.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qLAqT2U68h4?si=wiydnkuRMtq-xXz0" style="margin: 0 auto" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/qLAqT2U68h4" style="margin: 0 auto; max-widht: 560px; max-height: 315px" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Three main keyboard family
 

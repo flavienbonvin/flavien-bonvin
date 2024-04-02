@@ -94,7 +94,7 @@ These factors are often created by companies wanting to sell their product. Whet
 
 This also applies to relationships. This time, irrational or emotional factors are influenced by society, our education or our situation. Ali Abdaal talks about this in a video about relationships and how not to end up alone in your life.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/h-mxesCotgs?si=uPXjgHQgeVUBtkDi" title="YouTube video player" style="margin: 0 auto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/h-mxesCotgs" title="YouTube video player" style="margin: 0 auto; max-widht: 560px; max-height: 315px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 To boil it down to it's core, people approach relationships with expectations of how the person presents themselves to the world, when it's more interesting to focus on how the person actually is.
 
@@ -131,7 +131,7 @@ One video helped me a lot. It's basically someone that address active procrastin
 
 It's the bare minimum, and it encourages anyone to test, fail and adapt instead of trying to do everything perfect the first time.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jwBZDQXopvc?si=iCRfwQNtAbiVC8D6" title="YouTube video player" style="margin: 0 auto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/jwBZDQXopvc" title="YouTube video player" style="margin: 0 auto; max-widht: 560px; max-height: 315px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## First thoughts on Obsidian
 

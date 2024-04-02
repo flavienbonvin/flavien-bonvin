@@ -37,7 +37,7 @@ Besides that, there was the plethora of plugins, both the core and community. Wh
 
 One video helped me to release a bit of pressure. I finally decided to use the tool instead of being in an active procrastination loop.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jwBZDQXopvc?si=N2_74a29HXucc_lQ" style="margin: 0 auto" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/jwBZDQXopvc" style="margin: 0 auto; max-widht: 560px; max-height: 315px" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Review after a few months
 
