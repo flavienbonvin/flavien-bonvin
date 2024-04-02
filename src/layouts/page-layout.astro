@@ -1,11 +1,11 @@
 ---
 import Footer from "@components/footer.astro";
 import Navigation from "@components/navigation.astro";
-import "@fontsource/open-sans/latin.css";
-import "@fontsource/open-sans/greek.css";
-import "@fontsource/tinos/latin.css";
-import "@fontsource/tinos/greek.css";
 import "@fontsource/ia-writer-mono";
+import "@fontsource/open-sans/greek.css";
+import "@fontsource/open-sans/latin.css";
+import "@fontsource/tinos/greek.css";
+import "@fontsource/tinos/latin.css";
 
 import { ViewTransitions } from "astro:transitions";
 import { CONFIG } from "const";
@@ -32,9 +32,6 @@ import { CONFIG } from "const";
         />
 
         <ViewTransitions />
-
-        <script is:inline data-domain="flavienbonvin.com" src="https://plausible.io/js/script.js"
-        ></script>
 
         <style>
             :root {
@@ -71,6 +68,11 @@ import { CONFIG } from "const";
             <Footer />
             <!-- This ensures that tinos 700 is loaded on app launch -->
             <p class="invisible h-0 font-serif font-bold">Flavien Bonvin</p>
+
+            <script
+                is:inline
+                data-domain="flavienbonvin.com"
+                src="https://plausible.io/js/script.js"></script>
         </footer>
     </body>
 </html>
