@@ -1,17 +1,20 @@
 ---
 import { Icon } from "astro-icon/components";
 import { CONFIG } from "const";
+import Divider from "./divider.astro";
 ---
 
+<Divider />
 <a
     href=`https://twitter.com/${CONFIG.twitter}`
     target="_blank"
     rel="noopener noreferrer"
-    class="text-sm text-font-color">Follow me on 𝕏</a
+    class="w-fit py-3 text-font-color">Follow me on 𝕏</a
 >
 <a
     href={`${Astro.site}rss.xml`}
     target="_blank"
     rel="noopener noreferrer"
-    class="flex flex-row items-center gap-1 text-sm text-font-color"><Icon name="rss" />RSS feed</a
+    class="flex w-fit flex-row items-center gap-1 py-3 text-font-color"
+    ><Icon name="rss" />RSS feed</a
 >

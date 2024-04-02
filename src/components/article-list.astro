@@ -10,6 +10,6 @@ interface Props {
 ---
 
 <H1 classes="font-serif mb-14">{Astro.props.title}</H1>
-<section class="mb-10 flex flex-col gap-8">
+<section class="flex flex-col gap-8">
     {Astro.props.articles.map((article) => <ArticleCard {article} />)}
 </section>
