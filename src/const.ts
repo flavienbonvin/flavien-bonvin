@@ -3,12 +3,12 @@ export const PATHS = {
     about: "/about",
     articles: "/articles",
     dev: "/articles/dev",
-    musing: "/articles/musing",
+    insights: "/articles/insights",
 } as const;
 
 export const CONFIG = {
     author: "Flavien Bonvin",
     twitter: "FlavienBonvin",
     description:
-        "Flavien Bonvin blog where you he writes about software development, and any other topic that spark his interest.",
+        "Flavien Bonvin blog where you I write about software development, and any other topic that spark my interest.",
 } as const;

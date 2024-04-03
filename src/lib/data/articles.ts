@@ -25,7 +25,7 @@ export const getDevArticles = async () => {
 
 export const getMusingArticle = async () => {
     return getCollection("blog", ({ data }) => {
-        return data.category === BlogType.musing;
+        return data.category === BlogType.insights;
     }).then((articles) => {
         return sortArticles(articles);
     });

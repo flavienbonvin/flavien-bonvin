@@ -2,19 +2,18 @@
 import { Icon } from "astro-icon/components";
 import { CONFIG } from "const";
 import Divider from "./divider.astro";
+import ExternalLink from "./external-link.astro";
 ---
 
 <Divider />
-<a
-    href=`https://twitter.com/${CONFIG.twitter}`
-    target="_blank"
-    rel="noopener noreferrer"
-    class="w-fit py-3 text-font-color">Follow me on 𝕏</a
->
-<a
-    href={`${Astro.site}rss.xml`}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex w-fit flex-row items-center gap-1 py-3 text-font-color"
-    ><Icon name="rss" />RSS feed</a
->
+
+<section class="flex gap-2">
+    <ExternalLink href={`https://twitter.com/${CONFIG.twitter}`} classes="w-36"
+        >Follow me on 𝕏</ExternalLink
+    >
+    <ExternalLink
+        href={`${Astro.site}rss.xml`}
+        classes="flex justify-center w-36 items-center gap-1"
+        ><Icon name="rss" />RSS feed</ExternalLink
+    >
+</section>

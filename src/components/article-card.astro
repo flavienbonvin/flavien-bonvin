@@ -20,24 +20,35 @@ const isHome = Astro.url.pathname === "/";
             {
                 isHome && (
                     <Icon
-                        class="mt-0.5 inline align-top transition-all duration-500 ease-in-out group-hover:rotate-90"
+                        class="mt-0.5 inline align-top opacity-0 transition-transform duration-500  ease-in-out group-hover:rotate-90 group-hover:opacity-100"
                         name="asterisk"
                         size={18}
-                        color={category === BlogType.dev ? "var(--dev)" : "var(--musing)"}
+                        color={category === BlogType.dev ? "var(--dev)" : "var(--insights)"}
                     />
                 )
             }
         </h2>
-        <time class="font-serif text-font-color-muted" datetime={publicationDate.toDateString()}
-            >{formattedTime}</time
-        >
+        <section class="flex items-center gap-3 font-serif">
+            <time class="text-font-color-muted" datetime={publicationDate.toDateString()}
+                >{formattedTime}</time
+            >
+            {
+                isHome && (
+                    <>
+                        <span class="text-font-color-muted">•</span>
+                        <span
+                            class:list={[category === BlogType.dev ? "text-dev" : "text-insights"]}
+                        >
+                            {category === BlogType.dev ? "dev" : "insights"}
+                        </span>
+                    </>
+                )
+            }
+        </section>
         <p
             class="flex items-center gap-1 font-serif text-sm text-font-color-muted opacity-0 transition duration-500 ease-in group-hover:opacity-100"
         >
-            Read more<Icon
-                name="arrow-right"
-                color={category === BlogType.dev ? "var(--dev)" : "var(--musing)"}
-            />
+            Read more<Icon name="arrow-right" />
         </p>
     </article>
 </a>

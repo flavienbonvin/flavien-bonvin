@@ -39,8 +39,10 @@ import { CONFIG } from "const";
                 --font-color: lch(20% 0 0);
                 --font-color-muted: lch(55% 0 0);
                 --dev: lch(75% 100 253);
-                --musing: lch(70% 90 40);
+                --insights: lch(70% 90 40);
                 --accent: lch(50% 50 180);
+                --interactive: lch(90% 0 0);
+                --interactive-active: lch(75% 0 0);
             }
 
             @media (prefers-color-scheme: dark) {
@@ -49,22 +51,24 @@ import { CONFIG } from "const";
                     --font-color: lch(95% 0 0);
                     --font-color-muted: lch(68.36% 0 0);
                     --dev: lch(54% 130 253);
-                    --musing: lch(58% 75 50);
+                    --insights: lch(58% 75 50);
                     --accent: lch(48% 48 180);
+                    --interactive: lch(30% 0 0);
+                    --interactive-active: lch(40% 0 0);
                 }
             }
         </style></head
     >
 
-    <body class="mx-auto flex h-screen max-w-2xl flex-col bg-background text-font-color">
-        <header class="px-6 py-6 md:px-0">
+    <body class="flex h-screen flex-col bg-background text-font-color">
+        <header class="mx-auto w-full max-w-3xl px-6 py-6 md:px-0">
             <Navigation />
         </header>
 
-        <main class="my-14 grow px-8 md:px-0">
+        <main class="mx-auto my-14 w-full max-w-2xl grow px-8 md:px-0">
             <slot />
         </main>
-        <footer class="flex flex-col gap-1 pb-20">
+        <footer class="mx-auto flex w-full max-w-2xl flex-col gap-1 px-8 pb-20 md:px-0">
             <Footer />
             <!-- This ensures that tinos 700 is loaded on app launch -->
             <p class="invisible h-0 font-serif font-bold">Flavien Bonvin</p>

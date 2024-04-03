@@ -1,7 +1,7 @@
 ---
 title: Quit Spotlight and Alfred, 10+ Best Raycast Extensions for Web Developers
 description: Raycast extensions are a great way to improve productivity. Here is a list of 10+ extensions carefully curated for web developers
-category: musing
+category: insights
 publicationDate: 2022-11-28
 tags: [productivity, tools, raycast]
 ogImage: ./meta/og.png

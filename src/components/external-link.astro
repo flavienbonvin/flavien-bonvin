@@ -1,0 +1,16 @@
+---
+interface Props {
+    href: string;
+    classes?: string;
+}
+---
+
+<a
+    href={Astro.props.href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class:list={[
+        "border-interactive hover:border-interactive-active rounded border px-2 py-3 text-center text-sm text-font-color transition-colors duration-200 ease-in-out",
+        Astro.props.classes,
+    ]}><slot /></a
+>

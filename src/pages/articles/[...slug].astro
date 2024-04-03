@@ -1,6 +1,6 @@
 ---
 import ArticleHeader from "@components/article-header.astro";
-import Divider from "@components/divider.astro";
+import ExternalLink from "@components/external-link.astro";
 import { getAllPublishedArticles } from "@data/articles";
 import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
@@ -29,17 +29,13 @@ const { Content } = await article.render();
         <ArticleHeader article={article} />
         <Content />
     </ArticleLayout>
-    <Divider />
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row items-center justify-between">
         <a class="font-serif" href={PATHS.home}
             >{CONFIG.author} &middot; {new Date().getFullYear()}</a
         >
-        <a
-            target="_blank"
-            rel="noopener noreferrer"
+        <ExternalLink
             href=`http://twitter.com/share?text=${article.data.title}&url=${Astro.request.url}`
+            >Share on 𝕏</ExternalLink
         >
-            Share on 𝕏
-        </a>
     </div>
 </PageLayout>
