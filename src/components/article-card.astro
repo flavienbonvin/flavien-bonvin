@@ -23,7 +23,7 @@ const isHome = Astro.url.pathname === "/";
                         class="mt-0.5 inline align-top opacity-0 transition-transform duration-500  ease-in-out group-hover:rotate-90 group-hover:opacity-100"
                         name="asterisk"
                         size={18}
-                        color={category === BlogType.dev ? "var(--dev)" : "var(--insights)"}
+                        color={category === BlogType.dev ? "var(--dev)" : "var(--musing)"}
                     />
                 )
             }
@@ -36,10 +36,8 @@ const isHome = Astro.url.pathname === "/";
                 isHome && (
                     <>
                         <span class="text-font-color-muted">•</span>
-                        <span
-                            class:list={[category === BlogType.dev ? "text-dev" : "text-insights"]}
-                        >
-                            {category === BlogType.dev ? "dev" : "insights"}
+                        <span class:list={[category === BlogType.dev ? "text-dev" : "text-musing"]}>
+                            {category === BlogType.dev ? "dev" : "musing"}
                         </span>
                     </>
                 )

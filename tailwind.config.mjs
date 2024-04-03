@@ -18,7 +18,7 @@ export default {
                 "font-color": "var(--font-color)",
                 "font-color-muted": "var(--font-color-muted)",
                 dev: "var(--dev)",
-                insights: "var(--insights)",
+                musing: "var(--musing)",
                 accent: "var(--accent)",
                 interactive: "var(--interactive)",
                 "interactive-active": "var(--interactive-active)",

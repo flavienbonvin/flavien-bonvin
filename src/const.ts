@@ -3,7 +3,7 @@ export const PATHS = {
     about: "/about",
     articles: "/articles",
     dev: "/articles/dev",
-    insights: "/articles/insights",
+    musing: "/articles/musing",
 } as const;
 
 export const CONFIG = {
