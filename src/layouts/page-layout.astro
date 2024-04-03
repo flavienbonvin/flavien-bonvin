@@ -17,7 +17,6 @@ import { CONFIG } from "const";
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="referrer" content="no-referrer-when-downgrade" />
-        <meta name="theme-color" content="#1C262F" />
         <meta name="generator" content={Astro.generator} />
         <meta property="og:site_name" content=`${CONFIG.author}` />
         <slot name="head" />
@@ -61,8 +60,10 @@ import { CONFIG } from "const";
                     --interactive-active: lch(40% 0 0);
                 }
             }
-        </style></head
-    >
+        </style>
+
+        <meta name="theme-color" content="var(--background)" />
+    </head>
 
     <body class="flex h-screen flex-col bg-background text-font-color">
         <header class="mx-auto w-full max-w-3xl px-6 py-6 md:px-0">
