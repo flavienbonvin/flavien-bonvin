@@ -66,7 +66,7 @@ import { CONFIG } from "const";
     </head>
 
     <body class="flex h-screen flex-col bg-background text-font-color">
-        <header class="mx-auto w-full max-w-3xl px-6 py-6 md:px-0">
+        <header class="nav-gradient">
             <Navigation />
         </header>
 
@@ -83,5 +83,11 @@ import { CONFIG } from "const";
                 data-domain="flavienbonvin.com"
                 src="https://plausible.io/js/script.js"></script>
         </footer>
+        <style>
+            .nav-gradient {
+                background: var(--background);
+                background: linear-gradient(180deg, var(--background) 0%, transparent 60%);
+            }
+        </style>
     </body>
 </html>
