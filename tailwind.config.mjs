@@ -10,7 +10,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
-                serif: ["Tinos", ...defaultTheme.fontFamily.serif],
+                serif: ["Bitter", ...defaultTheme.fontFamily.serif],
                 mono: ["iA Writer Mono", ...defaultTheme.fontFamily.mono],
             },
             colors: {

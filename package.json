@@ -11,9 +11,9 @@
     "dependencies": {
         "@astrojs/mdx": "^2.2.3",
         "@astrojs/rss": "^4.0.5",
+        "@fontsource/bitter": "^5.0.17",
         "@fontsource/ia-writer-mono": "^5.0.7",
         "@fontsource/open-sans": "^5.0.27",
-        "@fontsource/tinos": "^5.0.12",
         "astro": "^4.5.14",
         "astro-embed": "^0.7.0",
         "astro-icon": "^1.1.0",
