@@ -2,7 +2,7 @@ import { defineCollection, z } from "astro:content";
 
 export enum BlogType {
     dev = "dev",
-    musing = "musing",
+    beyond = "beyond",
 }
 
 const blog = defineCollection({

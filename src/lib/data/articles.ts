@@ -23,9 +23,9 @@ export const getDevArticles = async () => {
     });
 };
 
-export const getMusingArticle = async () => {
+export const getBeyondArticle = async () => {
     return getCollection("blog", ({ data }) => {
-        return data.category === BlogType.musing;
+        return data.category === BlogType.beyond;
     }).then((articles) => {
         return sortArticles(articles);
     });

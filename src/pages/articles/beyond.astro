@@ -1,0 +1,18 @@
+---
+import ArticleList from "@components/article-list.astro";
+import { getBeyondArticle } from "@data/articles";
+import PageLayout from "@layouts/page-layout.astro";
+import SeoPage from "@layouts/seo-page.astro";
+import { CONFIG } from "const";
+
+const articles = await getBeyondArticle();
+---
+
+<PageLayout>
+    <SeoPage
+        slot="head"
+        title=`Beyond dev articles | ${CONFIG.author}`
+        description="All articles that aren't related to web development"
+    />
+    <ArticleList title="Life & Tech: Musing of a Developer" articles={articles} />
+</PageLayout>

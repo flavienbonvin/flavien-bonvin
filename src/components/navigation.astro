@@ -9,11 +9,11 @@ const navLinks = [
     },
     {
         href: PATHS.dev,
-        text: "Web dev",
+        text: "Dev",
     },
     {
-        href: PATHS.musing,
-        text: "Musing",
+        href: PATHS.beyond,
+        text: "Beyond dev",
     },
     {
         href: PATHS.about,
@@ -33,9 +33,9 @@ const navLinks = [
                             href === PATHS.dev &&
                                 pathname.includes(href) &&
                                 "font-bold underline decoration-dev",
-                            href === PATHS.musing &&
+                            href === PATHS.beyond &&
                                 pathname.includes(href) &&
-                                "font-bold underline decoration-musing",
+                                "decoration-beyond font-bold underline",
                             href === PATHS.about &&
                                 pathname.includes(href) &&
                                 "font-bold underline decoration-accent",

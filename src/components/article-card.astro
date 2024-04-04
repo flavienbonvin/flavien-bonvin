@@ -26,8 +26,8 @@ const isHome = Astro.url.pathname === "/";
                 isHome && (
                     <>
                         <span class="text-font-color-muted">•</span>
-                        <span class:list={[category === BlogType.dev ? "text-dev" : "text-musing"]}>
-                            {category === BlogType.dev ? "dev" : "musing"}
+                        <span class:list={[category === BlogType.dev ? "text-dev" : "text-beyond"]}>
+                            {category === BlogType.dev ? "dev" : "beyond"}
                         </span>
                     </>
                 )
