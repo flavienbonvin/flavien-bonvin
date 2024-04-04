@@ -14,5 +14,9 @@ const articles = await getDevArticles();
         title=`Web development article | ${CONFIG.author}`
         description="A collection of articles about web development and other tech subject."
     />
-    <ArticleList title="Code Craft: Diving in the web development" articles={articles} />
+    <ArticleList
+        title="Code Craft: Diving in the web development"
+        articles={articles}
+        pageDescription="My journey through the latest in web dev, shared with you in each post."
+    />
 </PageLayout>

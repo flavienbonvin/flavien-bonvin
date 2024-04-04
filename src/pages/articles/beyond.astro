@@ -14,5 +14,9 @@ const articles = await getBeyondArticle();
         title=`Beyond dev articles | ${CONFIG.author}`
         description="All articles that aren't related to web development"
     />
-    <ArticleList title="Life & Tech: Musing of a Developer" articles={articles} />
+    <ArticleList
+        title="Life & Tech: Explorations of a Developer"
+        articles={articles}
+        pageDescription="My exploration of life outside coding, from productivity to coffee delights."
+    />
 </PageLayout>
