@@ -22,7 +22,7 @@ const navLinks = [
 ];
 ---
 
-<nav class="mx-auto w-full max-w-3xl px-6 py-6 md:px-0">
+<nav class="mx-auto w-full max-w-4xl px-6 py-6 md:px-0">
     <ul class="flex gap-4">
         {
             navLinks.map(({ href, text }) => (
@@ -35,7 +35,7 @@ const navLinks = [
                                 "font-bold underline decoration-dev",
                             href === PATHS.beyond &&
                                 pathname.includes(href) &&
-                                "decoration-beyond font-bold underline",
+                                "font-bold underline decoration-beyond",
                             href === PATHS.about &&
                                 pathname.includes(href) &&
                                 "font-bold underline decoration-accent",
