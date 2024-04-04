@@ -1,0 +1,12 @@
+---
+import Divider from "./divider.astro";
+import H1 from "./h1.astro";
+
+interface Props {
+    title: string;
+}
+---
+
+<H1 classes="font-serif mb-2">{Astro.props.title}</H1>
+<p class="mb-7 text-balance font-serif text-xl"><slot /></p>
+<Divider variant="light" classes="mb-14" />

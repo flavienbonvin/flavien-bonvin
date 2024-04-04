@@ -1,1 +1,17 @@
-<hr class="mb-8 h-px border-0 bg-accent" />
+---
+interface Props {
+    variant?: "default" | "light";
+    classes?: string;
+}
+
+const { variant = "default", classes } = Astro.props;
+---
+
+<hr
+    class:list={[
+        "mb-8 h-px border-0",
+        variant === "default" && "bg-accent",
+        variant === "light" && "bg-interactive",
+        classes,
+    ]}
+/>
