@@ -3,6 +3,7 @@ title: 8 Amazing NextJS Libraries That Make Coding Easier
 description: 8 amazing NextJS libraries (with 4 bonus) that will make your life easier and your web application better!
 category: dev
 publicationDate: 2022-07-04
+editDate: 2024-03-20
 tags: [react, nextjs, typescript]
 ogImage: ./meta/og.png
 ---

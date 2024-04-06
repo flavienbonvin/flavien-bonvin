@@ -13,6 +13,7 @@ const blog = defineCollection({
             description: z.string(),
             category: z.nativeEnum(BlogType),
             publicationDate: z.coerce.date(),
+            editDate: z.coerce.date().optional(),
             preview: z.boolean().optional(),
             tags: z.array(z.string()),
             ogImage: image(),
