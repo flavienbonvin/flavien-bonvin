@@ -1,4 +1,5 @@
 ---
+import ArticleGradient from "@components/article-gradient.astro";
 import ArticleHeader from "@components/article/article-header.astro";
 import RecommendedArticles from "@components/article/article-recommended.astro";
 import Divider from "@components/atoms/divider.astro";
@@ -29,6 +30,7 @@ const { Content } = await article.render();
     <SeoArticle slot="head" />
     <ArticleLayout category={article.data.category}>
         <ArticleHeader article={article} />
+        <ArticleGradient article={article} />
         <Content />
     </ArticleLayout>
     <div class="flex flex-row items-center justify-between">
