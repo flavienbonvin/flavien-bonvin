@@ -3,6 +3,8 @@ import { getArticleLink, getFormattedDate } from "@helpers/article";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 import { BlogType } from "content/config";
+import MiddleDot from "./middle-dot.astro";
+
 interface Props {
     article: CollectionEntry<"blog">;
 }
@@ -24,13 +26,10 @@ const isHome = Astro.url.pathname === "/";
                 >{formattedPubTime}</time
             >
             {
-                formattedEditDate && (
+                editDate && formattedEditDate && (
                     <>
-                        <span class="text-font-color-muted">•</span>
-                        <time
-                            class="text-font-color-muted"
-                            datetime={publicationDate.toDateString()}
-                        >
+                        <MiddleDot />
+                        <time class="text-font-color-muted" datetime={editDate.toDateString()}>
                             Update {formattedEditDate}
                         </time>
                     </>
@@ -39,7 +38,7 @@ const isHome = Astro.url.pathname === "/";
             {
                 isHome && (
                     <>
-                        <span class="text-font-color-muted">•</span>
+                        <MiddleDot />
                         <span class:list={[category === BlogType.dev ? "text-dev" : "text-beyond"]}>
                             {category === BlogType.dev ? "dev" : "beyond"}
                         </span>
