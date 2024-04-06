@@ -1,6 +1,8 @@
 ---
 import ArticleHeader from "@components/article-header.astro";
+import Divider from "@components/divider.astro";
 import ExternalLink from "@components/external-link.astro";
+import RecommendedArticles from "@components/recommended-articles.astro";
 import { getAllPublishedArticles } from "@data/articles";
 import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
@@ -38,4 +40,6 @@ const { Content } = await article.render();
             >Share on 𝕏</ExternalLink
         >
     </div>
+    <Divider variant="light" classes="mb-10 mt-8" />
+    <RecommendedArticles category={article.data.category} />
 </PageLayout>

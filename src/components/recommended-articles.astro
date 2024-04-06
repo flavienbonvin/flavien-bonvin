@@ -1,0 +1,43 @@
+---
+import { getRecommendedArticles } from "@data/articles";
+import { getArticleLink, getFormattedDate } from "@helpers/article";
+import type { BlogType } from "content/config";
+import ReadArticle from "./read-article.astro";
+
+interface Props {
+    category: BlogType;
+}
+
+const recommendedArticles = await getRecommendedArticles(
+    Astro.props.category,
+    Astro.params.slug ?? "",
+);
+---
+
+<section>
+    <h2 class="mb-8 font-serif text-xl font-medium">You might also like</h2>
+    <div class="flex flex-col gap-6">
+        {
+            recommendedArticles.map((article) => {
+                const formattedPubDate = getFormattedDate(article.data.publicationDate);
+
+                return (
+                    <a href={getArticleLink(article.slug)} class="group">
+                        <article>
+                            <h3 class="text-balance text-lg tracking-tight">
+                                {article.data.title}
+                            </h3>
+                            <time
+                                class="font-serif text-font-color-muted"
+                                datetime={article.data.publicationDate.toDateString()}
+                            >
+                                {formattedPubDate}
+                            </time>
+                            <ReadArticle />
+                        </article>
+                    </a>
+                );
+            })
+        }
+    </div>
+</section>
