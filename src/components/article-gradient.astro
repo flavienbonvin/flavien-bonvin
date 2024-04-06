@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    article: CollectionEntry<"blog">;
+}
+
+const gradientDireaction = () => {
+    const direction = [
+        "bg-gradient-to-t",
+        "bg-gradient-to-r",
+        "bg-gradient-to-b",
+        "bg-gradient-to-l",
+        "bg-gradient-to-tr",
+        "bg-gradient-to-tl",
+        "bg-gradient-to-br",
+        "bg-gradient-to-bl",
+    ];
+    return direction[Math.floor(Math.random() * direction.length)];
+};
+
+const gradientFromColor = () => {
+    const color = [
+        "from-red-400 to-pink-500",
+        "from-yellow-400 to-red-500",
+        "from-green-400 to-blue-500",
+        "from-blue-400 to-indigo-500",
+        "from-indigo-400 to-purple-500",
+        "from-purple-400 to-pink-500",
+    ];
+    return color[Math.floor(Math.random() * color.length)];
+};
+
+const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
+---
+
+<section
+    class={`h-96 flex flex-col text-white/5 items-center justify-center text-7xl rounded-lg text-center font-black ${gradientClasses}`}
+    style="text-shadow: 0px 0px, -1px -1px rgba(0,0,0, 0.1);"
+>
+    {Astro.props.article.data.tags.slice(0, 3).join(", ")}
+</section>
