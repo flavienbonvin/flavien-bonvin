@@ -9,7 +9,7 @@ export default {
         },
         extend: {
             fontFamily: {
-                sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
+                sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
                 serif: ["Bitter", ...defaultTheme.fontFamily.serif],
                 mono: ["iA Writer Mono", ...defaultTheme.fontFamily.mono],
             },
