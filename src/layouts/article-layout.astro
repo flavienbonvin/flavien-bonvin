@@ -1,3 +1,11 @@
+---
+import { BlogType } from "content/config";
+
+interface Props {
+    category: BlogType;
+}
+---
+
 <article
     class:list={[
         "prose mb-20 break-words text-font-color dark:prose-invert",
@@ -6,7 +14,10 @@
         "prose-p:my-5 prose-p:font-serif",
         "prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-lg",
         "prose-ol:font-serif prose-ol:text-font-color prose-ul:font-serif prose-ul:text-font-color",
+        "prose-hr:mx-auto prose-hr:w-1/2",
         "sm:prose-code:text-wrap",
+        Astro.props.category === BlogType.dev && "prose-hr:border-dev",
+        Astro.props.category === BlogType.beyond && "prose-hr:border-beyond",
     ]}
 >
     <slot />

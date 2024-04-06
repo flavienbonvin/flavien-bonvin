@@ -901,6 +901,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource-variable/space-grotesk@npm:^5.0.17":
+  version: 5.0.17
+  resolution: "@fontsource-variable/space-grotesk@npm:5.0.17"
+  checksum: 10c0/9ab6d5118e9224b837f1b4e15aef39feecd114122c467687ef46f808f36c9236268603029a16dd1c0c06bbd4719d3cd1a376161869623ee4814191d1de16911d
+  languageName: node
+  linkType: hard
+
 "@fontsource/bitter@npm:^5.0.17":
   version: 5.0.17
   resolution: "@fontsource/bitter@npm:5.0.17"
@@ -912,13 +919,6 @@ __metadata:
   version: 5.0.7
   resolution: "@fontsource/ia-writer-mono@npm:5.0.7"
   checksum: 10c0/631f37b5788b52cac828dde161fc21a4d061cbe6deac71d38111b75803026d5fb85b9dcfe48a196466feeb6815ca6d1e270c7cd526e85425bc3960311087f619
-  languageName: node
-  linkType: hard
-
-"@fontsource/open-sans@npm:^5.0.27":
-  version: 5.0.27
-  resolution: "@fontsource/open-sans@npm:5.0.27"
-  checksum: 10c0/cc8f22a5e5f59448589e7e00e0bd6867eeaadfafccf0cb9caf5cf6e60ab73538668189cce4d464d0e0ce0002f373b9031f409c3f7d664c6e449ffad4ed8602d6
   languageName: node
   linkType: hard
 
@@ -3149,9 +3149,9 @@ __metadata:
     "@astrojs/rss": "npm:^4.0.5"
     "@astrojs/sitemap": "npm:^3.1.2"
     "@astrojs/tailwind": "npm:^5.1.0"
+    "@fontsource-variable/space-grotesk": "npm:^5.0.17"
     "@fontsource/bitter": "npm:^5.0.17"
     "@fontsource/ia-writer-mono": "npm:^5.0.7"
-    "@fontsource/open-sans": "npm:^5.0.27"
     "@tailwindcss/typography": "npm:^0.5.12"
     "@types/markdown-it": "npm:^13.0.7"
     "@types/sanitize-html": "npm:^2.11.0"

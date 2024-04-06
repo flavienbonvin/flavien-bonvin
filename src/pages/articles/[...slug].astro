@@ -27,7 +27,7 @@ const { Content } = await article.render();
 
 <PageLayout>
     <SeoArticle slot="head" />
-    <ArticleLayout>
+    <ArticleLayout category={article.data.category}>
         <ArticleHeader article={article} />
         <Content />
     </ArticleLayout>

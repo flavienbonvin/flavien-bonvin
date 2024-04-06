@@ -9,7 +9,7 @@ export default {
         },
         extend: {
             fontFamily: {
-                sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+                sans: ["Space Grotesk Variable", ...defaultTheme.fontFamily.sans],
                 serif: ["Bitter", ...defaultTheme.fontFamily.serif],
                 mono: ["iA Writer Mono", ...defaultTheme.fontFamily.mono],
             },
@@ -25,5 +25,5 @@ export default {
             },
         },
     },
-    plugins: [require("@tailwindcss/typography")],
+    plugins: [require("@tailwindcss/typography"), require("./src/lib/helpers/fontVariationPlugin")],
 };
