@@ -2,6 +2,7 @@
 import { getArticleLink, getFormattedDate } from "@helpers/article";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
+import { articleCardWidth } from "const";
 import { BlogType } from "content/config";
 import MiddleDot from "./middle-dot.astro";
 
@@ -17,11 +18,11 @@ const isHome = Astro.url.pathname === "/";
 ---
 
 <a href={getArticleLink(article.slug)}>
-    <article class="group py-4 sm:w-5/6 md:w-4/5">
+    <article class=`group py-4 ${articleCardWidth}`>
         <h2 class="text-balance text-xl font-semibold leading-tight tracking-tight">
             {title}
         </h2>
-        <section class="flex items-center gap-3 font-serif text-sm md:text-base">
+        <section class="flex items-center gap-3 font-serif text-sm sm:text-base">
             <time class="text-font-color-muted" datetime={publicationDate.toDateString()}
                 >{formattedPubTime}</time
             >
