@@ -1338,13 +1338,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/markdown-it@npm:^13.0.7":
-  version: 13.0.7
-  resolution: "@types/markdown-it@npm:13.0.7"
+"@types/markdown-it@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "@types/markdown-it@npm:14.0.0"
   dependencies:
     "@types/linkify-it": "npm:*"
     "@types/mdurl": "npm:*"
-  checksum: 10c0/8a0fda0eb518ca2b25fcb5da32398930729270e9095cd4f7f3e379098b9d0f9e6336974becf2f36e69bbdbdc57818fef731149988c9e98e9f3f47501fefd9d39
+  checksum: 10c0/c37633088b3dbd1d6928cbe35a1246fb0d32842dd93f723797eaac0701300e0fa5ff34840d8d7dd1a1ab4f4e932bfd9aadb32e2dcdfd77a73b8fdc45b443f4a3
   languageName: node
   linkType: hard
 
@@ -3153,7 +3153,7 @@ __metadata:
     "@fontsource/bitter": "npm:^5.0.17"
     "@fontsource/ia-writer-mono": "npm:^5.0.7"
     "@tailwindcss/typography": "npm:^0.5.12"
-    "@types/markdown-it": "npm:^13.0.7"
+    "@types/markdown-it": "npm:^14.0.0"
     "@types/sanitize-html": "npm:^2.11.0"
     astro: "npm:^4.5.16"
     astro-embed: "npm:^0.7.0"
