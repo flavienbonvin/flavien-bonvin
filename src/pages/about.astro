@@ -5,7 +5,7 @@ import PageHeader from "@components/page/page-header.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
 import Image from "astro/components/Image.astro";
-import { CONFIG } from "const";
+import { CONFIG, URLS } from "const";
 import flavien from "../content/assets/flavien_bonvin.png";
 ---
 
@@ -76,15 +76,12 @@ import flavien from "../content/assets/flavien_bonvin.png";
             of Lake Geneva.
         </p>
         <p>
-            You can find me on 𝕏, my user name is <ExternalLink
-                href="https://twitter.com/FlavienBonvin"
-                variant="inline">@FlavienBonvin</ExternalLink
-            >. I'm also on <ExternalLink href="https://github.com/flavienbonvin" variant="inline"
-                >GitHub</ExternalLink
-            >, or even <ExternalLink href="https://www.linkedin.com/in/flavien-b" variant="inline"
-                >LinkedIn</ExternalLink
-            >. Finally, feel free to drop a message at <ExternalLink
-                href="mailto:hello@flavienbonvin.com"
+            You can find me on 𝕏, my user name is <ExternalLink href={URLS.twitter} variant="inline"
+                >@FlavienBonvin</ExternalLink
+            >. I'm also on <ExternalLink href={URLS.github} variant="inline">GitHub</ExternalLink>,
+            or even <ExternalLink href={URLS.linkedin} variant="inline">LinkedIn</ExternalLink>.
+            Finally, feel free to drop a message at <ExternalLink
+                href={URLS.mailto}
                 variant="inline">hello@flavienbonvin.com</ExternalLink
             >.
         </p>

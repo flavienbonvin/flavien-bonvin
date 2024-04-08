@@ -13,6 +13,6 @@ const allBlogPosts = await getAllPublishedArticles();
     <ArticleList
         title="Latest Insights: Coding & Beyond"
         articles={allBlogPosts}
-        pageDescription="My world of web development mixed with the flavors of everyday interests."
+        pageDescription={CONFIG.homeDescription}
     />
 </PageLayout>
