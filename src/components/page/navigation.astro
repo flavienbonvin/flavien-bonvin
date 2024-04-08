@@ -29,16 +29,16 @@ const navLinks = [
                 <li>
                     <a
                         class:list={[
-                            "font-serif tracking-tight",
+                            "font-serif",
                             href === PATHS.dev &&
                                 pathname.includes(href) &&
-                                "font-bold underline decoration-dev",
+                                "font-semibold underline decoration-dev",
                             href === PATHS.beyond &&
                                 pathname.includes(href) &&
-                                "font-bold underline decoration-beyond",
+                                "font-semibold underline decoration-beyond",
                             href === PATHS.about &&
                                 pathname.includes(href) &&
-                                "font-bold underline decoration-accent",
+                                "font-semibold underline decoration-accent",
                         ]}
                         href={href}
                     >
