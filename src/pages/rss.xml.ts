@@ -15,12 +15,21 @@ export const GET = async ({ site }: { site: string | undefined }) => {
         };
     }
 
+    const artiletest = articles[0];
+    console.log(
+        artiletest.body.match(
+            /import {?(\s{0,}((?!\d)(\w+)((:\w+)?,?)|(\s{0,}\*)(as\s{0,}\w+)?))+}? from ('|")(?!(\.|\/))(?!\d)(\w+(\/){0,})+('|")/gi,
+        ),
+    );
+
     return rss({
-        title: CONFIG.author,
+        xmlns: { atom: "http://www.w3.org/2005/Atom" },
+        title: CONFIG.homeDescription,
         description: CONFIG.description,
         site: site,
         items: articles.map((article) => ({
             title: article.data.title,
+            author: CONFIG.author,
             pubDate: article.data.editDate ?? article.data.publicationDate,
             description: article.data.description,
             content: sanitize(parser.render(article.body)),
