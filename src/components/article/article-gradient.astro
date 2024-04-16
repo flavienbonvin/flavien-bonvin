@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { BlogType } from "content/config";
+
+interface Props {
+    article: CollectionEntry<"blog">;
+}
+
+const gradientDireaction = () => {
+    const direction = [
+        "bg-gradient-to-tr",
+        "bg-gradient-to-tl",
+        "bg-gradient-to-br",
+        "bg-gradient-to-bl",
+    ];
+
+    return direction[Math.floor(Math.random() * direction.length)];
+};
+
+const colorDev = [
+    "from-gradient-dev5 to-gradient-dev4",
+    "from-gradient-dev1 to-gradient-dev2",
+    "from-gradient-dev5 to-gradient-dev6",
+    "from-gradient-dev1 to-gradient-dev3",
+    "from-gradient-dev2 to-gradient-dev5",
+    "from-gradient-dev4 to-gradient-dev6",
+];
+
+const colorBeyond = [
+    "from-gradient-beyond1 to-gradient-beyond2",
+    "from-gradient-beyond2 to-gradient-beyond5",
+    "from-gradient-beyond3 to-gradient-beyond6",
+    "from-gradient-beyond4 to-gradient-beyond6",
+    "from-gradient-beyond5 to-gradient-beyond6",
+    "from-gradient-beyond6 to-gradient-beyond1",
+];
+
+const gradientFromColor = () => {
+    const color = Astro.props.article.data.category === BlogType.dev ? colorDev : colorBeyond;
+    return color[Math.floor(Math.random() * color.length)];
+};
+
+const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
+---
+
+<section
+    class={`flex h-80 mb-8 flex-col items-center justify-center text-white/30 dark:text-white/20 text-6xl rounded-lg text-center font-semibold ${gradientClasses}`}
+>
+    {Astro.props.article.data.tags.slice(0, 3).map((tag) => <span>{tag}</span>)}
+</section>
