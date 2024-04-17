@@ -11,8 +11,10 @@ const responsInit = {
 };
 
 export const GET: APIRoute = async (data) => {
+    // Unlighthouse user agent contains "moto g power"
     const pathname = data.url.searchParams.get("pathname");
-    if (!pathname) {
+    const potentiallyLighthouse = data.request.headers.get("User-Agent")?.includes("moto g power");
+    if (!pathname || potentiallyLighthouse) {
         return new Response("", responsInit);
     }
 
