@@ -1,5 +1,6 @@
 ---
 import ArticleList from "@components/article/article-list.astro";
+import PageView from "@components/atoms/page-view.astro";
 import { getAllPublishedArticles } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
@@ -16,3 +17,5 @@ const allBlogPosts = await getAllPublishedArticles();
         pageDescription={CONFIG.homeDescription}
     />
 </PageLayout>
+
+<PageView slug="home" />
