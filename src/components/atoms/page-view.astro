@@ -1,0 +1,16 @@
+---
+import Image from "astro/components/Image.astro";
+
+interface Props {
+    slug: string;
+}
+---
+
+<Image
+    src={`/api/pageview?pathname=${Astro.props.slug}`}
+    loading="eager"
+    aria-hidden="true"
+    alt=""
+    width="1"
+    height="1"
+/>;

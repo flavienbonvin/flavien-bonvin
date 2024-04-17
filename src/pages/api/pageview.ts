@@ -2,13 +2,18 @@ export const prerender = false;
 
 import type { APIRoute } from "astro";
 
-export const GET: APIRoute = async (data) => {
-    console.log("API: pageView");
+const responsInit = {
+    status: 200,
+    headers: {
+        "Content-Type": "application/json",
+    },
+};
 
-    return new Response(
-        JSON.stringify({
-            message: "Hello from the API",
-            time: new Date().toISOString(),
-        }),
-    );
+export const GET: APIRoute = async (data) => {
+    const pathname = data.url.searchParams.get("pathname");
+    if (!pathname) {
+        return new Response("", responsInit);
+    }
+
+    return new Response("", responsInit);
 };
