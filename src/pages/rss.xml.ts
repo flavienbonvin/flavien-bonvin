@@ -15,13 +15,6 @@ export const GET = async ({ site }: { site: string | undefined }) => {
         };
     }
 
-    const artiletest = articles[0];
-    console.log(
-        artiletest.body.match(
-            /import {?(\s{0,}((?!\d)(\w+)((:\w+)?,?)|(\s{0,}\*)(as\s{0,}\w+)?))+}? from ('|")(?!(\.|\/))(?!\d)(\w+(\/){0,})+('|")/gi,
-        ),
-    );
-
     return rss({
         xmlns: { atom: "http://www.w3.org/2005/Atom" },
         title: CONFIG.homeDescription,
