@@ -6,7 +6,7 @@ import PageHeader from "@components/page/page-header.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
 import Image from "astro/components/Image.astro";
-import { CONFIG, URLS } from "const";
+import { CONFIG, PATHS, URLS } from "const";
 import flavien from "../content/assets/flavien_bonvin.png";
 ---
 
@@ -22,6 +22,7 @@ import flavien from "../content/assets/flavien_bonvin.png";
     <section
         class="prose pt-4 text-font-color prose-p:font-serif prose-p:text-font-color prose-a:text-font-color prose-strong:text-font-color"
     >
+        <Image src={flavien} alt="Blog author picture" class="mx-auto w-2/3 rounded" />
         <p>
             Hello! I'm Flavien Bonvin and welcome to my blog! I've been working as a frontend
             engineer for quite some time now, crafting user-friendly interfaces and optimizing web
@@ -37,7 +38,7 @@ import flavien from "../content/assets/flavien_bonvin.png";
             After some time, I wanted to contribute towards a product that I could help grow over
             time. That's when I joined <ExternalLink href="https://www.proton.me" variant="inline"
                 >Proton</ExternalLink
-            >, a Swiss privacy-focused company that wants to build a web where privacy is the
+            >, a Swiss-based privacy-focused company that wants to build a web where privacy is the
             default. It's a mission I can identify with, and one that offers endless learning
             opportunities!
         </p>
@@ -50,21 +51,25 @@ import flavien from "../content/assets/flavien_bonvin.png";
             users is what motivates me the most and what drives me.
         </p>
         <p>
-            I'm currently working on Proton Mail, this is the first product Proton released in 2014
-            and one of their flagship. You might think that email is not exciting and is an outdated
-            technology. I disagree! Emails are deeply rooted in our lives and are an essential tool
-            for communicating between companies, managing our online identities, and handling
-            private exchanges. Working on one of the cornerstones of the internet is exciting, even
-            if it's not always appreciated for its true value.
+            I'm currently working on Proton Mail, which is the very first product Proton released in
+            2014 and one of their flagship. You might think that email is not exciting and is an
+            outdated technology. I disagree! Emails are deeply rooted in our lives and are an
+            essential tool for communicating between companies, managing our online identities, and
+            handling private exchanges. Working on one of the cornerstones of the internet is really
+            exciting.
         </p>
         <Divider />
         <p>
             Web development is just one of my passions; I have many more! This is why you can find
-            two main sections in this blog: <strong>dev</strong>, where I share my technical
-            knowledge and experience, and <strong>beyond</strong>, where I explore my other
-            interests. In the "beyond" section, you'll find reviews of coffee machines, productivity
-            tools I can't stop myself from testing, and takes on subjects I'm sure to disagree with
-            in a few years.
+            two main sections in this blog: <a
+                href={PATHS.dev}
+                class="font-sans transition-colors duration-150 hover:text-dev">dev</a
+            >, where I share my technical knowledge and experience, and <a
+                href={PATHS.beyond}
+                class="font-sans transition-colors duration-150 hover:text-beyond">beyond</a
+            >, where I explore my other interests. In the "beyond" section, you'll find reviews of
+            coffee machines, productivity tools I can't stop myself from testing, and takes on
+            subjects I'm sure to disagree with in a few years.
         </p>
         <Divider />
         <p>
@@ -77,16 +82,20 @@ import flavien from "../content/assets/flavien_bonvin.png";
             of Lake Geneva.
         </p>
         <p>
-            You can find me on 𝕏, my user name is <ExternalLink href={URLS.twitter} variant="inline"
-                >@FlavienBonvin</ExternalLink
-            >. I'm also on <ExternalLink href={URLS.github} variant="inline">GitHub</ExternalLink>,
-            or even <ExternalLink href={URLS.linkedin} variant="inline">LinkedIn</ExternalLink>.
-            Finally, feel free to drop a message at <ExternalLink
+            You can find me on 𝕏, my user name is <ExternalLink
+                classes="font-sans"
+                href={URLS.twitter}
+                variant="inline">@FlavienBonvin</ExternalLink
+            >. I'm also on <ExternalLink classes="font-sans" href={URLS.github} variant="inline"
+                >GitHub</ExternalLink
+            >, or even <ExternalLink classes="font-sans" href={URLS.linkedin} variant="inline"
+                >LinkedIn</ExternalLink
+            >. Finally, feel free to drop a message at <ExternalLink
+                classes="font-sans"
                 href={URLS.mailto}
                 variant="inline">hello@flavienbonvin.com</ExternalLink
             >.
         </p>
-        <Image src={flavien} alt="Blog author picture" class="mx-auto w-2/3 rounded" />
     </section>
 </PageLayout>
 
