@@ -44,7 +44,18 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 ---
 
 <section
-    class={`flex h-80 mb-8 flex-col items-center justify-center text-white/30 dark:text-white/20 text-6xl rounded-lg text-center font-semibold ${gradientClasses}`}
+    class={`flex h-80 mb-8 flex-col items-center relative justify-center rounded-lg text-center font-semibold ${gradientClasses}`}
 >
-    {Astro.props.article.data.tags.slice(0, 3).map((tag) => <span>{tag}</span>)}
+    <div class="noise absolute inset-0 rounded-lg opacity-50 brightness-100 contrast-150"></div>
+    {
+        Astro.props.article.data.tags
+            .slice(0, 3)
+            .map((tag) => <span class="z-10 text-6xl text-white/80 dark:text-white/60">{tag}</span>)
+    }
 </section>
+
+<style>
+    .noise {
+        background-image: url("/noise.svg");
+    }
+</style>
