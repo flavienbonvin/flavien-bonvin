@@ -4,7 +4,7 @@ description: NextJS offers many ways to generate pages on the server to ensure f
 category: dev
 publicationDate: 2022-11-07
 tags: [nextjs, typescript]
-ogImage: ./meta/og.png
+ogImage: ./meta/data-building-strategy-for-nextjs-app.png
 ---
 
 One of the selling points of NextJS is the ability of rendering React pages on a server. This can ensure better performance and make the page SEO friendly meaning that search engine will index your pages.

@@ -4,7 +4,7 @@ description: Raycast extensions are a great way to improve productivity. Here is
 category: beyond
 publicationDate: 2022-11-28
 tags: [productivity, tools, raycast]
-ogImage: ./meta/og.png
+ogImage: ./meta/quit-spotlight-and-alfred-10-best-raycast-extensions-for-web-developers.png
 ---
 
 The default macOS Spotlight feature get enhanced each year. Recently, it can give better web result and files can be previewed with the quick.

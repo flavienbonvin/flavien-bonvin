@@ -5,7 +5,7 @@ category: dev
 publicationDate: 2022-07-04
 editDate: 2024-03-20
 tags: [react, nextjs, typescript]
-ogImage: ./meta/og.png
+ogImage: ./meta/amazing-nextjs-libraries-that-makes-coding-easier.png
 ---
 
 It’s a secret to few React developers that NextJS is an amazing product. It has been the default framework for building web app at my current company for the last two years and its adoption is rapidly increasing.

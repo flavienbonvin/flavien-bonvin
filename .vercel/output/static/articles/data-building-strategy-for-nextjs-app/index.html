@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="en" class="relative" data-astro-cid-523ztjh6> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="referrer" content="no-referrer-when-downgrade"><meta name="generator" content="Astro v4.7.0"><meta property="og:site_name" content="Flavien Bonvin"><title>What does CSR, SSR, SSG and ISR means and why should you care? | Flavien Bonvin</title><meta name="description" content="NextJS offers many ways to generate pages on the server to ensure fast page load. Let's see what CSR, SSR, SSG and IRS means!"><link rel="canonical" href="https://flavien-bonvin.vercel.app/articles/data-building-strategy-for-nextjs-app/"><meta property="og:site_name" content="Flavien Bonvin"><meta property="og:title" content="What does CSR, SSR, SSG and ISR means and why should you care?"><meta property="og:description" content="NextJS offers many ways to generate pages on the server to ensure fast page load. Let's see what CSR, SSR, SSG and IRS means!"><meta property="og:type" content="article"><meta property="og:url" content="https://flavien-bonvin.vercel.app/articles/data-building-strategy-for-nextjs-app/"><meta property="article:published_time" content="2022-11-07T00:00:00.000Z"><meta property="article:tag" content="nextjs, typescript"><meta property="og:image" content="https://flavien-bonvin.vercel.app//_astro/data-building-strategy-for-nextjs-app.BLnl2YLx.png"><meta property="og:image:width" content="1920"><meta property="og:image:height" content="1080"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="What does CSR, SSR, SSG and ISR means and why should you care?"><meta name="twitter:description" content="NextJS offers many ways to generate pages on the server to ensure fast page load. Let's see what CSR, SSR, SSG and IRS means!"><meta name="twitter:url" content="https://flavien-bonvin.vercel.app/articles/data-building-strategy-for-nextjs-app/"><meta name="twitter:label1" content="Written by"><meta name="twitter:data1" content="Flavien Bonvin"><meta name="twitter:site" content="@FlavienBonvin"><meta name="twitter:creator" content="@FlavienBonvin"><meta property="og:image" content="https://flavien-bonvin.vercel.app//_astro/data-building-strategy-for-nextjs-app.BLnl2YLx.png"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Flavien Bonvin" href="https://flavien-bonvin.vercel.app/rss.xml"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><meta name="theme-color" content="var(--background)"><link rel="stylesheet" href="/_astro/about.CVQPlRNU.css">
+<style>.noise[data-astro-cid-r4dte4va]{background-image:url(/noise.svg)}
+</style><script type="module" src="/_astro/hoisted.BMqMAa2A.js"></script></head> <body class="flex h-screen flex-col bg-background text-font-color" data-astro-cid-523ztjh6> <header data-astro-cid-523ztjh6> <nav class="mx-auto w-full max-w-4xl px-6 py-6"> <ul class="flex gap-4"> <li> <a class="font-serif" href="/"> Home </a> </li><li> <a class="font-serif" href="/articles/dev"> Dev </a> </li><li> <a class="font-serif" href="/articles/beyond"> Beyond dev </a> </li><li> <a class="font-serif" href="/about"> About </a> </li> </ul> </nav> </header> <main class="mx-auto mb-14 mt-16 w-full max-w-2xl grow px-8 md:mt-24 md:px-0" data-astro-cid-523ztjh6>   <article class="prose mb-20 break-words text-font-color dark:prose-invert prose-headings:tracking-tight prose-headings:text-font-color prose-p:text-font-color prose-a:text-font-color prose-strong:text-font-color prose-p:my-5 prose-p:font-serif prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-lg prose-ol:font-serif prose-ol:text-font-color prose-ul:font-serif prose-ul:text-font-color prose-hr:mx-auto prose-hr:w-1/2 sm:prose-code:text-wrap prose-hr:border-dev">  <header class="mb-14"> <h1 class="text-2xl tracking-tight mb-2 text-4xl sm:text-5xl leading-tight tracking-tighter">What does CSR, SSR, SSG and ISR means and why should you care?</h1> <time class="font-serif text-font-color-muted" datetime="Mon Nov 07 2022">Nov 7, 2022</time>  </header> <section class="flex h-80 mb-8 flex-col items-center relative justify-center rounded-lg text-center font-semibold bg-gradient-to-tl from-gradient-dev5 to-gradient-dev6" data-astro-cid-r4dte4va> <div class="noise absolute inset-0 rounded-lg opacity-50 brightness-100 contrast-150" data-astro-cid-r4dte4va></div> <span class="z-10 text-6xl text-white/80 dark:text-white/60" data-astro-cid-r4dte4va>nextjs</span><span class="z-10 text-6xl text-white/80 dark:text-white/60" data-astro-cid-r4dte4va>typescript</span> </section>  <p>One of the selling points of NextJS is the ability of rendering React pages on a server. This can ensure better performance and make the page SEO friendly meaning that search engine will index your pages.</p>
+<p>NextJS offers 3 methods to generate pages on a server, this article will detail the benefits and drawbacks of each strategy to help you choose the appropriate solution for your problem.</p>
+<p><strong>By default React will try to render pages on the server. If the page contains static content, you can assume that it will be statically generated. If your page contains dynamic content, you’ll be able to choose between static generation (SSG) by using the getStaticProps method or server side rendering (SSR) with the getServerSideProps method. If your content can change, you can use Incremental Static Regeneration (ISR) to rebuild pages after a given interval. Each method will be reviewed in the rest of this article.</strong></p>
+<blockquote>
+<p>NextJS 13 updates bring a lot of change to the way the pages are built. However, the layout RFC is still in beta at the time of writing. The information of this article is still up-to-date if you’re not using the new layout.</p>
+</blockquote>
+<h2 id="tldr">tl;dr</h2>
+<p>This article gives many and can be a bit lengthy. Here is a quick summary if you don’t want to read everything.</p>
+<p>Data type and stability is the ultimate determining factor when it comes to page building strategies. Understanding how your data can change is what will define the appropriate data-fetching and page-rendering method.</p>
+<ul>
+<li>All pages without data fetching will be statically rendered</li>
+<li>If your content doesn’t change, it’s better to use Server Side Generation (SSG). It allows generating pages once (at build time) and great performances. This method is what’s recommended by the NextJS team.</li>
+<li>If your content change you have two options. The first one is to build the page at each request with Server Side Rendering (SSR), this can slow page speed but ensure that the data is fresh. The second option is to use Incremental Static Regeneration (ISR), it’s a process where pages are cached for a configured about of time and rebuilt once the cache is stale.</li>
+<li>Fetching data on the server isn’t always required. Statically building a page skeleton and fetching data on the client (using suspense) are also a viable solution in some use cases.</li>
+</ul>
+<h2 id="whats-the-issue-with-react">What’s the issue with React?</h2>
+<p>React is a front end framework that helps developer build Single Page Application (SPA). This is totally fine for building apps such as Asana or Discord but has its limitation when it comes to SEO and performance.</p>
+<p>By default, React app will download a large JavaScript file that contains all the codes (this file is called the bundle) that the browser needs to execute. Only after that the content of the page is displayed to the users. To speed performances it’s possible to split the bundle in multiple smaller files that can be downloaded separately.</p>
+<p>As you can imagine, having to download and execute code can take time and is a bad experience for the users. Having to wait is never fun! It would be nice if the server could send just HTML and CSS so the users directly have something to look at. The following diagram shows how this process happens for a classic React application.</p>
+<p><img  src="/_astro/flavien_bonvin_client_side_rendering.CCrlZuS2_Z1W3KjO.webp" alt="Client side rendering in React" title="Client side rendering in React" width="830" height="267" loading="lazy" decoding="async"></p>
+<p>In the end that was done by every web technologies before the rise of SPA frameworks such as Angular, React and Vue. This could be seen as a step backwards. Which is true to a certain extent, but it has also allowed the creation of much more complex applications than what was done before.</p>
+<p>There are cases where using React Client Side rendering is fine and can be used. However you might face some limits if you want to have a website indexable by search engines or if you need better performances. That’s where frameworks that offers Static Generation comes to play. This article focus on NextJS but other frameworks such as <a href="https://www.gatsbyjs.com/">Gatsby</a> or <a href="https://astro.build/">Astro</a> does things in a somewhat similar manner.</p>
+<h2 id="nextjs-server-side-rendering-ssr">NextJS Server Side Rendering (SSR)</h2>
+<p>Server Side Rendering (SSR) means that the page users access is generated at each request. Every customer will trigger the generation of a page and won’t share cache or page version with anybody else.</p>
+<p>Generating a page at each request can make sense in some scenarios. The nature of data that needs to be displayed is the determining factor. Using SSR can make sense when building an application that has geo-restricted content.</p>
+<blockquote>
+<p>If the content of the page depends on the request (location, authorization, …) then it makes sense to use SSR.</p>
+</blockquote>
+<h3 id="how-to-use-ssr">How to use SSR</h3>
+<p>Using SSR is done by using the <code>getServerSideProps</code> method on a page. Note that the methods must be placed on the page, placing this method anywhere else won’t work.</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#FF79C6">const</span><span style="color:#50FA7B"> Page</span><span style="color:#FF79C6"> =</span><span style="color:#F8F8F2"> ({ </span><span style="color:#FFB86C;font-style:italic">data</span><span style="color:#F8F8F2"> }) </span><span style="color:#FF79C6">=></span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#6272A4">    // Render data...</span></span>
+<span class="line"><span style="color:#F8F8F2">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">// This gets called on every request</span></span>
+<span class="line"><span style="color:#FF79C6">export</span><span style="color:#FF79C6"> async</span><span style="color:#FF79C6"> function</span><span style="color:#50FA7B"> getServerSideProps</span><span style="color:#F8F8F2">() {</span></span>
+<span class="line"><span style="color:#6272A4">    // Fetch data from external API</span></span>
+<span class="line"><span style="color:#FF79C6">    const</span><span style="color:#F8F8F2"> res </span><span style="color:#FF79C6">=</span><span style="color:#FF79C6"> await</span><span style="color:#50FA7B"> fetch</span><span style="color:#F8F8F2">(</span><span style="color:#F1FA8C">`https://.../data`</span><span style="color:#F8F8F2">);</span></span>
+<span class="line"><span style="color:#FF79C6">    const</span><span style="color:#F8F8F2"> data </span><span style="color:#FF79C6">=</span><span style="color:#FF79C6"> await</span><span style="color:#F8F8F2"> res.</span><span style="color:#50FA7B">json</span><span style="color:#F8F8F2">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">    // Pass data to the page via props</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> { props</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> { data } };</span></span>
+<span class="line"><span style="color:#F8F8F2">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">export</span><span style="color:#FF79C6"> default</span><span style="color:#F8F8F2"> Page;</span></span>
+<span class="line"></span></code></pre>
+<p>The code present in the <code>getServerSideProps</code> method will be executed at each request.</p>
+<h3 id="ssr-timings">SSR timings</h3>
+<p><img  src="/_astro/flavien_bonvin_ssr_process.DaI57Y_p_Z1zLw8x.webp" alt="Server side renderin on NextJS" title="Server side renderin on NextJS" width="1855" height="516" loading="lazy" decoding="async"></p>
+<p>Opening a page that has SSR is as follows:</p>
+<ul>
+<li>The code in the <code>getServerSideProps</code> method is executed and data is fetched.</li>
+<li>Once the data is fetched, NextJS will generate the page and prepare the assets</li>
+<li>The bundle in then sent to the browser. The server sends HTML, CSS and JS, this means that the browser is able to directly display the data coming from the server.</li>
+<li>Once the bundle downloaded, the browser displays the page and everything becomes active;</li>
+<li>Finally, NextJS needs to hydrate the page. Hydration is the process where React needs to connects the DOM with the virtual DOM it created.</li>
+</ul>
+<p>Here is another schema on how the process happens</p>
+<p><img  src="/_astro/flavien_bonvin_ssr_timings.D5kCddvk_Z2uoeaM.webp" alt="SSR timings on NextJS" title="SSR timings on NextJS" width="1545" height="1634" loading="lazy" decoding="async"></p>
+<h3 id="caveats">Caveats</h3>
+<p>Even tho this method is supported by NextJS it’s not the one recommended on most cases in the documentation. Unless the nature of data requires generating the page at each request, a state’s approach is more suited in most cases.</p>
+<p>Executing the <code>getServerSideProps</code> method at each request comes at the cost of speed. The browser won’t receive anything from the server until the method is finished. This blocking time can result in poorer experience for visitors and overall worsen web core vitals.</p>
+<p>Besides that, executing code each time requires compute. This compute can be an energy waste if another strategy such as SSG or ISR) is more suited. Even if the free tier of Vercel is quite generous, it’s not an excuse to run code for the sake of it.</p>
+<h2 id="nextjs-server-side-generation-ssg">NextJS Server Side Generation (SSG)</h2>
+<p>Server Side Generation (SSG) means generating the page once, at build time meaning when compiling the project, and using this page for every request until next deployment.</p>
+<p>This is the scenario NextJS recommends since it’s the one that offers the best performances but comes at the cost of data freshness. The compiled pages are hosted on CDN ensuring fast response regardless of the location of the location of the visitor.</p>
+<blockquote>
+<p>If the content of the page can be generated ahead of user’s request, then it makes sense to use SSG</p>
+</blockquote>
+<h3 id="how-to-use-ssg">How to use SSG</h3>
+<p>By default NextJS will try to statically generate pages. This means that if a page doesn’t have any content part the one from the page (if the content is hardcoded) then the page will be generated at build time.</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#FF79C6">const</span><span style="color:#50FA7B"> About</span><span style="color:#FF79C6"> =</span><span style="color:#F8F8F2"> () </span><span style="color:#FF79C6">=></span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#FF79C6">  return</span><span style="color:#F8F8F2"> &#x3C;</span><span style="color:#8BE9FD;font-style:italic">div</span><span style="color:#F8F8F2">>About</span><span style="color:#FF79C6">&#x3C;/</span><span style="color:#F8F8F2">div</span><span style="color:#FF79C6">></span></span>
+<span class="line"><span style="color:#F8F8F2">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">export</span><span style="color:#FF79C6"> default</span><span style="color:#F8F8F2"> About</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<p>If page content comes from an external source (a CMS for example) the <code>getStaticProps</code> method needs to be used. This means that switching from SSR and SSG is as simple as changing the name of the method that fetches data.</p>
+<p>As for SSR, the <code>getStaticProps</code> needs to be placed in the page itself and not on any other component. Placing the method anywhere else won’t work.</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#FF79C6">const</span><span style="color:#50FA7B"> Blog</span><span style="color:#FF79C6"> =</span><span style="color:#F8F8F2"> ({ </span><span style="color:#FFB86C;font-style:italic">posts</span><span style="color:#F8F8F2"> }) </span><span style="color:#FF79C6">=></span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#6272A4">    // Render posts...</span></span>
+<span class="line"><span style="color:#F8F8F2">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">// This function gets called at build time</span></span>
+<span class="line"><span style="color:#FF79C6">export</span><span style="color:#FF79C6"> async</span><span style="color:#FF79C6"> function</span><span style="color:#50FA7B"> getStaticProps</span><span style="color:#F8F8F2">() {</span></span>
+<span class="line"><span style="color:#6272A4">    // Call an external API endpoint to get posts</span></span>
+<span class="line"><span style="color:#FF79C6">    const</span><span style="color:#F8F8F2"> res </span><span style="color:#FF79C6">=</span><span style="color:#FF79C6"> await</span><span style="color:#50FA7B"> fetch</span><span style="color:#F8F8F2">(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">https://.../posts</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">);</span></span>
+<span class="line"><span style="color:#FF79C6">    const</span><span style="color:#F8F8F2"> posts </span><span style="color:#FF79C6">=</span><span style="color:#FF79C6"> await</span><span style="color:#F8F8F2"> res.</span><span style="color:#50FA7B">json</span><span style="color:#F8F8F2">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">    // By returning { props: { posts } }, the Blog component</span></span>
+<span class="line"><span style="color:#6272A4">    // will receive `posts` as a prop at build time</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#F8F8F2">        props</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#F8F8F2">            posts,</span></span>
+<span class="line"><span style="color:#F8F8F2">        },</span></span>
+<span class="line"><span style="color:#F8F8F2">    };</span></span>
+<span class="line"><span style="color:#F8F8F2">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">export</span><span style="color:#FF79C6"> default</span><span style="color:#F8F8F2"> Blog;</span></span>
+<span class="line"></span></code></pre>
+<p>What if the path of the pages depends on the data? Let’s say you’re building a blog. You might want to statically generate the pages so the pages are lightning fast. In that case you might want a URL looking like this <code>/blog/[slug]</code>.</p>
+<p>NextJS got you covered and you can use the <code>getStaticPaths</code> that helps define all the pages to generate. The method returns an array and NextJS will loop over the array and execute the <code>getStaticProps</code> of the page for each value in the array.</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#6272A4">// This function gets called at build time</span></span>
+<span class="line"><span style="color:#FF79C6">export</span><span style="color:#FF79C6"> async</span><span style="color:#FF79C6"> function</span><span style="color:#50FA7B"> getStaticPaths</span><span style="color:#F8F8F2">() {</span></span>
+<span class="line"><span style="color:#FF79C6">    const</span><span style="color:#F8F8F2"> res </span><span style="color:#FF79C6">=</span><span style="color:#FF79C6"> await</span><span style="color:#50FA7B"> fetch</span><span style="color:#F8F8F2">(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">https://.../posts</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">);</span></span>
+<span class="line"><span style="color:#FF79C6">    const</span><span style="color:#F8F8F2"> posts </span><span style="color:#FF79C6">=</span><span style="color:#FF79C6"> await</span><span style="color:#F8F8F2"> res.</span><span style="color:#50FA7B">json</span><span style="color:#F8F8F2">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">    // Get the paths we want to pre-render based on posts</span></span>
+<span class="line"><span style="color:#FF79C6">    const</span><span style="color:#F8F8F2"> paths </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> posts.</span><span style="color:#50FA7B">map</span><span style="color:#F8F8F2">((</span><span style="color:#FFB86C;font-style:italic">post</span><span style="color:#F8F8F2">) </span><span style="color:#FF79C6">=></span><span style="color:#F8F8F2"> ({</span></span>
+<span class="line"><span style="color:#F8F8F2">        params</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> { slug</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> post.slug },</span></span>
+<span class="line"><span style="color:#F8F8F2">    }));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> { paths, fallback</span><span style="color:#FF79C6">:</span><span style="color:#BD93F9"> false</span><span style="color:#F8F8F2"> };</span></span>
+<span class="line"><span style="color:#F8F8F2">}</span></span>
+<span class="line"></span></code></pre>
+<p>Using <code>getStaticPaths</code> allows the generation of all the dynamic pages that are required making it really easy to pre-render all he pages you want.</p>
+<h3 id="ssg-timings">SSG timings</h3>
+<p><img  src="/_astro/flavien_bonvin_ssg_process.DMjt-Z-l_Z1MjAkt.webp" alt="Server side generation on NextJS" title="Server side generation on NextJS" width="1512" height="519" loading="lazy" decoding="async"></p>
+<p>Pages that are using SSG are built as follows</p>
+<ul>
+<li>The project is built</li>
+<li>While being built all the <code>getStaticProps</code> and <code>getStaticPaths</code> methods are run.</li>
+<li>Once the data is fetched, the page is statically built</li>
+<li>Those pages are uploaded to the hosting service and can be served</li>
+<li>Visiting one of those pages is fast since everything is ready and there are no blocking times</li>
+</ul>
+<p>Here is another schema on how the process happens</p>
+<p><img  src="/_astro/flavien_bonvin_ssg_timings.Dtq8ZJLn_xNpVh.webp" alt="SSG timings on NextJS" title="SSG timings on NextJS" width="1537" height="1634" loading="lazy" decoding="async"></p>
+<h3 id="caveats-1">Caveats</h3>
+<p>Serving statically generated pages is the method NextJS recommends. Building the pages once at build time and serving the same version is a great option.</p>
+<p>However, not all pages have static content. Some pages need to update regularly or have live updates of the data. In those use case, SSG is not adapted and other solutions should be used. For regular update ISR is more suited, for live update a mix of SSG and CSR is recommended by Next.</p>
+<p>Finally, NextJS always send some JavaScript when serving pages even if they are static. Each SSG page will have HTML, CSS and JS, Next then hydrate the page. The pages are thus bigger and alternative such as Astro is better suited if page size is critical.</p>
+<h2 id="nextjs-incremental-static-regeneration-isr">NextJS Incremental Static Regeneration (ISR)</h2>
+<p>SSG biggest limitation is its static nature. There are cases where building once isn’t sufficient and updating the page on a regular basis is important.</p>
+<p>For that, NextJS supports Incremental Static Regeneration (ISR) that supports rebuilding pages without rebuilding the whole website. Adopting ISR is as simple as adding a parameter to a method!</p>
+<blockquote>
+<p>If the content of the page can be generated ahead of user’s request but need regular update, then ISR is for you</p>
+</blockquote>
+<h3 id="how-to-use-isr">How to use ISR</h3>
+<p>ISR is very similar to SSG, only it can rebuild a page after a given delay. This is why ISR also uses the <code>getStaticProps</code> and supports the <code>getStaticPaths</code> methods.</p>
+<p>The only difference being the <code>revalidate</code> parameter in the return of the <code>getStaticProps</code>. This number in seconds indicates how much time is required in between builds.</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#FF79C6">export</span><span style="color:#FF79C6"> async</span><span style="color:#FF79C6"> function</span><span style="color:#50FA7B"> getStaticProps</span><span style="color:#F8F8F2">() {</span></span>
+<span class="line"><span style="color:#FF79C6">  const</span><span style="color:#F8F8F2"> res </span><span style="color:#FF79C6">=</span><span style="color:#FF79C6"> await</span><span style="color:#50FA7B"> fetch</span><span style="color:#F8F8F2">(‘https:</span><span style="color:#6272A4">//.../posts’)</span></span>
+<span class="line"><span style="color:#F8F8F2">  const posts </span><span style="color:#FF79C6">=</span><span style="color:#FF79C6"> await</span><span style="color:#F8F8F2"> res.</span><span style="color:#50FA7B">json</span><span style="color:#F8F8F2">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">  return {</span></span>
+<span class="line"><span style="color:#F8F8F2">    props</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#F8F8F2">      posts,</span></span>
+<span class="line"><span style="color:#F8F8F2">    },</span></span>
+<span class="line"><span style="color:#6272A4">    // Next.js will attempt to regenerate the page:</span></span>
+<span class="line"><span style="color:#6272A4">    // - When a request comes in</span></span>
+<span class="line"><span style="color:#6272A4">    // - At most once every 10 seconds</span></span>
+<span class="line"><span style="color:#F8F8F2">    revalidate</span><span style="color:#FF79C6">:</span><span style="color:#BD93F9"> 10</span><span style="color:#F8F8F2">, </span><span style="color:#6272A4">// In seconds</span></span>
+<span class="line"><span style="color:#F8F8F2">  }</span></span>
+<span class="line"><span style="color:#F8F8F2">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<p>ISR is very powerful and can be used to incrementally build the pages of a website. Instead of building all pages at each deployment, it’s possible to only build a subset of them (the most popular pages for examples). All the pages that aren’t built will be gradually built as they are visited.</p>
+<hr>
+<p>Besides that, data on the pages is still fresh and can be updated without any intervention. This also means that all pages will be the same during the cache period configured. There are cases where forcing an update is desired (when the data on a CMS change for example).</p>
+<p>On-demand revalidation is a mechanism that allows update of cached pages without having to redeploy a website. An API endpoint is required to make this work. The endpoint should be secured with a secret stored in environment variable to avoid unwanted access.</p>
+<p>The method is quite simple and acts as a web hook that can be fired by CMS when an entry is updated. In the method you check the secret, get the path to revalidate and force the revalidation with <code>res.revalidate</code>. Once this is done, you can return a 200.</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#6272A4">// pages/api/revalidate.js</span></span>
+<span class="line"><span style="color:#FF79C6">export</span><span style="color:#FF79C6"> default</span><span style="color:#FF79C6"> async</span><span style="color:#FF79C6"> function</span><span style="color:#50FA7B"> handler</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">req</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">res</span><span style="color:#F8F8F2">) {</span></span>
+<span class="line"><span style="color:#6272A4">    // Check for secret to confirm this is a valid request</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> (req.query.secret </span><span style="color:#FF79C6">!==</span><span style="color:#F8F8F2"> process.env.</span><span style="color:#BD93F9">MY_SECRET_TOKEN</span><span style="color:#F8F8F2">) {</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> res.</span><span style="color:#50FA7B">status</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9">401</span><span style="color:#F8F8F2">).</span><span style="color:#50FA7B">json</span><span style="color:#F8F8F2">({ message</span><span style="color:#FF79C6">:</span><span style="color:#E9F284"> "</span><span style="color:#F1FA8C">Invalid token</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2"> });</span></span>
+<span class="line"><span style="color:#F8F8F2">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    try</span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#6272A4">        // this should be the actual path not a rewritten path</span></span>
+<span class="line"><span style="color:#6272A4">        // e.g. for "/blog/[slug]" this should be "/blog/post-1"</span></span>
+<span class="line"><span style="color:#FF79C6">        await</span><span style="color:#F8F8F2"> res.</span><span style="color:#50FA7B">revalidate</span><span style="color:#F8F8F2">(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">/path-to-revalidate</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">);</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> res.</span><span style="color:#50FA7B">json</span><span style="color:#F8F8F2">({ revalidated</span><span style="color:#FF79C6">:</span><span style="color:#BD93F9"> true</span><span style="color:#F8F8F2"> });</span></span>
+<span class="line"><span style="color:#F8F8F2">    } </span><span style="color:#FF79C6">catch</span><span style="color:#F8F8F2"> (err) {</span></span>
+<span class="line"><span style="color:#6272A4">        // If there was an error, Next.js will continue</span></span>
+<span class="line"><span style="color:#6272A4">        // to show the last successfully generated page</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> res.</span><span style="color:#50FA7B">status</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9">500</span><span style="color:#F8F8F2">).</span><span style="color:#50FA7B">send</span><span style="color:#F8F8F2">(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">Error revalidating</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">);</span></span>
+<span class="line"><span style="color:#F8F8F2">    }</span></span>
+<span class="line"><span style="color:#F8F8F2">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="isr-timings">ISR timings</h3>
+<p><img  src="/_astro/flavien_bonvin_isr_rendering.D0qHkvxP_2fjNBl.webp" alt="Incrementat static regeneration process on NextJS" title="Incrementat static regeneration process on NextJS" width="1507" height="789" loading="lazy" decoding="async"></p>
+<p>ISR process is quite similar to what SSG do. The only exception is the regeneration that happens once a visitor has triggered it.</p>
+<p>The trigger is done when a user visits a page that is older than the configured time in the <code>validate</code> parameter. <strong>This user will still get the old version of the page</strong> and the following user will get the updated one.</p>
+<p>The rebuilding process is non-blocking and happens in the background. Users won’t even notice that the page updated.</p>
+<p><img  src="/_astro/flavien_bonvin_isr_timings.Di537S9m_Z2cAKGa.webp" alt="ISR timings" title="ISR timings" width="1545" height="3356" loading="lazy" decoding="async"></p>
+<h3 id="caveats-2">Caveats</h3>
+<p>ISR takes some of the limitation SSG has and fix them by assuring a page that has fresh data. However, the data can get stale if it updates. Two options are then possible, either use on-demand revalidation or switch to CSR.</p>
+<p>Using on-demand revalidation is useful if the data doesn’t update too frequently or isn’t live. It makes sense to keep ISR and fast page speeds while forcing cache purging. If the data gets updated frequently, using a mix of SSG and CSR is an option. Part of the application can be statically generated and, using suspense, the data can be fetched from the client with a nice loading animation. Another option is to use SSR and fetch up -to-date information before rendering the page.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>NextJS offers many ways to manage page building. There is a scenario for every need depending on the type of data you want to display.</p>
+<p>The goal of this article was to review the currently supported methods. Things will dramatically change with the new layout but this feature is still in beta. I would recommend sticking with the current way of doing things as long as there is no stable release.</p>
+<p>I didn’t discuss about the edge and how middleware and other NextJS features can benefit from it. This is something that I intend to work on a separate article.</p>
+<p>I hope you found this information useful and now have a better understanding of the way pages are built in NextJS.</p>  </article> <div class="flex flex-row items-center justify-between"> <a class="font-serif" href="/">Flavien Bonvin &middot; 2024</a> <a href="http://twitter.com/share?text=What does CSR, SSR, SSG and ISR means and why should you care?&url=https://flavien-bonvin.vercel.app/articles/data-building-strategy-for-nextjs-app/" target="_blank" rel="noopener noreferrer" class="rounded border border-interactive bg-background px-2 py-3 text-center text-sm text-font-color transition-colors duration-200 ease-in-out hover:border-interactive-active">Share on 𝕏</a> </div> <hr class="h-px border-0 bg-interactive-active mb-10 mt-8"> <section> <h2 class="mb-8 font-serif text-xl font-medium">You might also like</h2> <div class="flex flex-col gap-6"> <a href="/articles/what-makes-the-us-ansi-keyboard-is-the-best-layout-for-developers" class="group"> <article> <h3 class="text-balance text-lg tracking-tight"> What Makes the US ANSI Keyboard the Best Layout for Developers ? </h3> <time class="font-serif text-font-color-muted" datetime="Mon Jul 17 2023"> Jul 17, 2023 </time> <p class="flex items-center gap-1 font-serif text-sm text-font-color-muted opacity-0 transition duration-500 ease-in group-hover:opacity-100">
+Read article
+<svg width="1em" height="1em" viewBox="0 0 24 24" data-icon="arrow-right">  <symbol id="ai:local:arrow-right"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></symbol><use xlink:href="#ai:local:arrow-right"></use>  </svg> </p> </article> </a><a href="/articles/amazing-nextjs-libraries-that-makes-coding-easier" class="group"> <article> <h3 class="text-balance text-lg tracking-tight"> 8 Amazing NextJS Libraries That Make Coding Easier </h3> <time class="font-serif text-font-color-muted" datetime="Mon Jul 04 2022"> Jul 4, 2022 </time> <p class="flex items-center gap-1 font-serif text-sm text-font-color-muted opacity-0 transition duration-500 ease-in group-hover:opacity-100">
+Read article
+<svg width="1em" height="1em" viewBox="0 0 24 24" data-icon="arrow-right">  <use xlink:href="#ai:local:arrow-right"></use>  </svg> </p> </article> </a><a href="/articles/reduce-next-js-bundle" class="group"> <article> <h3 class="text-balance text-lg tracking-tight"> How to easily reduce your NextJS bundle size by 30%? </h3> <time class="font-serif text-font-color-muted" datetime="Mon Apr 04 2022"> Apr 4, 2022 </time> <p class="flex items-center gap-1 font-serif text-sm text-font-color-muted opacity-0 transition duration-500 ease-in group-hover:opacity-100">
+Read article
+<svg width="1em" height="1em" viewBox="0 0 24 24" data-icon="arrow-right">  <use xlink:href="#ai:local:arrow-right"></use>  </svg> </p> </article> </a> </div> </section>  </main> <footer class="mx-auto flex w-full max-w-2xl flex-col gap-1 px-8 pb-20 md:px-0" data-astro-cid-523ztjh6> <hr class="h-px border-0 bg-accent mb-7"> <section class="flex gap-2"> <a href="https://twitter.com/FlavienBonvin" target="_blank" rel="noopener noreferrer" class="rounded border border-interactive bg-background px-2 py-3 text-center text-sm text-font-color transition-colors duration-200 ease-in-out hover:border-interactive-active w-36">Follow me on 𝕏</a> <a href="https://flavien-bonvin.vercel.app/rss.xml" target="_blank" rel="noopener noreferrer" class="rounded border border-interactive bg-background px-2 py-3 text-center text-sm text-font-color transition-colors duration-200 ease-in-out hover:border-interactive-active flex justify-center w-36 items-center gap-1"><svg width="1em" height="1em" viewBox="0 0 24 24" data-icon="rss">  <symbol id="ai:local:rss"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.75 19.5v-.75a7.5 7.5 0 0 0-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></symbol><use xlink:href="#ai:local:rss"></use>  </svg>RSS feed</a> </section> <script data-domain="flavienbonvin.com" src="https://plausible.io/js/script.js"></script> </footer> </body> </html> <img src="/api/pageview?pathname=data-building-strategy-for-nextjs-app" loading="eager" aria-hidden="true" alt="" width="1" height="1" decoding="async">
