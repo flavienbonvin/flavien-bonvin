@@ -1,9 +1,9 @@
 ---
 import Footer from "@components/page/footer.astro";
 import Navigation from "@components/page/navigation.astro";
-import "@fontsource/ia-writer-mono";
 import "@fontsource-variable/space-grotesk";
 import "@fontsource/bitter/latin.css";
+import "@fontsource/ia-writer-mono";
 
 import { ViewTransitions } from "astro:transitions";
 import { CONFIG } from "const";
@@ -96,7 +96,8 @@ import { CONFIG } from "const";
             <script
                 is:inline
                 data-domain="flavienbonvin.com"
-                src="https://plausible.io/js/script.js"></script>
+                data-api="/plausible/api/event"
+                src="/plausible/js/script.js"></script>
         </footer>
     </body>
 </html>
