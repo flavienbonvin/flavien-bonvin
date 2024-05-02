@@ -34,7 +34,7 @@ const { Content } = await article.render();
         <ArticleGradient article={article} />
         <Content />
     </ArticleLayout>
-    <div class="flex flex-row items-center justify-between">
+    <div class="mb-8 flex flex-row items-center justify-between">
         <a class="font-serif" href={PATHS.home}
             >{CONFIG.author} &middot; {new Date().getFullYear()}</a
         >
@@ -43,7 +43,7 @@ const { Content } = await article.render();
             >Share on 𝕏</ExternalLink
         >
     </div>
-    <Divider variant="light" classes="mb-10 mt-8" />
+    <Divider variant="light" classes="mb-10" />
     <RecommendedArticles category={article.data.category} />
 </PageLayout>
 
