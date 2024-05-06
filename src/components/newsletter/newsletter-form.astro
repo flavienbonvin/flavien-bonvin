@@ -1,0 +1,45 @@
+<div class="py-8 sm:py-10 lg:py-10">
+    <div class="text-2xl font-semibold">
+        <h2 class="inline sm:block">Get new articles right in your inbox</h2>
+    </div>
+    <form class="mb-4 mt-10 max-w-md" id="newsletter-form">
+        <div class="flex gap-x-4">
+            <label for="email" class="sr-only">Email address</label>
+            <input
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="flex-auto rounded-md border-0 px-3.5 py-2 sm:text-sm sm:leading-6"
+                placeholder="Enter your email"
+            />
+            <button
+                type="submit"
+                class="flex-none rounded-md bg-accent px-3.5 py-2.5 text-sm font-medium text-white"
+                >Subscribe</button
+            >
+        </div>
+    </form>
+</div>
+
+<script is:inline>
+    const form = document.getElementById("newsletter-form");
+    form?.addEventListener("submit", async (e) => {
+        const formData = new FormData(form);
+        e.preventDefault();
+
+        const email = formData.get("email");
+        if (email) {
+            const res = await fetch("/api/newsletter", {
+                method: "POST",
+                body: JSON.stringify({
+                    email,
+                }),
+            });
+
+            if (res.ok) {
+                form.reset();
+            }
+        }
+    });
+</script>

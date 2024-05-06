@@ -5,6 +5,7 @@ import RecommendedArticles from "@components/article/article-recommended.astro";
 import Divider from "@components/atoms/divider.astro";
 import ExternalLink from "@components/atoms/external-link.astro";
 import PageView from "@components/atoms/page-view.astro";
+import NewsletterForm from "@components/newsletter/newsletter-form.astro";
 import { getAllPublishedArticles } from "@data/articles";
 import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
@@ -43,7 +44,9 @@ const { Content } = await article.render();
             >Share on 𝕏</ExternalLink
         >
     </div>
-    <Divider variant="light" classes="mb-10" />
+    <Divider variant="light" classes="mb-10 mt-8" />
+    <NewsletterForm />
+    <Divider variant="light" classes="mb-10 mt-8" />
     <RecommendedArticles category={article.data.category} />
 </PageLayout>
 
