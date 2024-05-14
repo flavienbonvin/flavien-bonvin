@@ -32,6 +32,7 @@ import { CONFIG } from "const";
 
         <style>
             :root {
+                --input: oklch(20.21% 0 0);
                 --background: oklch(98.21% 0 0);
                 --font-color: oklch(31.03% 0 102.07);
                 --font-color-muted: oklch(61.21% 0 102.07);
@@ -52,10 +53,13 @@ import { CONFIG } from "const";
                 --beyond4: oklch(75% 0.227 17.82);
                 --beyond5: oklch(78% 0.127 47.82);
                 --beyond6: oklch(73% 0.327 52.82);
+                --success: oklch(75% 0.25 145);
+                --error: oklch(70% 0.25 27);
             }
 
             @media (prefers-color-scheme: dark) {
                 :root {
+                    --input: oklch(20.21% 0 0);
                     --background: oklch(20.21% 0 0);
                     --font-color: oklch(88.53% 0 0);
                     --font-color-muted: oklch(69.31% 0 0);
@@ -76,6 +80,8 @@ import { CONFIG } from "const";
                     --beyond4: oklch(65% 0.25 50);
                     --beyond5: oklch(69% 0.15 38);
                     --beyond6: oklch(72% 0.25 65);
+                    --success: oklch(65% 0.3 145);
+                    --error: oklch(60% 0.35 27);
                 }
             }
         </style>

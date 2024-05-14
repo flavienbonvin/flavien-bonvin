@@ -1,16 +1,16 @@
 <div class="py-8 sm:py-10 lg:py-10">
-    <div class="text-2xl font-semibold">
+    <div class="mb-8 text-2xl font-semibold">
         <h2 class="inline sm:block">Get new articles right in your inbox</h2>
     </div>
-    <form class="mb-4 mt-10 max-w-md" id="newsletter-form">
-        <div class="flex gap-x-4">
+    <form class="mb-4 max-w-md" id="newsletter-form">
+        <div class="mb-2 flex gap-x-4">
             <label for="email" class="sr-only">Email address</label>
             <input
                 name="email"
                 type="email"
                 autocomplete="email"
                 required
-                class="flex-auto rounded-md border px-3.5 py-2 sm:text-sm sm:leading-6 dark:border-0"
+                class="text-input flex-auto rounded-md border px-3.5 py-2 sm:text-sm sm:leading-6 dark:border-0"
                 placeholder="Enter your email"
             />
             <button
@@ -19,10 +19,29 @@
                 >Subscribe</button
             >
         </div>
+        <span class="animate-all opacity-0 duration-150 ease-in-out" id="submit-message"></span>
     </form>
 </div>
 
 <script is:inline>
+    const submitMessage = document.getElementById("submit-message");
+    const handleEmailError = async (res) => {
+        const { message } = await res.json();
+        submitMessage.textContent = message ?? "An error occured with your email";
+        submitMessage.classList.add("opacity-100");
+        submitMessage.classList.add("text-error");
+        submitMessage.classList.remove("text-success");
+        submitMessage.classList.remove("opacity-0");
+    };
+
+    const handleSuccess = () => {
+        submitMessage.textContent = "🦆 You've been subscribed!";
+        submitMessage.classList.add("opacity-100");
+        submitMessage.classList.add("text-success");
+        submitMessage.classList.remove("text-error");
+        submitMessage.classList.remove("opacity-0");
+    };
+
     const form = document.getElementById("newsletter-form");
     form?.addEventListener("submit", async (e) => {
         const formData = new FormData(form);
@@ -39,6 +58,9 @@
 
             if (res.ok) {
                 form.reset();
+                handleSuccess();
+            } else {
+                handleEmailError(res);
             }
         }
     });
