@@ -14,6 +14,7 @@ export default {
                 mono: ["iA Writer Mono", ...defaultTheme.fontFamily.mono],
             },
             colors: {
+                input: "var(--input)",
                 background: "var(--background)",
                 "font-color": "var(--font-color)",
                 "font-color-muted": "var(--font-color-muted)",
@@ -22,6 +23,8 @@ export default {
                 accent: "var(--accent)",
                 interactive: "var(--interactive)",
                 "interactive-active": "var(--interactive-active)",
+                success: "var(--success)",
+                error: "var(--error)",
                 gradient: {
                     dev1: "var(--dev1)",
                     dev2: "var(--dev2)",
@@ -39,5 +42,6 @@ export default {
             },
         },
     },
+    safelist: ["opacity-100", "text-success", "text-error"],
     plugins: [require("@tailwindcss/typography"), require("./src/lib/helpers/fontVariationPlugin")],
 };
