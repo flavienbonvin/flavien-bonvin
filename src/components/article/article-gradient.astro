@@ -44,14 +44,14 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 ---
 
 <section
-    class={`flex h-80 mb-8 flex-col items-center relative justify-center rounded-lg text-center font-semibold ${gradientClasses}`}
+    class={`flex h-80 mb-8 flex-col overflow-x-hidden items-center relative justify-center rounded-lg text-center font-semibold ${gradientClasses}`}
 >
     <div class="noise absolute inset-0 rounded-lg opacity-50 brightness-100 contrast-150"></div>
     {
         Astro.props.article.data.tags
             .slice(0, 3)
             .map((tag) => (
-                <span class="z-10 text-6xl text-white/80 selection:text-white/80 dark:text-white/60 selection:dark:text-white/60">
+                <span class="z-10 text-5xl text-white/80 selection:text-white/80 sm:text-6xl dark:text-white/60 selection:dark:text-white/60">
                     {tag}
                 </span>
             ))
