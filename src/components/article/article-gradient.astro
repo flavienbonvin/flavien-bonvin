@@ -50,7 +50,11 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
     {
         Astro.props.article.data.tags
             .slice(0, 3)
-            .map((tag) => <span class="z-10 text-6xl text-white/80 dark:text-white/60">{tag}</span>)
+            .map((tag) => (
+                <span class="z-10 text-6xl text-white/80 selection:text-white/80 dark:text-white/60 selection:dark:text-white/60">
+                    {tag}
+                </span>
+            ))
     }
 </section>
 
