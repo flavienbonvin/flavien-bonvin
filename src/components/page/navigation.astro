@@ -4,10 +4,6 @@ import { PATHS } from "const";
 const { pathname } = Astro.url;
 const navLinks = [
     {
-        href: PATHS.home,
-        text: "Home",
-    },
-    {
         href: PATHS.dev,
         text: "Dev",
     },
@@ -23,13 +19,17 @@ const navLinks = [
 ---
 
 <nav class="w-full py-6">
-    <ul class="flex gap-4">
+    <ul class="flex items-baseline gap-4">
+        <li
+            class="mr-3 font-mono text-xl text-accent transition-transform duration-150 hover:scale-[1.02]"
+        >
+            <a href={PATHS.home}>Flavien</a>
+        </li>
         {
             navLinks.map(({ href, text }) => (
-                <li>
+                <li class="font-serif">
                     <a
                         class:list={[
-                            "font-serif",
                             href === PATHS.dev &&
                                 pathname.includes(href) &&
                                 "font-semibold underline decoration-dev",
