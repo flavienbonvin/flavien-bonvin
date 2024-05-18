@@ -44,9 +44,10 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 ---
 
 <section
-    class={`flex h-80 mb-8 flex-col overflow-x-hidden items-center relative justify-center rounded-lg text-center font-semibold ${gradientClasses}`}
+    class={`flex h-80 mb-8 flex-col overflow-x-hidden items-center relative justify-center rounded-xl text-center font-semibold ${gradientClasses}`}
 >
-    <div class="noise absolute inset-0 rounded-lg opacity-50 brightness-100 contrast-150"></div>
+    <div class="noise absolute inset-0 rounded-xl opacity-60 brightness-100 contrast-150"></div>
+    <div class="duck absolute inset-0 rounded-xl bg-cover bg-center bg-no-repeat opacity-30"></div>
     {
         Astro.props.article.data.tags
             .slice(0, 3)
@@ -61,5 +62,9 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 <style>
     .noise {
         background-image: url("/noise.svg");
+    }
+
+    .duck {
+        background-image: url("/duck.png");
     }
 </style>
