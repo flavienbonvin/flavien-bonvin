@@ -1,0 +1,109 @@
+---
+title: New blog for 2024
+description: I have built a new blog for 2024. It's a custom-made Astro website with Tailwind CSS and the Resend newsletter platform.
+category: dev
+publicationDate: 2024-05-20
+tags: [blog, astro, tailwind]
+ogImage: ./meta/new-blog-2024.png
+---
+
+import Colors from "@components/content/colors.astro";
+import Fonts from "@components/content/fonts.astro";
+
+I've been troubled by something for quite some time now: how can I consider myself a frontend engineer if I don't have a custom-built blog? Relying on an external platform started to leave a bitter taste in my mouth.
+
+That's why I decided, at the start of this year, to build my own custom blog. I began my blogging adventure in 2019 by writing on Medium, like many others. In 2021, I moved to Ghost because I wanted my space on the Internet. Finally, in 2024, it's time to have my state-of-the-art, blazing-fast, and custom-built blog.
+
+This article will go through some of the reasons that pushed me to create this new blog, the different features I wanted to include, and finally, how I built it.
+
+## Why a Custom Blog?
+
+I've been relying on third-party platforms since the beginning of my blogging journey. Both Medium and Ghost were fine, but no longer suited my needs. You might ask, “How does it matter that you haven't published anything for nine months?”
+
+It hurts, but you're right. I've been quiet for a long time, and this wasn't because I was preparing something big. Work and life took over, and I had less time to focus on my blog. Moreover, the current design of my blog wasn't bringing me joy anymore. Joy is an important motivation for me, and I wasn't getting enough of it.
+
+Ghost is a great blogging platform. However, I wasn't pleased by how themes are customizable, and I started to find my blog outdated. Additionally, the pricing was difficult to justify at $300 per year — this doesn't cover the cost of the domain name.
+
+### Custom Component Integration
+
+Ghost is great for publishing regular blog articles, but it was also limiting for me. It's not possible to integrate custom components or media besides images or video.
+
+Integrating custom components is something that I have wanted to do for quite some time. They could be used to demonstrate programming behavior, add some jazz to the articles, and avoid relying on images that aren't that fun.
+
+I have to give credit to the mind-boggling work [Joshua Comeau](https://www.joshwcomeau.com/css/center-a-div/) produces on his blog. I can only dream of reaching the level of quality he releases in each article. Anyway, the sky is now the limit, and I can do whatever I want.
+
+### Also, it's Freaking Fun
+
+Finally, I like programming and testing things. Building a blog helped me get rid of a hitch I had for a long time. I was able to experiment with new technologies (for me), spend too much time on color and font selection, and, of course, include ducks.
+
+## Why _this_ custom blog?
+
+Let's now dig a little deeper into the nitty-gritty of this new blog. This is the part that I'm most excited about.
+
+Let's start with the basics: the initial requirements. Surprisingly, these haven't evolved much since the start of the project.
+
+-   **Simple and straight to the point**. I wanted a simple blog with a limited-set navigation button and an easy way to navigate around. In the end, a blog is a blog, and the content of the article is where the value lies. The reading experience is what's important.
+-   **No images with the articles**. I'm getting tired of generic images that are put alongside programming articles. They always feel out of place and don't bring much value to the reader. I have to plead guilty to this, as I did the same on my old blog.
+-   **Fast AF**. Unless I use custom components, a blog is just text and images. The content is static, and having a fast blog was not a bonus but a hard requirement.
+-   **Differentiate between dev and non-dev articles**. I like to write about many topics. Occasionally, it's a dev-related article, and other times it's about coffee or a productivity tool I tried. Visitors should be able to know what they are looking at in a blink.
+
+### Color, Fonts, and Ducks
+
+I have 46 different colors on my blog—23 for the light theme and 23 for the dark theme. I'm not sure yet if this will come back to bite me in the future. Only time will tell. To be fair, 12 of those colors are used for the gradients present at the top of the article
+
+Did you noticed the ducks? 🦆
+
+<Colors />
+
+Fonts—I love fonts. I spend a lot of time looking at fonts and imagining how they can be used. From the beginning of this blog, I wanted to use a serif font for the content of the blog. Serif fonts are readable and work well for long-format text. There's a reason why books are still printed using serif fonts and not Inter (no hate for Inter; it's a great font). After a lot of searching, I landed on the “Bitter” slab serif font, which I find stunning.
+
+Having only one font was not sufficient; a sans-serif font was also required. I wanted something impactful that caught your eye when you visited the blog. A grotesk font was the logical choice, since the right one can provide a great contrast with the Bitter font. After testing more than 30 fonts, I chose the Space Grotesk font. The lower case 'g' is absolutely stunning with its long tail!
+
+Finally, I need a mono font for the code snippet. I use the [Cartograph](https://connary.com/cartograph.html) font on VS Code, which is a paid font. A free font, available on Google Font was required. I remember the beautiful [mono font](https://fontsource.org/fonts/ia-writer-mono) used on iA Writer and decided to use this one here.
+
+<Fonts />
+
+You might have noticed the duck in the gradient at the top of the article. I like ducks; ducks are cool. I wanted to have some on my blog 🦆
+
+### Giving Credit Where Credit Is Due
+
+I would not have been able to build this blog without some inspiration I found around the web. Here are the different websites I drew inspiration from:
+
+-   [Dan Abramov's](https://overreacted.io/), his blog name is as clever as his articles are brilliant. It's also the main source of inspiration for the layout and design of my blog.
+-   [Pedro's](https://ped.ro/), I bookmarked Pedro's article where he introduces his new blog. The font choice and the subtle animation were so well executed that they stuck with me since.
+-   [Lee Robinson](https://leerob.io/), his work at Vercel needs no introduction, and neither does his blog. The simplicity and the integration of some dynamic data (like article views) sparked something in me.
+-   [Josh Comeau](https://www.joshwcomeau.com/), I already mentioned his blog before, but I'll do it again. In my opinion, he is the gold standard for dev articles and deserves all the success he's having.
+
+## How I built this blog?
+
+I won't spend too much time discussing the details of the stack I used to build this blog. This might seem counterintuitive for a frontend engineer to only spend a few lines on the stack of his creation.
+
+Well, in reality, the stack is quite underwhelming. I wanted a fast blog that would allow me to integrate custom components into the articles. “Integrate custom components” implies that there aren't any custom components the rest of the time. So plain HTML and CSS (with a touch of vanilla JavaScript) are used on most pages.
+
+This is why I opted for the amazing [Astro](https://astro.build/) framework. By default, Astro sends no JavaScript to the client, making the site static. Which is great for performance. However, if the need arises, it's possible to integrate components from the most popular frameworks within its page. This allows for an infinite amount of personalization.
+
+Astro checked all my requirements: it's fast, extensible, and the syntax is really pleasing to work with. This was my first choice, and I don't regret it one bit.
+
+I used the following packages to make everything happen:
+
+-   [Tailwind CSS](https://tailwindcss.com/), in my opinion, there is no better option on the market.
+-   [Resend](https://resend.com), is my newsletter management platform, where I use their [broadcast feature](https://resend.com/blog/send-marketing-emails-with-resend-broadcasts) to manually send newsletters for every new articles.
+-   [Zod](https://zod.dev/), is used to ensure that the emails you enter in the newsletter subscription form are valid — which only happens on the server.
+-   [Fontsource](https://fontsource.org/), is used to manage the fonts.
+-   The whole project is built in [TypeScript](https://www.typescriptlang.org/).
+
+Finally, the blog is open source, so feel free to snoop around my code.
+
+🦆 [Everything is available on GitHub](https://github.com/flavienbonvin/flavien-bonvin).
+
+## Wrapping Up
+
+As you might tell, I put great effort into making this blog my little piece of the Internet. I wanted to build a blog that I could be proud of and that would bring back the joy of writing.
+
+There are still some things that aren't 100% right in my mind. However, it's better to launch the blog than nitpicking on details that either don't matter or won't be noticed. Also, the renewal of my Ghost subscription was approaching.
+
+I have many ideas for the future of my blog. I want to write about my experience building the Proton desktop application in Electron, explain the most interesting aspects of building a blog with Astro, and do deep dives into some React primitives we use daily.
+
+That's why I encourage anyone who reached the end of this article to subscribe to the newsletter. You'll receive an email for every new article I publish, and nothing more. If you're reluctant to give me your email, I can suggest that you use the [RSS feed](https://www.flavienbonvin.com/rss.xml) of the blog.
+
+If not for me, do it for the 🦆
