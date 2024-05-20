@@ -11,7 +11,7 @@ import db from "@astrojs/db";
 // https://astro.build/config
 export default defineConfig({
     output: "hybrid",
-    site: "https://flavien-bonvin.vercel.app/",
+    site: "https://flavienbonvin.com",
     integrations: [
         tailwind(),
         sitemap(),
