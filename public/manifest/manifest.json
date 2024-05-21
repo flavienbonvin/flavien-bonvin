@@ -1,0 +1,82 @@
+{
+    "orientation": "any",
+    "display": "standalone",
+    "dir": "auto",
+    "lang": "en-US",
+    "name": "Flavien Bonvin",
+    "description": "Explore the world of web development and beyond with Flavien Bonvin. From coding to coffee machines, productivity tools to life adventures, discover Flavien's insights and passions.",
+    "short_name": "Flavien",
+    "start_url": "https://flavienbonvin.com/",
+    "scope": "https://flavienbonvin.com/",
+    "theme_color": "#d9d9d9",
+    "background_color": "#161616",
+    "icons": [
+        {
+            "purpose": "maskable",
+            "sizes": "512x512",
+            "src": "/manifest/icon512_maskable.png",
+            "type": "image/png"
+        },
+        {
+            "purpose": "any",
+            "sizes": "512x512",
+            "src": "/manifest/icon512_rounded.png",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/manifest/flavien_bonvin_article_dark.png",
+            "sizes": "1523x1081",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Article detail page with dark theme"
+        },
+        {
+            "src": "/manifest/flavien_bonvin_article.png",
+            "sizes": "1523x1081",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Article detail page with light theme"
+        },
+        {
+            "src": "/manifest/flavien_bonvin_home_dark.png",
+            "sizes": "1523x1081",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Home page with dark theme"
+        },
+        {
+            "src": "/manifest/flavien_bonvin_home.png",
+            "sizes": "1523x1081",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Home page with light theme"
+        },
+        {
+            "src": "/manifest/flavien_bonvin_mobile_article_dark.png",
+            "sizes": "707x1010",
+            "type": "image/png",
+            "label": "Article detail page with dark theme"
+        },
+        {
+            "src": "/manifest/flavien_bonvin_mobile_article.png",
+            "test": "flavien_bonvin_mobile_aricle",
+            "sizes": "707x1010",
+            "type": "image/png",
+            "label": "Article detail page with light theme"
+        },
+        {
+            "src": "/manifest/flavien_bonvin_mobile_home_dark.png",
+            "sizes": "707x1010",
+            "type": "image/png",
+            "label": "Home page with dark theme"
+        },
+        {
+            "src": "/manifest/flavien_bonvin_mobile_home.png",
+            "sizes": "707x1010",
+            "type": "image/png",
+            "label": "Home page with light theme"
+        }
+    ]
+}

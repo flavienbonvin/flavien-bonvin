@@ -7,6 +7,7 @@ import "@fontsource/ia-writer-mono";
 
 import { ViewTransitions } from "astro:transitions";
 import { CONFIG } from "const";
+import FaviconLayout from "./favicon-layout.astro";
 ---
 
 <!doctype html>
@@ -19,8 +20,8 @@ import { CONFIG } from "const";
         <meta property="og:site_name" content=`${CONFIG.author}` />
         <slot name="head" />
 
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+        <FaviconLayout />
+
         <link rel="sitemap" href="/sitemap-index.xml" />
         <link
             rel="alternate"
