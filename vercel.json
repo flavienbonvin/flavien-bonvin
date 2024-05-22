@@ -23,7 +23,7 @@
                 },
                 {
                     "key": "X-XSS-Protection",
-                    "value": "1; mode=block"
+                    "value": "0"
                 },
                 {
                     "key": "Referrer-Policy",
@@ -32,6 +32,14 @@
                 {
                     "key": "Strict-Transport-Security",
                     "value": "max-age=31536000; includeSubDomains; preload"
+                },
+                {
+                    "key": "Permissions-Policy",
+                    "value": "camera=(), microphone=(), geolocation=()"
+                },
+                {
+                    "key": "Feature-Policy",
+                    "value": "camera=(), microphone=(), geolocation=()"
                 }
             ]
         }
