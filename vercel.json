@@ -39,7 +39,7 @@
                 },
                 {
                     "key": "Feature-Policy",
-                    "value": "camera=(), microphone=(), geolocation=()"
+                    "value": "camera 'none'; microphone 'none'; geolocation 'none'"
                 }
             ]
         }
