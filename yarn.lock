@@ -2373,9 +2373,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:4.8.6":
-  version: 4.8.6
-  resolution: "astro@npm:4.8.6"
+"astro@npm:4.8.7":
+  version: 4.8.7
+  resolution: "astro@npm:4.8.7"
   dependencies:
     "@astrojs/compiler": "npm:^2.8.0"
     "@astrojs/internal-helpers": "npm:0.4.0"
@@ -2446,7 +2446,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/4d5db593524f305a178973fd2044604a08a45b07031bcbac9d1550a88ef363c7ff398e9f8c7cf0d1ed07dc783816f6add4c98e78b8c23bbaa510e157965b2241
+  checksum: 10c0/95643cb713802aaf53116ad807b859c99df8d1fd3d675d28a4546f1e1857f3bbe1588f06c51cda8eaddbe55558bfd73380345520dc6d567b77c7037ba5df911f
   languageName: node
   linkType: hard
 
@@ -3877,7 +3877,7 @@ __metadata:
     "@tailwindcss/typography": "npm:^0.5.13"
     "@types/markdown-it": "npm:^14.1.1"
     "@types/sanitize-html": "npm:^2.11.0"
-    astro: "npm:4.8.6"
+    astro: "npm:4.8.7"
     astro-embed: "npm:^0.7.2"
     astro-icon: "npm:^1.1.0"
     markdown-it: "npm:^14.1.0"
