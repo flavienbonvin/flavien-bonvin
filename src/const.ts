@@ -20,7 +20,7 @@ export const CONFIG = {
     devDescription: "Mastering web development. Join my journey.",
     beyondDescription: "Life outside of coding. Discover my interests.",
     description:
-        "Explore the world of web development and beyond with Flavien Bonvin. From coding to coffee machines, productivity tools to life adventures, discover Flavien's insights and passions.",
+        "Explore the world of web development and beyond of Flavien Bonvin. From coding to coffee machines, and productivity tools, discover Flavien's passions.",
 } as const;
 
 export const articleCardWidth = "sm:w-5/6 md:w-4/5";
