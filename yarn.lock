@@ -145,9 +145,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/db@npm:0.11.3":
-  version: 0.11.3
-  resolution: "@astrojs/db@npm:0.11.3"
+"@astrojs/db@npm:0.11.4":
+  version: 0.11.4
+  resolution: "@astrojs/db@npm:0.11.4"
   dependencies:
     "@astrojs/studio": "npm:0.1.0"
     "@libsql/client": "npm:^0.6.0"
@@ -164,7 +164,7 @@ __metadata:
     strip-ansi: "npm:^7.1.0"
     yargs-parser: "npm:^21.1.1"
     zod: "npm:^3.23.8"
-  checksum: 10c0/1471691b383bf975fae67cb355c513155510647284a639c0be147561e270d213e6bca243f210e8fb90692fc33f113b631f2a95302cd501ba303882f55f0acff4
+  checksum: 10c0/de52b7c6a3e0eb7631e780d8c7347710f57e47713c4bda432a25b45395b699667be2d4854c823283eaaec7eb1792463352d876dc8ece97f3d21728bc7580b223
   languageName: node
   linkType: hard
 
@@ -3865,7 +3865,7 @@ __metadata:
   resolution: "flavien-bonvin@workspace:."
   dependencies:
     "@astrojs/check": "npm:0.7.0"
-    "@astrojs/db": "npm:0.11.3"
+    "@astrojs/db": "npm:0.11.4"
     "@astrojs/mdx": "npm:3.0.1"
     "@astrojs/rss": "npm:4.0.6"
     "@astrojs/sitemap": "npm:^3.1.4"
