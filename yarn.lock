@@ -235,9 +235,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/mdx@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@astrojs/mdx@npm:3.0.0"
+"@astrojs/mdx@npm:3.0.1":
+  version: 3.0.1
+  resolution: "@astrojs/mdx@npm:3.0.1"
   dependencies:
     "@astrojs/markdown-remark": "npm:5.1.0"
     "@mdx-js/mdx": "npm:^3.0.1"
@@ -256,7 +256,7 @@ __metadata:
     vfile: "npm:^6.0.1"
   peerDependencies:
     astro: ^4.8.0
-  checksum: 10c0/2494a924cb7cf063b9cac625218d7b3a782e8bd4e642eb6a504934c3c88772e08fa96ea273dc355b4a7a556841171689952cf5a3acf9ad18c6e0a5892e2b4ba5
+  checksum: 10c0/2641fe31439246ba93c401b84641320ac43dffaaf52d409d1f11123b513a2592cc8514e53046077774ff8c6fd626b7b5c42222defad7f0319ddd4bc9aea70c3f
   languageName: node
   linkType: hard
 
@@ -3866,7 +3866,7 @@ __metadata:
   dependencies:
     "@astrojs/check": "npm:0.7.0"
     "@astrojs/db": "npm:0.11.3"
-    "@astrojs/mdx": "npm:3.0.0"
+    "@astrojs/mdx": "npm:3.0.1"
     "@astrojs/rss": "npm:4.0.6"
     "@astrojs/sitemap": "npm:^3.1.4"
     "@astrojs/tailwind": "npm:^5.1.0"
