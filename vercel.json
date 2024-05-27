@@ -11,8 +11,28 @@
     ],
     "redirects": [
         {
-            "source": "/reduce-next-js-bundle",
+            "source": "/reduce-next-js-bundle/",
             "destination": "/articles/reduce-next-js-bundle",
+            "permanent": true
+        },
+        {
+            "source": "/amazing-nextjs-libraries-that-makes-coding-easier/",
+            "destination": "/articles/amazing-nextjs-libraries-that-makes-coding-easier",
+            "permanent": true
+        },
+        {
+            "source": "/what-makes-the-us-ansi-keyboard-is-the-best-layout-for-developers/",
+            "destination": "/articles/what-makes-the-us-ansi-keyboard-is-the-best-layout-for-developers",
+            "permanent": true
+        },
+        {
+            "source": "/quit-spotlight-and-alfred-10-best-raycast-extensions-for-web-developers/",
+            "destination": "/articles/quit-spotlight-and-alfred-10-best-raycast-extensions-for-web-developers",
+            "permanent": true
+        },
+        {
+            "source": "/how-tana-made-me-choose-obsidian-as-my-note-taking-app-and-its-amazing/",
+            "destination": "/articles/how-tana-made-me-choose-obsidian-as-my-note-taking-app-and-its-amazing",
             "permanent": true
         }
     ],
