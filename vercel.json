@@ -9,6 +9,13 @@
             "destination": "https://plausible.io/api/event"
         }
     ],
+    "redirects": [
+        {
+            "source": "/reduce-next-js-bundle",
+            "destination": "/articles/reduce-next-js-bundle",
+            "permanent": true
+        }
+    ],
     "headers": [
         {
             "source": "/(.*)",
