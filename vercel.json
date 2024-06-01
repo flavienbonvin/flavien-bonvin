@@ -70,7 +70,7 @@
                 },
                 {
                     "key": "Content-Security-Policy",
-                    "value": "default-src 'self'; script-src 'self' 'sha256-yrGBEKKupj26bSbdQT318cTNkyIVv4P2yEkTVw5S2fs=' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' i.ytimg.com;  frame-ancestors 'none'; object-src 'none';"
+                    "value": "default-src 'self'; script-src 'self' 'sha256-yrGBEKKupj26bSbdQT318cTNkyIVv4P2yEkTVw5S2fs=' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' i.ytimg.com data:;  frame-ancestors 'none'; object-src 'none';"
                 }
             ]
         }
