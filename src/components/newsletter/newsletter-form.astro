@@ -23,45 +23,65 @@
     </form>
 </div>
 
-<script is:inline>
-    const submitMessage = document.getElementById("submit-message");
-    const handleEmailError = async (res) => {
-        const { message } = await res.json();
-        submitMessage.textContent = message ?? "An error occured with your email";
-        submitMessage.classList.add("opacity-100");
-        submitMessage.classList.add("text-error");
-        submitMessage.classList.remove("text-success");
-        submitMessage.classList.remove("opacity-0");
-    };
+<script>
+    function newsletterFormHandling() {
+        const form = document.getElementById("newsletter-form") as HTMLFormElement;
+        const submitMessage = document.getElementById("submit-message");
 
-    const handleSuccess = () => {
-        submitMessage.textContent = "🦆 You've been subscribed!";
-        submitMessage.classList.add("opacity-100");
-        submitMessage.classList.add("text-success");
-        submitMessage.classList.remove("text-error");
-        submitMessage.classList.remove("opacity-0");
-    };
-
-    const form = document.getElementById("newsletter-form");
-    form?.addEventListener("submit", async (e) => {
-        const formData = new FormData(form);
-        e.preventDefault();
-
-        const email = formData.get("email");
-        if (email) {
-            const res = await fetch("/api/newsletter", {
-                method: "POST",
-                body: JSON.stringify({
-                    email,
-                }),
-            });
-
-            if (res.ok) {
-                form.reset();
-                handleSuccess();
-            } else {
-                handleEmailError(res);
+        const handleEmailError = async (res: Response) => {
+            const { message } = await res.json();
+            if (!submitMessage) {
+                return;
             }
-        }
-    });
+
+            submitMessage.textContent = message ?? "An error occured with your email";
+            submitMessage.classList.add("opacity-100", "text-error");
+            submitMessage.classList.remove("text-success", "opacity-0");
+        };
+
+        const handleSuccess = () => {
+            if (!submitMessage) {
+                return;
+            }
+
+            submitMessage.textContent = "🦆 You've been subscribed!";
+            submitMessage.classList.add("opacity-100", "text-success");
+            submitMessage.classList.remove("text-error", "opacity-0");
+        };
+
+        const handleForm = async (e: any) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            const email = formData.get("email");
+            if (email) {
+                const res = await fetch("/api/newsletter", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        email,
+                    }),
+                });
+
+                if (res.ok) {
+                    form.reset();
+                    handleSuccess();
+                } else {
+                    handleEmailError(res);
+                }
+            }
+        };
+
+        form?.addEventListener("submit", handleForm);
+
+        document.addEventListener(
+            "astro:before-swap",
+            () => {
+                form?.removeEventListener("submit", handleForm);
+            },
+            { once: true },
+        );
+    }
+
+    newsletterFormHandling();
+    document.addEventListener("astro:after-swap", newsletterFormHandling);
 </script>
