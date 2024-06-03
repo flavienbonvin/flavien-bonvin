@@ -3847,7 +3847,7 @@ __metadata:
     astro-icon: "npm:^1.1.0"
     markdown-it: "npm:^14.1.0"
     prettier-plugin-astro: "npm:^0.14.0"
-    prettier-plugin-tailwindcss: "npm:^0.5.14"
+    prettier-plugin-tailwindcss: "npm:^0.6.1"
     resend: "npm:^3.2.0"
     sanitize-html: "npm:^2.13.0"
     tailwindcss: "npm:^3.4.3"
@@ -6646,9 +6646,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-tailwindcss@npm:^0.5.14":
-  version: 0.5.14
-  resolution: "prettier-plugin-tailwindcss@npm:0.5.14"
+"prettier-plugin-tailwindcss@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "prettier-plugin-tailwindcss@npm:0.6.1"
   peerDependencies:
     "@ianvs/prettier-plugin-sort-imports": "*"
     "@prettier/plugin-pug": "*"
@@ -6697,7 +6697,7 @@ __metadata:
       optional: true
     prettier-plugin-svelte:
       optional: true
-  checksum: 10c0/9857873cb8cb0d9b7b895806e7f6265617a08805691125d282767dffb1cb3d2c4c662f2b9168ef391edc40dff1b81beb99eee488f96544e01b8924db694f2299
+  checksum: 10c0/533006f456e4b4da43e7fc7d5218e464a3d9f32ae47deb2d654e51436cf3d3956ccf4e3b7ccacb71f47ab5b271668907c1f018ba9e5afa615d94c056d68c8630
   languageName: node
   linkType: hard
 
