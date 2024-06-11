@@ -16,6 +16,7 @@ export const URLS = {
 export const CONFIG = {
     author: "Flavien Bonvin",
     twitter: "FlavienBonvin",
+    email: "hello@flavienbonvin.com",
     homeDescription: "Insights on coding and beyond. Explore my world.",
     devDescription: "Mastering web development. Join my journey.",
     beyondDescription: "Life outside of coding. Discover my interests.",
