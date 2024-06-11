@@ -22,7 +22,7 @@ export const GET = async ({ site }: { site: string | undefined }) => {
         site: site,
         items: articles.map((article) => ({
             title: article.data.title,
-            author: CONFIG.email,
+            author: `${CONFIG.email} (${CONFIG.author})`,
             pubDate: article.data.editDate ?? article.data.publicationDate,
             description: article.data.description,
             content: sanitize(parser.render(article.body)),
