@@ -43,7 +43,7 @@ const gradientFromColor = () => {
 const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 ---
 
-<section
+<div
     class={`flex h-80 mb-8 flex-col overflow-x-hidden items-center relative justify-center rounded-xl text-center font-semibold ${gradientClasses}`}
 >
     <div class="noise absolute inset-0 rounded-xl opacity-60 brightness-100 contrast-150"></div>
@@ -57,7 +57,7 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
                 </span>
             ))
     }
-</section>
+</div>
 
 <style>
     .noise {
