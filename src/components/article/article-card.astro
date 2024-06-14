@@ -23,7 +23,7 @@ const isHome = Astro.url.pathname === "/";
         <h2 class="text-balance text-2xl font-medium tracking-tighter">
             {title}
         </h2>
-        <section class="flex items-center gap-3 font-serif text-sm sm:text-base">
+        <div class="flex items-center gap-3 font-serif text-sm sm:text-base">
             <time class="text-font-color-muted" datetime={formatDateForDatetime(publicationDate)}
                 >{formattedPubTime}</time
             >
@@ -50,7 +50,7 @@ const isHome = Astro.url.pathname === "/";
                     </>
                 )
             }
-        </section>
+        </div>
         <ReadArticle />
     </article>
 </a>

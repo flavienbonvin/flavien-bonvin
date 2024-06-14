@@ -13,8 +13,8 @@ interface Props {
 ---
 
 <PageHeader title={Astro.props.title}>{Astro.props.pageDescription}</PageHeader>
-<section class="mb-20 flex flex-col gap-9">
+<div class="mb-20 flex flex-col gap-9">
     {Astro.props.articles.map((article) => <ArticleCard {article} />)}
-</section>
+</div>
 <Divider variant="light" />
 <NewsletterForm />

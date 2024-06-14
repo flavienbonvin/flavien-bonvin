@@ -26,6 +26,8 @@ type Props = CollectionEntry<"blog">;
 
 const article = Astro.props;
 const { Content } = await article.render();
+
+const formattedTitle = encodeURI(article.data.title);
 ---
 
 <PageLayout>
@@ -40,7 +42,7 @@ const { Content } = await article.render();
             >{CONFIG.author} &middot; {new Date().getFullYear()}</a
         >
         <ExternalLink
-            href=`http://twitter.com/share?text=${article.data.title}&url=${Astro.request.url}`
+            href=`http://twitter.com/share?text=${formattedTitle}&url=${Astro.request.url}`
             >Share on 𝕏</ExternalLink
         >
     </div>
