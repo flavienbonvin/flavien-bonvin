@@ -3,6 +3,7 @@ import { getFormattedDate } from "@helpers/article";
 import type { CollectionEntry } from "astro:content";
 import H1 from "../atoms/h1.astro";
 import MiddleDot from "../atoms/middle-dot.astro";
+import { formatDateForDatetime } from "@helpers/date";
 
 interface Props {
     article: CollectionEntry<"blog">;
@@ -17,7 +18,7 @@ const formattedEditDate = getFormattedDate(article.data.editDate);
     <H1 classes="mb-2 text-4xl sm:text-5xl leading-tight tracking-tighter">{article.data.title}</H1>
     <time
         class="font-serif text-font-color-muted"
-        datetime={article.data.publicationDate.toDateString()}>{formattedPubDate}</time
+        datetime={formatDateForDatetime(article.data.publicationDate)}>{formattedPubDate}</time
     >
     {
         article.data.editDate && formattedEditDate && (
@@ -25,7 +26,7 @@ const formattedEditDate = getFormattedDate(article.data.editDate);
                 <MiddleDot />
                 <time
                     class="font-serif text-font-color-muted"
-                    datetime={article.data.editDate.toDateString()}
+                    datetime={formatDateForDatetime(article.data.editDate)}
                 >
                     Updated {formattedEditDate}
                 </time>
