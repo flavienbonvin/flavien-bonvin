@@ -9,14 +9,14 @@
         "format": "npx prettier -y --write ."
     },
     "dependencies": {
-        "@astrojs/db": "0.11.5",
-        "@astrojs/mdx": "3.1.0",
-        "@astrojs/rss": "4.0.6",
-        "@astrojs/vercel": "7.7.0",
+        "@astrojs/db": "0.11.6",
+        "@astrojs/mdx": "3.1.2",
+        "@astrojs/rss": "4.0.7",
+        "@astrojs/vercel": "7.7.2",
         "@fontsource-variable/space-grotesk": "^5.0.18",
         "@fontsource/bitter": "^5.0.18",
         "@fontsource/ia-writer-mono": "^5.0.11",
-        "astro": "4.10.2",
+        "astro": "4.11.1",
         "astro-embed": "^0.7.2",
         "astro-icon": "^1.1.0",
         "markdown-it": "^14.1.0",
@@ -26,15 +26,15 @@
     },
     "devDependencies": {
         "@astrojs/check": "0.7.0",
-        "@astrojs/sitemap": "^3.1.5",
+        "@astrojs/sitemap": "3.1.6",
         "@astrojs/tailwind": "^5.1.0",
         "@tailwindcss/typography": "^0.5.13",
         "@types/markdown-it": "^14.1.1",
         "@types/sanitize-html": "^2.11.0",
         "prettier-plugin-astro": "^0.14.0",
-        "prettier-plugin-tailwindcss": "^0.6.4",
+        "prettier-plugin-tailwindcss": "^0.6.5",
         "tailwindcss": "^3.4.4",
-        "typescript": "^5.4.5"
+        "typescript": "^5.5.2"
     },
-    "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+    "packageManager": "yarn@4.2.2+sha256.1aa43a5304405be7a7cb9cb5de7b97de9c4e8ddd3273e4dad00d6ae3eb39f0ef"
 }
