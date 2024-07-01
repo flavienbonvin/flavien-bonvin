@@ -145,11 +145,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/db@npm:0.11.6":
-  version: 0.11.6
-  resolution: "@astrojs/db@npm:0.11.6"
+"@astrojs/db@npm:0.11.7":
+  version: 0.11.7
+  resolution: "@astrojs/db@npm:0.11.7"
   dependencies:
-    "@astrojs/studio": "npm:0.1.0"
+    "@astrojs/studio": "npm:0.1.1"
     "@libsql/client": "npm:^0.6.2"
     async-listen: "npm:^3.0.1"
     ci-info: "npm:^4.0.0"
@@ -164,7 +164,7 @@ __metadata:
     strip-ansi: "npm:^7.1.0"
     yargs-parser: "npm:^21.1.1"
     zod: "npm:^3.23.8"
-  checksum: 10c0/3886aaedaa4952f7b351ada017b3efe03f990deacb38e5439500e5957aa562c15a7a2c226232129383fc19e7395892dcd3732c9e0a824f6e5d53748cd24e114e
+  checksum: 10c0/b44ef2a946725869b8bf09b179460db5d116d453175f7e04da3ea85571f7dc289f61f25cf0ef84c383f772458184d39412d2e2b271a52c2c6619a7a94607e11d
   languageName: node
   linkType: hard
 
@@ -290,14 +290,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/studio@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@astrojs/studio@npm:0.1.0"
+"@astrojs/studio@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@astrojs/studio@npm:0.1.1"
   dependencies:
     ci-info: "npm:^4.0.0"
     kleur: "npm:^4.1.5"
     ora: "npm:^8.0.1"
-  checksum: 10c0/be8fbf72e48b02e5de7da3c31ad26f722ed7fe19b7fead566b7046b8400b6cfbc727ee3f0912f20882eb63068d513444b5fa7db476a380494c3abd2a0d145c7f
+  checksum: 10c0/5bf2b097e7d9b91921fb465713f0b90b533d1218bb68965323760939fa274de8a79c3e4039a21e37cdfb84b043035c5e627dfe2d5b38f8f1b75d2263443c2613
   languageName: node
   linkType: hard
 
@@ -3602,7 +3602,7 @@ __metadata:
   resolution: "flavien-bonvin@workspace:."
   dependencies:
     "@astrojs/check": "npm:0.7.0"
-    "@astrojs/db": "npm:0.11.6"
+    "@astrojs/db": "npm:0.11.7"
     "@astrojs/mdx": "npm:3.1.2"
     "@astrojs/rss": "npm:4.0.7"
     "@astrojs/sitemap": "npm:3.1.6"
