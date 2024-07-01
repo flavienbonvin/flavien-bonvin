@@ -3620,7 +3620,7 @@ __metadata:
     markdown-it: "npm:^14.1.0"
     prettier-plugin-astro: "npm:^0.14.0"
     prettier-plugin-tailwindcss: "npm:^0.6.5"
-    resend: "npm:^3.3.0"
+    resend: "npm:^3.4.0"
     sanitize-html: "npm:^2.13.0"
     tailwindcss: "npm:^3.4.4"
     typescript: "npm:^5.5.2"
@@ -6732,12 +6732,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resend@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "resend@npm:3.3.0"
+"resend@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "resend@npm:3.4.0"
   dependencies:
     "@react-email/render": "npm:0.0.15"
-  checksum: 10c0/f9d12326f6fea361c2c4e79f106684bf1c46a20ad751401f296a98516c68523aa67ae381a62d423a49e0c5a47c83073bb830d5ebc9fe40a91408f7d773ca822d
+  checksum: 10c0/777bde19510f70991e336d40dcd8a90175b76435fc36bb60eaf8593b344ed4e32fd1375d25deeddb91004e01c021c06f7f7e106b4882f8839ab3388f86c10005
   languageName: node
   linkType: hard
 
