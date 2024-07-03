@@ -2,12 +2,13 @@
 import Footer from "@components/page/footer.astro";
 import Navigation from "@components/page/navigation.astro";
 import "@fontsource-variable/space-grotesk";
-import "@fontsource/bitter/latin.css";
 import "@fontsource/ia-writer-mono";
 
 import { ViewTransitions } from "astro:transitions";
 import { CONFIG } from "const";
 import FaviconLayout from "./favicon-layout.astro";
+import "../styles/fonts.css";
+import "../styles/theme.css";
 ---
 
 <!doctype html>
@@ -31,62 +32,6 @@ import FaviconLayout from "./favicon-layout.astro";
         />
 
         <ViewTransitions />
-
-        <style>
-            :root {
-                --input: oklch(20.21% 0 0);
-                --background: oklch(98.21% 0 0);
-                --font-color: oklch(31.03% 0 102.07);
-                --font-color-muted: oklch(61.21% 0 102.07);
-                --dev: oklch(78.89% 0.348 231.09);
-                --beyond: oklch(75.91% 0.227 32.82);
-                --accent: oklch(55.38% 0.14 179.65);
-                --interactive: oklch(91.38% 0 102.07);
-                --interactive-active: oklch(78.45% 0 102.07);
-                --dev1: oklch(78.89% 0.348 231.09);
-                --dev2: oklch(82% 0.448 216.09);
-                --dev3: oklch(72% 0.348 221.09);
-                --dev4: oklch(78% 0.248 211.09);
-                --dev5: oklch(80% 0.348 251.09);
-                --dev6: oklch(74% 0.448 261.09);
-                --beyond1: oklch(75.91% 0.227 32.82);
-                --beyond2: oklch(70% 0.327 37.82);
-                --beyond3: oklch(80% 0.127 27.82);
-                --beyond4: oklch(75% 0.227 17.82);
-                --beyond5: oklch(78% 0.127 47.82);
-                --beyond6: oklch(73% 0.327 52.82);
-                --success: oklch(75% 0.25 145);
-                --error: oklch(70% 0.25 27);
-            }
-
-            @media (prefers-color-scheme: dark) {
-                :root {
-                    --input: oklch(20.21% 0 0);
-                    --background: oklch(20.21% 0 0);
-                    --font-color: oklch(88.53% 0 0);
-                    --font-color-muted: oklch(69.31% 0 0);
-                    --dev: oklch(58.69% 0.744 208.67);
-                    --beyond: oklch(65.91% 0.2 43.19);
-                    --accent: oklch(53.72% 0.134 179.65);
-                    --interactive: oklch(39.66% 0 102.07);
-                    --interactive-active: oklch(48.28% 0 102.07);
-                    --dev1: oklch(58.69% 0.744 208.67);
-                    --dev2: oklch(70% 0.5 210);
-                    --dev3: oklch(48% 0.8 210);
-                    --dev4: oklch(60% 0.5 220);
-                    --dev5: oklch(65% 0.2 220);
-                    --dev6: oklch(60% 0.5 230);
-                    --beyond1: oklch(65.91% 0.2 43.19);
-                    --beyond2: oklch(70% 0.3 40);
-                    --beyond3: oklch(70% 0.1 45);
-                    --beyond4: oklch(65% 0.25 50);
-                    --beyond5: oklch(69% 0.15 38);
-                    --beyond6: oklch(72% 0.25 65);
-                    --success: oklch(65% 0.3 145);
-                    --error: oklch(60% 0.35 27);
-                }
-            }
-        </style>
 
         <meta name="theme-color" content="var(--background)" />
     </head>

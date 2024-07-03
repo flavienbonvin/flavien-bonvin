@@ -1,9 +1,9 @@
 ---
 import { getRecommendedArticles } from "@data/articles";
 import { getArticleLink, getFormattedDate } from "@helpers/article";
+import { formatDateForDatetime } from "@helpers/date";
 import type { BlogType } from "content/config";
 import ReadArticle from "./read-article.astro";
-import { formatDateForDatetime } from "@helpers/date";
 
 interface Props {
     category: BlogType;

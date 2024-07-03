@@ -10,7 +10,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Space Grotesk Variable", ...defaultTheme.fontFamily.sans],
-                serif: ["Bitter", ...defaultTheme.fontFamily.serif],
+                serif: ["Suisse Works", ...defaultTheme.fontFamily.serif],
                 mono: ["iA Writer Mono", ...defaultTheme.fontFamily.mono],
             },
             colors: {
@@ -43,5 +43,5 @@ export default {
         },
     },
     safelist: ["opacity-100", "text-success", "text-error"],
-    plugins: [require("@tailwindcss/typography"), require("./src/lib/helpers/fontVariationPlugin")],
+    plugins: [require("@tailwindcss/typography")],
 };
