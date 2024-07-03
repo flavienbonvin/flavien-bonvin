@@ -1503,6 +1503,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shikijs/core@npm:1.10.1":
+  version: 1.10.1
+  resolution: "@shikijs/core@npm:1.10.1"
+  checksum: 10c0/586711b6485833323937f1193635e1d7ffc63ac9e664aa3fef16c7583dfdbaf4362bb268712ebaba9113a96f871e6e1f993f1c8eb3f558353880a54e436002a9
+  languageName: node
+  linkType: hard
+
 "@shikijs/core@npm:1.9.0":
   version: 1.9.0
   resolution: "@shikijs/core@npm:1.9.0"
@@ -2173,9 +2180,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:4.11.1":
-  version: 4.11.1
-  resolution: "astro@npm:4.11.1"
+"astro@npm:4.11.4":
+  version: 4.11.4
+  resolution: "astro@npm:4.11.4"
   dependencies:
     "@astrojs/compiler": "npm:^2.8.1"
     "@astrojs/internal-helpers": "npm:0.4.1"
@@ -2226,16 +2233,15 @@ __metadata:
     preferred-pm: "npm:^3.1.3"
     prompts: "npm:^2.4.2"
     rehype: "npm:^13.0.1"
-    resolve: "npm:^1.22.8"
     semver: "npm:^7.6.2"
     sharp: "npm:^0.33.3"
-    shiki: "npm:^1.9.0"
-    string-width: "npm:^7.1.0"
+    shiki: "npm:^1.10.0"
+    string-width: "npm:^7.2.0"
     strip-ansi: "npm:^7.1.0"
-    tsconfck: "npm:^3.1.0"
+    tsconfck: "npm:^3.1.1"
     unist-util-visit: "npm:^5.0.0"
     vfile: "npm:^6.0.1"
-    vite: "npm:^5.3.1"
+    vite: "npm:^5.3.2"
     vitefu: "npm:^0.2.5"
     which-pm: "npm:^2.2.0"
     yargs-parser: "npm:^21.1.1"
@@ -2246,7 +2252,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/965065e686168bb3a495932869ceef321fd9ee618fd41a35037316329853e6c5a67ecd0c741ef2104a77ef8a5d0dbb22bb680e9736b2ba1d17ba8f217b3bb834
+  checksum: 10c0/cc95c82eb35004d075c2976a110f444e93598ffcf61c0b2dcc674451e7bc6c895683f69e8a5272ff2f0bd789ac99e1e8f422782795382432ae4210db6a411176
   languageName: node
   linkType: hard
 
@@ -3614,7 +3620,7 @@ __metadata:
     "@tailwindcss/typography": "npm:^0.5.13"
     "@types/markdown-it": "npm:^14.1.1"
     "@types/sanitize-html": "npm:^2.11.0"
-    astro: "npm:4.11.1"
+    astro: "npm:4.11.4"
     astro-embed: "npm:^0.7.2"
     astro-icon: "npm:^1.1.0"
     markdown-it: "npm:^14.1.0"
@@ -6365,7 +6371,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.3.11, postcss@npm:^8.4.23, postcss@npm:^8.4.28, postcss@npm:^8.4.38":
+"postcss@npm:^8.3.11, postcss@npm:^8.4.23, postcss@npm:^8.4.28":
   version: 8.4.38
   resolution: "postcss@npm:8.4.38"
   dependencies:
@@ -6373,6 +6379,17 @@ __metadata:
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^1.2.0"
   checksum: 10c0/955407b8f70cf0c14acf35dab3615899a2a60a26718a63c848cf3c29f2467b0533991b985a2b994430d890bd7ec2b1963e36352b0774a19143b5f591540f7c06
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.39":
+  version: 8.4.39
+  resolution: "postcss@npm:8.4.39"
+  dependencies:
+    nanoid: "npm:^3.3.7"
+    picocolors: "npm:^1.0.1"
+    source-map-js: "npm:^1.2.0"
+  checksum: 10c0/16f5ac3c4e32ee76d1582b3c0dcf1a1fdb91334a45ad755eeb881ccc50318fb8d64047de4f1601ac96e30061df203f0f2e2edbdc0bfc49b9c57bc9fb9bedaea3
   languageName: node
   linkType: hard
 
@@ -6748,7 +6765,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.1.7, resolve@npm:^1.22.2, resolve@npm:^1.22.8":
+"resolve@npm:^1.1.7, resolve@npm:^1.22.2":
   version: 1.22.8
   resolution: "resolve@npm:1.22.8"
   dependencies:
@@ -6761,7 +6778,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.8#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>":
   version: 1.22.8
   resolution: "resolve@patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
   dependencies:
@@ -7136,6 +7153,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"shiki@npm:^1.10.0":
+  version: 1.10.1
+  resolution: "shiki@npm:1.10.1"
+  dependencies:
+    "@shikijs/core": "npm:1.10.1"
+  checksum: 10c0/ba0fbb6ffc1e08b4089c679a84e8c2800a7e6609519ada3892831b691d35e73cface539c486e888fc77aa48a70310ceded990158d2153a963efc2d1b084a4e5f
+  languageName: node
+  linkType: hard
+
 "shiki@npm:^1.9.0":
   version: 1.9.0
   resolution: "shiki@npm:1.9.0"
@@ -7297,7 +7323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-width@npm:^7.0.0, string-width@npm:^7.1.0":
+"string-width@npm:^7.0.0":
   version: 7.1.0
   resolution: "string-width@npm:7.1.0"
   dependencies:
@@ -7305,6 +7331,17 @@ __metadata:
     get-east-asian-width: "npm:^1.0.0"
     strip-ansi: "npm:^7.1.0"
   checksum: 10c0/68a99fbc3bd3d8eb42886ff38dce819767dee55f606f74dfa4687a07dfd21262745d9683df0aa53bf81a5dd47c13da921a501925b974bec66a7ddd634fef0634
+  languageName: node
+  linkType: hard
+
+"string-width@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "string-width@npm:7.2.0"
+  dependencies:
+    emoji-regex: "npm:^10.3.0"
+    get-east-asian-width: "npm:^1.0.0"
+    strip-ansi: "npm:^7.1.0"
+  checksum: 10c0/eb0430dd43f3199c7a46dcbf7a0b34539c76fe3aa62763d0b0655acdcbdf360b3f66f3d58ca25ba0205f42ea3491fa00f09426d3b7d3040e506878fc7664c9b9
   languageName: node
   linkType: hard
 
@@ -7566,9 +7603,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "tsconfck@npm:3.1.0"
+"tsconfck@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "tsconfck@npm:3.1.1"
   peerDependencies:
     typescript: ^5.0.0
   peerDependenciesMeta:
@@ -7576,7 +7613,7 @@ __metadata:
       optional: true
   bin:
     tsconfck: bin/tsconfck.js
-  checksum: 10c0/8d397c181259119848371f1b16dd88e1441aac76f2e3cd2fdd7b10723309735af5203ac160a6396d663e6a54206f0be44a67ed759db5c38758674fcdf9ac461c
+  checksum: 10c0/e133eb308ba37e8db8dbac1905bddaaf4a62f0e01aa88143e19867e274a877b86b35cf69c9a0172ca3e7d1a4bb32400381ac7f7a1429e34250a8d7ae55aee3e7
   languageName: node
   linkType: hard
 
@@ -7851,13 +7888,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.3.1":
-  version: 5.3.1
-  resolution: "vite@npm:5.3.1"
+"vite@npm:^5.3.2":
+  version: 5.3.3
+  resolution: "vite@npm:5.3.3"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
-    postcss: "npm:^8.4.38"
+    postcss: "npm:^8.4.39"
     rollup: "npm:^4.13.0"
   peerDependencies:
     "@types/node": ^18.0.0 || >=20.0.0
@@ -7887,7 +7924,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/9317262c02ea2dc324dfdbc20c3c450cd89cc9a16399a41a4bf820a3a1f31cf400878c015135e355ee034853cc2399b5499899d5b1bc462d57642d71083e74b6
+  checksum: 10c0/a796872e1d11875d994615cd00da185c80eeb7753034d35c096050bf3c269c02004070cf623c5fe2a4a90ea2f12488e6f9d13933ec810f117f1b931e1b5e3385
   languageName: node
   linkType: hard
 
