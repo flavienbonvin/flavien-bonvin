@@ -42,6 +42,7 @@ export default {
             },
             animation: {
                 "fade-in-up": "fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+                "gentle-slide": "gentleSlide 1.5s ease-in-out 2 forwards",
             },
             keyframes: {
                 fadeInUp: {
@@ -55,6 +56,11 @@ export default {
                         transform: "translateY(0)",
                         filter: "blur(0)",
                     },
+                },
+                gentleSlide: {
+                    "0%": { transform: "translateX(0)", opacity: "1" },
+                    "50%": { transform: "translateX(4px)", opacity: "0.8" },
+                    "100%": { transform: "translateX(0)", opacity: "1" },
                 },
             },
         },

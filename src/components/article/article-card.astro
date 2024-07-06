@@ -23,7 +23,17 @@ const isHome = Astro.url.pathname === "/";
         <h2 class="text-balance text-2xl font-medium tracking-tighter">
             {title}
         </h2>
-        <div class="flex items-center gap-3 font-serif text-sm">
+        <div class="flex items-center gap-2 font-serif text-sm sm:gap-3">
+            {
+                isHome && (
+                    <>
+                        <span class:list={[category === BlogType.dev ? "text-dev" : "text-beyond"]}>
+                            {category === BlogType.dev ? "dev" : "beyond"}
+                        </span>
+                        <MiddleDot />
+                    </>
+                )
+            }
             <time class="text-font-color-muted" datetime={formatDateForDatetime(publicationDate)}
                 >{formattedPubTime}</time
             >
@@ -40,20 +50,12 @@ const isHome = Astro.url.pathname === "/";
                     </>
                 )
             }
-            <MiddleDot />
-            <span class="text-font-color-muted">{readingTime} min read</span>
-
-            {
-                isHome && (
-                    <>
-                        <MiddleDot />
-                        <span class:list={[category === BlogType.dev ? "text-dev" : "text-beyond"]}>
-                            {category === BlogType.dev ? "dev" : "beyond"}
-                        </span>
-                    </>
-                )
-            }
         </div>
-        <ReadArticle />
+        <div class="flex justify-between font-serif text-sm text-font-color-muted">
+            <p>
+                {readingTime} min read
+            </p>
+            <ReadArticle />
+        </div>
     </article>
 </a>

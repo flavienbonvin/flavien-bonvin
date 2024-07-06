@@ -19,33 +19,35 @@ const navLinks = [
 ---
 
 <nav class="w-full py-6">
-    <ul class="flex items-baseline gap-4">
+    <ul class="flex items-baseline justify-between gap-4 sm:justify-normal">
         <li
             class="mr-3 font-mono text-xl text-accent transition-transform duration-150 hover:scale-[1.02]"
         >
             <a href={PATHS.home}>Flavien</a>
         </li>
-        {
-            navLinks.map(({ href, text }) => (
-                <li class="font-serif">
-                    <a
-                        class:list={[
-                            href === PATHS.dev &&
-                                pathname.includes(href) &&
-                                "font-medium underline decoration-dev",
-                            href === PATHS.beyond &&
-                                pathname.includes(href) &&
-                                "font-medium underline decoration-beyond",
-                            href === PATHS.about &&
-                                pathname.includes(href) &&
-                                "font-medium underline decoration-accent",
-                        ]}
-                        href={href}
-                    >
-                        {text}
-                    </a>
-                </li>
-            ))
-        }
+        <span class="flex gap-3 sm:gap-4">
+            {
+                navLinks.map(({ href, text }) => (
+                    <li class="font-serif">
+                        <a
+                            class:list={[
+                                href === PATHS.dev &&
+                                    pathname.includes(href) &&
+                                    "font-medium underline decoration-dev",
+                                href === PATHS.beyond &&
+                                    pathname.includes(href) &&
+                                    "font-medium underline decoration-beyond",
+                                href === PATHS.about &&
+                                    pathname.includes(href) &&
+                                    "font-medium underline decoration-accent",
+                            ]}
+                            href={href}
+                        >
+                            {text}
+                        </a>
+                    </li>
+                ))
+            }
+        </span>
     </ul>
 </nav>

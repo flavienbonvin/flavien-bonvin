@@ -15,7 +15,9 @@ const formattedEditDate = getFormattedDate(article.data.editDate);
 ---
 
 <header class="mb-14">
-    <H1 classes="mb-2 text-4xl sm:text-5xl leading-tight tracking-tighter">{article.data.title}</H1>
+    <H1 classes="mb-2 text-3xl sm:text-5xl text-balance leading-tight tracking-tighter"
+        >{article.data.title}</H1
+    >
     <time
         class="font-serif text-font-color-muted"
         datetime={formatDateForDatetime(article.data.publicationDate)}>{formattedPubDate}</time
