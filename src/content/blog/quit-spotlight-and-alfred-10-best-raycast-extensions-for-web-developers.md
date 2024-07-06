@@ -5,6 +5,7 @@ category: beyond
 publicationDate: 2022-11-28
 tags: [productivity, tools, raycast]
 ogImage: ./meta/quit-spotlight-and-alfred-10-best-raycast-extensions-for-web-developers.png
+readingTime: 9
 ---
 
 The default macOS Spotlight feature get enhanced each year. Recently, it can give better web result and files can be previewed with the quick.

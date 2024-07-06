@@ -1,9 +1,9 @@
 ---
 import { getFormattedDate } from "@helpers/article";
+import { formatDateForDatetime } from "@helpers/date";
 import type { CollectionEntry } from "astro:content";
 import H1 from "../atoms/h1.astro";
 import MiddleDot from "../atoms/middle-dot.astro";
-import { formatDateForDatetime } from "@helpers/date";
 
 interface Props {
     article: CollectionEntry<"blog">;
@@ -33,4 +33,6 @@ const formattedEditDate = getFormattedDate(article.data.editDate);
             </>
         )
     }
+    <MiddleDot />
+    <span class="font-serif text-font-color-muted">{article.data.readingTime} min read</span>
 </header>
