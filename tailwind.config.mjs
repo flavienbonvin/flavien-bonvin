@@ -40,6 +40,23 @@ export default {
                     beyond6: "var(--beyond6)",
                 },
             },
+            animation: {
+                "fade-in-up": "fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+            },
+            keyframes: {
+                fadeInUp: {
+                    "0%": {
+                        opacity: "0",
+                        transform: "translateY(40px)",
+                        filter: "blur(4px)",
+                    },
+                    "100%": {
+                        opacity: "1",
+                        transform: "translateY(0)",
+                        filter: "blur(0)",
+                    },
+                },
+            },
         },
     },
     safelist: ["opacity-100", "text-success", "text-error"],
