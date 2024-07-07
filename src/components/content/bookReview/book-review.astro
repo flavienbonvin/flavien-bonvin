@@ -1,0 +1,65 @@
+---
+import { Icon } from "astro-icon/components";
+import { BlogType } from "content/config";
+import Divider from "../../atoms/divider.astro";
+
+interface Props {
+    title: string;
+    author: string;
+    rating: number;
+    description: string;
+    type: BlogType;
+    positivePoints: string[];
+    negativePoints: string[];
+}
+
+const { title, author, rating, type, description, positivePoints, negativePoints } = Astro.props;
+---
+
+<section class="flex flex-col gap-4 rounded-lg border p-6 text-font-color shadow">
+    <header class="flex flex-col gap-2">
+        <h2 class="m-0 p-0 !text-2xl">{title}</h2>
+        <p class="!m-0 !mb-4 p-0 text-sm !text-font-color-muted">Written by {author}</p>
+        <p class="!m-0 text-balance p-0">{description}</p>
+    </header>
+    <Divider classes="my-3" variant={type} />
+    <div class="flex flex-col">
+        <h3 class="!m-0">My rating</h3>
+        <div>
+            <h4 id="positive-heading">Positive points</h4>
+            <ul class="list-disc">
+                {positivePoints.map((point) => <li aria-labelledby="positive-heading">{point}</li>)}
+            </ul>
+        </div>
+        <div>
+            <h4 id="negative-heading">Negative points</h4>
+            <ul class="list-disc">
+                {negativePoints.map((point) => <li aria-labelledby="negative-heading">{point}</li>)}
+            </ul>
+        </div>
+        <h4>Overal rating</h4>
+        <div class="flex items-center gap-2">
+            <div class="flex">
+                {
+                    Array.from({ length: 5 }).map((_, index) => {
+                        const isFullStar = index < rating;
+
+                        return (
+                            <Icon
+                                name={isFullStar ? "star-filled" : "star"}
+                                aria-hidden="true"
+                                class:list={[
+                                    "h-6 w-6",
+                                    !isFullStar && "text-font-color-muted",
+                                    isFullStar && type === BlogType.dev && "text-dev",
+                                    isFullStar && type === BlogType.beyond && "text-beyond",
+                                ]}
+                            />
+                        );
+                    })
+                }
+            </div>
+            <p aria-label={`My raring of ${title} is ${rating} out of 5 stars`}>({rating}/5)</p>
+        </div>
+    </div>
+</section>
