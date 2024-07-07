@@ -2,7 +2,7 @@
 import Divider from "@components/atoms/divider.astro";
 import ExternalLink from "@components/atoms/external-link.astro";
 import PageView from "@components/atoms/page-view.astro";
-import PageHeader from "@components/page/page-header.astro";
+import PageHeader from "@layouts/page-header.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
 import Image from "astro/components/Image.astro";
@@ -20,7 +20,7 @@ import flavien from "../content/assets/flavien_bonvin.png";
     </PageHeader>
 
     <section
-        class="motion-safe:animate-fade-in-up prose pt-4 text-font-color opacity-0 prose-p:font-serif prose-p:text-font-color prose-a:text-font-color prose-strong:text-font-color motion-safe:translate-y-10 motion-reduce:opacity-100"
+        class="prose pt-4 text-font-color opacity-0 prose-p:font-serif prose-p:text-font-color prose-a:text-font-color prose-strong:text-font-color motion-safe:translate-y-10 motion-safe:animate-fade-in-up motion-reduce:opacity-100"
     >
         <Image src={flavien} alt="Blog author picture" class="mx-auto rounded-lg sm:w-2/3" />
         <p>

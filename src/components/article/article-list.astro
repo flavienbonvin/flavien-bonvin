@@ -2,7 +2,7 @@
 import Divider from "@components/atoms/divider.astro";
 import NewsletterForm from "@components/newsletter/newsletter-form.astro";
 import type { CollectionEntry } from "astro:content";
-import PageHeader from "../page/page-header.astro";
+import PageHeader from "../../layouts/page-header.astro";
 import ArticleCard from "./article-card.astro";
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
         Astro.props.articles.map((article, index) => (
             <li
                 style={{ animationDelay: `${index * 100}ms` }}
-                class="motion-safe:animate-fade-in-up opacity-0 motion-safe:translate-y-10 motion-reduce:opacity-100"
+                class="opacity-0 motion-safe:translate-y-10 motion-safe:animate-fade-in-up motion-reduce:opacity-100"
             >
                 <ArticleCard {article} />
             </li>
