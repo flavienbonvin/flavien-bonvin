@@ -1,6 +1,6 @@
 ---
 interface Props {
-    variant?: "default" | "light";
+    variant?: "default" | "light" | "dev" | "beyond";
     classes?: string;
 }
 
@@ -12,6 +12,8 @@ const { variant = "default", classes } = Astro.props;
         "h-px border-0",
         variant === "default" && "bg-accent",
         variant === "light" && "bg-interactive-active",
+        variant === "dev" && "bg-dev",
+        variant === "beyond" && "bg-beyond",
         classes,
     ]}
 />
