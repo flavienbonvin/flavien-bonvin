@@ -44,18 +44,19 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 ---
 
 <div
-    class={`flex h-80 mb-8 flex-col overflow-x-hidden items-center relative justify-center rounded-xl text-center font-semibold ${gradientClasses}`}
+    class={`flex h-60 sm:h-80 mb-8 flex-col overflow-x-hidden items-center relative justify-center rounded-xl text-center font-semibold ${gradientClasses}`}
 >
     <div class="noise absolute inset-0 rounded-xl opacity-60 brightness-100 contrast-150"></div>
     <div class="duck absolute inset-0 rounded-xl bg-cover bg-center bg-no-repeat opacity-30"></div>
     {
-        Astro.props.article.data.tags
-            .slice(0, 3)
-            .map((tag) => (
-                <span class="z-10 text-5xl text-white/80 selection:text-white/80 sm:text-6xl dark:text-white/60 selection:dark:text-white/60">
-                    {tag}
-                </span>
-            ))
+        Astro.props.article.data.tags.slice(0, 3).map((tag, index) => (
+            <span
+                style={{ animationDelay: `${index * 200}ms` }}
+                class="z-10 animate-fade-in-up text-5xl text-white/80 opacity-0 selection:text-white/80 motion-safe:translate-y-10 motion-safe:animate-fade-in-up motion-reduce:opacity-100 sm:text-6xl dark:text-white/60 selection:dark:text-white/60"
+            >
+                {tag}
+            </span>
+        ))
     }
 </div>
 
