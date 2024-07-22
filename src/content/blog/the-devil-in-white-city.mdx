@@ -8,9 +8,8 @@ ogImage: ./meta/the-devil-in-the-white-city.png
 readingTime: 7
 ---
 
-import Divider from "@components/atoms/divider.astro";
 import WhiteCity from "@components/content/bookReview/white-city.astro";
-import NewsletterForm from "@components/newsletter/newsletter-form.astro";
+import InlineNewsletter from "@components/newsletter/inline-newsletter.astro";
 
 <WhiteCity />
 
@@ -88,11 +87,7 @@ That being said, I feel like the two storylines are a bit too disconnected. Sure
 
 This is, for me, the main issue I have with the book. I understand the author's decision to stick with the known facts. But, I believe some were left out of the picture to avoid blurring the line between what is known to be true and what is part of the web of Holmes' lies.
 
-<Divider variant="light" />
-
-<NewsletterForm />
-
-<Divider variant="light" />
+<InlineNewsletter />
 
 ## Wrapping Up
 
@@ -104,7 +99,7 @@ The only thing that didn't quite hit the spot was the number of details surround
 
 I would rate _The Devil in the White City_ as a 4/5.
 
-<Divider classes="w-1/2 mx-auto" variant="beyond" />
+---
 
 <WhiteCity />
 

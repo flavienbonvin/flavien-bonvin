@@ -1,8 +1,33 @@
-<div class="py-8 sm:py-10 lg:py-10">
-    <div class="mb-8 text-2xl font-semibold">
-        <h2 class="inline sm:block">Get new articles right in your inbox</h2>
+---
+interface Props {
+    variant?: "default" | "inline";
+}
+
+const { variant = "default" } = Astro.props;
+---
+
+<div
+    class:list={[
+        variant === "default" && "py-8 sm:py-10",
+        variant === "inline" && "flex flex-col items-center text-center sm:py-4",
+    ]}
+>
+    <div class="mb-8 text-2xl font-semibold text-font-color">
+        {
+            variant === "default" && (
+                <h2 class="inline sm:block">Get new articles right in your inbox</h2>
+            )
+        }
+        {
+            variant === "inline" && (
+                <span class="inline sm:block">Get new articles right in your inbox</span>
+            )
+        }
     </div>
-    <form class="mb-4 max-w-md" id="newsletter-form">
+    <form
+        class:list={["mb-4", variant === "inline" && "w-2/3", variant === "default" && "max-w-md"]}
+        id="newsletter-form"
+    >
         <div class="mb-2 flex flex-col gap-x-4 sm:flex-row">
             <label for="email" class="sr-only">Email address</label>
             <input

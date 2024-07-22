@@ -1,0 +1,85 @@
+---
+title: Building a Lightning-Fast Blog — The initial stack
+description: Discover how I built a lightning-fast blog using modern web dev tools like TypeScript, Tailwind, and Prettier. Join the journey!
+category: dev
+publicationDate: 2024-07-22
+tags: [blog, astro, tailwind]
+ogImage: ./meta/building-a-lightning-fast-blog-the-initial-stack.png
+readingTime: 5
+---
+
+import InlineNewsletter from "@components/newsletter/inline-newsletter.astro";
+
+Welcome to the “Building a Lightning-Fast Blog,” a series where I will walk you through the journey I followed to build this blog using modern web dev tools.
+
+In a previous article, I explained why I created a custom blog. It's now time to dive into the technical side of things. Although this blog is simple, there are plenty of learnings and experiences I want to share with the world.
+
+Whether you are a seasoned Astro developer or just starting out, I'm sure there are bits of information you'll find valuable and that you can apply to your projects.
+
+Let's kick things off with the first article in the series: “The Initial Stack.”
+
+---
+
+## The Initial Stack
+
+Over the years, there are a few tools that have stuck with me. I am well aware that keeping an open mind and trying new libraries is essential to grow as a developer. However, it's difficult to leave an old friend for the new cool kid on the block.
+
+In the spirit of openness, I'll give a few alternatives to each tool that I considered using.
+
+### TypeScript
+
+Let's start with the obvious choice. It's hard for me to start a project without TypeScript these days.
+
+Working on a large codebase with [TypeScript](https://www.typescriptlang.org/) helps offload knowledge from the developer's head to the codebase itself. Moreover, it helps onboard people, prevents many issues in production, and increases overall confidence in the code.
+
+Smaller codebases, such as my blog, also benefit from TypeScript. Coming back to a dusted part of the code is made easier with IntelliSense and type-checking. Moreover, there won't be any migration cost if the seemingly small codebase grows in the future.
+
+Of course, [JSDoc](https://jsdoc.app/) can help with type safety and can replace TypeScript to some extent. There is also an [RFC that discusses adding type-annotation](https://devblogs.microsoft.com/typescript/a-proposal-for-type-syntax-in-javascript/) to JavaScript itself.
+
+However, I feel like, as of 2024, using TypeScript is a safe choice that doesn't add too much overhead to any project.
+
+### Tailwind
+
+It was difficult to convince me that [Tailwind](https://tailwindcss.com/) was good. I was reluctant to test it and had the preconceived notion that the hype would fade.
+
+Boy, was I wrong! The first project I built with Tailwind was eye-opening. The syntax is easy to read, and you can mentally see how a component looks just by reviewing other developers' code.
+
+This declarative styling offers the benefits of portability, where moving one Tailwind component from one framework to another is straightforward, and the result will be a carbon copy of the original.
+
+Tailwind alone is fine. However, I like to couple it with the [Prettier class sorter plugin](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) to ensure a consistent class order. Prettier is my next point, but this plugin is the sole reason why I didn't go with [Biome](https://biomejs.dev/) for my styling and linting.
+
+Many projects are trying to take over Tailwind. [UnoCSS](https://unocss.dev/) or [PandaCSS](https://panda-css.com/) comes to mind. Many alternatives exist, but every time I try one, I end up comparing it to Tailwind and coming back to it.
+
+Finally, Tailwind version 4 promises to solve many complaints people have about Tailwind. Some of those improvements are the removal of the PostCSS dependency and some impressive speed increases.
+
+<InlineNewsletter />
+
+### Prettier
+
+Although not required, [Prettier](https://prettier.io/) ensures that the style of the codebase is consistent. This helps when working with multiple people, prevents personal preferences from interfering with the overall look of the code, and offers a common config for all.
+
+As said before, a Prettier plugin also ensures that all Tailwind classes are ordered in the same logical order. This could also reduce the size of the build since repeating classes could be compressed more efficiently. This is still a marginal improvement, but it's free, so let's take it!
+
+Prettier has reigned in JavaScript code formatting for a long time without any serious competition. It has been the default choice of many developers and is downloaded 37 million times per week.
+
+Hopefully, some competition is starting to rise. [Biome](https://biomejs.dev/) is the most serious competitor. Biome is a wonderful toolchain born from the ashes of the [Rome](https://github.com/rome/tools) project.
+
+Their ambitions are commendable. They want to build a unique toolchain for web projects. They intend to offer a solution that would replace ESLint and Prettier, which is an exciting offering.
+
+Sadly, neither Astro nor the class sorting feature is currently supported. I will keep an eye on the project and switch to it as soon as Astro is fully supported. Meanwhile, I'll keep a close eye on the project.
+
+## Wrapping Up
+
+Building a custom blog is not just about content and the publishing experience. The selected tooling must ensure an efficient and enjoyable development process. For me, having fun and joy is key to keeping me interested in something.
+
+In this first part of the “Building a Lightning-Fast Blog” series, we went through the initial stack that forms the foundation of my blog. The three libraries cover many parts of the development workflow. I'm sure to have fun writing new components and features with Tailwind. I know what to expect thanks to Prettier, and it's easy to come back and avoid mistakes with TypeScript.
+
+None of these three choices are particularly exciting or controversial. They lean on the safe side, but that's by design. Going with the standards comes with the advantages of support and the peace of mind that things will still be there in a few months or years.
+
+There are other areas where more bleeding-edge technologies can be used. This will be covered in a future release of the “Building a Lightning-Fast Blog.”
+
+In the upcoming articles, we'll dive deeper into my experiences with Astro, the hosting journey with Vercel, and the importance of analytics and performance optimization.
+
+---
+
+To make sure you don't miss any updates and to get exclusive tips and insights, subscribe to my newsletter! As a subscriber, you'll receive early access to new articles, bonus content, and special resources that I only share with my email community. Join now and take your web development skills to the next level!
