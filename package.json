@@ -19,7 +19,7 @@
         "astro-embed": "^0.7.2",
         "astro-icon": "^1.1.0",
         "markdown-it": "^14.1.0",
-        "resend": "^3.4.0",
+        "resend": "^3.5.0",
         "sanitize-html": "^2.13.0",
         "zod": "^3.23.8"
     },
