@@ -3600,6 +3600,7 @@ __metadata:
     prettier-plugin-tailwindcss: "npm:^0.6.5"
     resend: "npm:^3.5.0"
     sanitize-html: "npm:^2.13.0"
+    sharp: "npm:^0.33.4"
     tailwindcss: "npm:^3.4.6"
     typescript: "npm:^5.5.4"
     zod: "npm:^3.23.8"
@@ -6994,7 +6995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.33.3":
+"sharp@npm:^0.33.3, sharp@npm:^0.33.4":
   version: 0.33.4
   resolution: "sharp@npm:0.33.4"
   dependencies:
