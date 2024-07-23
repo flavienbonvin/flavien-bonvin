@@ -26,6 +26,8 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
+        color-scheme: dark;
+
         --input: oklch(20.21% 0 0);
         --background: oklch(16% 0 0);
         --font-color: oklch(90% 0 0);
