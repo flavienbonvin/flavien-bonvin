@@ -1,0 +1,10 @@
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+.astro/
+.github/
+.vscode/
+dist/
+node_modules/
+public/

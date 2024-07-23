@@ -6,7 +6,7 @@
         "build": "astro check && astro build --remote",
         "preview": "astro preview",
         "astro": "astro",
-        "format": "npx prettier -y --write ."
+        "format": "pnpx prettier --write ."
     },
     "dependencies": {
         "@astrojs/db": "0.12.0",
