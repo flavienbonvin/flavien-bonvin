@@ -33,7 +33,7 @@
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-tailwindcss": "^0.6.5",
         "tailwindcss": "^3.4.6",
-        "typescript": "^5.5.3"
+        "typescript": "^5.5.4"
     },
     "packageManager": "yarn@4.2.2+sha256.1aa43a5304405be7a7cb9cb5de7b97de9c4e8ddd3273e4dad00d6ae3eb39f0ef"
 }
