@@ -7,7 +7,9 @@ import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
 import Image from "astro/components/Image.astro";
 import { CONFIG, PATHS, URLS } from "const";
-import flavien from "../content/assets/flavien_bonvin.png";
+import alps from "../content/assets/about/alps.png";
+import flavien from "../content/assets/about/flavien_bonvin.png";
+import lausanne from "../content/assets/about/lausanne.png";
 ---
 
 <PageLayout>
@@ -72,6 +74,16 @@ import flavien from "../content/assets/flavien_bonvin.png";
             subjects I'm sure to disagree with in a few years.
         </p>
         <Divider classes="w-1/2 mx-auto" />
+        <figure>
+            <Image
+                src={alps}
+                alt="Picture taken in the middle of the alps, in the village where I grew up"
+                class="mx-auto rounded-lg sm:w-2/3"
+            />
+            <figcaption class="text-center text-sm">
+                This is the view I had every morning while growing up
+            </figcaption>
+        </figure>
         <p>
             That's a lot of information about my current self. What about my origins? As mentioned
             above, I currently live in the beautiful city of Lausanne, nestled on the shores of Lake
@@ -81,8 +93,19 @@ import flavien from "../content/assets/flavien_bonvin.png";
             village and the mountains behind and enjoy their majestic presence from the other side
             of Lake Geneva.
         </p>
+
+        <figure>
+            <Image
+                src={lausanne}
+                alt="Picture of the Geneva lake, in the city of Lausanne where I currently live"
+                class="mx-auto rounded-lg"
+            />
+            <figcaption class="text-center text-sm">
+                This is the view of the Geneva lake next to my place in Lausanne
+            </figcaption>
+        </figure>
         <p>
-            You can find me on 𝕏, my user name is <ExternalLink
+            You can find me on 𝕏, <ExternalLink
                 classes="font-sans"
                 href={URLS.twitter}
                 variant="inline">@FlavienBonvin</ExternalLink
