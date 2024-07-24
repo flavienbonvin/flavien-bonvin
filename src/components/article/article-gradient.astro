@@ -10,8 +10,8 @@ import { getImage } from "astro:assets";
 import duck from "./duck.png";
 import noise from "./noise.svg";
 
-const optiDuck = await getImage({ src: duck });
-const optiNoise = await getImage({ src: noise });
+const optiDuck = await getImage({ src: duck, width: 1000 });
+const optiNoise = await getImage({ src: noise, width: 1000 });
 
 const gradientDireaction = () => {
     const direction = [
