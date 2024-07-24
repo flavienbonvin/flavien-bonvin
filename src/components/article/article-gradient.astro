@@ -6,6 +6,13 @@ interface Props {
     article: CollectionEntry<"blog">;
 }
 
+import { getImage } from "astro:assets";
+import duck from "./duck.png";
+import noise from "./noise.svg";
+
+const optiDuck = await getImage({ src: duck });
+const optiNoise = await getImage({ src: noise });
+
 const gradientDireaction = () => {
     const direction = [
         "bg-gradient-to-tr",
@@ -46,8 +53,17 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 <div
     class={`flex h-60 sm:h-80 mb-8 flex-col overflow-x-hidden items-center relative justify-center rounded-xl text-center font-semibold ${gradientClasses}`}
 >
-    <div class="noise absolute inset-0 rounded-xl opacity-60 brightness-100 contrast-150"></div>
-    <div class="duck absolute inset-0 rounded-xl bg-cover bg-center bg-no-repeat opacity-30"></div>
+    <div
+        class="absolute inset-0 rounded-xl opacity-60 brightness-100 contrast-150"
+        style=`background-image: url(${optiNoise.src})`
+    >
+    </div>
+
+    <div
+        class="absolute inset-0 rounded-xl bg-cover bg-center bg-no-repeat opacity-30"
+        style=`background-image: url(${optiDuck.src})`
+    >
+    </div>
     {
         Astro.props.article.data.tags.slice(0, 3).map((tag, index) => (
             <span
@@ -63,9 +79,5 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 <style>
     .noise {
         background-image: url("/noise.svg");
-    }
-
-    .duck {
-        background-image: url("/duck.png");
     }
 </style>
