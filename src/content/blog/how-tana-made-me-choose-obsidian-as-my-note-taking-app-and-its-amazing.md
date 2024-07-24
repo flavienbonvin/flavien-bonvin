@@ -8,8 +8,6 @@ ogImage: ./meta/how-tana-made-me-choose-obsidian-as-my-note-taking-app-and-its-a
 readingTime: 8
 ---
 
-import { YouTube } from "astro-embed";
-
 I recently spent a lot of time thinking about using [Obsidian](https://obsidian.md/) over [Logseq](https://logseq.com/). This even made me think that I should stop using my current note-taking and to-do application.
 
 I feel like I have to do some changes in my system to have a better management of my knowledge and make me a more organised person.
@@ -134,7 +132,7 @@ One video helped me a lot. It's basically someone that address active procrastin
 
 It's the bare minimum, and it encourages anyone to test, fail and adapt instead of trying to do everything perfect the first time.
 
-<YouTube id="https://youtu.be/jwBZDQXopvc" />
+https://youtu.be/jwBZDQXopvc
 
 ## First thoughts on Obsidian
 
