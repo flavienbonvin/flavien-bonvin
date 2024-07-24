@@ -36,5 +36,5 @@
         "tailwindcss": "^3.4.6",
         "typescript": "^5.5.4"
     },
-    "packageManager": "pnpm@9.0.2+sha1.2a34aeb80bf8e8435815d14f620ec4ba0eff1604"
+    "packageManager": "bun@1.1.20"
 }
