@@ -21,33 +21,35 @@ const navLinks = [
 <nav class="w-full py-6">
     <ul class="flex items-baseline justify-between gap-4 sm:justify-normal">
         <li
-            class="relative cursor-pointer font-mono text-2xl before:absolute before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.35] before:bg-accent before:transition-transform before:duration-300 before:ease-in-out hover:before:scale-y-100 sm:mr-6"
+            class="before:bg-accent-light relative cursor-pointer font-mono text-xl before:absolute before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.25] before:transition-transform before:duration-300 before:ease-in-out hover:before:scale-y-[0.4] sm:mr-6"
         >
             <a href={PATHS.home} class="relative">Flavien</a>
         </li>
-        <span class="flex gap-3 sm:gap-4">
-            {
-                navLinks.map(({ href, text }) => (
-                    <li class="font-serif">
-                        <a
-                            class:list={[
-                                href === PATHS.dev &&
-                                    pathname.includes(href) &&
-                                    "font-medium underline decoration-dev",
-                                href === PATHS.beyond &&
-                                    pathname.includes(href) &&
-                                    "font-medium underline decoration-beyond",
-                                href === PATHS.about &&
-                                    pathname.includes(href) &&
-                                    "font-medium underline decoration-accent",
-                            ]}
-                            href={href}
-                        >
-                            {text}
-                        </a>
-                    </li>
-                ))
-            }
-        </span>
+        <li>
+            <ul class="flex gap-3 sm:gap-4">
+                {
+                    navLinks.map(({ href, text }) => (
+                        <li class="font-serif">
+                            <a
+                                class:list={[
+                                    href === PATHS.dev &&
+                                        pathname.includes(href) &&
+                                        "font-medium underline decoration-dev",
+                                    href === PATHS.beyond &&
+                                        pathname.includes(href) &&
+                                        "font-medium underline decoration-beyond",
+                                    href === PATHS.about &&
+                                        pathname.includes(href) &&
+                                        "font-medium underline decoration-accent",
+                                ]}
+                                href={href}
+                            >
+                                {text}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </li>
     </ul>
 </nav>

@@ -21,6 +21,7 @@ export default {
                 dev: "var(--dev)",
                 beyond: "var(--beyond)",
                 accent: "var(--accent)",
+                "accent-light": "var(--accent-light)",
                 interactive: "var(--interactive)",
                 "interactive-active": "var(--interactive-active)",
                 success: "var(--success)",
