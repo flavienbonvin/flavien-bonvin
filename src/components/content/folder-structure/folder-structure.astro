@@ -8,27 +8,30 @@ export type FolderStructureType = {
 };
 
 interface Props {
+    title?: string;
+    sub?: boolean;
     containerClass?: string;
     folderStructure: FolderStructureType[];
 }
 
-const { folderStructure, containerClass } = Astro.props;
+const { folderStructure, containerClass, title, sub } = Astro.props;
 ---
 
 <ul class={containerClass}>
+    {title && <h2 class="mb-2 font-mono text-lg">{title}</h2>}
     {
         folderStructure.map((folder) => {
             const isFolder = folder.folders;
 
             return (
-                <li class="ml-6">
+                <li class:list={[sub && "ml-6"]}>
                     <span class="flex items-center gap-1.5">
                         <Icon class="shrink-0" name={isFolder ? "folder" : "file"} />
                         <span class:list={["truncate", folder.highlighted && "font-bold"]}>
                             {folder.name}
                         </span>
                     </span>
-                    {folder.folders && <Astro.self folderStructure={folder.folders} />}
+                    {folder.folders && <Astro.self folderStructure={folder.folders} sub />}
                 </li>
             );
         })

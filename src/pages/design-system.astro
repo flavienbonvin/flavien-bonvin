@@ -1,0 +1,97 @@
+---
+import type { FolderStructureType } from "@components/content/folder-structure/folder-structure.astro";
+import FolderStructure from "@components/content/folder-structure/folder-structure.astro";
+import PageLayout from "@layouts/page-layout.astro";
+
+const contentCollectionFolders: FolderStructureType[] = [
+    {
+        name: "src",
+        folders: [
+            {
+                name: "content",
+                folders: [
+                    {
+                        name: "authors",
+                        folders: [{ name: "author-1.md" }, { name: "author-2.md" }],
+                    },
+                    {
+                        name: "blog",
+                        folders: [
+                            { name: "article-1.mdx" },
+                            { name: "article-2.md" },
+                            { name: "article-3.md" },
+                        ],
+                    },
+                    {
+                        name: "config.ts",
+                    },
+                ],
+            },
+        ],
+    },
+];
+
+const astroFolderStructure: FolderStructureType[] = [
+    {
+        name: "src",
+        folders: [
+            {
+                name: "pages",
+                folders: [
+                    {
+                        name: "articles",
+                        folders: [
+                            { name: "[...slug].astro" },
+                            { name: "beyond.astro" },
+                            { name: "dev.astro" },
+                        ],
+                    },
+                    { name: "404.astro" },
+                    { name: "about.astro" },
+                    {
+                        name: "contact",
+                        folders: [{ name: "index.astro" }],
+                    },
+                ],
+            },
+        ],
+    },
+];
+
+const nextFolderStructure: FolderStructureType[] = [
+    {
+        name: "app",
+        folders: [
+            { name: "error.tsx" },
+            { name: "layout.tsx" },
+            { name: "loading.tsx" },
+            { name: "not-found.tsx" },
+            { name: "page.tsx" },
+            {
+                name: "about",
+                folders: [{ name: "loading.tsx" }, { name: "page.tsx" }],
+            },
+            {
+                name: "articles",
+                folders: [{ name: "loading.tsx" }, { name: "page.tsx" }, { name: "[slug].tsx" }],
+            },
+        ],
+    },
+];
+---
+
+<PageLayout>
+    <FolderStructure folderStructure={contentCollectionFolders} />
+    <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
+        <FolderStructure
+            title="Astro"
+            folderStructure={astroFolderStructure}
+            containerClass="flex-1 w-fit"
+        />
+        <FolderStructure
+            title="NextJS"
+            folderStructure={nextFolderStructure}
+            containerClass="flex-1 w-fit"
+        />
+    </div>
+</PageLayout>
