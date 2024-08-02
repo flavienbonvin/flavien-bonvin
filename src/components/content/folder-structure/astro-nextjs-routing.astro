@@ -1,0 +1,70 @@
+---
+import FolderStructureWrapper from "./folder-structure-wrapper.astro";
+import type { FolderStructureType } from "./folder-structure.astro";
+import FolderStructure from "./folder-structure.astro";
+
+const astroFolderStructure: FolderStructureType[] = [
+    {
+        name: "src",
+        folders: [
+            {
+                name: "pages",
+                folders: [
+                    {
+                        name: "articles",
+                        folders: [
+                            { name: "[...slug].astro" },
+                            { name: "beyond.astro" },
+                            { name: "dev.astro" },
+                        ],
+                    },
+                    { name: "404.astro" },
+                    { name: "about.astro" },
+                    {
+                        name: "contact",
+                        folders: [{ name: "index.astro" }],
+                    },
+                ],
+            },
+        ],
+    },
+];
+
+const nextFolderStructure: FolderStructureType[] = [
+    {
+        name: "app",
+        folders: [
+            { name: "error.tsx" },
+            { name: "layout.tsx" },
+            { name: "loading.tsx" },
+            { name: "not-found.tsx" },
+            { name: "page.tsx" },
+            {
+                name: "about",
+                folders: [{ name: "loading.tsx" }, { name: "page.tsx" }],
+            },
+            {
+                name: "articles",
+                folders: [{ name: "loading.tsx" }, { name: "page.tsx" }, { name: "[slug].tsx" }],
+            },
+        ],
+    },
+];
+---
+
+<div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
+    <FolderStructureWrapper>
+        <FolderStructure
+            title="Astro"
+            folderStructure={astroFolderStructure}
+            containerClass="flex-1 w-fit"
+        />
+    </FolderStructureWrapper>
+    <FolderStructureWrapper>
+        <FolderStructure
+            title="NextJS"
+            folderStructure={nextFolderStructure}
+            containerClass="flex-1 w-fit"
+        />
+    </FolderStructureWrapper>
+</div>

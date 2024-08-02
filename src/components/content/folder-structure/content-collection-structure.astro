@@ -1,0 +1,37 @@
+---
+import FolderStructureWrapper from "./folder-structure-wrapper.astro";
+import type { FolderStructureType } from "./folder-structure.astro";
+import FolderStructure from "./folder-structure.astro";
+
+const contentCollectionFolders: FolderStructureType[] = [
+    {
+        name: "src",
+        folders: [
+            {
+                name: "content",
+                folders: [
+                    {
+                        name: "authors",
+                        folders: [{ name: "author-1.md" }, { name: "author-2.md" }],
+                    },
+                    {
+                        name: "blog",
+                        folders: [
+                            { name: "article-1.mdx" },
+                            { name: "article-2.md" },
+                            { name: "article-3.md" },
+                        ],
+                    },
+                    {
+                        name: "config.ts",
+                    },
+                ],
+            },
+        ],
+    },
+];
+---
+
+<FolderStructureWrapper>
+    <FolderStructure title="Astro content collection" folderStructure={contentCollectionFolders} />
+</FolderStructureWrapper>

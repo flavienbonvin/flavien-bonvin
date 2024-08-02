@@ -23,6 +23,7 @@ export default {
                 accent: "var(--accent)",
                 "accent-light": "var(--accent-light)",
                 interactive: "var(--interactive)",
+                "interactive-muted": "var(--interactive-muted)",
                 "interactive-active": "var(--interactive-active)",
                 success: "var(--success)",
                 error: "var(--error)",

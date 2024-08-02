@@ -1,0 +1,192 @@
+---
+title: Building a Lightning-Fast Blog — My First Journey with Astro
+description: This blog was my first project using Astro. The framework offers first-class content collections, zero JavaScript, and a simple routing system. Let's dive into my experience using Astro for the first time!
+category: dev
+publicationDate: 2024-08-05
+tags: [blog, astro, performance]
+ogImage: ./meta/building-a-lightning-fast-blog-my-first-journey-with-astro.png
+readingTime: 8
+---
+
+import ContentCollectionStructure from "@components/content/folder-structure/content-collection-structure.astro";
+import AstroNextJSRouting from "@components/content/folder-structure/astro-nextjs-routing.astro";
+import InlineNewsletter from "@components/newsletter/inline-newsletter.astro";
+
+Welcome to the “Building a Lightning-Fast Blog”, a series where I will walk you through the journey I followed to build this blog using modern web dev tools.
+
+In a previous article, I explained why I created a custom blog. It's now time to dive into the technical side of things. Although this blog is simple, there are plenty of learnings and experiences I want to share with the world.
+
+Whether you are a seasoned Astro developer or just starting out, I'm sure there are bits of information you'll find valuable and that you can apply to your projects.
+
+Let's follow the journey of this blog: “My First Journey with Astro”.
+
+---
+
+## My First Journey with Astro
+
+This blog was my first project using Astro. I've been looking at the framework for quite some time and wanted to find an excuse to use in for a project.
+
+Astro focuses on content-driven websites. For me, it was an obvious choice when I wanted to build a website. The content collections, the zero JavaScript, the island architecture convicted me that using Astro was the right choice!
+
+It also allows me to escape the React/NextJS world and try something new.
+
+This article will go through my experience using Astro for the first time! Buckle up.
+
+### Content collections
+
+Let's start strong with what makes Astro unique. It's content collections.
+
+Content collections are a remarkable feature. Any content displayed on a website can be defined in a configuration file. In my case, I only have blog articles, but we could imagine pages sections, photo gallery, employees,...
+
+This configuration then acts both as a validator and to query the content. Speaking of the content, it's composed of local Markdown or MDX files that stored inside the `content` folder. It's also possible to use data types such as YAML or JSON.
+
+<ContentCollectionStructure />
+
+Any file part of a collection will be checked to ensure that it's metadata (Frontmatter in the case of Markdown) follows the rules sets in the configuration. An error will be thrown if that's not the case.
+
+The data can then be queried to be used in any pages. It can be used to generate pages (a slug is automatically calculated from the file name), to build a blog, for example.
+
+The method is quite similar to what NextJS used to do and looks like this on my blog:
+
+```typescript
+export async function getStaticPaths() {
+    const allArticles = await getAllPublishedArticles();
+    return allArticles.map((article) => {
+        return {
+            params: { slug: article.slug },
+            props: article,
+        };
+    });
+}
+```
+
+I created a list of methods that I use throughout the blog to get the data I want. You can find all those methods on my [GitHub project](https://github.com/flavienbonvin/flavien-bonvin).
+
+My blog is static, which means that the data querying is only done once and won't cost a dime once the blog is up and running. This also means that the content is stuck in time until I update the project. Astro thought of that, and it's still possible to do dynamic queries to get more adapted content if such a case arises.
+
+Overall, working with content collections is a breeze, local files are fast and, once your configuration is defined, you are ready to go without having to set anything up!
+
+I only had one issue with content collections. I initially exported a constant called `collection` instead of `collections` (with an **s**). Astro didn't complain, and I was able to query the data. However, the IntelliSense didn't work, it took me longer than I can admit to find my mistake 🤦
+
+### Page routing done right
+
+Many popular JS frameworks use file-base routing. The structure of the application folder dictates the structure of the website/application. It's something I like since it helps understand the organization of the app in a blink.
+
+However, some routers ([NextJS](https://nextjs.org/docs/pages/building-your-application/routing), [SvelteKit](https://kit.svelte.dev/docs/routing)) are using a standard named files inside a folder to shape the different routes. This is not something I'm firmly against, but I'm not sold on it either.
+
+On one hand, it allows the collocation of files and their corresponding components, making everything available at one place.
+
+But on the other, it means having to rely on many files using the same names (`index`, `layout`, `loading`, `error`,...) which can make things harder to find.
+
+I was happy to see that Astro didn't copy the rest and stuck with named files. It can make some states (such as not-found or loading) harder to manage, but it's a tradeoff I'm willing to make.
+
+For example, a contact page could be defined as follows:
+
+```
+src/pages/contact.astro        -> mysite.com/contact
+src/pages/contact/index.astro  -> mysite.com/contact
+```
+
+You can see the difference in folder structure this would result into compared to NextJS.
+
+<AstroNextJSRouting />
+
+In my opinion, the Astro structure is better in most cases. NextJS has an edge when it comes to managing states a page could be in (such as error or not found). However, my simple blog is plenty sufficient for my use case.
+
+### Zero JavaScript by default
+
+I like writing JavaScript, but it felt wrong for me to have kilobytes of JavaScript shipped to the clients when the visited website is a blog. I'm thrilled that Astro offers zero JavaScript out of the box and I can have a blazing fast website.
+
+Many static websites rely on Framer motion for simple animations, this comes at the cost of heavier pages, slower load time and could result in a broken website when JavaScript is disabled.
+
+Some animations offered by Framer could be simply replaced with some CSS. I'm sure many LLM can take one Framer component and turn it into native CSS in a few prompts.
+
+Sure, building fancier animation with Framer or GSAP makes sense. I just think that those tools should not be the first solution. And disabling JS should never break a blog article.
+
+> I just want to clarify that I'm not on a crusade against JavaScript. Using JS for an application if perfectly fine. However, I don't like static websites (such as blog) broke as soon as JS is disabled. I'm also not referring to big corporate blogs with thousands of pages and dozens of A/B tests running in parallel. Simple blogs should rely on simple technologies.
+
+<InlineNewsletter />
+
+### Integration to speed things up
+
+Most project aren't built from scratch, but are a collection of libraries. In my case, my starting point was TypeScript, Prettier and Astro as I presented it in the first [article of this series](https://flavienbonvin.com/articles/building-lightning-fast-blog-initial-stack).
+
+Setting up libraries can be challenging, as it often involves dealing with various configuration files and can be time-consuming. While this is typically a one-time process, it can be frustrating to spend hours debugging an issue, only to discover that a simple typo in a configuration file was the root cause.
+
+Hopefully, Astro alleviate this pain with its [integrations](https://astro.build/integrations/). Simply put, integrations are libraries configures in one simple command.
+
+Adding a sitemap? It's as simple as running this command:
+
+```
+pnpm astro add sitemap
+```
+
+Deploying your application/website on Vercel? Add its adapter as follows:
+
+```
+pnpm astro add vercel
+```
+
+The Astro configuration file, `astro.config.mjs`, is the central place for managing your project's settings. Adding any integration to your project will update this file, which is also where you'll handle any necessary integration configurations.
+
+For my project, I added the following integrations:
+
+-   [Tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/): Sets up Tailwind CSS.
+-   [Sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/): Automatically generates a sitemap after each build without requiring additional configuration.
+-   [Embeds](https://astro-embed.netlify.app/): Enables integration of YouTube/Vimeo videos, tweets, and link previews. It optimizes performance by loading only the essential elements to prevent layout shifts and downloads content only when requested by the user.
+-   [MDX](https://docs.astro.build/en/guides/integrations-guide/mdx/): Adds support for the MDX file format, allowing articles to include custom components or embeds.
+-   [Icon](https://github.com/natemoo-re/astro-icon#readme): Loads and optimizes any SVG file in the `/src/icons` folder. It provides flexibility to use various icon libraries to better fit the design needs.
+-   [DB](https://docs.astro.build/en/guides/integrations-guide/db/): Incorporates support for [Astro DB](https://astro.build/db/), a LibSQL database useful for building features with user-generated content. A future episode of this series will cover this wonderful tool.
+
+In the end, my project configuration is tiny, only composed of 27 lines.
+
+```javascript
+export default defineConfig({
+    output: "hybrid",
+    site: "https://flavienbonvin.com",
+    integrations: [
+        tailwind(),
+        sitemap(),
+        embeds({
+            services: {
+                LinkPreview: false,
+            },
+        }),
+        mdx({
+            syntaxHighlight: "shiki",
+            shikiConfig: {
+                theme: "dracula",
+            },
+        }),
+        icon(),
+        db(),
+    ],
+    markdown: {
+        syntaxHighlight: "shiki",
+        shikiConfig: {
+            theme: "dracula",
+        },
+    },
+    adapter: vercel(),
+});
+```
+
+## Wrapping up
+
+In the [first article of this series,](https://flavienbonvin.com/articles/building-lightning-fast-blog-initial-stack) I said that creating an enjoyable development process was important. Astro fully delivered on that and allowed me to build a performant website, being happy doing so.
+
+Joy is an essential motivator for me, it was one of the reasons why I left my older blog collecting dust and why I wanted to start over with a custom blog.
+
+The Astro road from the start of the project to this result wasn't smooth sailing, I encountered many small hurdles, but none that made me consider another framework.
+
+In this second article of the “Building a Lightning-Fast Blog” we went through three of the things I loved about Astro.
+
+It started with Astro content collections allowed me to work fast and to ensure that the content respected the determined rules. It offers a powerful local database of content that can be then parsed and displayed anywhere. It was followed with Astro page routing, offering a simple yet well-known routing system. It offers both guidance and flexibility for developers with different preferences. Finally, Astro allows me to have a blog working without sending any JavaScript to clients. This is a breath of fresh hair in a sea of frameworks requiring JS to be enabled to display a single div (this is an exaggeration used for dramatic purpose).
+
+As said before, I didn't consider any alternative to Astro while developing this blog. I tripped for sure, but I never fell and thought of changing gear.
+
+In the upcoming articles, we’ll dive deeper into the hosting journey with Vercel, the importance of analytics and performance optimization.
+
+---
+
+To make sure you don't miss any updates and to get exclusive tips and insights, subscribe to my newsletter! As a subscriber, you'll receive early access to new articles, bonus content, and special resources that I only share with my email community. Join now and take your web development skills to the next level!
