@@ -8,6 +8,7 @@
     --accent: oklch(45% 0.16 179.65);
     --accent-light: oklch(55% 0.16 179.65);
     --interactive: oklch(92% 0 102.07);
+    --interactive-muted: oklch(96% 0 102.07);
     --interactive-active: oklch(82% 0 102.07);
     --dev1: oklch(78% 0.348 231.09);
     --dev2: oklch(82% 0.448 216.09);
@@ -38,6 +39,7 @@
         --accent: oklch(40% 0.15 180);
         --accent-light: oklch(60% 0.15 180);
         --interactive: oklch(39.66% 0 102.07);
+        --interactive-muted: oklch(20% 0 102.07);
         --interactive-active: oklch(48.28% 0 102.07);
         --dev1: oklch(65% 0.2 210);
         --dev2: oklch(72% 0.22 215);
