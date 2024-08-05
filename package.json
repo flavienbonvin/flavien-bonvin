@@ -25,7 +25,7 @@
         "zod": "^3.23.8"
     },
     "devDependencies": {
-        "@astrojs/check": "0.8.2",
+        "@astrojs/check": "0.9.1",
         "@astrojs/sitemap": "3.1.6",
         "@astrojs/tailwind": "^5.1.0",
         "@tailwindcss/typography": "^0.5.13",
