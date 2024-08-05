@@ -4,6 +4,9 @@ export const PATHS = {
     articles: "/articles",
     dev: "/articles/dev",
     beyond: "/articles/beyond",
+    newsletterValidate: "/newsletter/validate",
+    newsletterValidated: "/newsletter/validated",
+    error404: "/404",
 } as const;
 
 export const URLS = {
