@@ -1,0 +1,27 @@
+---
+import { deleteSubscription, getSubscriptionFromToken } from "@data/subscriptionValidation";
+import { isDateSmallerThan30Minutes } from "@helpers/date";
+import { PATHS } from "const";
+
+export const prerender = false;
+
+const token = Astro.url.searchParams.get("token") || undefined;
+if (!token) {
+    return Astro.redirect(PATHS.error404);
+}
+
+const subscription = await getSubscriptionFromToken(token);
+if (!subscription) {
+    return Astro.redirect(PATHS.error404);
+}
+
+const isSubscriptionValid = isDateSmallerThan30Minutes(subscription?.createdAt);
+if (!isSubscriptionValid) {
+    return Astro.redirect(PATHS.error404);
+}
+
+await deleteSubscription(token);
+return Astro.redirect(PATHS.newsletterValidated);
+---
+
+<p>TODO create loading animation here</p>

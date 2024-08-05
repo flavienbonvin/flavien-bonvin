@@ -8,6 +8,15 @@ const PageView = defineTable({
     },
 });
 
+const SubscriptionValidation = defineTable({
+    columns: {
+        id: column.number({ primaryKey: true }),
+        email: column.text(),
+        token: column.text(),
+        createdAt: column.date(),
+    },
+});
+
 export default defineDb({
-    tables: { PageView },
+    tables: { PageView, SubscriptionValidation },
 });

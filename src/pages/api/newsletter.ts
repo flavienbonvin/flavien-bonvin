@@ -1,3 +1,4 @@
+import { createNewSubscription } from "@data/subscriptionValidation";
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 import { z } from "zod";
@@ -22,10 +23,9 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
-        await resend.contacts.create({
-            email,
-            audienceId,
-        });
+        const token = await createNewSubscription(email);
+        // TODO: Send email using token
+        console.log({ token });
 
         return new Response(null, { status: 200 });
     } catch (e) {
