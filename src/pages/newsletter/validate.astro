@@ -1,27 +1,27 @@
 ---
-import { deleteSubscription, getSubscriptionFromToken } from "@data/subscriptionValidation";
-import { isDateSmallerThan30Minutes } from "@helpers/date";
+import { handleNewsletterSubscription } from "@data/newsletter";
+import PageLayout from "@layouts/page-layout.astro";
 import { PATHS } from "const";
 
 export const prerender = false;
 
-const token = Astro.url.searchParams.get("token") || undefined;
-if (!token) {
+try {
+    const token = Astro.url.searchParams.get("token") || undefined;
+    await handleNewsletterSubscription(token);
+} catch (error) {
     return Astro.redirect(PATHS.error404);
 }
 
-const subscription = await getSubscriptionFromToken(token);
-if (!subscription) {
-    return Astro.redirect(PATHS.error404);
-}
-
-const isSubscriptionValid = isDateSmallerThan30Minutes(subscription?.createdAt);
-if (!isSubscriptionValid) {
-    return Astro.redirect(PATHS.error404);
-}
-
-await deleteSubscription(token);
 return Astro.redirect(PATHS.newsletterValidated);
 ---
 
-<p>TODO create loading animation here</p>
+<PageLayout>
+    <section class="flex flex-col items-center justify-center text-font-color">
+        <h1 class="mb-12 text-5xl font-bold">Validation in progress</h1>
+        <p class="mb-2 font-serif">Please wait while we validate your email address.</p>
+        <p class="mb-20 font-serif">Here is a duck for your enjoyment.</p>
+        <div class="flex items-center justify-center text-accent-light">
+            <p class="absolute text-6xl">🦆</p>
+        </div>
+    </section>
+</PageLayout>

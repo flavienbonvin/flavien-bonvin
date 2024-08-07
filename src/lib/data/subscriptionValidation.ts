@@ -2,30 +2,26 @@ import { db, eq, SubscriptionValidation } from "astro:db";
 
 const isEmailAlreadySubscribed = async (email: string) => {
     const [subscription] = await db
-        .select({ email: SubscriptionValidation.email })
+        .select({ id: SubscriptionValidation.id })
         .from(SubscriptionValidation)
         .where(eq(SubscriptionValidation.email, email));
-
     return !!subscription;
 };
 
 export const createNewSubscription = async (email: string) => {
-    const token = crypto.randomUUID();
-    const emailAlreadySubscribed = await isEmailAlreadySubscribed(email);
-
     // We do not want to save a new email if the user is already subscribed
     // Also, we don't want to send an error to avoid leaking information
+    const emailAlreadySubscribed = await isEmailAlreadySubscribed(email);
     if (emailAlreadySubscribed) {
         return;
     }
 
-    await db.insert(SubscriptionValidation).values({
+    const token = crypto.randomUUID();
+    return await db.insert(SubscriptionValidation).values({
         email,
         token,
         createdAt: new Date(),
     });
-
-    return token;
 };
 
 export const getSubscriptionFromToken = async (token: string) => {
