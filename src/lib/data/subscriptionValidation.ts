@@ -16,12 +16,14 @@ export const createNewSubscription = async (email: string) => {
         return;
     }
 
-    const token = crypto.randomUUID();
-    return await db.insert(SubscriptionValidation).values({
+    const token = crypto.randomUUID().toString();
+    await db.insert(SubscriptionValidation).values({
         email,
         token,
         createdAt: new Date(),
     });
+
+    return token;
 };
 
 export const getSubscriptionFromToken = async (token: string) => {
