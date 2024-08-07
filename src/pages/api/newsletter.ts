@@ -1,3 +1,4 @@
+import { getNewsletterTemplate } from "@data/newsletter";
 import { createNewSubscription } from "@data/subscriptionValidation";
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
@@ -24,8 +25,21 @@ export const POST: APIRoute = async ({ request }) => {
         }
 
         const token = await createNewSubscription(email);
-        // TODO: Send email using token
-        console.log({ token });
+        if (!token) {
+            return new Response(
+                JSON.stringify({
+                    message: "An unexpected error occurred.",
+                }),
+                { status: 400 },
+            );
+        }
+
+        await resend.emails.send({
+            from: "Flavien Bonvin <hello@flavienbonvin.com>",
+            to: [email],
+            subject: "Welcome to my newsletter 🦆!",
+            html: getNewsletterTemplate(token),
+        });
 
         return new Response(null, { status: 200 });
     } catch (e) {
