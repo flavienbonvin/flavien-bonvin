@@ -1,13 +1,11 @@
-import { getNewsletterTemplate } from "@data/newsletter";
-import { createNewSubscription } from "@data/subscriptionValidation";
+import {
+    generateTokenForEmail,
+    sendNewsletterSubscriptionEmail,
+} from "@helpers/newsletterSubscription";
 import type { APIRoute } from "astro";
-import { Resend } from "resend";
 import { z } from "zod";
 
 export const prerender = false;
-
-const audienceId = import.meta.env.BLOG_AUDIENCE_ID;
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 const emailSchema = z.string().email();
 
@@ -24,8 +22,12 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
-        const token = await createNewSubscription(email);
-        if (!token) {
+        try {
+            const token = await generateTokenForEmail(email);
+            await sendNewsletterSubscriptionEmail(token, email);
+
+            return new Response(null, { status: 200 });
+        } catch (e) {
             return new Response(
                 JSON.stringify({
                     message: "An unexpected error occurred.",
@@ -33,21 +35,12 @@ export const POST: APIRoute = async ({ request }) => {
                 { status: 400 },
             );
         }
-
-        await resend.emails.send({
-            from: "Flavien Bonvin <hello@flavienbonvin.com>",
-            to: [email],
-            subject: "Welcome to my newsletter 🦆!",
-            html: getNewsletterTemplate(token),
-        });
-
-        return new Response(null, { status: 200 });
     } catch (e) {
         return new Response(
             JSON.stringify({
                 message: "An unexpected error occurred.",
             }),
-            { status: 400 },
+            { status: 500 },
         );
     }
 };

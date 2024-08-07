@@ -1,5 +1,5 @@
 ---
-import { handleNewsletterSubscription } from "@data/newsletter";
+import { validateNewsletterSubscription } from "@helpers/newsletterValidation";
 import PageLayout from "@layouts/page-layout.astro";
 import { PATHS } from "const";
 
@@ -7,7 +7,7 @@ export const prerender = false;
 
 try {
     const token = Astro.url.searchParams.get("token") || undefined;
-    await handleNewsletterSubscription(token);
+    await validateNewsletterSubscription(token);
 } catch (error) {
     return Astro.redirect(PATHS.error404);
 }
