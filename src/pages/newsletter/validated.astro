@@ -1,9 +1,14 @@
 ---
 import PageLayout from "@layouts/page-layout.astro";
+import SeoPage from "@layouts/seo-page.astro";
 import { Image } from "astro:assets";
 ---
 
 <PageLayout>
+    <SeoPage
+        title="Welcome to the club!"
+        description="You have successfully subscribed to my newsletter."
+    />
     <section class="flex flex-col items-center justify-center">
         <h1 class="mb-12 text-5xl font-bold">Welcome to the club!</h1>
         <p class="mb-2 font-serif">You have successfully subscribed to my newsletter.</p>

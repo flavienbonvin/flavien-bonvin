@@ -1,6 +1,7 @@
 ---
 import { validateNewsletterSubscription } from "@helpers/newsletterValidation";
 import PageLayout from "@layouts/page-layout.astro";
+import SeoPage from "@layouts/seo-page.astro";
 import { PATHS } from "const";
 
 export const prerender = false;
@@ -16,6 +17,10 @@ return Astro.redirect(PATHS.newsletterValidated);
 ---
 
 <PageLayout>
+    <SeoPage
+        title="Newsletter validation!"
+        description="Please wait while we validate your email address."
+    />
     <section class="flex flex-col items-center justify-center text-font-color">
         <h1 class="mb-12 text-5xl font-bold">Validation in progress</h1>
         <p class="mb-2 font-serif">Please wait while we validate your email address.</p>

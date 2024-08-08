@@ -14,7 +14,10 @@ export default defineConfig({
     site: "https://flavienbonvin.com",
     integrations: [
         tailwind(),
-        sitemap(),
+        sitemap({
+            filter: ({ pathname }) =>
+                pathname !== "/newsletter/validate" && pathname !== "/newsletter/validated",
+        }),
         embeds({
             services: {
                 LinkPreview: false,
