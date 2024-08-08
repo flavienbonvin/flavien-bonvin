@@ -30,7 +30,7 @@ export const POST: APIRoute = async ({ request }) => {
         } catch (e) {
             return new Response(
                 JSON.stringify({
-                    message: "An unexpected error occurred. Are you already subscribed?",
+                    message: "An unexpected error occurred. Something not right",
                 }),
                 { status: 400 },
             );
