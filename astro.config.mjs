@@ -15,8 +15,9 @@ export default defineConfig({
     integrations: [
         tailwind(),
         sitemap({
-            filter: ({ pathname }) =>
-                pathname !== "/newsletter/validate" && pathname !== "/newsletter/validated",
+            filter: (page) =>
+                page !== "https://flavienbonvin.com/newsletter/validate/" &&
+                page !== "https://flavienbonvin.com/newsletter/validated/",
         }),
         embeds({
             services: {
