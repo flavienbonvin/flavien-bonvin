@@ -1,4 +1,5 @@
 import { createNewSubscription, isEmailAlreadySubscribed } from "@data/subscriptionValidation";
+import { PATHS } from "const";
 import { Resend } from "resend";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
@@ -89,7 +90,7 @@ const getNewsletterTemplate = (token: string) => {
                             addresses!
                         </p>
                         <a
-                            href="https://flavienbonvin.com/newsletter/validate?token=${token}"
+                            href="https://flavienbonvin.com/${PATHS.newsletterValidate}?token=${token}"
                             style="
                                 text-decoration: underline;
                                 display: block;
@@ -114,7 +115,7 @@ const getNewsletterTemplate = (token: string) => {
                                 border: 1px solid #eee;
                                 margin-bottom: 24px;
                             "
-                            >https://flavienbonvin.com/newsletter/validate?token=${token}</code
+                            >https://flavienbonvin.com/${PATHS.newsletterValidate}?token=${token}</code
                         >
                         <p>Have a lovely day!</p>
                         <p>Flavien 🦆</p>
