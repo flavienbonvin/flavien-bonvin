@@ -2,12 +2,19 @@ import { createNewSubscription, isEmailAlreadySubscribed } from "@data/subscript
 import { Resend } from "resend";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
+const audienceId = import.meta.env.BLOG_AUDIENCE_ID;
+
+const isEmailAlreadyOnResend = async (email: string) => {
+    const { data } = await resend.contacts.list({ audienceId });
+    return data?.data.some((contact) => contact.email === email);
+};
 
 export const generateTokenForEmail = async (email: string) => {
     // We do not want to save a new email if the user is already subscribed
     // Also, we don't want to send an error to avoid leaking information
     const emailAlreadySubscribed = await isEmailAlreadySubscribed(email);
-    if (emailAlreadySubscribed) {
+    const emailAlreadyOnResend = await isEmailAlreadyOnResend(email);
+    if (emailAlreadySubscribed || emailAlreadyOnResend) {
         throw new Error("Email already subscribed");
     }
 

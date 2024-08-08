@@ -25,26 +25,28 @@ const { variant = "default" } = Astro.props;
         }
     </div>
     <form
-        class:list={["mb-4", variant === "inline" && "w-2/3", variant === "default" && "max-w-md"]}
+        class:list={["mb-4", variant === "default" && "max-w-md", variant === "inline" && "w-2/3"]}
         id="newsletter-form"
     >
-        <div class="mb-2 flex flex-col gap-x-4 sm:flex-row">
+        <div class="mb-2 flex flex-col gap-y-4">
             <label for="email" class="sr-only">Email address</label>
             <input
                 name="email"
                 type="email"
                 autocomplete="email"
                 required
-                class="mb-3 flex-auto rounded-md border px-3.5 py-2 text-input placeholder-neutral-500 sm:mb-0 sm:text-sm sm:leading-6 dark:border-0"
+                class="mb-3 flex-auto rounded-md border px-3.5 py-2 text-zinc-900 placeholder-zinc-400 sm:mb-0 sm:text-sm sm:leading-6 dark:border-0 dark:bg-zinc-800 dark:text-zinc-50 dark:placeholder-zinc-400"
                 placeholder="Enter your email"
             />
+            <span
+                class="animate-all text-left opacity-0 duration-150 ease-in-out"
+                id="submit-message"></span>
             <button
                 type="submit"
-                class="w-fit flex-none rounded-md bg-accent px-3.5 py-2.5 text-sm font-medium text-white"
-                >Subscribe</button
+                class="w-fit flex-none self-end rounded-md bg-accent px-3.5 py-2.5 text-sm font-medium text-white"
+                >Subscribe 🦆</button
             >
         </div>
-        <span class="animate-all opacity-0 duration-150 ease-in-out" id="submit-message"></span>
     </form>
 </div>
 
@@ -69,7 +71,7 @@ const { variant = "default" } = Astro.props;
                 return;
             }
 
-            submitMessage.textContent = "🦆 You've been subscribed!";
+            submitMessage.textContent = "🦆 Please check your inbox to confirm your email";
             submitMessage.classList.add("opacity-100", "text-success");
             submitMessage.classList.remove("text-error", "opacity-0");
         };

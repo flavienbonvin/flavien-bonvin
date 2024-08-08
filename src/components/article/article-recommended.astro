@@ -16,8 +16,8 @@ const recommendedArticles = await getRecommendedArticles(
 ---
 
 <section>
-    <h2 class="mb-8 font-serif text-xl font-medium">You might also like</h2>
-    <div class="flex flex-col gap-6">
+    <h2 class="mb-12 font-serif text-2xl font-medium">You might also like</h2>
+    <div class="flex flex-col gap-4">
         {
             recommendedArticles.map((article) => {
                 const formattedPubDate = getFormattedDate(article.data.publicationDate);
