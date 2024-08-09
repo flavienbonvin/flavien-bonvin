@@ -1,19 +1,24 @@
 ---
 import { Icon } from "astro-icon/components";
-import { CONFIG } from "const";
+import { CONFIG, URLS } from "const";
 import Divider from "../components/atoms/divider.astro";
 import ExternalLink from "../components/atoms/external-link.astro";
 ---
 
 <Divider classes="mb-7" />
 
-<div class="flex gap-2">
-    <ExternalLink href={`https://twitter.com/${CONFIG.twitter}`} classes="w-36"
-        >Follow me on 𝕏</ExternalLink
-    >
-    <ExternalLink
-        href={`${Astro.site}rss.xml`}
-        classes="flex justify-center w-36 items-center gap-1"
-        ><Icon name="rss" />RSS feed</ExternalLink
+<div class="flex justify-between">
+    <span class="flex gap-2">
+        <ExternalLink href={`https://twitter.com/${CONFIG.twitter}`} classes="w-36"
+            >Follow me on 𝕏</ExternalLink
+        >
+        <ExternalLink
+            href={`${Astro.site}rss.xml`}
+            classes="flex justify-center w-36 items-center gap-1"
+            ><Icon name="rss" />RSS feed</ExternalLink
+        >
+    </span>
+    <ExternalLink href={URLS.github} classes="flex justify-center w-36 items-center gap-1 self-end"
+        ><Icon name="github" />Github</ExternalLink
     >
 </div>
