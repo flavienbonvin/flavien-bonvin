@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
@@ -14,17 +16,18 @@ export default {
                 mono: ["iA Writer Mono", ...defaultTheme.fontFamily.mono],
             },
             colors: {
-                input: "var(--input)",
+                zinc: colors.zinc,
+                slate: undefined,
+                gray: undefined,
+                neutral: undefined,
+                stone: undefined,
                 background: "var(--background)",
                 "font-color": "var(--font-color)",
                 "font-color-muted": "var(--font-color-muted)",
                 dev: "var(--dev)",
                 beyond: "var(--beyond)",
                 accent: "var(--accent)",
-                "accent-light": "var(--accent-light)",
                 interactive: "var(--interactive)",
-                "interactive-muted": "var(--interactive-muted)",
-                "interactive-active": "var(--interactive-active)",
                 success: "var(--success)",
                 error: "var(--error)",
                 gradient: {

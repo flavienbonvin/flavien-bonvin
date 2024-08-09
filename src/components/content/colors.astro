@@ -22,12 +22,6 @@ const beyond = [
     { className: "bg-gradient-beyond6", text: "beyond 5" },
     { className: "bg-gradient-beyond2", text: "beyond 6" },
 ];
-const state = [
-    { className: "bg-success", text: "Success" },
-    { className: "bg-error", text: "Error" },
-    { className: "bg-input", text: "Input" },
-    { className: "bg-font-color-muted", text: "Muted" },
-];
 ---
 
 <section
@@ -53,17 +47,6 @@ const state = [
         <div class="flex flex-wrap gap-3">
             {
                 beyond.map(({ className, text }) => (
-                    <ColorItem className={className}>{text}</ColorItem>
-                ))
-            }
-        </div>
-    </div>
-
-    <div>
-        <span>Colors of different states</span>
-        <div class="flex flex-wrap gap-3">
-            {
-                state.map(({ className, text }) => (
                     <ColorItem className={className}>{text}</ColorItem>
                 ))
             }
