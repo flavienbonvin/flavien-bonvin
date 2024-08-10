@@ -12,6 +12,7 @@ export const PATHS = {
 export const URLS = {
     twitter: "https://twitter.com/FlavienBonvin",
     github: "https://github.com/flavienbonvin",
+    blogGithub: "https://github.com/flavienbonvin/flavien-bonvin",
     linkedin: "https://www.linkedin.com/in/flavien-b/",
     mailto: "mailto:hello@flavienbonvin.com",
 } as const;
