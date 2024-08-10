@@ -46,8 +46,9 @@ const formattedTitle = encodeURI(article.data.title);
             >Share on 𝕏</ExternalLink
         >
     </div>
-    <NewsletterForm />
-    <Divider variant="light" classes="mb-10 mt-8" />
+    <Divider variant="light" classes="mb-6 mt-6" />
+    <NewsletterForm classes="max-w-xl" />
+    <Divider variant="light" classes="mb-10 mt-6" />
     <RecommendedArticles category={article.data.category} />
 </PageLayout>
 

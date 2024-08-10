@@ -1,51 +1,61 @@
 ---
 interface Props {
+    classes?: string;
     variant?: "default" | "inline";
 }
 
-const { variant = "default" } = Astro.props;
+const { variant = "default", classes } = Astro.props;
 ---
 
 <div
-    class:list={[
-        variant === "default" && "py-8 sm:py-10",
-        variant === "inline" && "flex flex-col items-center text-center sm:py-4",
-    ]}
+    class:list={[classes, variant === "inline" && "flex flex-col items-center text-center sm:py-4"]}
 >
-    <div class="mb-8 text-2xl font-semibold text-font-color">
+    <div class="font-semibold text-font-color">
         {
             variant === "default" && (
-                <h2 class="inline sm:block">Get new articles right in your inbox</h2>
+                <h2 class="mb-4 inline text-2xl sm:block">Get new articles right in your inbox</h2>
             )
         }
         {
             variant === "inline" && (
-                <span class="inline sm:block">Get new articles right in your inbox</span>
+                <span class="mb-2 inline-block text-xl sm:mb-4 sm:text-2xl">
+                    Get new articles right in your inbox
+                </span>
             )
         }
     </div>
+    {
+        variant === "default" && (
+            <p class="mb-8 text-balance">
+                No spam, no advertisement, just the article that you can read right from your inbox!
+            </p>
+        )
+    }
+    {variant === "inline" && <p class="">No spam, no advertisement, only the articles.</p>}
     <form
-        class:list={["mb-4", variant === "default" && "max-w-md", variant === "inline" && "w-2/3"]}
+        class:list={["", variant === "default" && "mb-4 max-w-md", variant === "inline" && "w-2/3"]}
         id="newsletter-form"
     >
-        <div class="mb-2 flex flex-col gap-y-4">
+        <div class="mb-2 flex flex-col">
             <label for="email" class="sr-only">Email address</label>
             <input
                 name="email"
                 type="email"
                 autocomplete="email"
                 required
-                class="mb-3 flex-auto rounded-md border border-zinc-100 px-3.5 py-2 text-zinc-900 placeholder-zinc-400 sm:mb-0 sm:text-sm sm:leading-6 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder-zinc-400"
+                class="block rounded-md border border-zinc-100 px-3.5 py-2 text-zinc-900 placeholder-zinc-400 sm:mb-0 sm:text-sm sm:leading-6 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder-zinc-400"
                 placeholder="Enter your email"
             />
-            <span
-                class="animate-all text-left opacity-0 duration-150 ease-in-out"
-                id="submit-message"></span>
             <button
                 type="submit"
-                class="w-fit flex-none self-end rounded-md bg-accent px-3.5 py-2.5 text-sm font-medium text-zinc-600"
+                class="mt-2 w-fit self-end rounded-md bg-accent px-3.5 py-2.5 text-sm font-medium text-zinc-600"
                 >Subscribe</button
             >
+            <span
+                class="animate-all mt-2 text-left opacity-0 duration-150 ease-in-out"
+                id="submit-message"
+            >
+            </span>
         </div>
     </form>
 </div>
