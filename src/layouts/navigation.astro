@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { PATHS } from "const";
 
 const { pathname } = Astro.url;
@@ -20,41 +21,48 @@ const navLinks = [
 
 <nav class="w-full py-6 font-mono">
     <ul class="flex items-baseline justify-between">
-        <li class="rounded-sm bg-accent px-2.5 text-xl text-zinc-600">
-            <a href={PATHS.home}>Flavien</a>
-        </li>
-
         <li>
-            <ul class="flex gap-4 tracking-tight sm:gap-6">
-                {
-                    navLinks.map(({ href, text }) => {
-                        return (
-                            <li>
-                                <a
-                                    class:list={[
-                                        "decoration-2 underline-offset-2 hover:underline",
-                                        href === PATHS.dev && "decoration-dev",
-                                        href === PATHS.beyond && "decoration-beyond",
-                                        href === PATHS.about && "decoration-accent",
-                                        href === PATHS.dev &&
-                                            pathname.includes(href) &&
-                                            "underline decoration-dev",
-                                        href === PATHS.beyond &&
-                                            pathname.includes(href) &&
-                                            "underline decoration-beyond",
-                                        href === PATHS.about &&
-                                            pathname.includes(href) &&
-                                            "underline decoration-accent",
-                                    ]}
-                                    href={href}
-                                >
-                                    {text}
-                                </a>
-                            </li>
-                        );
-                    })
-                }
-            </ul>
+            <a href={PATHS.home}>
+                <span
+                    class="800 flex items-center gap-2 rounded-sm bg-accent px-2.5 text-xl text-zinc-600"
+                >
+                    <Icon name="terminal" class="inline-block h-4 w-4" />
+                    Flavien</span
+                >
+            </a>
+
+            <li>
+                <ul class="flex gap-4 tracking-tight sm:gap-6">
+                    {
+                        navLinks.map(({ href, text }) => {
+                            return (
+                                <li>
+                                    <a
+                                        class:list={[
+                                            "decoration-2 underline-offset-2 hover:underline",
+                                            href === PATHS.dev && "decoration-dev",
+                                            href === PATHS.beyond && "decoration-beyond",
+                                            href === PATHS.about && "decoration-accent",
+                                            href === PATHS.dev &&
+                                                pathname.includes(href) &&
+                                                "underline decoration-dev",
+                                            href === PATHS.beyond &&
+                                                pathname.includes(href) &&
+                                                "underline decoration-beyond",
+                                            href === PATHS.about &&
+                                                pathname.includes(href) &&
+                                                "underline decoration-accent",
+                                        ]}
+                                        href={href}
+                                    >
+                                        {text}
+                                    </a>
+                                </li>
+                            );
+                        })
+                    }
+                </ul>
+            </li>
         </li>
     </ul>
 </nav>
