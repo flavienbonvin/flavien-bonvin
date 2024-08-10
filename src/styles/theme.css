@@ -4,7 +4,7 @@
     --font-color-muted: oklch(55% 0 102.07);
     --dev: oklch(78% 0.348 231.09);
     --beyond: oklch(75% 0.227 32.82);
-    --accent: oklch(45% 0.16 179.65);
+    --accent: oklch(89% 0.05 135);
     --interactive: oklch(92% 0 102.07);
     --dev1: oklch(78% 0.348 231.09);
     --dev2: oklch(82% 0.448 216.09);
@@ -30,7 +30,7 @@
         --font-color-muted: oklch(72% 0 0);
         --dev: oklch(65% 0.2 210);
         --beyond: oklch(70% 0.22 45);
-        --accent: oklch(40% 0.15 180);
+        --accent: oklch(89% 0.09 135);
         --interactive: oklch(39.66% 0 102.07);
         --dev1: oklch(65% 0.2 210);
         --dev2: oklch(72% 0.22 215);
