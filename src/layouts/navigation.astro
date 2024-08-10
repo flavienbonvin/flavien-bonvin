@@ -9,7 +9,7 @@ const navLinks = [
     },
     {
         href: PATHS.beyond,
-        text: "Beyond dev",
+        text: "Beyond",
     },
     {
         href: PATHS.about,
@@ -19,37 +19,40 @@ const navLinks = [
 ---
 
 <nav class="w-full py-6 font-mono">
-    <ul class="flex items-baseline justify-between gap-4">
-        <li class="relative cursor-pointer text-xl">
-            <a href={PATHS.home} class="relative">Flavien</a>
+    <ul class="flex items-baseline justify-between">
+        <li class="rounded-sm bg-accent px-2.5 text-xl text-zinc-600">
+            <a href={PATHS.home}>Flavien</a>
         </li>
+
         <li>
-            <ul class="flex gap-3 sm:gap-4">
+            <ul class="flex gap-4 tracking-tight sm:gap-6">
                 {
-                    navLinks.map(({ href, text }) => (
-                        <li>
-                            <a
-                                class:list={[
-                                    "underline-offset-2 hover:underline",
-                                    href === PATHS.dev && "decoration-dev",
-                                    href === PATHS.beyond && "decoration-beyond",
-                                    href === PATHS.about && "decoration-accent",
-                                    href === PATHS.dev &&
-                                        pathname.includes(href) &&
-                                        "font-medium underline decoration-dev",
-                                    href === PATHS.beyond &&
-                                        pathname.includes(href) &&
-                                        "font-medium underline decoration-beyond",
-                                    href === PATHS.about &&
-                                        pathname.includes(href) &&
-                                        "font-medium underline decoration-accent",
-                                ]}
-                                href={href}
-                            >
-                                {text}
-                            </a>
-                        </li>
-                    ))
+                    navLinks.map(({ href, text }) => {
+                        return (
+                            <li>
+                                <a
+                                    class:list={[
+                                        "decoration-2 underline-offset-2 hover:underline",
+                                        href === PATHS.dev && "decoration-dev",
+                                        href === PATHS.beyond && "decoration-beyond",
+                                        href === PATHS.about && "decoration-accent",
+                                        href === PATHS.dev &&
+                                            pathname.includes(href) &&
+                                            "underline decoration-dev",
+                                        href === PATHS.beyond &&
+                                            pathname.includes(href) &&
+                                            "underline decoration-beyond",
+                                        href === PATHS.about &&
+                                            pathname.includes(href) &&
+                                            "underline decoration-accent",
+                                    ]}
+                                    href={href}
+                                >
+                                    {text}
+                                </a>
+                            </li>
+                        );
+                    })
                 }
             </ul>
         </li>

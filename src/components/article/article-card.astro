@@ -23,7 +23,7 @@ const isHome = Astro.url.pathname === "/";
         <h2 class="text-balance text-2xl font-medium tracking-tighter">
             {title}
         </h2>
-        <div class="flex items-center gap-2 font-serif text-sm sm:gap-3">
+        <div class="flex items-center gap-2 sm:gap-3">
             {
                 isHome && (
                     <>
@@ -51,7 +51,7 @@ const isHome = Astro.url.pathname === "/";
                 )
             }
         </div>
-        <div class="flex justify-between font-serif text-sm text-font-color-muted">
+        <div class="flex justify-between text-font-color-muted">
             <p>
                 {readingTime} min read
             </p>
