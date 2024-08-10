@@ -7,7 +7,7 @@ import ExternalLink from "../components/atoms/external-link.astro";
 
 <Divider classes="mb-7" />
 
-<div class="flex justify-between">
+<div class="flex flex-col gap-y-2 sm:flex-row sm:justify-between">
     <span class="flex gap-2">
         <ExternalLink href={`https://twitter.com/${CONFIG.twitter}`} classes="w-36"
             >Follow me on 𝕏</ExternalLink
@@ -18,7 +18,7 @@ import ExternalLink from "../components/atoms/external-link.astro";
             ><Icon name="rss" />RSS feed</ExternalLink
         >
     </span>
-    <ExternalLink href={URLS.github} classes="flex justify-center w-36 items-center gap-1 self-end"
+    <ExternalLink href={URLS.github} classes="flex justify-center w-36 items-center gap-1"
         ><Icon name="github" />Github</ExternalLink
     >
 </div>
