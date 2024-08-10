@@ -13,25 +13,25 @@ const { variant = "default", classes } = Astro.props;
     <div class="font-semibold text-font-color">
         {
             variant === "default" && (
-                <h2 class="mb-4 inline text-2xl sm:block">Get new articles right in your inbox</h2>
+                <h2 class="mb-4 inline text-2xl sm:block">Subscribe to the newsletter</h2>
             )
         }
         {
             variant === "inline" && (
-                <span class="mb-2 inline-block text-xl sm:mb-4 sm:text-2xl">
-                    Get new articles right in your inbox
+                <span class="mb-2 inline-block text-xl sm:text-2xl">
+                    Subscribe to the newsletter
                 </span>
             )
         }
     </div>
     {
         variant === "default" && (
-            <p class="mb-8 text-balance">
+            <p class="mb-8 text-balance text-font-color">
                 No spam, no advertisement, just the article that you can read right from your inbox!
             </p>
         )
     }
-    {variant === "inline" && <p class="">No spam, no advertisement, only the articles.</p>}
+    {variant === "inline" && <p class="not-prose mt-1 mb-4">No spam, no advertisement, only the articles.</p>}
     <form
         class:list={["", variant === "default" && "mb-4 max-w-md", variant === "inline" && "w-2/3"]}
         id="newsletter-form"
@@ -48,7 +48,7 @@ const { variant = "default", classes } = Astro.props;
             />
             <button
                 type="submit"
-                class="mt-2 w-fit self-end rounded-md bg-accent px-3.5 py-2.5 text-sm font-medium text-zinc-600"
+                class="mt-4 w-fit self-end rounded-md bg-accent px-3.5 py-2.5 text-sm font-medium text-zinc-600"
                 >Subscribe</button
             >
             <span
