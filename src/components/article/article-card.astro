@@ -1,6 +1,7 @@
 ---
 import { getArticleLink, getFormattedDate } from "@helpers/article";
 import { formatDateForDatetime } from "@helpers/date";
+import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 import { articleCardWidth } from "const";
 import { BlogType } from "content/config";
@@ -23,28 +24,30 @@ const isHome = Astro.url.pathname === "/";
         <h2 class="text-balance text-2xl font-medium tracking-tighter">
             {title}
         </h2>
-        <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex items-center gap-2 text-font-color-muted sm:gap-3">
             {
                 isHome && (
                     <>
-                        <span class:list={[category === BlogType.dev ? "text-dev" : "text-beyond"]}>
+                        <span class="flex items-center">
+                            <Icon
+                                name="branch"
+                                class:list={[
+                                    "mr-1 inline-block h-4 w-4",
+                                    category === BlogType.dev ? "text-dev" : "text-beyond",
+                                ]}
+                            />
                             {category === BlogType.dev ? "dev" : "beyond"}
                         </span>
                         <MiddleDot />
                     </>
                 )
             }
-            <time class="text-font-color-muted" datetime={formatDateForDatetime(publicationDate)}
-                >{formattedPubTime}</time
-            >
+            <time datetime={formatDateForDatetime(publicationDate)}>{formattedPubTime}</time>
             {
                 editDate && formattedEditDate && (
                     <>
                         <MiddleDot />
-                        <time
-                            class="text-font-color-muted"
-                            datetime={formatDateForDatetime(editDate)}
-                        >
+                        <time datetime={formatDateForDatetime(editDate)}>
                             Updated {formattedEditDate}
                         </time>
                     </>
