@@ -19,8 +19,8 @@ const { title, author, rating, type, description, positivePoints, negativePoints
 <section class="flex flex-col gap-4 rounded-lg border p-6 text-font-color shadow">
     <header class="flex flex-col gap-2">
         <h2 class="m-0 p-0 !text-2xl">{title}</h2>
-        <p class="!m-0 !mb-4 p-0 text-sm !text-font-color-muted">Written by {author}</p>
-        <p class="!m-0 text-balance p-0">{description}</p>
+        <p class="not-prose m-0 mb-4 p-0 text-sm text-font-color-muted">Written by {author}</p>
+        <p class="not-prose m-0 text-pretty p-0 font-serif">{description}</p>
     </header>
     <Divider classes="my-3" variant={type} />
     <div class="flex flex-col">

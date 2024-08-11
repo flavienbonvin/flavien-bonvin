@@ -25,9 +25,7 @@ const recommendedArticles = await getRecommendedArticles(
                 return (
                     <a href={getArticleLink(article.slug)} class="group">
                         <article>
-                            <h3 class="text-balance text-lg tracking-tight">
-                                {article.data.title}
-                            </h3>
+                            <h3 class="text-pretty text-lg tracking-tight">{article.data.title}</h3>
                             <time
                                 class="text-font-color-muted"
                                 datetime={formatDateForDatetime(article.data.publicationDate)}

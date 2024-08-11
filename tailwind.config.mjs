@@ -78,5 +78,5 @@ export default {
         },
     },
     safelist: ["opacity-100", "text-success", "text-error"],
-    plugins: [require("@tailwindcss/typography")],
+    plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
 };

@@ -16,6 +16,7 @@
         "@fontsource/figtree": "^5.0.20",
         "@fontsource/ia-writer-mono": "^5.0.11",
         "@fontsource/open-sans": "^5.0.28",
+        "@tailwindcss/forms": "^0.5.7",
         "astro": "4.13.1",
         "astro-embed": "^0.7.2",
         "astro-icon": "^1.1.0",
