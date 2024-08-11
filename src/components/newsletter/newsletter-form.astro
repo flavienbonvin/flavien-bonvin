@@ -5,66 +5,54 @@ interface Props {
 }
 
 const { variant = "default", classes } = Astro.props;
+const description =
+    variant === "inline"
+        ? "No spam, just the article in yout inbox!"
+        : "No spam, no advertisement, just the article that you can read right from your inbox!";
 ---
 
 <div
-    class:list={[classes, variant === "inline" && "flex flex-col items-center text-center sm:py-4"]}
+    class:list={[
+        classes,
+        "not-prose flex flex-col",
+        variant === "inline" && "items-center text-center sm:justify-center",
+        variant === "default" && "sm:flex-row sm:items-center sm:gap-6",
+    ]}
 >
-    <div class="font-semibold text-font-color">
-        {
-            variant === "default" && (
-                <h2 class="mb-4 inline text-2xl sm:block">Subscribe to the newsletter</h2>
-            )
-        }
-        {
-            variant === "inline" && (
-                <span class="mb-2 inline-block text-xl sm:text-2xl">
-                    Subscribe to the newsletter
-                </span>
-            )
-        }
+    <div>
+        <h2 class="not-prose mb-2 text-2xl font-semibold text-font-color">
+            Subscribe to the newsletter
+        </h2>
+        <p class="not-prose mb-8 text-pretty text-font-color sm:text-pretty">{description}</p>
     </div>
-    {
-        variant === "default" && (
-            <p class="no-prose mb-8 text-balance text-font-color">
-                No spam, no advertisement, just the article that you can read right from your inbox!
-            </p>
-        )
-    }
-    {
-        variant === "inline" && (
-            <p class="not-prose mb-4 mt-1 text-font-color">
-                No spam, no advertisement, only the articles.
-            </p>
-        )
-    }
     <form
-        class:list={["", variant === "default" && "mb-4 max-w-md", variant === "inline" && "w-2/3"]}
+        class:list={[
+            "flex shrink-0 flex-col gap-4",
+            variant === "inline" && "sm:w-1/2",
+            variant === "default" && "sm:w-1/2",
+        ]}
         id="newsletter-form"
     >
-        <div class="mb-2 flex flex-col">
-            <label for="email" class="sr-only">Email address</label>
-            <input
-                name="email"
-                type="email"
-                autocomplete="email"
-                required
-                class="block rounded-md border border-zinc-100 px-3.5 py-2 text-zinc-900 placeholder-zinc-400 sm:mb-0 sm:text-sm sm:leading-6 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder-zinc-400"
-                placeholder="Enter your email"
-            />
-            <button
-                type="submit"
-                class="mt-4 w-fit self-end rounded-md bg-accent px-3.5 py-2.5 text-sm font-medium text-zinc-600"
-                >Subscribe</button
-            >
-            <span
-                class="animate-all mt-2 text-left opacity-0 duration-150 ease-in-out"
-                id="submit-message"
-            >
-            </span>
-        </div>
+        <input
+            required
+            type="email"
+            name="email"
+            autocomplete="email"
+            class="block w-full min-w-72 rounded-md border-0 text-font-color ring-1 ring-inset ring-accent placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm dark:bg-zinc-800 dark:ring-zinc-700"
+            placeholder="Enter your email"
+        />
+        <button
+            class:list={[
+                "w-fit rounded bg-accent px-3.5 py-2.5 text-sm font-medium text-background",
+                variant === "inline" && "self-center",
+                variant === "default" && "self-end",
+            ]}
+            type="submit">Subscribe</button
+        >
     </form>
 </div>
+<span class="animate-all mt-2 h-0 text-left opacity-0 duration-150 ease-in-out" id="submit-message">
+</span>
 
 <script>
     function newsletterFormHandling() {
