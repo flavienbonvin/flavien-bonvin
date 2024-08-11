@@ -26,12 +26,18 @@ const { variant = "default", classes } = Astro.props;
     </div>
     {
         variant === "default" && (
-            <p class="mb-8 text-balance text-font-color">
+            <p class="no-prose mb-8 text-balance text-font-color">
                 No spam, no advertisement, just the article that you can read right from your inbox!
             </p>
         )
     }
-    {variant === "inline" && <p class="not-prose mt-1 mb-4">No spam, no advertisement, only the articles.</p>}
+    {
+        variant === "inline" && (
+            <p class="not-prose mb-4 mt-1 text-font-color">
+                No spam, no advertisement, only the articles.
+            </p>
+        )
+    }
     <form
         class:list={["", variant === "default" && "mb-4 max-w-md", variant === "inline" && "w-2/3"]}
         id="newsletter-form"
