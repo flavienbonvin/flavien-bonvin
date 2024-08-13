@@ -73,6 +73,15 @@
                     "value": "default-src 'self'; script-src 'self' 'sha256-yrGBEKKupj26bSbdQT318cTNkyIVv4P2yEkTVw5S2fs=' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' i.ytimg.com data:;  frame-ancestors 'none'; object-src 'none'; frame-src 'self' https://www.youtube-nocookie.com;"
                 }
             ]
+        },
+        {
+            "source": "/favicon(.*)(png|svg|ico)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
         }
     ]
 }
