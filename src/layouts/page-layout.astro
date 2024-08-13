@@ -1,24 +1,11 @@
 ---
 import "@fontsource/ia-writer-mono";
-import "@fontsource/open-sans/latin-300-italic.css";
-import "@fontsource/open-sans/latin-300.css";
-import "@fontsource/open-sans/latin-400-italic.css";
-import "@fontsource/open-sans/latin-400.css";
-import "@fontsource/open-sans/latin-500-italic.css";
-import "@fontsource/open-sans/latin-500.css";
-import "@fontsource/open-sans/latin-600-italic.css";
-import "@fontsource/open-sans/latin-600.css";
-import "@fontsource/open-sans/latin-700-italic.css";
-import "@fontsource/open-sans/latin-700.css";
-import "@fontsource/open-sans/latin-800-italic.css";
-import "@fontsource/open-sans/latin-800.css";
-
 import Footer from "@layouts/footer.astro";
 import Navigation from "@layouts/navigation.astro";
 
+import FontsLayout from "@layouts/fonts-layout.astro";
 import { ViewTransitions } from "astro:transitions";
 import { CONFIG } from "const";
-import "../styles/fonts.css";
 import "../styles/theme.css";
 import FaviconLayout from "./favicon-layout.astro";
 ---
@@ -32,7 +19,7 @@ import FaviconLayout from "./favicon-layout.astro";
         <meta name="generator" content={Astro.generator} />
         <meta property="og:site_name" content=`${CONFIG.author}` />
         <slot name="head" />
-
+        <FontsLayout />
         <FaviconLayout />
 
         <link rel="sitemap" href="/sitemap-index.xml" />

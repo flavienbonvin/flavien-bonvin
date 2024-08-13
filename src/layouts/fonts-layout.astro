@@ -1,0 +1,103 @@
+---
+import { AstroFont } from "astro-font";
+import { join } from "path";
+---
+
+<AstroFont
+    config={[
+        {
+            name: "Suisse Works",
+            src: [
+                {
+                    style: "normal",
+                    weight: "400",
+                    path: join(process.cwd(), "public", "fonts", "SuisseWorks-Regular-WebXL.woff2"),
+                },
+                {
+                    style: "italic",
+                    weight: "400",
+                    path: join(
+                        process.cwd(),
+                        "public",
+                        "fonts",
+                        "SuisseWorks-RegularItalic-WebXL.woff2",
+                    ),
+                },
+                {
+                    style: "normal",
+                    weight: "500",
+                    path: join(process.cwd(), "public", "fonts", "SuisseWorks-Medium-WebXL.woff2"),
+                },
+                {
+                    style: "italic",
+                    weight: "500",
+                    path: join(
+                        process.cwd(),
+                        "public",
+                        "fonts",
+                        "SuisseWorks-MediumItalic-WebXL.woff2",
+                    ),
+                },
+
+                {
+                    style: "normal",
+                    weight: "700",
+                    path: join(process.cwd(), "public", "fonts", "SuisseWorks-Bold-WebXL.woff2"),
+                },
+                {
+                    style: "italic",
+                    weight: "700",
+                    path: join(
+                        process.cwd(),
+                        "public",
+                        "fonts",
+                        "SuisseWorks-BoldItalic-WebXL.woff2",
+                    ),
+                },
+            ],
+            preload: false,
+            display: "swap",
+            selector: "body",
+            fallback: "serif",
+        },
+        {
+            src: [
+                {
+                    style: "normal",
+                    weight: "400",
+                    path: join(process.cwd(), "public", "fonts", "ia-writer-mono-400-normal.woff2"),
+                },
+                {
+                    style: "italic",
+                    weight: "400",
+                    path: join(process.cwd(), "public", "fonts", "ia-writer-mono-400-italic.woff2"),
+                },
+                {
+                    style: "normal",
+                    weight: "700",
+                    path: join(process.cwd(), "public", "fonts", "ia-writer-mono-700-normal.woff2"),
+                },
+                {
+                    style: "italic",
+                    weight: "700",
+                    path: join(process.cwd(), "public", "fonts", "ia-writer-mono-700-italic.woff2"),
+                },
+            ],
+            name: "iA Writer Mono",
+            preload: true,
+            display: "swap",
+            selector: "body",
+            fallback: "monospace",
+        },
+        {
+            src: [],
+            name: "Open Sans",
+            googleFontsURL:
+                "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
+            preload: true,
+            display: "swap",
+            selector: "body",
+            fallback: "sans-serif",
+        },
+    ]}
+/>
