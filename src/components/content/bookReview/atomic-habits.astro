@@ -1,0 +1,22 @@
+---
+import { BlogType } from "content/config";
+import BookReview from "./book-review.astro";
+---
+
+<BookReview
+    title="Atomic Habits"
+    description="The Devil in the White City intertwines the true stories of the 1893 Chicago World's Fair architect Daniel H. Burnham and the cunning serial killer H.H. Holmes who used the fair to lure his victims."
+    author="James Clear"
+    rating={3}
+    type={BlogType.beyond}
+    positivePoints={[
+        "Captivating dual narrative of architectural marvel and serial killer's crimes",
+        "Vivid portrayal of 1890s Chicago and the World's Fair's impact",
+        "Well-researched historical details bring the era to life",
+    ]}
+    negativePoints={[
+        "Storylines of Burnham and Holmes feel disconnected at times",
+        "Some may find too much focus on the Fair and not enough on Holmes",
+        "Lack of deeper insights into Holmes' personality and motives",
+    ]}
+/>
