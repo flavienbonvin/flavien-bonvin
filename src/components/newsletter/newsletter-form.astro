@@ -51,8 +51,14 @@ const description =
         >
     </form>
 </div>
-<span class="animate-all mt-2 h-0 text-left opacity-0 duration-150 ease-in-out" id="submit-message">
-</span>
+<div
+    class:list={[
+        "animate-all mt-2 text-left opacity-0 duration-150 ease-in-out",
+        variant === "inline" && "text-center",
+    ]}
+    id="submit-message"
+>
+</div>
 
 <script>
     function newsletterFormHandling() {
