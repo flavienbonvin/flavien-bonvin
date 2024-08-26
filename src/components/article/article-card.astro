@@ -15,7 +15,7 @@ interface Props {
 const { article } = Astro.props;
 const { title, publicationDate, category, editDate, readingTime } = article.data;
 const formattedPubTime = getFormattedDate(publicationDate);
-const formattedEditDate = getFormattedDate(editDate, true);
+const formattedEditDate = getFormattedDate(editDate);
 const isHome = Astro.url.pathname === "/";
 ---
 
@@ -24,7 +24,7 @@ const isHome = Astro.url.pathname === "/";
         <h2 class="text-pretty text-2xl font-semibold tracking-tighter">
             {title}
         </h2>
-        <div class="flex items-center gap-2 text-font-color-muted sm:gap-3">
+        <div class="flex flex-wrap items-center gap-2 text-font-color-muted sm:gap-3">
             {
                 isHome && (
                     <>
@@ -48,17 +48,14 @@ const isHome = Astro.url.pathname === "/";
                     <>
                         <MiddleDot />
                         <time datetime={formatDateForDatetime(editDate)}>
-                            Updated {formattedEditDate}
+                            Updated, {formattedEditDate}
                         </time>
                     </>
                 )
             }
+            <MiddleDot />
+            <span>{readingTime} min read</span>
         </div>
-        <div class="flex justify-between text-font-color-muted">
-            <p>
-                {readingTime} min read
-            </p>
-            <ReadArticle />
-        </div>
+        <ReadArticle />
     </article>
 </a>

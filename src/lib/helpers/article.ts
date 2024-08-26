@@ -2,13 +2,9 @@ import { PATHS } from "const";
 
 export const getArticleLink = (slug: string) => `${PATHS.articles}/${slug}`;
 
-export const getFormattedDate = (date?: Date, dateOnly?: boolean) => {
+export const getFormattedDate = (date?: Date) => {
     if (!date) {
         return null;
-    }
-
-    if (dateOnly) {
-        return date.toLocaleDateString("en", {});
     }
 
     return date.toLocaleDateString("en", {
