@@ -7,31 +7,31 @@ if (!params.slug) {
     return null;
 }
 
-const article = await getEntry("blog", params.slug).then((res) => res?.data);
+const article = await getEntry("blog", params.slug).then((res) => res);
+const articleData = article?.data;
 ---
 
-<title>{article?.title} | {CONFIG.author}</title>
-<meta name="description" content={article?.description} />
+<title>{articleData?.title} | {CONFIG.author}</title>
+<meta name="description" content={articleData?.description} />
 
 <link rel="canonical" href={Astro.request.url} />
 
 <meta property="og:site_name" content=`${CONFIG.author}` />
-<meta property="og:title" content={article?.title} />
-<meta property="og:description" content={article?.description} />
+<meta property="og:title" content={articleData?.title} />
+<meta property="og:description" content={articleData?.description} />
 <meta property="og:type" content="article" />
 <meta property="og:url" content={Astro.request.url} />
-<meta property="article:published_time" content={article?.publicationDate.toISOString()} />
-<meta property="article:tag" content={article?.tags?.join(", ")} />
-<meta property="og:image" content={`${Astro.site}${article?.ogImage.src}`} />
-<meta property="og:image:width" content={article?.ogImage.width.toString()} />
-<meta property="og:image:height" content={article?.ogImage.height.toString()} />
+<meta property="article:published_time" content={articleData?.publicationDate.toISOString()} />
+<meta property="article:tag" content={articleData?.tags?.join(", ")} />
+<meta property="og:image" content={`${Astro.site}${article?.slug}/og.png`} />
+<meta property="og:image:width" content="1920" />
+<meta property="og:image:height" content="1080" />
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content={article?.title} />
-<meta name="twitter:description" content={article?.description} />
+<meta name="twitter:title" content={articleData?.title} />
+<meta name="twitter:description" content={articleData?.description} />
 <meta name="twitter:url" content={Astro.request.url} />
 <meta name="twitter:label1" content="Written by" />
 <meta name="twitter:data1" content=`${CONFIG.author}` />
 <meta name="twitter:site" content=`@${CONFIG.twitter}` />
 <meta name="twitter:creator" content=`@${CONFIG.twitter}` />
-<meta property="og:image" content={`${Astro.site}${article?.ogImage.src}`} />

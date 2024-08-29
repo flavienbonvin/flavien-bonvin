@@ -4,7 +4,6 @@ description: Reducing your NextJS bundle by 30% is possible. Here are four ways 
 category: dev
 publicationDate: 2022-04-04
 tags: [nextjs, react, optimization]
-ogImage: ./meta/reduce-next-js-bundle.png
 readingTime: 9
 ---
 

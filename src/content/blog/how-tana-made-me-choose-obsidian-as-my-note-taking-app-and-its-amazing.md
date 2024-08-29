@@ -4,7 +4,6 @@ description: Choosing the right note-taking application can be overwhelming. I d
 category: beyond
 publicationDate: 2023-02-13
 tags: [productivity, obsidian]
-ogImage: ./meta/how-tana-made-me-choose-obsidian-as-my-note-taking-app-and-its-amazing.png
 readingTime: 8
 ---
 

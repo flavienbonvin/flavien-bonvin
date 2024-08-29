@@ -4,7 +4,6 @@ description: Switching to Obsidian was motivated by Tana waitlist. Was it the ri
 category: beyond
 publicationDate: 2023-04-24
 tags: [productivity, obsidian]
-ogImage: ./meta/how-obsidian-improved-my-organization-at-work-and-home-first-month-review.png
 readingTime: 11
 ---
 

@@ -5,7 +5,6 @@ category: dev
 publicationDate: 2022-07-04
 editDate: 2024-03-20
 tags: [react, nextjs, typescript]
-ogImage: ./meta/amazing-nextjs-libraries-that-makes-coding-easier.png
 readingTime: 9
 ---
 

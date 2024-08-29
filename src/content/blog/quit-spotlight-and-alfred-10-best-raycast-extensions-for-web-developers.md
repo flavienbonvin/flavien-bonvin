@@ -4,7 +4,6 @@ description: Raycast extensions are a great way to improve productivity. Here is
 category: beyond
 publicationDate: 2022-11-28
 tags: [productivity, tools, raycast]
-ogImage: ./meta/quit-spotlight-and-alfred-10-best-raycast-extensions-for-web-developers.png
 readingTime: 9
 ---
 

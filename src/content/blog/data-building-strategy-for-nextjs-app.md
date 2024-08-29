@@ -4,7 +4,6 @@ description: NextJS offers many ways to generate pages on the server to ensure f
 category: dev
 publicationDate: 2022-11-07
 tags: [nextjs, typescript]
-ogImage: ./meta/data-building-strategy-for-nextjs-app.png
 readingTime: 10
 ---
 
