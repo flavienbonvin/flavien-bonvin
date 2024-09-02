@@ -16,10 +16,7 @@ interface Props {
 <ul class="mb-10 flex flex-col gap-10">
     {
         Astro.props.articles.map((article, index) => (
-            <li
-                style={{ animationDelay: `${index * 100}ms` }}
-                class="opacity-0 motion-safe:translate-y-10 motion-safe:animate-fade-in-up motion-reduce:opacity-100"
-            >
+            <li style={{ animationDelay: `${index * 100}ms` }} class="article-item">
                 <ArticleCard {article} />
             </li>
         ))
@@ -27,3 +24,30 @@ interface Props {
 </ul>
 <Divider classes="mb-6" />
 <NewsletterForm />
+
+<script>
+    const handleAnimation = () => {
+        const alreadySawAnimation = sessionStorage.getItem("already-saw-animation");
+        const articleItems = document.querySelectorAll(".article-item");
+
+        articleItems.forEach((item) => {
+            if (alreadySawAnimation) {
+                item.classList.add("opacity-100", "translate-y-0");
+            } else {
+                item.classList.add(
+                    "opacity-0",
+                    "motion-safe:animate-fade-in-up",
+                    "motion-safe:translate-y-10",
+                    "motion-reduce:opacity-100",
+                );
+            }
+        });
+
+        if (!alreadySawAnimation) {
+            sessionStorage.setItem("already-saw-animation", "true");
+        }
+    };
+
+    handleAnimation();
+    document.addEventListener("astro:after-swap", handleAnimation);
+</script>
