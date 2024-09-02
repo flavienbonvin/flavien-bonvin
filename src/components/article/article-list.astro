@@ -16,7 +16,7 @@ interface Props {
 <ul class="mb-10 flex flex-col gap-10">
     {
         Astro.props.articles.map((article, index) => (
-            <li style={{ animationDelay: `${index * 100}ms` }} class="article-item">
+            <li style={{ animationDelay: `${index * 100}ms` }} class="article-item opacity-0">
                 <ArticleCard {article} />
             </li>
         ))
