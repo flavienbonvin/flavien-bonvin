@@ -40,4 +40,37 @@ export default defineConfig({
         },
     },
     adapter: vercel(),
+    redirects: {
+        "/reduce-next-js-bundle/": {
+            destination: "/articles/reduce-next-js-bundle",
+            status: 301,
+        },
+        "/amazing-nextjs-libraries-that-makes-coding-easier/": {
+            destination: "/articles/amazing-nextjs-libraries-that-makes-coding-easier",
+            status: 301,
+        },
+        "/what-makes-the-us-ansi-keyboard-is-the-best-layout-for-developers/": {
+            destination:
+                "/articles/what-makes-the-us-ansi-keyboard-is-the-best-layout-for-developers",
+            status: 301,
+        },
+        "/quit-spotlight-and-alfred-10-best-raycast-extensions-for-web-developers/": {
+            destination:
+                "/articles/quit-spotlight-and-alfred-10-best-raycast-extensions-for-web-developers",
+            status: 301,
+        },
+        "/how-tana-made-me-choose-obsidian-as-my-note-taking-app-and-its-amazing/": {
+            destination:
+                "/articles/how-tana-made-me-choose-obsidian-as-my-note-taking-app-and-its-amazing",
+            status: 301,
+        },
+        "/slow-software-a-sign-of-appreciation-for-developers/": {
+            destination: "articles/slow-software-appreciation-for-developers",
+            status: 301,
+        },
+        "/some-great-slow-software-companies/": {
+            destination: "articles/slow-software-great-slow-software-companies",
+            status: 301,
+        },
+    },
 });
