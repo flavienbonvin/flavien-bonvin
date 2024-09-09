@@ -10,13 +10,13 @@
     },
     "dependencies": {
         "@astrojs/db": "^0.14.1",
-        "@astrojs/mdx": "3.1.4",
+        "@astrojs/mdx": "3.1.5",
         "@astrojs/vercel": "7.8.0",
         "@astrojs/web-vitals": "^3.0.0",
         "@fontsource/ia-writer-mono": "^5.0.11",
-        "@fontsource/open-sans": "^5.0.29",
+        "@fontsource/open-sans": "^5.0.30",
         "@vercel/og": "^0.6.2",
-        "astro": "4.14.5",
+        "astro": "4.15.4",
         "astro-embed": "^0.7.2",
         "astro-icon": "^1.1.1",
         "resend": "^4.0.0",
@@ -27,8 +27,8 @@
         "@astrojs/rss": "4.0.7",
         "@astrojs/sitemap": "3.1.6",
         "@astrojs/tailwind": "^5.1.0",
-        "@tailwindcss/forms": "^0.5.7",
-        "@tailwindcss/typography": "^0.5.14",
+        "@tailwindcss/forms": "^0.5.9",
+        "@tailwindcss/typography": "^0.5.15",
         "@types/markdown-it": "^14.1.2",
         "@types/sanitize-html": "^2.13.0",
         "markdown-it": "^14.1.0",
@@ -36,7 +36,7 @@
         "prettier-plugin-tailwindcss": "^0.6.6",
         "sanitize-html": "^2.13.0",
         "tailwindcss": "^3.4.10",
-        "typescript": "^5.5.4"
+        "typescript": "^5.6.2"
     },
-    "packageManager": "bun@1.1.25"
+    "packageManager": "bun@1.1.27"
 }
