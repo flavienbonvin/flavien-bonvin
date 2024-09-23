@@ -1,0 +1,116 @@
+---
+title: Building a Lightning-Fast Blog - Smooth sailing with Vercel
+description: Join me on my journey of building a lightning-fast blog using Astro and Vercel. Discover insights, benefits, and challenges of leveraging modern web development tools
+category: dev
+publicationDate: 2024-09-23
+tags: [blog, astro, vercel]
+readingTime: 8
+---
+
+import InlineNewsletter from "@components/newsletter/inline-newsletter.astro";
+
+Welcome to **“Building a Lightning-Fast Blog,”** a series where I walk you through the journey I took to build this blog using modern web development tools.
+
+In a previous article, I explained why I created a custom blog. Now it's time to dive into the technical side of things. Although this blog is simple, there are plenty of lessons and experiences I want to share with the world.
+
+Whether you're a seasoned Astro developer or just starting out, I'm sure there are bits of information you'll find valuable and can apply to your projects.
+
+Let's continue the series with **“Smooth Sailing with Vercel.”**
+
+---
+
+## Smooth sailing with Vercel
+
+I recently built this simple blog—a static collection of content with two API endpoints. One tracks visitor access to my articles, potentially for future display of visitor counts. The other sends a validation email when someone subscribes to the newsletter.
+
+🦆 Feel free to test the endpoint right here:
+
+<InlineNewsletter />
+
+As mentioned, my blog is straightforward, so I didn't need the advanced features that Vercel or its alternatives offer. Nevertheless, I chose Vercel for a simple reason: familiarity. I knew how it worked, and I didn't want to learn something new at this stage.
+
+### Embracing the Comfort Zone
+
+Opting for the familiar might not seem exciting, but sometimes it's the most rational choice. This is why I went with Vercel instead of, say, an S3 bucket with Cloudflare workers.
+
+Starting this project already involved learning several new things, so I decided to focus my energy on creating a good (and, in my opinion, beautiful) static blog.
+
+Having used Vercel for several years, and knowing that Astro supports it out of the box, made it a logical, if unexciting, choice for me.
+
+It's tempting to chase trends and build everything from scratch, potentially leading to greater learning experiences. However, such ambitious approaches can be overwhelming, leading to the abandon of the projects altogether.
+
+Incremental changes are typically more manageable and, when sustained over time, can lead to significant progress. I explored this concept in my review of “Atomic Habits”, which you can read here: [Book Review — Atomic Habits](https://flavienbonvin.com/articles/atomic-habits)
+
+### Out-of-the-Box Astro Integration
+
+I knew early in the development that I'd need some API endpoints for my blog. Nothing fancy, just a few endpoints, so I could perform some actions on the server.
+
+The idea of playing with [Hono](https://hono.dev/) or trying Go came to mind, but I decided to stick with one simple project where everything is together. Managing a blog is new for me, and I didn't want to add more work by having to update a separate project.
+
+At that point, I knew that Astro offers an adapter for Vercel sealing the deal for me. Using Vercel was the right choice.
+
+I was quite pleased with how easy integrating and configuring things were. One command to run and everything is done:
+
+```
+npx astro add vercel
+```
+
+Yet again, Astro shines with its developer experience and documentation. I'm sure the process should be the same for the other SSR adapters.
+
+### Where Vercel shines
+
+This section of the article is aimed at people who are new to Vercel or not very familiar with it. Other providers, such as [Netlify](https://www.netlify.com/), also offer similar features.
+
+One of the main advantages Vercel offers is preview deployments; each commit has its environment, which helps test things on a server rather than on your local device. This makes sharing a new feature or design straightforward (as long as the person has a Vercel account).
+
+Having automatic deployments helped me understand how to configure the API endpoints to exclude them from the static build of the blog. This was solved by adding `export const prerender = false;` at the top of the file, indicating to Astro that the page is dynamic. Having a static endpoint would be quite pointless! You can learn more about that in the [Astro documentation](https://docs.astro.build/en/guides/server-side-rendering/#opting-out-of-pre-rendering-in-hybrid-mode).
+
+This quick feedback loop was crucial in supporting my learning and quick prototyping.
+
+Vercel also offers instant rollbacks that are a great safety net in case something isn't going according to plan. Let's say an article is published a bit before schedule accidentally. This feature can be a lifesaver for serious businesses. There's no need to worry about a critical bug introduced in your last release; you can roll back and work on a fix.
+
+Finally, Vercel automatically optimizes images and distributes them on a CDN. This makes image loading super fast by bringing them closer to the end user. Although my blog is mostly text-based, I'm quite relieved by this feature since I know images won't impact users with slow internet connections or my Lighthouse score (which is obviously my north star).
+
+### CSP and redirections
+
+When creating my blog, I wanted to spend time polishing aspects that not many people care or talk about. That's when I started checking tools that automatically scan your website for misconfigured DNS, missing CSP rules, or unwanted redirections—tools such as [Validbot](https://www.validbot.com/).
+
+That's how I found that Vercel's default headers aren't as strict as they could be. I'm sure the engineers there crafted those with a good balance of security and convenience. It wouldn't be good press if people's apps broke unless they loosened some rules. But they could add some headers that wouldn't break the vast majority of web apps, such as `Permissions-Policy`.
+
+I ended up adding some security headers and tweaking some CSP rules. You can find those rules here: [vercel.json](https://github.com/flavienbonvin/flavien-bonvin/blob/main/vercel.json).
+
+I had a previous blog, and some URLs changed with the migration. However, I wanted people who find those URLs to be redirected automatically if they follow a broken link.
+
+The Vercel configuration file offers such a feature, and I'd used it for quite some time before finding out that Astro has a configuration for this. I feel like sharing it since the redirection works well and could be used in some cases.
+
+[Vercel's redirection configuration](https://vercel.com/docs/edge-network/redirects#configuration-redirects) is good on the subject, as is the [Astro one](https://docs.astro.build/en/guides/routing/#configured-redirects).
+
+<InlineNewsletter />
+
+### Vercel limitations
+
+Pretending that using Vercel is perfect would be disingenuous of me. It's an excellent service that offers great speed and a large set of advanced features. However, no silver bullet exists, and I'd like to touch on two points that bother me.
+
+First, using the Vercel adapter and having a server output prevents me from previewing the project locally. This situation is not exclusive to Vercel, as the Netlify adapter has the same issue.
+
+This is not a deal-breaker, but I wasn't able to run the built project locally occasionally and this was frustrating. I'm not sure what's preventing this; I assume it has to do with some serverless function not running on Node, since building a static blog works just fine.
+
+The second point concerns Vercel's positioning. What they've built and offer is quite extraordinary—they provide a wonderful meta-framework with NextJS and are pushing the boundaries of what's possible with complex web applications.
+
+However, their position in the JavaScript world is growing, and I'm not sure how this will impact the industry if things don't please their investors.
+
+Vercel is a for-profit company, which is fine, but having so many tools depending on the company could be worrisome. There's a possibility that if Guillermo Rauch were to change course, we would lose the great things Vercel offers. I know NextJS is open-source, but the fact is that most contributions are coming from Vercel itself.
+
+I want to clarify that this is purely speculative and based on thin air. However, this concern is shared online by others and are one of the reason behind the [Open Next](https://open-next.js.org/) project.
+
+## Conclusion
+
+Vercel is living up to its reputation as a fast and performant hosting solution. My blog was the first non-Next.js project I hosted there, and I didn't feel like a second-class citizen.
+
+The official adapter installed with one command, and the simple UI and powerful deployment mechanisms were as pleasing to use as they are with their flagship framework.
+
+Some default header configurations aren't as secure as they could be, but Vercel likely knows better about those than I do. Moreover, those settings should not result in security breaches since they mostly impact the requests made to Vercel servers and not the rest of the project's data pipeline.
+
+Although they provide an excellent service, I cannot shake that weird feeling regarding Vercel's role in the JS ecosystem. They are a big player, and relying too much on their services or tech could become a problem.
+
+That being said, I don't want to downplay all the things they've offered to the industry and how much they've challenged some established standards. Their impact is definitely positive, and their services are a world-class example.
