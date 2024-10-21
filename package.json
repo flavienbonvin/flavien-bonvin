@@ -16,7 +16,7 @@
         "@fontsource/ia-writer-mono": "^5.1.0",
         "@fontsource/open-sans": "^5.1.0",
         "@vercel/og": "^0.6.3",
-        "astro": "4.15.12",
+        "astro": "4.16.6",
         "astro-embed": "^0.7.4",
         "astro-icon": "^1.1.1",
         "resend": "^4.0.0",
