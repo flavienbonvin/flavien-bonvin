@@ -1,7 +1,6 @@
 ---
 import ArticleGradient from "@components/article/article-gradient.astro";
 import ArticleHeader from "@components/article/article-header.astro";
-import RecommendedArticles from "@components/article/article-recommended.astro";
 import Divider from "@components/atoms/divider.astro";
 import ExternalLink from "@components/atoms/external-link.astro";
 import PageView from "@components/atoms/page-view.astro";
@@ -10,8 +9,8 @@ import { getAllPublishedArticles } from "@data/articles";
 import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoArticle from "@layouts/seo-article.astro";
+import { Icon } from "astro-icon/components";
 import { type CollectionEntry } from "astro:content";
-import { CONFIG, PATHS } from "const";
 
 export async function getStaticPaths() {
     const allArticles = await getAllPublishedArticles();
@@ -37,19 +36,13 @@ const formattedTitle = encodeURI(article.data.title);
         <ArticleGradient article={article} />
         <Content />
     </ArticleLayout>
-    <div class="mb-8 flex flex-row items-center justify-between">
-        <a class="font-serif" href={PATHS.home}
-            >{CONFIG.author} &middot; {new Date().getFullYear()}</a
-        >
-        <ExternalLink
-            href=`http://twitter.com/share?text=${formattedTitle}&url=${Astro.request.url}`
-            >Share on 𝕏</ExternalLink
-        >
-    </div>
+    <ExternalLink
+        classes="flex items-center justify-center w-fit gap-2"
+        href=`http://twitter.com/share?text=${formattedTitle}&url=${Astro.request.url}`
+        >Share on <Icon name="twitter" /></ExternalLink
+    >
     <Divider variant="light" classes="mb-6 mt-6" />
     <NewsletterForm />
-    <Divider variant="light" classes="mb-10 mt-6" />
-    <RecommendedArticles category={article.data.category} />
 </PageLayout>
 
 <PageView slug={article.slug} />

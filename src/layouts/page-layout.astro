@@ -24,7 +24,7 @@ import FaviconLayout from "./favicon-layout.astro";
 ---
 
 <!doctype html>
-<html lang="en" class="relative">
+<html lang="en" class="relative w-screen">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,10 +48,8 @@ import FaviconLayout from "./favicon-layout.astro";
         <meta name="theme-color" content="var(--background)" />
     </head>
 
-    <body
-        class="mx-auto flex h-screen max-w-2xl flex-col bg-background px-6 text-font-color antialiased md:px-0"
-    >
-        <header class="mb-16 md:mb-24">
+    <body class="mx-auto max-w-2xl bg-background px-4 text-font-color antialiased sm:px-0">
+        <header class="mb-10 md:mb-24">
             <Navigation />
         </header>
 

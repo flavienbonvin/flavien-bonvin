@@ -1,6 +1,8 @@
 ---
 import ArticleList from "@components/article/article-list.astro";
+import Divider from "@components/atoms/divider.astro";
 import PageView from "@components/atoms/page-view.astro";
+import NewsletterForm from "@components/newsletter/newsletter-form.astro";
 import { getAllPublishedArticles } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
@@ -16,6 +18,8 @@ const allBlogPosts = await getAllPublishedArticles();
         articles={allBlogPosts}
         pageDescription={CONFIG.homeDescription}
     />
+    <Divider classes="mb-10 mt-6" />
+    <NewsletterForm />
 </PageLayout>
 
 <PageView slug="home" />

@@ -8,18 +8,13 @@ interface Props {
 
 <article
     class:list={[
-        "prose prose-slate mb-20 break-words text-font-color dark:prose-invert",
-        "prose-headings:tracking-tight prose-headings:text-font-color",
-        "prose-p:text-font-color prose-a:text-font-color prose-strong:text-font-color",
-        "prose-p:my-5 prose-p:font-serif",
+        "prose prose-slate mb-8 break-words text-font-color dark:prose-invert sm:mb-10",
         "prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-lg",
-        "prose-ol:font-serif prose-ol:text-font-color prose-ul:font-serif prose-ul:text-font-color",
-        "prose-hr:mx-auto prose-hr:w-1/2",
-        "prose-table:text-font-color",
-        "prose-blockquote:mt-10",
-        "selection:text-black sm:prose-code:text-wrap dark:selection:text-white",
+        "font-serif prose-headings:font-sans",
+        "prose-hr:mx-auto prose-hr:w-1/2 sm:prose-code:text-wrap",
+        "selection:text-black dark:selection:text-white",
         Astro.props.category === BlogType.dev &&
-            "selection:bg-dev hover:text-dev hover:prose-a:text-dev prose-hr:border-dev",
+            "selection:bg-dev hover:prose-a:text-dev prose-hr:border-dev",
         Astro.props.category === BlogType.beyond &&
             "selection:bg-beyond hover:prose-a:text-beyond prose-hr:border-beyond",
     ]}

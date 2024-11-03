@@ -51,7 +51,10 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 ---
 
 <div
-    class={`flex h-60 sm:h-80 mb-8 flex-col overflow-x-hidden items-center relative justify-center rounded-xl text-center font-semibold ${gradientClasses}`}
+    class:list={[
+        "relative mb-6 flex h-40 flex-col items-center justify-center overflow-hidden overflow-x-hidden rounded-xl text-center font-sans text-3xl font-semibold text-white/80 selection:text-white/80 sm:mb-8 sm:h-80 sm:text-6xl dark:text-white/60 selection:dark:text-white/60",
+        gradientClasses,
+    ]}
 >
     <div
         class="absolute inset-0 rounded-xl opacity-60 brightness-100 contrast-150"
@@ -68,7 +71,7 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
         Astro.props.article.data.tags.slice(0, 3).map((tag, index) => (
             <span
                 style={{ animationDelay: `${index * 200}ms` }}
-                class="z-10 text-5xl text-white/80 opacity-0 selection:text-white/80 motion-safe:translate-y-10 motion-safe:animate-fade-in-up motion-reduce:opacity-100 sm:text-6xl dark:text-white/60 selection:dark:text-white/60"
+                class="opacity-0 motion-safe:translate-y-10 motion-safe:animate-fade-in-up motion-reduce:opacity-100"
             >
                 {tag}
             </span>

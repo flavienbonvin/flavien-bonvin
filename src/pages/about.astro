@@ -5,10 +5,11 @@ import PageView from "@components/atoms/page-view.astro";
 import PageHeader from "@layouts/page-header.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import { CONFIG, PATHS, URLS } from "const";
 import alps from "../content/assets/about/alps.png";
-import flavien from "../content/assets/about/flavien_bonvin.png";
+import flavien from "../content/assets/about/flavien_bonvin.jpg";
 import lausanne from "../content/assets/about/lausanne.png";
 ---
 
@@ -85,7 +86,7 @@ import lausanne from "../content/assets/about/lausanne.png";
                 class="mx-auto rounded-lg sm:w-2/3"
                 width={750}
             />
-            <figcaption class="text-center text-sm">
+            <figcaption class="text-balance text-center text-sm">
                 This is the view I had every morning while growing up
             </figcaption>
         </figure>
@@ -111,7 +112,7 @@ import lausanne from "../content/assets/about/lausanne.png";
             </figcaption>
         </figure>
         <p>
-            You can find me on 𝕏, <ExternalLink
+            You can find me on <Icon name="twitter" class="inline-block h-4 w-4" />, <ExternalLink
                 classes="font-sans"
                 href={URLS.twitter}
                 variant="inline">@FlavienBonvin</ExternalLink

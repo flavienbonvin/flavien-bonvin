@@ -20,10 +20,12 @@ const description =
     ]}
 >
     <div>
-        <h2 class="not-prose mb-2 text-2xl font-semibold text-font-color">
+        <h2 class="not-prose mb-2 text-lg font-semibold text-font-color sm:text-2xl">
             Subscribe to the newsletter
         </h2>
-        <p class="not-prose mb-8 text-pretty text-font-color sm:text-pretty">{description}</p>
+        <p class="not-prose mb-8 text-pretty text-sm text-font-color sm:text-pretty">
+            {description}
+        </p>
     </div>
     <form
         class:list={[
@@ -38,14 +40,14 @@ const description =
             type="email"
             name="email"
             autocomplete="email"
-            class="block w-full min-w-72 rounded-md border-0 text-font-color ring-1 ring-inset ring-accent placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm dark:bg-zinc-800 dark:ring-zinc-700"
+            class="block w-full min-w-72 rounded-md border-0 text-sm text-font-color ring-1 ring-inset ring-accent placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-accent dark:bg-zinc-800 dark:ring-zinc-700"
             placeholder="Join 500+ developers"
         />
         <button
             class:list={[
-                "rounded bg-accent px-3.5 py-2.5 text-sm font-medium text-zinc-600 shadow transition-shadow duration-150 hover:shadow-md",
+                "w-full rounded bg-accent px-3.5 py-2.5 text-sm font-medium text-zinc-600 shadow transition-shadow duration-150 hover:shadow-md",
                 variant === "inline" && "w-full self-center",
-                variant === "default" && "w-fit self-end",
+                variant === "default" && "self-end sm:w-fit",
             ]}
             type="submit">Subscribe</button
         >

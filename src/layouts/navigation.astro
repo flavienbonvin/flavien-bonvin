@@ -2,59 +2,52 @@
 import Logo from "@components/atoms/logo.astro";
 import { PATHS } from "const";
 
-const { pathname } = Astro.url;
-const navLinks = [
-    {
-        href: PATHS.dev,
-        text: "Dev",
-    },
-    {
-        href: PATHS.beyond,
-        text: "Beyond",
-    },
-    {
-        href: PATHS.about,
-        text: "About",
-    },
-];
+const getIsActive = (href: string) => {
+    return Astro.url.pathname.includes(href);
+};
 ---
 
-<nav class="w-full py-6 font-mono">
+<nav class="w-full py-6 font-mono text-font-color">
     <ul class="flex items-center justify-between">
         <li>
             <a href={PATHS.home}>
                 <Logo />
             </a>
             <li>
-                <ul class="flex gap-4 tracking-tight sm:gap-6">
-                    {
-                        navLinks.map(({ href, text }) => {
-                            return (
-                                <li>
-                                    <a
-                                        class:list={[
-                                            "decoration-2 underline-offset-2 hover:underline",
-                                            href === PATHS.dev && "decoration-dev",
-                                            href === PATHS.beyond && "decoration-beyond",
-                                            href === PATHS.about && "decoration-accent",
-                                            href === PATHS.dev &&
-                                                pathname.includes(href) &&
-                                                "underline decoration-dev",
-                                            href === PATHS.beyond &&
-                                                pathname.includes(href) &&
-                                                "underline decoration-beyond",
-                                            href === PATHS.about &&
-                                                pathname.includes(href) &&
-                                                "underline decoration-accent",
-                                        ]}
-                                        href={href}
-                                    >
-                                        {text}
-                                    </a>
-                                </li>
-                            );
-                        })
-                    }
+                <ul class="flex gap-3 tracking-tight sm:gap-6">
+                    <li>
+                        <a
+                            href={PATHS.dev}
+                            class:list={[
+                                "decoration-dev decoration-2 underline-offset-2 transition-colors hover:text-font-color hover:underline",
+                                getIsActive(PATHS.dev)
+                                    ? "text-font-color underline"
+                                    : "text-font-color-muted",
+                            ]}>Dev</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href={PATHS.beyond}
+                            class:list={[
+                                "decoration-beyond decoration-2 underline-offset-2 transition-colors hover:text-font-color hover:underline",
+                                getIsActive(PATHS.beyond)
+                                    ? "text-font-color underline"
+                                    : "text-font-color-muted",
+                            ]}>Beyond</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href={PATHS.about}
+                            class:list={[
+                                "decoration-accent decoration-2 underline-offset-2 transition-colors hover:text-font-color hover:underline",
+                                getIsActive(PATHS.about)
+                                    ? "text-font-color underline"
+                                    : "text-font-color-muted",
+                            ]}>About</a
+                        >
+                    </li>
                 </ul>
             </li>
         </li>

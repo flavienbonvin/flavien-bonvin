@@ -30,14 +30,3 @@ export const getBeyondArticle = async () => {
         return sortArticles(articles);
     });
 };
-
-export const getRecommendedArticles = async (type: BlogType, currentSlug: string, limit = 4) => {
-    let articles = [];
-    if (type === BlogType.dev) {
-        articles = await getDevArticles();
-    } else {
-        articles = await getBeyondArticle();
-    }
-
-    return articles.filter(({ slug }) => slug !== currentSlug).slice(0, limit);
-};
