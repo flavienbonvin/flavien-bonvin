@@ -1,0 +1,196 @@
+---
+title: How to make Zen browser feel like Arc
+description: Arc future is uncertain. Better jump ship before it's too late and join the growing Zen browser.
+category: beyond
+publicationDate: 2024-11-05
+tags: [zen browser, arc, Firefox]
+readingTime: 9
+---
+
+import { Image } from "astro:assets";
+import aboutConfig from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_about_config.png";
+import compactMode from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_compact_mode.png";
+import faviconMode from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_favicon_mode.png";
+import keyboardShortcuts from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_keyboard_shortcuts.png";
+import pipChanges from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_pip_changes.png";
+
+The future of the Arc browser is uncertain. In a recent announcement, Josh Miller, Arc's CEO, shared news about a new browser aimed at a broader audience—one his mother could easily use. While Josh assured users that Arc isn't going away and that development continues, the announcement left many in the community concerned.
+
+https://www.youtube.com/watch?v=E9yZ0JusME4
+
+Unsurprisingly, this news didn't sit well with Arc's community. Following a recent security breach, the announcement added to concerns that Arc's days might be numbered.
+
+I've been using Arc for quite some time, but I've started to grow tired of it. Recent updates haven't had the magic they once did, and the browser feels sluggish and resource-hungry.
+
+Enter the Zen browser: an open-source browser based on Firefox, which can be customized to feel very close to Arc.
+
+Let's see how to make Zen feel like home!
+
+> **Tip**: Want to learn more about Zen? Scroll to the bottom of this article for details.
+
+## How to Get the Zen Browser
+
+You can download it from their website: [zen-browser.app](https://zen-browser.app/) or from their GitHub project: [Zen Browser Releases](https://github.com/zen-browser/desktop/releases/latest).
+
+## How to Make Zen Feel Like Arc
+
+Zen's default settings are great, but if you're here, you probably want it to feel more like Arc. Spoiler: we can get pretty close!
+
+### Workspaces and Profiles
+
+One of Arc's strengths is its profile management, which lets you assign a profile to a space. With a single keyboard shortcut, you can switch seamlessly between work and personal life.
+
+Since 2017, Firefox has offered an extension called Multi-Account Containers, which lets you assign tabs to specific profiles, isolating them from the rest of your browser.
+
+Zen took this concept and integrated it with its workspace feature. You can set a default container per workspace, similar to Arc's profile management.
+
+https://youtu.be/6Anmg6X4A4I
+
+> **Tip**: I recommend restarting the browser after making this change, as I had issues with the tab mapping not working correctly.
+
+---
+
+What about keyboard shortcuts? In Arc, you can press `^ + number` to switch workspaces. Zen offers the same functionality, though you'll need to set up a shortcut for it.
+
+To change keyboard shortcuts in Zen, go to **Settings** (or press `⌘ + ,`) and click on the **Keyboard Shortcuts** button. You can assign your preferred keys to actions like switching workspaces.
+
+<figure>
+    <Image
+        src={keyboardShortcuts}
+        alt="How I changes my keyboard shortcuts to switch workspaces in Zen"
+        class="mx-auto rounded-lg"
+        width={2000}
+    />
+    <figcaption class="text-sans text-center text-sm">
+        How I changes my keyboard shortcuts to switch workspaces in Zen
+    </figcaption>
+</figure>
+
+As you can see, I use only two workspaces, so I mapped shortcuts for the first two.
+
+### Gradients, Just Like Arc
+
+One of Arc's most-loved features is its colorful gradients tied to each workspace, giving you visual cues at a glance.
+
+Zen also supports gradients, though the setting is a bit hidden. To add a gradient to your workspace, right-click anywhere in the Zen UI (outside the web content) and select **Change Theme Color**.
+
+https://youtu.be/RlG8YC18ZpU
+
+This will open a color picker that adjusts the entire window's theme. While it's not identical to Arc, it's pretty close. Plus, these themes are tied to your workspace, offering similar visual cues.
+
+> **Tip**: Left-click to add a color to your gradient, and right-click on a color to remove it.
+
+### Customizing Keyboard Shortcuts
+
+Zen's default keyboard shortcuts differ from Arc's, so you can either adapt to them or change the shortcuts to your liking.
+
+One of my favorite shortcuts in Arc is `⌘ + s`, which hides the sidebar to show only the main content. In Zen, this is called **Compact Mode**.
+
+Zen offers two "compact" modes: one that looks similar to Arc and a "small sidebar" mode, which displays only the website favicon instead of the title.
+
+The default shortcut for Compact Mode is `⌘ + ⌥ + c`, and for the small sidebar, it's `⌥ + b`.
+
+<figure>
+    <Image
+        src={compactMode}
+        alt="The compact mode in Zen hides everything and looks like Arc"
+        class="mx-auto rounded-lg"
+        width={2000}
+    />
+    <figcaption class="text-sans text-center text-sm">
+        The compact mode in Zen hides everything and looks like Arc
+    </figcaption>
+</figure>
+
+<figure>
+    <Image
+        src={faviconMode}
+        alt="The 'favicon only' mode in Zen only shows the website favicon"
+        class="mx-auto rounded-lg"
+        width={2000}
+    />
+    <figcaption class="text-sans text-center text-sm">
+        The 'favicon only' mode in Zen only shows the website favicon
+    </figcaption>
+</figure>
+
+You can unbind the “Save Page” shortcut (when was the last time you saved a web page, anyway?) and replace it with `⌘ + s` if you prefer.
+
+Lastly, in Arc, you can copy the current URL with `⇧ + ⌘ + c`. Zen doesn't currently support this, so you'll need to use `⌘ + l` to focus on the URL bar, then `⌘ + c` to copy.
+
+### Exploring Zen Mods
+
+Zen has a feature Arc doesn't: mods. These small changes customize your browser's appearance or functionality, like moving the tab bar or changing the theme.
+
+While they're still a bit rough around the edges, you might find some hidden gems! Explore the full list here: [Zen Mods](https://zen-browser.app/mods).
+
+I use only two mods: [Cleaned URL Bar](https://zen-browser.app/mods/a5f6a231-e3c8-4ce8-8a8e-3e93efd6adec) and [Only Close on Hover](https://zen-browser.app/mods/4596d8f9-f0b7-4aeb-aa92-851222dc1888).
+
+### Picture-in-Picture and Bookmark Settings
+
+By default, Arc opens a Picture-in-Picture view for videos when you switch tabs or workspaces. In Zen, this feature is off by default. To enable it, go to Zen settings, find the **Firefox Labs** section, and check **Picture-in-Picture: auto-open on tab switch**.
+
+<figure>
+    <Image
+        src={pipChanges}
+        alt="One checkbox is all it taks to have Picture-in-Picture work like Arc in Zen"
+        class="mx-auto rounded-lg"
+        width={2000}
+    />
+    <figcaption class="text-sans text-center text-sm">
+        One checkbox is all it taks to have Picture-in-Picture work like Arc in Zen
+    </figcaption>
+</figure>
+
+Switching to Zen means using standard bookmarks instead of Arc's vertical tab-style bookmarks. In Firefox and Chrome, bookmarks open in the current tab, which I find inconvenient.
+
+To make them open in a new tab, set `browser.tabs.loadBookmarksInTabs` to **true** in `about:config`.
+
+<figure>
+    <Image
+        src={aboutConfig}
+        alt="Changing stuff in about:config can be intimidating, but it's worth it"
+        class="mx-auto rounded-lg"
+        width={2000}
+    />
+    <figcaption class="text-sans text-center text-sm">
+        Changing stuff in about:config can be intimidating, but it's worth it
+    </figcaption>
+</figure>
+
+## What Is the Zen Browser?
+
+Now that you know how to make Zen feel like Arc, let's look at what Zen brings to the table.
+
+Zen is based on Firefox, similar to how Arc is based on Chromium, the foundation of Google Chrome. This allows Zen's developers to focus on adding unique features and enhancing the browsing experience without building an entirely new browser from scratch.
+
+As a bonus, Zen is open-source—unlike Arc. Anyone can review the code, contribute, or verify that the browser is secure. It's also free, with no account needed to use it.
+
+You can join the growing [Zen subreddit](https://www.reddit.com/r/zen_browser/) to find other people's configurations or ask for help if something isn't right.
+
+Currently, Zen is in alpha, so expect some bugs. I've been using Zen for two weeks, and after tweaking the settings to behave more like Arc, I haven't looked back! Although I've encountered a few crashes, the experience has been excellent overall.
+
+Regarding performance, I would say that the overall experience feels refreshing and faster than Arc. It's a bit too soon (and I haven't run any benchmarks) to say that it uses less RAM. However, I feel like the battery life of my MacBook is better and is less impacted during my commute to work, so this is a win for Zen!
+
+### How to Support Zen
+
+Zen is open-source and free. If you want to support the team, consider joining their [Patreon](https://www.patreon.com/zen_browser) or making a donation on [Ko-fi](https://ko-fi.com/zen_browser). This helps ensure the project's future!
+
+## Wrapping Up
+
+As you can see, with a little customization, you can make the Zen Browser look and behave like Arc.
+
+Switching to Zen requires a bit of work—not everything is ready to go as it is with Arc. However, this trade-off is quickly outweighed by the freedom it offers and its account-less access.
+
+Despite its alpha state, Zen is quite promising and stable. It offers unique open-source competition in a space dominated by for-profit companies.
+
+Overall, I'm really impressed with Zen and can only recommend that you give it a go, whether you're coming from Arc or another browser.
+
+As a bonus, here is a table of the keyboard shortcuts discussed in the article:
+
+| Feature           | Arc Shortcut  | Zen Shortcut  | How to change it in Zen              |
+| ----------------- | ------------- | ------------- | ------------------------------------ |
+| Switch Workspace  | `^ + number`  | Customizable  | Settings > Keyboard Shortcuts        |
+| Compact Mode      | `⌘ + s`       | `⌘ + ⌥ + c`   | Can be remapped in Shortcuts         |
+| Favicon-only mode | Not available | `⌥ + b`       |                                      |
+| Copy Current URL  | `⇧ + ⌘ + c`   | Not available | Use ⌘ + l then ⌘ + c as a workaround |
