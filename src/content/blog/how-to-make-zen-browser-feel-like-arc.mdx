@@ -7,11 +7,13 @@ tags: [zen browser, arc, Firefox]
 readingTime: 9
 ---
 
+import InlineNewsletter from "@components/newsletter/inline-newsletter.astro";
 import { Image } from "astro:assets";
 import aboutConfig from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_about_config.png";
 import compactMode from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_compact_mode.png";
 import faviconMode from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_favicon_mode.png";
 import keyboardShortcuts from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_keyboard_shortcuts.png";
+import pinnedTabs from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_pinned_tabs.png";
 import pipChanges from "../assets/how-to-make-zen-browser-feel-like-arc/zen_browser_pip_changes.png";
 
 The future of the Arc browser is uncertain. In a recent announcement, Josh Miller, Arc's CEO, shared news about a new browser aimed at a broader audience—one his mother could easily use. While Josh assured users that Arc isn't going away and that development continues, the announcement left many in the community concerned.
@@ -116,6 +118,22 @@ The default shortcut for Compact Mode is `⌘ + ⌥ + c`, and for the small side
 
 You can unbind the “Save Page” shortcut (when was the last time you saved a web page, anyway?) and replace it with `⌘ + s` if you prefer.
 
+Pinned tabs in Arc have a fixed URL, double-clicking them redirects you to their original URL. Hopefully, this behavior can be replicated in Zen effortlessly. To do so, go to the **Tab Management** settings and scroll to the end of the page.
+
+You'll find the "Close Tab Shortcut Behavior" dropdown, where you need to select the "Reset URL" option. Now, when pressing `⌘ + w`, pinned tab will reload the URL you had pinned originally!
+
+<figure>
+    <Image
+        src={pinnedTabs}
+        alt="Pinned tabs can have the same behavior as Arc tabs"
+        class="mx-auto rounded-lg"
+        width={2000}
+    />
+    <figcaption class="text-sans text-center text-sm">
+        Pinned tabs can have the same behavior as Arc tabs
+    </figcaption>
+</figure>
+
 Lastly, in Arc, you can copy the current URL with `⇧ + ⌘ + c`. Zen doesn't currently support this, so you'll need to use `⌘ + l` to focus on the URL bar, then `⌘ + c` to copy.
 
 ### Exploring Zen Mods
@@ -157,6 +175,8 @@ To make them open in a new tab, set `browser.tabs.loadBookmarksInTabs` to **true
         Changing stuff in about:config can be intimidating, but it's worth it
     </figcaption>
 </figure>
+
+<InlineNewsletter />
 
 ## What Is the Zen Browser?
 
