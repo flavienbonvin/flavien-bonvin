@@ -12,14 +12,13 @@
         "@astrojs/db": "^0.14.3",
         "@astrojs/mdx": "3.1.9",
         "@astrojs/vercel": "7.8.2",
-        "@astrojs/web-vitals": "^3.0.0",
         "@fontsource/ia-writer-mono": "^5.1.0",
         "@fontsource/open-sans": "^5.1.0",
-        "@vercel/og": "^0.6.3",
+        "@vercel/og": "^0.6.4",
         "astro": "4.16.8",
         "astro-embed": "^0.8.0",
-        "astro-icon": "^1.1.1",
-        "resend": "^4.0.0",
+        "astro-icon": "^1.1.2",
+        "resend": "^4.0.1",
         "zod": "^3.23.8"
     },
     "devDependencies": {
@@ -33,9 +32,9 @@
         "@types/sanitize-html": "^2.13.0",
         "markdown-it": "^14.1.0",
         "prettier-plugin-astro": "^0.14.1",
-        "prettier-plugin-tailwindcss": "^0.6.8",
+        "prettier-plugin-tailwindcss": "^0.6.9",
         "sanitize-html": "^2.13.1",
-        "tailwindcss": "^3.4.14",
+        "tailwindcss": "^3.4.15",
         "typescript": "^5.6.3"
     },
     "packageManager": "bun@1.1.34"
