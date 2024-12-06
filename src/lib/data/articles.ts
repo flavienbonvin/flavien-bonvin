@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from "astro:content";
-import { BlogType } from "content/config";
+import { BlogType } from "content.config";
 
 const sortArticles = (articles: CollectionEntry<"blog">[]) => {
     return articles.sort((a, b) => {

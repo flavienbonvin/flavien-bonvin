@@ -2,14 +2,13 @@ import db from "@astrojs/db";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 import embeds from "astro-embed/integration";
 import icon from "astro-icon";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-    output: "hybrid",
     site: "https://flavienbonvin.com",
     integrations: [
         tailwind(),
@@ -32,6 +31,18 @@ export default defineConfig({
         icon(),
         db(),
     ],
+    env: {
+        schema: {
+            BLOG_AUDIENCE_ID: envField.string({
+                context: "server",
+                access: "secret",
+            }),
+            RESEND_API_KEY: envField.string({
+                context: "server",
+                access: "secret",
+            }),
+        },
+    },
     markdown: {
         syntaxHighlight: "shiki",
         shikiConfig: {

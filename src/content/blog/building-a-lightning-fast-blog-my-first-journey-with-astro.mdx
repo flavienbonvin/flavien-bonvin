@@ -52,7 +52,7 @@ export async function getStaticPaths() {
     const allArticles = await getAllPublishedArticles();
     return allArticles.map((article) => {
         return {
-            params: { slug: article.slug },
+            params: { slug: article.id },
             props: article,
         };
     });

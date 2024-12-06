@@ -1,12 +1,12 @@
 import { createNewSubscription, isEmailAlreadySubscribed } from "@data/subscriptionValidation";
+import { BLOG_AUDIENCE_ID, RESEND_API_KEY } from "astro:env/server";
 import { PATHS } from "const";
 import { Resend } from "resend";
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
-const audienceId = import.meta.env.BLOG_AUDIENCE_ID;
+const resend = new Resend(RESEND_API_KEY);
 
 const isEmailAlreadyOnResend = async (email: string) => {
-    const { data } = await resend.contacts.list({ audienceId });
+    const { data } = await resend.contacts.list({ audienceId: BLOG_AUDIENCE_ID });
     return data?.data.some((contact) => contact.email === email);
 };
 
