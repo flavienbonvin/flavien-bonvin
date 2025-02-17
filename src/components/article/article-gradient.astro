@@ -14,12 +14,7 @@ const optiDuck = await getImage({ src: duck, width: 1000 });
 const optiNoise = await getImage({ src: noise, width: 1000 });
 
 const gradientDireaction = () => {
-    const direction = [
-        "bg-gradient-to-tr",
-        "bg-gradient-to-tl",
-        "bg-gradient-to-br",
-        "bg-gradient-to-bl",
-    ];
+    const direction = ["bg-linear-to-tr", "bg-linear-to-tl", "bg-linear-to-br", "bg-linear-to-bl"];
 
     return direction[Math.floor(Math.random() * direction.length)];
 };
@@ -52,7 +47,7 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 
 <div
     class:list={[
-        "relative mb-6 flex h-40 flex-col items-center justify-center overflow-hidden overflow-x-hidden rounded-xl text-center font-sans text-3xl font-semibold text-white/80 selection:text-white/80 sm:mb-8 sm:h-80 sm:text-6xl dark:text-white/60 selection:dark:text-white/60",
+        "relative mb-6 flex h-40 flex-col justify-center overflow-hidden overflow-x-hidden rounded-xl text-center font-sans text-3xl font-semibold text-white/80 selection:text-white/80 sm:mb-8 sm:h-80 sm:text-6xl dark:text-white/60 selection:dark:text-white/60",
         gradientClasses,
     ]}
 >
@@ -71,7 +66,7 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
         Astro.props.article.data.tags.slice(0, 3).map((tag, index) => (
             <span
                 style={{ animationDelay: `${index * 200}ms` }}
-                class="opacity-0 motion-safe:translate-y-10 motion-safe:animate-fade-in-up motion-reduce:opacity-100"
+                class="motion-safe:animate-fade-in-up opacity-0 motion-reduce:opacity-100"
             >
                 {tag}
             </span>
