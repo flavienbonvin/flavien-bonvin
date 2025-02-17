@@ -53,7 +53,7 @@ export const getArticleOG = async (article: CollectionEntry<"blog">) => {
         fonts: [
             {
                 name: "Open Sans",
-                data: fontData.buffer,
+                data: fontData,
                 style: "normal",
             },
         ],
