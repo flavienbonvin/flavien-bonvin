@@ -20,10 +20,10 @@ const description =
     ]}
 >
     <div>
-        <h2 class="not-prose mb-2 text-lg font-semibold text-font-color sm:text-2xl">
+        <h2 class="not-prose text-font-color mb-2 text-lg font-semibold sm:text-2xl">
             Subscribe to the newsletter
         </h2>
-        <p class="not-prose mb-8 text-pretty text-sm text-font-color sm:text-pretty">
+        <p class="not-prose text-font-color mb-8 text-sm text-pretty sm:text-pretty">
             {description}
         </p>
     </div>
@@ -40,12 +40,12 @@ const description =
             type="email"
             name="email"
             autocomplete="email"
-            class="block w-full min-w-72 rounded-md border-0 text-sm text-font-color ring-1 ring-inset ring-accent placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-accent dark:bg-zinc-800 dark:ring-zinc-700"
+            class="text-font-color ring-accent focus:ring-accent block w-full min-w-72 rounded-md border-0 text-sm ring-1 ring-inset placeholder:text-zinc-400 focus:ring-2 focus:ring-inset dark:bg-zinc-800 dark:ring-zinc-700"
             placeholder="Join 300+ web developers"
         />
         <button
             class:list={[
-                "w-full rounded bg-accent px-3.5 py-2.5 text-sm font-medium text-zinc-600 shadow transition-shadow duration-150 hover:shadow-md",
+                "bg-accent w-full rounded px-3.5 py-2.5 text-sm font-medium text-zinc-600 shadow transition-shadow duration-150 hover:shadow-md",
                 variant === "inline" && "w-full self-center",
                 variant === "default" && "self-end sm:w-fit",
             ]}
