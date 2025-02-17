@@ -16,7 +16,7 @@ import "@fontsource/open-sans/latin-800.css";
 import Footer from "@layouts/footer.astro";
 import Navigation from "@layouts/navigation.astro";
 
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { CONFIG } from "const";
 import "../styles/theme.css";
 import "../styles/fonts.css";
@@ -43,7 +43,7 @@ import FaviconLayout from "./favicon-layout.astro";
             href={`${Astro.site}rss.xml`}
         />
 
-        <ViewTransitions />
+        <ClientRouter />
 
         <meta name="theme-color" content="var(--background)" />
     </head>

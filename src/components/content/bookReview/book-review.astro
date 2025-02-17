@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { BlogType } from "content/config";
+import { BlogType } from "content.config";
 import Divider from "../../atoms/divider.astro";
 
 interface Props {
@@ -17,18 +17,18 @@ const { title, author, rating, type, description, positivePoints, negativePoints
 ---
 
 <section
-    class="not-prose flex flex-col gap-4 rounded-lg border border-zinc-200 bg-white p-6 text-font-color dark:bg-black"
+    class="not-prose text-font-color flex flex-col gap-4 rounded-lg border border-zinc-200 bg-white p-6 dark:bg-black"
 >
     <header class="flex flex-col gap-2">
         <h2 class="text-lg font-bold sm:text-2xl">{title}</h2>
-        <p class="mb-4 text-sm text-font-color-muted">Written by {author}</p>
-        <p class="text-pretty font-serif">{description}</p>
+        <p class="text-font-color-muted mb-4 text-sm">Written by {author}</p>
+        <p class="font-serif text-pretty">{description}</p>
     </header>
     <Divider classes="my-3" variant={type} />
     <div class="flex flex-col">
         <h3 class="m-0 text-lg font-semibold sm:text-xl">My rating</h3>
         <div>
-            <h4 id="positive-heading" class="mb-4 mt-6 font-medium sm:text-lg">
+            <h4 id="positive-heading" class="mt-6 mb-4 font-medium sm:text-lg">
                 ✅ Positive points
             </h4>
             <ul class="mb-4 list-inside list-disc">
@@ -42,7 +42,7 @@ const { title, author, rating, type, description, positivePoints, negativePoints
             </ul>
         </div>
         <div>
-            <h4 id="negative-heading" class="mb-4 mt-6 font-medium sm:text-lg">
+            <h4 id="negative-heading" class="mt-6 mb-4 font-medium sm:text-lg">
                 ❌ Negative points
             </h4>
             <ul class="mb-4 list-inside list-disc">
@@ -55,7 +55,7 @@ const { title, author, rating, type, description, positivePoints, negativePoints
                 }
             </ul>
         </div>
-        <h4 class="mb-4 mt-6 font-medium sm:text-lg">Book rating</h4>
+        <h4 class="mt-6 mb-4 font-medium sm:text-lg">Book rating</h4>
         <div class="flex items-center gap-2">
             <div class="flex">
                 {
