@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@astrojs/db": "^0.14.3",
-        "@astrojs/mdx": "3.1.9",
+        "@astrojs/mdx": "4.0.8",
         "@astrojs/vercel": "7.8.2",
         "@fontsource/ia-writer-mono": "^5.1.0",
         "@fontsource/open-sans": "^5.1.0",
