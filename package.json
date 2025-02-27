@@ -9,13 +9,13 @@
         "format": "pnpx prettier --write ."
     },
     "dependencies": {
-        "@astrojs/db": "0.14.6",
-        "@astrojs/mdx": "4.0.8",
-        "@astrojs/vercel": "8.0.7",
+        "@astrojs/db": "0.14.7",
+        "@astrojs/mdx": "4.1.0",
+        "@astrojs/vercel": "8.1.0",
         "@fontsource/ia-writer-mono": "^5.1.0",
         "@fontsource/open-sans": "^5.1.1",
         "@vercel/og": "^0.6.5",
-        "astro": "5.3.0",
+        "astro": "5.4.0",
         "astro-embed": "^0.9.0",
         "astro-icon": "^1.1.5",
         "resend": "^4.1.2",
