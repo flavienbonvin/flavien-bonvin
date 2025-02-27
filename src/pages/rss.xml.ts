@@ -25,8 +25,8 @@ export const GET = async ({ site }: { site: string | undefined }) => {
             author: `${CONFIG.email} (${CONFIG.author})`,
             pubDate: article.data.editDate ?? article.data.publicationDate,
             description: article.data.description,
-            content: sanitize(parser.render(article.body)),
-            link: getArticleLink(article.slug),
+            content: sanitize(parser.render(article?.body ?? "")),
+            link: getArticleLink(article.id),
         })),
     });
 };

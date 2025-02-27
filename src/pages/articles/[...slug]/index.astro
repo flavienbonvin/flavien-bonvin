@@ -10,13 +10,13 @@ import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoArticle from "@layouts/seo-article.astro";
 import { Icon } from "astro-icon/components";
-import { type CollectionEntry } from "astro:content";
+import { render, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
     const allArticles = await getAllPublishedArticles();
     return allArticles.map((article) => {
         return {
-            params: { slug: article.slug },
+            params: { slug: article.id },
             props: article,
         };
     });
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const article = Astro.props;
-const { Content } = await article.render();
+const { Content } = await render(article);
 
 const formattedTitle = encodeURI(article.data.title);
 ---
@@ -45,4 +45,4 @@ const formattedTitle = encodeURI(article.data.title);
     <NewsletterForm />
 </PageLayout>
 
-<PageView slug={article.slug} />
+<PageView slug={article.id} />

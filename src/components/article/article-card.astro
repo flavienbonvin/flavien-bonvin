@@ -4,7 +4,7 @@ import { formatDateForDatetime } from "@helpers/date";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 import { articleCardWidth } from "const";
-import { BlogType } from "content/config";
+import { BlogType } from "content.config";
 import MiddleDot from "../atoms/middle-dot.astro";
 import ReadArticle from "./read-article.astro";
 
@@ -20,12 +20,12 @@ const isHome = Astro.url.pathname === "/";
 ---
 
 <article class:list={["group py-4", articleCardWidth]}>
-    <a href={getArticleLink(article.slug)}>
-        <h2 class="text-balance text-lg font-medium tracking-tighter sm:text-2xl">
+    <a href={getArticleLink(article.id)}>
+        <h2 class="text-lg font-medium tracking-tighter text-balance sm:text-2xl">
             {title}
         </h2>
         <div
-            class="flex flex-wrap items-center gap-1 text-sm text-font-color-muted sm:gap-2 sm:text-base"
+            class="text-font-color-muted flex flex-wrap items-center gap-1 text-sm sm:gap-2 sm:text-base"
         >
             {
                 isHome && (
