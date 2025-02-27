@@ -14,7 +14,7 @@ const { variant = "button" } = Astro.props;
     rel="noopener noreferrer"
     class:list={[
         variant === "button" &&
-            "rounded border border-zinc-300 bg-background px-2 py-3 text-center text-sm text-font-color transition-colors duration-200 ease-in-out hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:border-zinc-700 dark:hover:bg-zinc-900",
+            "bg-background text-font-color rounded border border-zinc-300 px-2 py-3 text-center text-sm transition-colors duration-200 ease-in-out hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:border-zinc-700 dark:hover:bg-zinc-900",
         variant === "inline" && "underline",
         Astro.props.classes,
     ]}><slot /></a

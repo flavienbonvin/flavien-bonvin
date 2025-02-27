@@ -1,5 +1,5 @@
-import { getCollection, type CollectionEntry } from "astro:content";
-import { BlogType } from "content/config";
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import { BlogType } from "content.config";
 
 const sortArticles = (articles: CollectionEntry<"blog">[]) => {
     return articles.sort((a, b) => {
@@ -29,4 +29,8 @@ export const getBeyondArticle = async () => {
     }).then((articles) => {
         return sortArticles(articles);
     });
+};
+
+export const getArticleById = async (id: string) => {
+    return getEntry("blog", id);
 };

@@ -1,3 +1,4 @@
+import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
 export enum BlogType {
@@ -6,7 +7,7 @@ export enum BlogType {
 }
 
 const blog = defineCollection({
-    type: "content",
+    loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
     schema: z.object({
         title: z.string(),
         description: z.string(),

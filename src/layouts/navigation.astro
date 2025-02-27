@@ -7,7 +7,7 @@ const getIsActive = (href: string) => {
 };
 ---
 
-<nav class="w-full py-6 font-mono text-font-color">
+<nav class="text-font-color w-full py-6 font-mono">
     <ul class="flex items-center justify-between">
         <li>
             <a href={PATHS.home}>
@@ -19,7 +19,7 @@ const getIsActive = (href: string) => {
                         <a
                             href={PATHS.dev}
                             class:list={[
-                                "decoration-dev decoration-2 underline-offset-2 transition-colors hover:text-font-color hover:underline",
+                                "decoration-dev hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
                                 getIsActive(PATHS.dev)
                                     ? "text-font-color underline"
                                     : "text-font-color-muted",
@@ -30,7 +30,7 @@ const getIsActive = (href: string) => {
                         <a
                             href={PATHS.beyond}
                             class:list={[
-                                "decoration-beyond decoration-2 underline-offset-2 transition-colors hover:text-font-color hover:underline",
+                                "decoration-beyond hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
                                 getIsActive(PATHS.beyond)
                                     ? "text-font-color underline"
                                     : "text-font-color-muted",
@@ -41,7 +41,7 @@ const getIsActive = (href: string) => {
                         <a
                             href={PATHS.about}
                             class:list={[
-                                "decoration-accent decoration-2 underline-offset-2 transition-colors hover:text-font-color hover:underline",
+                                "decoration-accent hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
                                 getIsActive(PATHS.about)
                                     ? "text-font-color underline"
                                     : "text-font-color-muted",
