@@ -23,3 +23,30 @@ const allBlogPosts = await getAllPublishedArticles();
 </PageLayout>
 
 <PageView slug="home" />
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Dev articles",
+                "item": "https://flavienbonvin.com/articles/dev"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Beyond the web dev",
+                "item": "https://flavienbonvin.com/articles/beyond"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "About Flavien Bonvin",
+                "item": "https://flavienbonvin.com/about"
+            }
+        ]
+    }
+</script>
