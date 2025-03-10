@@ -5,6 +5,7 @@ import Divider from "@components/atoms/divider.astro";
 import ExternalLink from "@components/atoms/external-link.astro";
 import PageView from "@components/atoms/page-view.astro";
 import NewsletterForm from "@components/newsletter/newsletter-form.astro";
+import SeriesNavigation from "@components/series/series-navigation.astro";
 import { getAllPublishedArticles } from "@data/articles";
 import ArticleLayout from "@layouts/article-layout.astro";
 import PageLayout from "@layouts/page-layout.astro";
@@ -33,6 +34,12 @@ const formattedTitle = encodeURI(article.data.title);
     <SeoArticle slot="head" />
     <ArticleLayout category={article.data.category}>
         <ArticleHeader article={article} />
+        
+        <!-- Add series navigation if article is part of a series -->
+        {article.data.series && (
+            <SeriesNavigation currentArticle={article} />
+        )}
+        
         <ArticleGradient article={article} />
         <Content />
     </ArticleLayout>

@@ -7,20 +7,32 @@ import { articleCardWidth } from "const";
 import { BlogType } from "content.config";
 import MiddleDot from "../atoms/middle-dot.astro";
 import ReadArticle from "./read-article.astro";
+import { getSeries } from "@data/articles";
 
 interface Props {
     article: CollectionEntry<"blog">;
 }
 
 const { article } = Astro.props;
-const { title, publicationDate, category, editDate, readingTime } = article.data;
+const { title, publicationDate, category, editDate, readingTime, series: seriesData } = article.data;
 const formattedPubTime = getFormattedDate(publicationDate);
 const formattedEditDate = getFormattedDate(editDate);
 const isHome = Astro.url.pathname === "/";
+const isPublished = publicationDate <= new Date();
+
+// Get series info if article belongs to a series
+let seriesInfo = null;
+if (seriesData) {
+    const series = await getSeries(seriesData.id);
+    seriesInfo = {
+        title: series.data.title,
+        id: series.id
+    };
+}
 ---
 
-<article class:list={["group py-4", articleCardWidth]}>
-    <a href={getArticleLink(article.id)}>
+<article class:list={["group py-4", articleCardWidth, !isPublished && "opacity-70"]}>
+    <a href={getArticleLink(article.id)} class={!isPublished ? "pointer-events-none" : ""}>
         <h2 class="text-lg font-medium tracking-tighter text-balance sm:text-2xl">
             {title}
         </h2>
@@ -57,7 +69,22 @@ const isHome = Astro.url.pathname === "/";
             }
             <MiddleDot />
             <span>{readingTime} min read</span>
+            
+            {!isPublished && (
+                <>
+                    <MiddleDot />
+                    <span class="text-font-color-muted bg-bg-accent px-2 py-0.5 rounded text-xs">Coming soon</span>
+                </>
+            )}
         </div>
+        
+        {seriesInfo && (
+            <div class="mt-2 text-xs inline-flex items-center bg-bg-tertiary px-2 py-1 rounded">
+                <Icon name="file" class="mr-1 inline-block h-3 w-3" />
+                Part of: {seriesInfo.title}
+            </div>
+        )}
+        
         <ReadArticle />
     </a>
 </article>

@@ -1,12 +1,18 @@
 ---
 import ArticleList from "@components/article/article-list.astro";
 import PageView from "@components/atoms/page-view.astro";
-import { getDevArticles } from "@data/articles";
+import SeriesCard from "@components/series/series-card.astro";
+import { getDevArticles, getCategorySeriesWithArticles } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
 import { CONFIG } from "const";
+import { BlogType } from "content.config";
 
+// Get all articles in this category
 const articles = await getDevArticles();
+
+// Get series primarily in the "dev" category
+const devSeries = await getCategorySeriesWithArticles(BlogType.dev);
 ---
 
 <PageLayout>
@@ -15,11 +21,25 @@ const articles = await getDevArticles();
         title=`Web development article | ${CONFIG.author}`
         description=`${CONFIG.devDescription} | ${CONFIG.author}`
     />
-    <ArticleList
-        title="Diving in the web dev"
-        articles={articles}
-        pageDescription={CONFIG.devDescription}
-    />
+    
+    {devSeries.length > 0 && (
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Development Series</h2>
+            <div class="space-y-6">
+                {devSeries.map(series => (
+                    <SeriesCard series={series} />
+                ))}
+            </div>
+        </div>
+    )}
+    
+    <div>
+        <ArticleList
+            title="Diving in the web dev"
+            articles={articles}
+            pageDescription={CONFIG.devDescription}
+        />
+    </div>
 </PageLayout>
 
 <PageView slug="dev" />

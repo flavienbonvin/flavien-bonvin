@@ -1,12 +1,18 @@
 ---
 import ArticleList from "@components/article/article-list.astro";
 import PageView from "@components/atoms/page-view.astro";
-import { getBeyondArticle } from "@data/articles";
+import SeriesCard from "@components/series/series-card.astro";
+import { getBeyondArticles, getCategorySeriesWithArticles } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
 import { CONFIG } from "const";
+import { BlogType } from "content.config";
 
-const articles = await getBeyondArticle();
+// Get all articles in this category
+const articles = await getBeyondArticles();
+
+// Get series primarily in the "beyond" category
+const beyondSeries = await getCategorySeriesWithArticles(BlogType.beyond);
 ---
 
 <PageLayout>
@@ -15,11 +21,25 @@ const articles = await getBeyondArticle();
         title=`Beyond dev articles | ${CONFIG.author}`
         description=`${CONFIG.beyondDescription} | ${CONFIG.author}`
     />
-    <ArticleList
-        title="Explorations of a Developer"
-        articles={articles}
-        pageDescription={CONFIG.beyondDescription}
-    />
+    
+    {beyondSeries.length > 0 && (
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Beyond Series</h2>
+            <div class="space-y-6">
+                {beyondSeries.map(series => (
+                    <SeriesCard series={series} />
+                ))}
+            </div>
+        </div>
+    )}
+    
+    <div>
+        <ArticleList
+            title="Explorations of a Developer"
+            articles={articles}
+            pageDescription={CONFIG.beyondDescription}
+        />
+    </div>
 </PageLayout>
 
 <PageView slug="beyond" />

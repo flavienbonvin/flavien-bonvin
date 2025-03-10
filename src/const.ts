@@ -4,6 +4,7 @@ export const PATHS = {
     articles: "/articles",
     dev: "/articles/dev",
     beyond: "/articles/beyond",
+    series: "/series",
     newsletterValidate: "/newsletter/validate",
     newsletterValidated: "/newsletter/validated",
     error404: "/404",

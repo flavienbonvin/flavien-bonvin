@@ -1,0 +1,21 @@
+---
+import PageLayout from "@layouts/page-layout.astro";
+import { getAllSeries } from "@data/articles";
+import SeriesCard from "@components/series/series-card.astro";
+
+const title = "Article Series";
+const description = "Explore article series on topics ranging from web development to personal productivity";
+
+const seriesList = await getAllSeries();
+---
+
+<PageLayout title={title} description={description}>
+    <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl">Article Series</h1>
+    <p class="text-font-color-muted mt-4 mb-8 text-xl">Collections of related articles exploring topics in depth</p>
+    
+    <div class="space-y-6">
+        {seriesList.map(series => (
+            <SeriesCard series={series} />
+        ))}
+    </div>
+</PageLayout>

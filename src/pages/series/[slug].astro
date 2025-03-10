@@ -1,0 +1,83 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/page-layout.astro";
+import ArticleCard from "@components/article/article-card.astro";
+import Divider from "@components/atoms/divider.astro";
+import { getSeries, getSeriesArticles } from "@data/articles";
+
+export async function getStaticPaths() {
+    const allSeries = await getCollection("series", ({ data }) => {
+        return import.meta.env.PROD ? !data.draft : true;
+    });
+    return allSeries.map(series => ({
+        params: { slug: series.id },
+        props: { seriesId: series.id }
+    }));
+}
+
+const { seriesId } = Astro.props;
+const series = await getSeries(seriesId);
+const articles = await getSeriesArticles(seriesId);
+
+// Sort published articles first, then by order
+const sortedArticles = [...articles].sort((a, b) => {
+    const aIsPublished = a.data.publicationDate <= new Date();
+    const bIsPublished = b.data.publicationDate <= new Date();
+    
+    if (aIsPublished !== bIsPublished) {
+        return aIsPublished ? -1 : 1;
+    }
+    
+    return (a.data.series?.order || 0) - (b.data.series?.order || 0);
+});
+
+// Simple progress calculation
+const totalArticles = articles.length;
+const publishedArticles = articles.filter(a => a.data.publicationDate <= new Date()).length;
+const progressPercentage = Math.round((publishedArticles / totalArticles) * 100);
+---
+
+<PageLayout 
+    title={series.data.title} 
+    description={series.data.description}
+>
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl">{series.data.title}</h1>
+        <p class="text-font-color-muted mt-4 text-xl">{series.data.description}</p>
+        
+        <div class="mt-6">
+            <div class="mb-4">
+                <div class="mb-2">
+                    {publishedArticles} of {totalArticles} articles published ({progressPercentage}% complete)
+                </div>
+                <div class="h-2 bg-bg-tertiary rounded-full overflow-hidden">
+                    <div class="h-full bg-accent-color rounded-full" style={`width: ${progressPercentage}%`}></div>
+                </div>
+            </div>
+            
+            <div class="text-font-color-muted text-sm">
+                Started {series.data.publicationDate.toLocaleDateString('en', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                })}
+            </div>
+        </div>
+    </div>
+    
+    <Divider />
+    
+    <div class="mt-8">
+        <h2 class="text-2xl font-bold mb-6">Articles in this series</h2>
+        <div class="space-y-6">
+            {sortedArticles.map((article, index) => (
+                <div class="flex items-start">
+                    <div class="text-font-color-muted text-2xl font-bold mr-4 w-8 text-center">{index + 1}</div>
+                    <div class="flex-1">
+                        <ArticleCard article={article} />
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</PageLayout>

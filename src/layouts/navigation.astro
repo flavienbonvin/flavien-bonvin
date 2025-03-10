@@ -39,6 +39,17 @@ const getIsActive = (href: string) => {
                     </li>
                     <li>
                         <a
+                            href={PATHS.series}
+                            class:list={[
+                                "decoration-accent hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
+                                getIsActive(PATHS.series)
+                                    ? "text-font-color underline"
+                                    : "text-font-color-muted",
+                            ]}>Series</a
+                        >
+                    </li>
+                    <li>
+                        <a
                             href={PATHS.about}
                             class:list={[
                                 "decoration-accent hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",

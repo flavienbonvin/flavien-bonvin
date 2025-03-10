@@ -1,0 +1,34 @@
+---
+import { getSeriesArticles } from '@data/articles';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+    series: CollectionEntry<'series'>;
+}
+
+const { series } = Astro.props;
+const articles = await getSeriesArticles(series.id);
+const publishedCount = articles.filter(article => 
+    !article.data.preview).length;
+---
+
+<a href={`/series/${series.id}`} class="block border border-border-color rounded-lg p-6 mb-6 text-inherit transition-transform hover:-translate-y-0.5 hover:shadow-md">
+    <div>
+        <div class="mb-4">
+            <h3 class="text-2xl font-medium mb-2">{series.data.title}</h3>
+            <p class="text-font-color-muted mb-4">{series.data.description}</p>
+        </div>
+        <div class="flex justify-between text-sm text-font-color-muted">
+            <span>
+                {articles.length} articles ({publishedCount} published)
+            </span>
+            <span>
+                Started {series.data.publicationDate.toLocaleDateString('en', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                })}
+            </span>
+        </div>
+    </div>
+</a>
