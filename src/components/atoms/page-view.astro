@@ -1,16 +1,24 @@
 ---
-import { Image } from "astro:assets";
-
 interface Props {
     slug: string;
 }
 ---
 
-<Image
-    src={`/api/pageview?pathname=${Astro.props.slug}`}
-    loading="eager"
-    aria-hidden="true"
-    alt=""
-    width="1"
-    height="1"
-/>
+<astro-slug data-slug={Astro.props.slug}></astro-slug>
+
+<script is:inline>
+    const updatePageView = async (slug) => {
+        await fetch(`/api/get-data?pathname=${slug}`);
+    };
+
+    class AstroGreet extends HTMLElement {
+        connectedCallback() {
+            const slug = this.dataset.slug;
+            if (slug) {
+                updatePageView(slug);
+            }
+        }
+    }
+
+    customElements.define("astro-slug", AstroGreet);
+</script>
