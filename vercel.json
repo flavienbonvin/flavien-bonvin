@@ -43,7 +43,43 @@
                 },
                 {
                     "key": "Content-Security-Policy",
-                    "value": "default-src 'self'; script-src 'self' 'sha256-yrGBEKKupj26bSbdQT318cTNkyIVv4P2yEkTVw5S2fs=' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' i.ytimg.com data:;  frame-ancestors 'none'; object-src 'none'; frame-src 'self' https://www.youtube-nocookie.com;"
+                    "value": "default-src 'self'; script-src 'self' 'unsafe-inline' ; style-src 'self' 'unsafe-inline'; img-src 'self' i.ytimg.com data:; frame-ancestors 'none'; object-src 'none'; frame-src 'self' https://www.youtube-nocookie.com;"
+                }
+            ]
+        },
+        {
+            "source": "/fonts/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/android-chrome-192x192.png",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/manifest/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/_astro/(.*)(png|svg|ico|css|woff2|webp)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
                 }
             ]
         },
@@ -53,6 +89,33 @@
                 {
                     "key": "Cache-Control",
                     "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/plausible/js/script.js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/plausible/api/event",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "ClientRouter(.*).js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=3600, immutable"
                 }
             ]
         }
