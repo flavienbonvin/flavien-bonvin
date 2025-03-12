@@ -93,7 +93,25 @@
             ]
         },
         {
-            "source": "/_astro/(.*)",
+            "source": "/android-chrome-192x192.png",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/manifest/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/_astro/(.*)(png|svg|ico|css)",
             "headers": [
                 {
                     "key": "Cache-Control",
