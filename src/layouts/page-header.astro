@@ -1,13 +1,20 @@
 ---
 import { articleCardWidth } from "const";
-import Divider from "../components/atoms/divider.astro";
-import H1 from "../components/atoms/h1.astro";
+import Divider from "@components/atoms/divider.astro";
+import H1 from "@components/atoms/h1.astro";
 
 interface Props {
     title: string;
+    noDivider?: boolean;
 }
 ---
 
 <H1 classes="font-serif font-bold mb-1 text-xl sm:text-3xl">{Astro.props.title}</H1>
 <p class:list={["mb-6 font-sans text-balance sm:text-lg", articleCardWidth]}><slot /></p>
-<Divider variant="light" classes="mb-10 sm:mb-14" />
+{
+    Astro.props.noDivider ? (
+        <div class="mb-10" />
+    ) : (
+        <Divider variant="light" classes="mb-10 sm:mb-14" />
+    )
+}

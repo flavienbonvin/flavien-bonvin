@@ -1,16 +1,14 @@
 ---
 import { Icon } from "astro-icon/components";
-import { CONFIG, URLS } from "const";
-import Divider from "../components/atoms/divider.astro";
-import ExternalLink from "../components/atoms/external-link.astro";
+import { URLS } from "const";
+import Divider from "@components/atoms/divider.astro";
+import ExternalLink from "@components/atoms/external-link.astro";
 ---
 
 <Divider classes="mb-7" />
 
 <div class="flex flex-row flex-wrap gap-x-3 gap-y-3">
-    <ExternalLink
-        href={`https://twitter.com/${CONFIG.twitter}`}
-        classes="flex w-36 items-center justify-center gap-2"
+    <ExternalLink href={URLS.twitter} classes="flex w-36 items-center justify-center gap-2"
         >Follow me on <Icon name="twitter" /></ExternalLink
     >
     <ExternalLink
