@@ -84,6 +84,24 @@
             ]
         },
         {
+            "source": "/fonts/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/_astro/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
             "source": "/favicon(.*)(png|svg|ico)",
             "headers": [
                 {
