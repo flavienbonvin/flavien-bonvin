@@ -9,7 +9,7 @@
         "format": "pnpx prettier --write ."
     },
     "dependencies": {
-        "@astrojs/db": "0.14.7",
+        "@astrojs/db": "0.14.8",
         "@astrojs/mdx": "4.1.0",
         "@astrojs/vercel": "8.1.0",
         "@fontsource-variable/open-sans": "^5.2.5",
