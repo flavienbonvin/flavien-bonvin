@@ -6,8 +6,8 @@ interface Props {
 
 <astro-slug data-slug={Astro.props.slug}></astro-slug>
 
-<script>
-    const updatePageView = async (slug: string) => {
+<script is:inline>
+    const updatePageView = async (slug) => {
         await fetch(`/api/get-data?pathname=${slug}`);
     };
 
