@@ -1,17 +1,7 @@
 ---
 import "@fontsource/ia-writer-mono";
-import "@fontsource/open-sans/latin-300-italic.css";
-import "@fontsource/open-sans/latin-300.css";
-import "@fontsource/open-sans/latin-400-italic.css";
-import "@fontsource/open-sans/latin-400.css";
-import "@fontsource/open-sans/latin-500-italic.css";
-import "@fontsource/open-sans/latin-500.css";
-import "@fontsource/open-sans/latin-600-italic.css";
-import "@fontsource/open-sans/latin-600.css";
-import "@fontsource/open-sans/latin-700-italic.css";
-import "@fontsource/open-sans/latin-700.css";
-import "@fontsource/open-sans/latin-800-italic.css";
-import "@fontsource/open-sans/latin-800.css";
+import "@fontsource-variable/open-sans/wdth.css";
+import "@fontsource-variable/open-sans/wdth-italic.css";
 
 import Footer from "@layouts/footer.astro";
 import Navigation from "@layouts/navigation.astro";
@@ -48,7 +38,7 @@ import FaviconLayout from "./favicon-layout.astro";
         <meta name="theme-color" content="var(--background)" />
     </head>
 
-    <body class="text-font-color bg-background mx-auto max-w-2xl px-4 antialiased sm:px-0">
+    <body class="text-font-color bg-background mx-auto max-w-2xl px-4 antialiased sm:px-4 md:px-0">
         <header class="mb-10 md:mb-24">
             <Navigation />
         </header>
