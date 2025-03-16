@@ -48,7 +48,25 @@
             ]
         },
         {
-            "source": "/fonts/(.*)",
+            "source": "/_astro/ClientRouter(.*).js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/(fonts|manifest)/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/_astro/(.*)(png|webp|avif|svg|ico|css|woff2)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -58,60 +76,6 @@
         },
         {
             "source": "/android-chrome-192x192.png",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/manifest/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/_astro/(.*)(png|svg|ico|css|woff2|webp)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/fonts/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/android-chrome-192x192.png",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/manifest/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/_astro/(.*)(png|svg|ico|css|woff2)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -129,29 +93,11 @@
             ]
         },
         {
-            "source": "/plausible/js/script.js",
+            "source": "/plausible/(.*)",
             "headers": [
                 {
                     "key": "Cache-Control",
                     "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/plausible/api/event",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "ClientRouter(.*).js",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=3600, immutable"
                 }
             ]
         }
