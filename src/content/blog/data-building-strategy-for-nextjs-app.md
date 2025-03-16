@@ -21,10 +21,10 @@ This article gives many and can be a bit lengthy. Here is a quick summary if you
 
 Data type and stability is the ultimate determining factor when it comes to page building strategies. Understanding how your data can change is what will define the appropriate data-fetching and page-rendering method.
 
--   All pages without data fetching will be statically rendered
--   If your content doesn’t change, it’s better to use Server Side Generation (SSG). It allows generating pages once (at build time) and great performances. This method is what’s recommended by the NextJS team.
--   If your content change you have two options. The first one is to build the page at each request with Server Side Rendering (SSR), this can slow page speed but ensure that the data is fresh. The second option is to use Incremental Static Regeneration (ISR), it’s a process where pages are cached for a configured about of time and rebuilt once the cache is stale.
--   Fetching data on the server isn’t always required. Statically building a page skeleton and fetching data on the client (using suspense) are also a viable solution in some use cases.
+- All pages without data fetching will be statically rendered
+- If your content doesn’t change, it’s better to use Server Side Generation (SSG). It allows generating pages once (at build time) and great performances. This method is what’s recommended by the NextJS team.
+- If your content change you have two options. The first one is to build the page at each request with Server Side Rendering (SSR), this can slow page speed but ensure that the data is fresh. The second option is to use Incremental Static Regeneration (ISR), it’s a process where pages are cached for a configured about of time and rebuilt once the cache is stale.
+- Fetching data on the server isn’t always required. Statically building a page skeleton and fetching data on the client (using suspense) are also a viable solution in some use cases.
 
 ## What’s the issue with React?
 
@@ -78,11 +78,11 @@ The code present in the `getServerSideProps` method will be executed at each req
 
 Opening a page that has SSR is as follows:
 
--   The code in the `getServerSideProps` method is executed and data is fetched.
--   Once the data is fetched, NextJS will generate the page and prepare the assets
--   The bundle in then sent to the browser. The server sends HTML, CSS and JS, this means that the browser is able to directly display the data coming from the server.
--   Once the bundle downloaded, the browser displays the page and everything becomes active;
--   Finally, NextJS needs to hydrate the page. Hydration is the process where React needs to connects the DOM with the virtual DOM it created.
+- The code in the `getServerSideProps` method is executed and data is fetched.
+- Once the data is fetched, NextJS will generate the page and prepare the assets
+- The bundle in then sent to the browser. The server sends HTML, CSS and JS, this means that the browser is able to directly display the data coming from the server.
+- Once the bundle downloaded, the browser displays the page and everything becomes active;
+- Finally, NextJS needs to hydrate the page. Hydration is the process where React needs to connects the DOM with the virtual DOM it created.
 
 Here is another schema on how the process happens
 
@@ -171,11 +171,11 @@ Using `getStaticPaths` allows the generation of all the dynamic pages that are r
 
 Pages that are using SSG are built as follows
 
--   The project is built
--   While being built all the `getStaticProps` and `getStaticPaths` methods are run.
--   Once the data is fetched, the page is statically built
--   Those pages are uploaded to the hosting service and can be served
--   Visiting one of those pages is fast since everything is ready and there are no blocking times
+- The project is built
+- While being built all the `getStaticProps` and `getStaticPaths` methods are run.
+- Once the data is fetched, the page is statically built
+- Those pages are uploaded to the hosting service and can be served
+- Visiting one of those pages is fast since everything is ready and there are no blocking times
 
 Here is another schema on how the process happens
 
