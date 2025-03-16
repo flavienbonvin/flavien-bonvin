@@ -81,9 +81,9 @@ Second library on the list, second exception. I install this package globally si
 
 This library helps find outdated packages and allow automatic or interactive updates. You can simply run `ncu` to get a list of outdated packages. Once you know what’s available for upgrade you could either:
 
--   Update everything automatically: `ncu -u`.
+- Update everything automatically: `ncu -u`.
 
--   Update interactively only what you want: `ncu -i`
+- Update interactively only what you want: `ncu -i`
 
 I would personally recommend the interactive methods since you have to confirm if you want to update or not. The following images show how updates can be managed with ncu or with pnpm.
 

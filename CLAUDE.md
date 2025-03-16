@@ -15,9 +15,9 @@
 - **Type Safety**: Use TypeScript with strict type checking
 - **Error Handling**: Use explicit error objects with informative messages
 - **Naming Conventions**:
-  - Functions: camelCase, descriptive (e.g., `getArticleLink`)
-  - URLs/paths: kebab-case
-  - Environment variables: UPPER_SNAKE_CASE
+    - Functions: camelCase, descriptive (e.g., `getArticleLink`)
+    - URLs/paths: kebab-case
+    - Environment variables: UPPER_SNAKE_CASE
 
 ## Project Structure
 

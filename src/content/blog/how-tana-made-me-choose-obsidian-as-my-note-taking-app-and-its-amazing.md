@@ -19,11 +19,11 @@ Let's go through my thought process and how I ended up switching my note-taking 
 
 It's hard for me to really know what the problem is, since it's the first time I ask this question. Here are the pain point I'm experiencing on a daily basis.
 
--   **Keeping a track on what's happening at work**. I often work on multiple things in parallel. This is due to the fact that I have several things I have to work on and that I have to wait on other people.
--   **Keeping track of the blog ideas I have**. Currently, I have those ideas on [Things](https://culturedcode.com/things/) and on [Bear](https://bear.app/). This isn't working since I don't go to either of those when I want to write, and I instead write the new article.
--   **Remembering when and what happened**. This often occurs at work. Something was changed, or a decision was taken, but I cannot remember when it was, why we took this decision. There are times when I cannot remember the decision all together.
--   **Lack of organisation in my notes**. My current note-taking application don't allow me to have templates or lack some of the more advanced features I think I need.
--   **Keeping a list of things to do on a daily basis and report things that weren't done**. This isn't as big of an issue as the other points, since I'm using Things to manage my tasks. However, I'm not the best at being consistent with that.
+- **Keeping a track on what's happening at work**. I often work on multiple things in parallel. This is due to the fact that I have several things I have to work on and that I have to wait on other people.
+- **Keeping track of the blog ideas I have**. Currently, I have those ideas on [Things](https://culturedcode.com/things/) and on [Bear](https://bear.app/). This isn't working since I don't go to either of those when I want to write, and I instead write the new article.
+- **Remembering when and what happened**. This often occurs at work. Something was changed, or a decision was taken, but I cannot remember when it was, why we took this decision. There are times when I cannot remember the decision all together.
+- **Lack of organisation in my notes**. My current note-taking application don't allow me to have templates or lack some of the more advanced features I think I need.
+- **Keeping a list of things to do on a daily basis and report things that weren't done**. This isn't as big of an issue as the other points, since I'm using Things to manage my tasks. However, I'm not the best at being consistent with that.
 
 ## What is my current system
 
@@ -31,9 +31,9 @@ I currently use a combination of application. Which is not something I plan to s
 
 Having multiple specialised application is not a problem as long as they don't create too much friction.
 
--   **Bear** as a writing application. That's where I write all of my blog posts.
--   **Things** as a to-do application. Most of my tasks are managed on Things and are where I plan my projects.
--   **Markdown files in VS Code** as a programming-related to-do. I keep a list of things to do on a feature or on a project in a pinned markdown file that is simply saved on iCloud.
+- **Bear** as a writing application. That's where I write all of my blog posts.
+- **Things** as a to-do application. Most of my tasks are managed on Things and are where I plan my projects.
+- **Markdown files in VS Code** as a programming-related to-do. I keep a list of things to do on a feature or on a project in a pinned markdown file that is simply saved on iCloud.
 
 There isn't any other application I use. I created a simple system since I didn't felt the need to have something else. However, now things changes and I want to make things better for me.
 
@@ -67,14 +67,14 @@ It's funny, I asked this question to myself only when I realised that I could ma
 
 Here is a short list of what I am looking for.
 
--   **Nice writing experience**. That's something important. I'm used to Bear, and I like its minimal approach to markdown and writing.
--   **Format liberty**. Another important point, I want to be able to have checklists, long texts, bullet lists, table, .... I don't want to be blocked in one style of input.
--   **Simple file formatting or export options**. Using a plain text file is great since it's future-proof If the application dies, there will be another one that supports the format and will need minimal change. Bear uses Markdown and I wanted to have something similar.
--   **Central place for everything**. Ideally, I would like to have all my notes in a central place and avoid splitting them in several tools / application. Putting everything in one basket is bad when it comes to investment, but I feel like it's required for my notes.
--   **Synchronisation across devices**. I have a private and a work computer and a phone. Naturally, I want to be able to add, edit and delete notes from all of those devices.
--   **Reasonable subscription price**. Being a developer, I know how critical recurring subscription (I guess this is a secret to nobody) are. I want to support the creators of the application first to ensure a future for the application and second to support them for their work.
--   **Support for correctors**. Since I write online, I want to make sure that I leave as little errors as possible. I use two apps for that, the free version of language tools and Antidote. I want to be able to use at least one of them in the application to make a first sanity check.
--   **Not Notion**. I don't like Notion, it's clunky and tries to do everything. I feel like some people are getting a bit tired of it and the app is not as hyped as it used to be. Regardless of the hype, I don't like Notion and this was a no-go for me.
+- **Nice writing experience**. That's something important. I'm used to Bear, and I like its minimal approach to markdown and writing.
+- **Format liberty**. Another important point, I want to be able to have checklists, long texts, bullet lists, table, .... I don't want to be blocked in one style of input.
+- **Simple file formatting or export options**. Using a plain text file is great since it's future-proof If the application dies, there will be another one that supports the format and will need minimal change. Bear uses Markdown and I wanted to have something similar.
+- **Central place for everything**. Ideally, I would like to have all my notes in a central place and avoid splitting them in several tools / application. Putting everything in one basket is bad when it comes to investment, but I feel like it's required for my notes.
+- **Synchronisation across devices**. I have a private and a work computer and a phone. Naturally, I want to be able to add, edit and delete notes from all of those devices.
+- **Reasonable subscription price**. Being a developer, I know how critical recurring subscription (I guess this is a secret to nobody) are. I want to support the creators of the application first to ensure a future for the application and second to support them for their work.
+- **Support for correctors**. Since I write online, I want to make sure that I leave as little errors as possible. I use two apps for that, the free version of language tools and Antidote. I want to be able to use at least one of them in the application to make a first sanity check.
+- **Not Notion**. I don't like Notion, it's clunky and tries to do everything. I feel like some people are getting a bit tired of it and the app is not as hyped as it used to be. Regardless of the hype, I don't like Notion and this was a no-go for me.
 
 As you can see, I have quite a lot of requirements and I know that finding the application that will perfectly suit me won't be possible. More on that later.
 

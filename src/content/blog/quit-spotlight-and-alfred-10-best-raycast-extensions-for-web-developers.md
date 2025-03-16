@@ -35,9 +35,9 @@ Currently, the store counts more than 700 workflows. All those workflows are ava
 
 There are three things that I want to share to new users of Raycast. Those tips are a great way to better use the software.
 
--   **Do the tutorial**. Raycast offers a great tutorial, you learn all the keyboard shortcuts that makes you work a lot faster. Raycast ambition is to be used only by keyboard, there is no faster way to interact with a computer, and they created an excellent tutorial for that.
--   **Use CMD+K instead of your mouse**. With time, it’s possible that you forget keyboard shortcuts or that a new extension has some hidden feature you might want to use. Instead of using your mouse, uses the CMD+K command. This will open the “Action Palette” where you’ll see everything the extension or Raycast has to offer. You can see the attached keyboard shortcut and refresh your memory this way.
--   **Create alias and quick links**. Every extension or command can have its own alias or keyboard shortcut. Take the time to create an alias or a keyboard shortcut to things that you use the most. This way, you can quickly access to what you use the most. For example, I have CTL+CMD+E to open the emoji selector or CTL+CMD+C for the clipboard history. Sending emoji and finding things from the clipboard story are at my fingertip.
+- **Do the tutorial**. Raycast offers a great tutorial, you learn all the keyboard shortcuts that makes you work a lot faster. Raycast ambition is to be used only by keyboard, there is no faster way to interact with a computer, and they created an excellent tutorial for that.
+- **Use CMD+K instead of your mouse**. With time, it’s possible that you forget keyboard shortcuts or that a new extension has some hidden feature you might want to use. Instead of using your mouse, uses the CMD+K command. This will open the “Action Palette” where you’ll see everything the extension or Raycast has to offer. You can see the attached keyboard shortcut and refresh your memory this way.
+- **Create alias and quick links**. Every extension or command can have its own alias or keyboard shortcut. Take the time to create an alias or a keyboard shortcut to things that you use the most. This way, you can quickly access to what you use the most. For example, I have CTL+CMD+E to open the emoji selector or CTL+CMD+C for the clipboard history. Sending emoji and finding things from the clipboard story are at my fingertip.
 
 ## Why Use Raycast
 
@@ -140,8 +140,8 @@ Using the Pomodoro technique is quite hard when doing development, I find it eas
 
 Sadly, there are no extensions that can handle all the Pomodoro features right from Raycast. The one I found on the store is controls for other applications. Session is a paid application (available in SetApp) and the other, Just Focus, is free and in beta.
 
--   You can find the Session extension at this link: [Raycast Store: Session - Pomodoro Focus Timer](https://www.raycast.com/jameslyons/session)
--   You can find the Just Focus extension at this link: [Raycast Store: Just Focus](https://www.raycast.com/koinzhang/just-focus)
+- You can find the Session extension at this link: [Raycast Store: Session - Pomodoro Focus Timer](https://www.raycast.com/jameslyons/session)
+- You can find the Just Focus extension at this link: [Raycast Store: Just Focus](https://www.raycast.com/koinzhang/just-focus)
 
 ![Session can be used right from Raycast](../assets/quit-spotlight-and-alfred-10-best-raycast-extensions-for-web-developers/flavien_bonvin_raycast_extensions_session.webp "Session can be used right from Raycast")
 
