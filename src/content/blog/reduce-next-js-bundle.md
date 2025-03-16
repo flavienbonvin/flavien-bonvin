@@ -23,9 +23,9 @@ I’ll be using a project we are working on at my current work since it didn’t
 
 To help with the analysis, I’ll be using the following dependencies and packages to analyze and visualize my bundle:
 
--   [GitHub - cyrilwanner/next-compose-plugins: 💡next-compose-plugins provides a cleaner API for enabling and configuring plugins for next.js ](https://github.com/cyrilwanner/next-compose-plugins)that helps manage plugins on next config file
--   https://github.com/josselinbuils/next-bundle-analyzer that will chart the bundle so we can see what takes space.
--   [GitHub - danvk/source-map-explorer: Analyze and debug space usage through source maps](https://github.com/danvk/source-map-explorer): helps visualize more precisely the content of the bundle. . This package can be globally installed.
+- [GitHub - cyrilwanner/next-compose-plugins: 💡next-compose-plugins provides a cleaner API for enabling and configuring plugins for next.js ](https://github.com/cyrilwanner/next-compose-plugins)that helps manage plugins on next config file
+- https://github.com/josselinbuils/next-bundle-analyzer that will chart the bundle so we can see what takes space.
+- [GitHub - danvk/source-map-explorer: Analyze and debug space usage through source maps](https://github.com/danvk/source-map-explorer): helps visualize more precisely the content of the bundle. . This package can be globally installed.
 
 Here is my current NextJS config file at the beginning of my investigations. Note that we’ll enable the source maps on the production of analysis, but this should be removed at the end.
 
@@ -58,15 +58,15 @@ To use the next-bundle-analyzer library, we have to add the following command on
 
 It’s now possible to run the following commands to have the initial baseline:
 
--   `pnpm run build`: build the project and give information about the first JS load.
--   `pnpm run analyze`: will give a general idea of the repartition of the bundle.
--   `source-map-explorer .next/static//.js`: more in-depth information about the package.
+- `pnpm run build`: build the project and give information about the first JS load.
+- `pnpm run analyze`: will give a general idea of the repartition of the bundle.
+- `source-map-explorer .next/static//.js`: more in-depth information about the package.
 
 Here are the numbers in my case:
 
--   2.23 MB bundle size with analyzing
--   2.08 MB bundle size with source maps
--   656 kB loaded with 1.9 MB resources on network inspector
+- 2.23 MB bundle size with analyzing
+- 2.08 MB bundle size with source maps
+- 656 kB loaded with 1.9 MB resources on network inspector
 
 On top of those numbers, I ran web.dev/measure tests 5 times to have an average performance score to see if we make any real-world improvements or if it’s just a smokescreen. I got an average of 69.2.
 
@@ -86,10 +86,10 @@ import isEmpty from "lodash/isEmpty"; // 7,04kB (gzip: 2,26)
 
 We used the second method in our project since we thought it was better to do it. Changing imports is pretty fast, and it only took 5 minutes to make the change in the project.
 
--   2.17 MB bundle size with analyzing -2.691%
--   2.02 MB bundle size with source maps -2.885%
--   69.2 as average performance score 0
--   632 kB loaded with 1.8 MB resources on network inspector -3.659%
+- 2.17 MB bundle size with analyzing -2.691%
+- 2.02 MB bundle size with source maps -2.885%
+- 69.2 as average performance score 0
+- 632 kB loaded with 1.8 MB resources on network inspector -3.659%
 
 The changes are pretty marginal, but so is the effort, and this is why taking the time to make the improvements in the first recommended list.
 
@@ -130,10 +130,10 @@ const handleLogout = async () => {
 };
 ```
 
--   2.21 MB bundle size with analyzing +1.843%
--   2.06 MB bundle size with source maps +1.980%
--   72 as average performance score +2.2
--   568 kB loaded with 1.6 MB resources on network inspector -10.127%
+- 2.21 MB bundle size with analyzing +1.843%
+- 2.06 MB bundle size with source maps +1.980%
+- 72 as average performance score +2.2
+- 568 kB loaded with 1.6 MB resources on network inspector -10.127%
 
 Dynamically importing the components has an enormous impact on the size of the loaded JS when opening the website. This simple change reduced the initial load by 10%, which is significant.
 
@@ -153,20 +153,20 @@ The analysis told me that I have to look at some libraries: validator, framer, m
 
 I won’t go into too many details in this article, but here is a quick summary of what I did for every library:
 
--   validator: changed the way I import methods and use lodash `isEmpty` instead of the one from validator.
--   framer: did some vanilla animation for more specific elements and kept everything as it is for the more complex one.
--   mixpanel: removed the dependency since the data wasn’t used, and we had other tools for that
--   fontawesome: sadly, I wasn’t able to reduce the size of the imports
--   react-code-blocs: removed the library and directly used react-syntax-highlight instead since it was possible to only import what was required.
+- validator: changed the way I import methods and use lodash `isEmpty` instead of the one from validator.
+- framer: did some vanilla animation for more specific elements and kept everything as it is for the more complex one.
+- mixpanel: removed the dependency since the data wasn’t used, and we had other tools for that
+- fontawesome: sadly, I wasn’t able to reduce the size of the imports
+- react-code-blocs: removed the library and directly used react-syntax-highlight instead since it was possible to only import what was required.
 
 Besides those actions, I did some library cleaning and replaced them with vanilla TypeScript since they didn’t provide much improvement. I also took the time to update everything to its latest version in hopes of gains.
 
 Finally, I performed some code analysis and removed the old and unused code. This step might not yield a smaller bundle, but it’s definitely positive for code quality and ease of use.
 
--   1,59 MB bundle size with analyzing -28,054%
--   1,45 MB bundle size with source maps -29,612%
--   73 as average performance score +1
--   489 kB loaded with 1,3MB resources on network inspector -13,908%
+- 1,59 MB bundle size with analyzing -28,054%
+- 1,45 MB bundle size with source maps -29,612%
+- 73 as average performance score +1
+- 489 kB loaded with 1,3MB resources on network inspector -13,908%
 
 I had a feeling that this step would be the one that brought the most results, but I wasn’t expecting such an improvement! Shaving 30% of the bundle size by simply making smarter choices when it comes to library selection of feature implementation seems crazy.
 

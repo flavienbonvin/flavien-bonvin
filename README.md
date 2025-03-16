@@ -13,11 +13,11 @@ Hello 🦆 I'm Flavien Bonvin and I'm a frontend engineer. I've been blogging on
 
 You can find me in the following social networks:
 
--   [X (Twitter) (@flavienbonv)](https://twitter.com/flavienbonvin)
--   [GitHub (flavienbonvin)](https://github.com/flavienbonvin)
+- [X (Twitter) (@flavienbonv)](https://twitter.com/flavienbonvin)
+- [GitHub (flavienbonvin)](https://github.com/flavienbonvin)
 
 ## Tech stack
 
--   [Astro](https://astro.build/) to build the blog.
--   [Tailwind](https://tailwindcss.com/) for styling.
--   [Resend](https://resend.com/) for newsletter.
+- [Astro](https://astro.build/) to build the blog.
+- [Tailwind](https://tailwindcss.com/) for styling.
+- [Resend](https://resend.com/) for newsletter.

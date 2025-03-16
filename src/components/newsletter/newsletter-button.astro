@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components";
+import { PATHS } from "const";
+
+interface Props {
+    classes?: string;
+    variant?: "default" | "inline";
+}
+
+const { variant = "default", classes } = Astro.props;
+const description =
+    variant === "inline"
+        ? "No spam, just the article in your inbox!"
+        : "No spam, no advertisement, just the article that you can read right from your inbox!";
+---
+
+<div
+    class:list={[
+        classes,
+        "not-prose flex flex-col",
+        variant === "inline" && "items-center text-center sm:justify-center",
+    ]}
+>
+    <h2 class="not-prose text-font-color mb-2 text-lg font-semibold sm:text-2xl">
+        Subscribe to the newsletter
+    </h2>
+    <p class="not-prose text-font-color mb-8 text-sm text-pretty sm:text-pretty">
+        {description}
+    </p>
+    <a
+        href={PATHS.newsletter}
+        class:list={[
+            "bg-accent w-fit cursor-pointer rounded px-3.5 py-2.5 text-sm font-medium text-zinc-600 shadow transition-shadow duration-150 hover:shadow-md",
+        ]}
+    >
+        <span class="flex items-center gap-2">
+            <Icon name="rocket" class="inline" />Subscribe!
+        </span>
+    </a>
+</div>

@@ -7,6 +7,12 @@ import { CONFIG } from "const";
 import "../styles/theme.css";
 import "../styles/fonts.css";
 import FaviconLayout from "./favicon-layout.astro";
+
+interface Props {
+    hideFooter?: boolean;
+}
+
+const { hideFooter = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -43,7 +49,7 @@ import FaviconLayout from "./favicon-layout.astro";
             <slot />
         </main>
         <footer class="flex w-full flex-col gap-1 pb-20">
-            <Footer />
+            {!hideFooter && <Footer />}
             <script
                 is:inline
                 defer

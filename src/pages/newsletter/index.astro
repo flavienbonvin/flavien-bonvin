@@ -1,0 +1,69 @@
+---
+export const prerender = false;
+
+import ExternalLink from "@components/atoms/external-link.astro";
+import PageHeader from "@layouts/page-header.astro";
+import PageLayout from "@layouts/page-layout.astro";
+import SeoPage from "@layouts/seo-page.astro";
+import { Icon } from "astro-icon/components";
+import { actions, isActionError } from "astro:actions";
+import { CONFIG, URLS } from "const";
+
+const result = Astro.getActionResult(actions.subscribeNewsletter);
+const actionError = isActionError(result?.error) ? result.error.message : false;
+const actionSuccess = result?.data?.success;
+---
+
+<PageLayout hideFooter>
+    <SeoPage slot="head" title={CONFIG.author} description={CONFIG.description} />
+    <div class="flex flex-col">
+        <section>
+            <PageHeader title="Subscribe to the newsletter" noDivider
+                >No spam, no advertisement, just the article that you can read right from your
+                inbox!</PageHeader
+            >
+        </section>
+        <form
+            transition:persist
+            method="POST"
+            action={actions.subscribeNewsletter}
+            class="flex w-2/3 flex-col gap-4"
+            id="newsletter-form"
+        >
+            <input
+                required
+                type="email"
+                name="email"
+                autocomplete="email"
+                class="text-font-color ring-accent focus:ring-accent block w-full min-w-72 rounded-md border-0 text-sm ring-1 ring-inset placeholder:text-zinc-400 focus:ring-2 focus:ring-inset dark:bg-zinc-800 dark:ring-zinc-700"
+                placeholder="Join 300+ web developers"
+            />
+            <button
+                class="bg-accent w-full cursor-pointer rounded px-3.5 py-2.5 text-sm font-medium text-zinc-600 shadow transition-shadow duration-150 hover:shadow-md"
+                type="submit">Subscribe</button
+            >
+        </form>
+        {actionError && <p class="text-error mt-2">{actionError}</p>}
+        {
+            actionSuccess && (
+                <p class="text-success mt-2">
+                    🦆 Thanks for subscribing! Please check your inbox to confirm your email
+                </p>
+            )
+        }
+    </div>
+
+    <h2
+        class="mt-10 mb-8 font-serif text-lg font-medium tracking-tighter text-balance sm:mt-20 sm:text-xl"
+    >
+        Or follow me on socials!
+    </h2>
+    <div class="flex flex-row flex-wrap gap-x-3 gap-y-3">
+        <ExternalLink href={URLS.twitter} classes="flex w-36 items-center justify-center gap-2"
+            >Follow me on <Icon name="twitter" /></ExternalLink
+        >
+        <ExternalLink href={URLS.linkedin} classes="flex w-36 items-center justify-center gap-2"
+            ><Icon name="rss" />LinkedIn</ExternalLink
+        >
+    </div>
+</PageLayout>
