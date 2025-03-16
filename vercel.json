@@ -1,51 +1,105 @@
 {
-  "rewrites": [
-    { "source": "/plausible/js/script.js", "destination": "https://plausible.io/js/script.js" },
-    { "source": "/plausible/api/event", "destination": "https://plausible.io/api/event" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-XSS-Protection", "value": "0" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Feature-Policy", "value": "camera 'none'; microphone 'none'; geolocation 'none'" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' ; style-src 'self' 'unsafe-inline'; img-src 'self' i.ytimg.com data:; frame-ancestors 'none'; object-src 'none'; frame-src 'self' https://www.youtube-nocookie.com;" }
-      ]
-    },
-    {
-      "source": "/(fonts|android-chrome-192x192.png|manifest)/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
-      ]
-    },
-    {
-      "source": "/_astro/.*\\.(png|svg|ico|css|woff2|webp)$",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
-      ]
-    },
-    {
-      "source": "/favicon.*\\.(png|svg|ico)$",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
-      ]
-    },
-    {
-      "source": "/plausible/(js/script.js|api/event)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
-      ]
-    },
-    {
-      "source": "/ClientRouter(.*).js",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, immutable" }
-      ]
-    }
-  ]
+    "rewrites": [
+        {
+            "source": "/plausible/js/script.js",
+            "destination": "https://plausible.io/js/script.js"
+        },
+        {
+            "source": "/plausible/api/event",
+            "destination": "https://plausible.io/api/event"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "X-Content-Type-Options",
+                    "value": "nosniff"
+                },
+                {
+                    "key": "X-Frame-Options",
+                    "value": "DENY"
+                },
+                {
+                    "key": "X-XSS-Protection",
+                    "value": "0"
+                },
+                {
+                    "key": "Referrer-Policy",
+                    "value": "strict-origin-when-cross-origin"
+                },
+                {
+                    "key": "Strict-Transport-Security",
+                    "value": "max-age=31536000; includeSubDomains; preload"
+                },
+                {
+                    "key": "Permissions-Policy",
+                    "value": "camera=(), microphone=(), geolocation=()"
+                },
+                {
+                    "key": "Feature-Policy",
+                    "value": "camera 'none'; microphone 'none'; geolocation 'none'"
+                },
+                {
+                    "key": "Content-Security-Policy",
+                    "value": "default-src 'self'; script-src 'self' 'unsafe-inline' ; style-src 'self' 'unsafe-inline'; img-src 'self' i.ytimg.com data:; frame-ancestors 'none'; object-src 'none'; frame-src 'self' https://www.youtube-nocookie.com;"
+                }
+            ]
+        },
+        {
+            "source": "/(fonts|manifest)/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604899, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/_astro/(.*)(png|webp|avif|svg|ico|css|woff2)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "_astro/ClientRouter(.*).js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=3600, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/android-chrome-192x192.png",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/favicon(.*)(png|svg|ico)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=604800, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/plausible/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=694800, immutable"
+                }
+            ]
+        }
+    ]
 }
