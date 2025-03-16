@@ -9,13 +9,13 @@
         "format": "pnpx prettier --write ."
     },
     "dependencies": {
-        "@astrojs/db": "0.14.7",
-        "@astrojs/mdx": "4.1.0",
-        "@astrojs/vercel": "8.1.0",
+        "@astrojs/db": "0.14.8",
+        "@astrojs/mdx": "4.2.0",
+        "@astrojs/vercel": "8.1.2",
         "@fontsource-variable/open-sans": "^5.2.5",
-        "@fontsource/ia-writer-mono": "^5.1.0",
+        "@fontsource/ia-writer-mono": "^5.2.5",
         "@vercel/og": "^0.6.5",
-        "astro": "5.4.0",
+        "astro": "5.5.2",
         "astro-embed": "^0.9.0",
         "astro-icon": "^1.1.5",
         "resend": "^4.1.2",
@@ -28,15 +28,15 @@
         "@astrojs/tailwind": "6.0.0",
         "@tailwindcss/forms": "^0.5.10",
         "@tailwindcss/typography": "^0.5.16",
-        "@tailwindcss/vite": "^4.0.9",
+        "@tailwindcss/vite": "^4.0.14",
         "@types/markdown-it": "^14.1.2",
         "@types/sanitize-html": "^2.13.0",
         "markdown-it": "^14.1.0",
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-tailwindcss": "^0.6.11",
         "sanitize-html": "^2.14.0",
-        "tailwindcss": "^4.0.9",
-        "typescript": "^5.7.3"
+        "tailwindcss": "^4.0.14",
+        "typescript": "^5.8.2"
     },
-    "packageManager": "bun@1.2.4"
+    "packageManager": "bun@1.2.5"
 }
