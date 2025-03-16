@@ -1,24 +1,35 @@
 ---
 export const prerender = false;
 
-import PageLayout from "@layouts/page-layout.astro";
-import PageHeader from "@layouts/page-header.astro";
 import ExternalLink from "@components/atoms/external-link.astro";
+import PageHeader from "@layouts/page-header.astro";
+import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
-import { URLS, CONFIG } from "const";
 import { Icon } from "astro-icon/components";
+import { actions, isActionError } from "astro:actions";
+import { CONFIG, URLS } from "const";
+
+const result = Astro.getActionResult(actions.subscribeNewsletter);
+const actionError = isActionError(result?.error) ? result.error.message : false;
+const actionSuccess = result?.data?.success;
 ---
 
 <PageLayout hideFooter>
     <SeoPage slot="head" title={CONFIG.author} description={CONFIG.description} />
-    <div class="flex flex-1 flex-col sm:items-start">
+    <div class="flex flex-col">
         <section>
             <PageHeader title="Subscribe to the newsletter" noDivider
                 >No spam, no advertisement, just the article that you can read right from your
                 inbox!</PageHeader
             >
         </section>
-        <form class="flex flex-col gap-4" id="newsletter-form">
+        <form
+            transition:persist
+            method="POST"
+            action={actions.subscribeNewsletter}
+            class="flex w-2/3 flex-col gap-4"
+            id="newsletter-form"
+        >
             <input
                 required
                 type="email"
@@ -32,9 +43,19 @@ import { Icon } from "astro-icon/components";
                 type="submit">Subscribe</button
             >
         </form>
+        {actionError && <p class="text-error mt-2">{actionError}</p>}
+        {
+            actionSuccess && (
+                <p class="text-success mt-2">
+                    🦆 Thanks for subscribing! Please check your inbox to confirm your email
+                </p>
+            )
+        }
     </div>
 
-    <h2 class="mt-20 mb-8 font-serif text-lg font-medium tracking-tighter text-balance sm:text-2xl">
+    <h2
+        class="mt-10 mb-8 font-serif text-lg font-medium tracking-tighter text-balance sm:mt-20 sm:text-xl"
+    >
         Or follow me on socials!
     </h2>
     <div class="flex flex-row flex-wrap gap-x-3 gap-y-3">

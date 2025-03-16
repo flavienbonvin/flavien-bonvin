@@ -77,13 +77,16 @@
     --color-gradient-beyond4: var(--beyond4);
     --color-gradient-beyond5: var(--beyond5);
     --color-gradient-beyond6: var(--beyond6);
+    --color-success: var(--success);
+    --color-error: var(--error);
 
     /* Fonts */
-    --font-sans: Open Sans Variable, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
+    --font-sans:
+        Open Sans Variable, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        sans-serif;
     --font-serif: Suisse Works, Georgia, Cambria, "Times New Roman", Times, serif;
-    --font-mono: iA Writer Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-        monospace;
+    --font-mono:
+        iA Writer Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     /* Animation */
     --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
