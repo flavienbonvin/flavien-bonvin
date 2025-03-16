@@ -1,6 +1,6 @@
 export const prerender = false;
 
-import { createPageView, getPageView, updatePageViewCount } from "@data/pageview";
+import { upsertPageView } from "@data/pageview";
 import type { APIRoute } from "astro";
 
 const responsInit = {
@@ -19,12 +19,6 @@ export const GET: APIRoute = async (data) => {
         return new Response("", responsInit);
     }
 
-    const pageView = await getPageView(pathname);
-    if (pageView.length > 0) {
-        await updatePageViewCount(pathname, pageView[0].count + 1);
-    } else {
-        await createPageView(pathname);
-    }
-
+    await upsertPageView(pathname);
     return new Response("", responsInit);
 };
