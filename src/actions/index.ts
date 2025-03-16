@@ -9,12 +9,10 @@ export const server = {
     subscribeNewsletter: defineAction({
         accept: "form",
         input: z.object({ email: z.string().email() }),
-        handler: async (input) => {
-            const { email } = input;
+        handler: async ({ email }) => {
             try {
                 const token = await generateTokenForEmail(email);
                 await sendNewsletterSubscriptionEmail(token, email);
-                console.log({ email });
                 return { success: true };
             } catch (error) {
                 throw new ActionError({
