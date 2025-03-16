@@ -48,11 +48,20 @@
             ]
         },
         {
+            "source": "/_astro/ClientRouter(.*).js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, immutable"
+                }
+            ]
+        },
+        {
             "source": "/(fonts|manifest)/(.*)",
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, max-age=604899, immutable"
+                    "value": "public, max-age=604800, immutable"
                 }
             ]
         },
@@ -62,15 +71,6 @@
                 {
                     "key": "Cache-Control",
                     "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/_astro/ClientRouter(.*).js",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=3600, immutable"
                 }
             ]
         },
@@ -97,7 +97,7 @@
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, max-age=694800, immutable"
+                    "value": "public, max-age=604800, immutable"
                 }
             ]
         }
