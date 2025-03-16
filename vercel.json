@@ -84,42 +84,6 @@
             ]
         },
         {
-            "source": "/fonts/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/android-chrome-192x192.png",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/manifest/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/_astro/(.*)(png|svg|ico|css|woff2)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
-                }
-            ]
-        },
-        {
             "source": "/favicon(.*)(png|svg|ico)",
             "headers": [
                 {
@@ -147,7 +111,7 @@
             ]
         },
         {
-            "source": "ClientRouter(.*).js",
+            "source": "/ClientRouter(.*).js",
             "headers": [
                 {
                     "key": "Cache-Control",
