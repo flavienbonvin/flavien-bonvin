@@ -17,8 +17,8 @@ interface Props {
 const { folderStructure, containerClass, title, sub } = Astro.props;
 ---
 
-<ul class={containerClass}>
-    {title && <h2 class="mb-2 font-mono text-lg">{title}</h2>}
+<ul class:list={["font-mono", containerClass]}>
+    {title && <h2 class="mb-2 text-lg">{title}</h2>}
     {
         folderStructure.map((folder) => {
             const isFolder = folder.folders;

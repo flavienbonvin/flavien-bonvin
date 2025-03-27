@@ -28,7 +28,10 @@ export default defineConfig({
         mdx({
             syntaxHighlight: "shiki",
             shikiConfig: {
-                theme: "dracula",
+                themes: {
+                    light: "one-light",
+                    dark: "github-dark-default",
+                },
             },
         }),
         icon(),
