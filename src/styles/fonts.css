@@ -71,9 +71,9 @@
 }
 
 @font-face {
-    font-family: "iA Writer Mono";
+    font-family: "Berkeley Mono";
     font-style: normal;
     font-display: swap;
     font-weight: 400;
-    src: url(@fontsource/ia-writer-mono/files/ia-writer-mono-latin-400-normal.woff2) format("woff2");
+    src: url("/fonts/BerkeleyMono-Regular.woff2") format("woff2");
 }
