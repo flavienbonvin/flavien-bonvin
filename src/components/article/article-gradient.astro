@@ -8,10 +8,8 @@ interface Props {
 
 import { getImage } from "astro:assets";
 import duck from "./duck.png";
-import noise from "./noise.svg";
 
 const optiDuck = await getImage({ src: duck, width: 1000 });
-const optiNoise = await getImage({ src: noise, width: 1000 });
 
 const gradientDireaction = () => {
     const direction = ["bg-linear-to-tr", "bg-linear-to-tl", "bg-linear-to-br", "bg-linear-to-bl"];
@@ -47,16 +45,10 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
 
 <div
     class:list={[
-        "relative mb-6 flex h-40 flex-col justify-center overflow-hidden overflow-x-hidden rounded-xl text-center font-sans text-3xl font-semibold text-white/80 selection:text-white/80 sm:mb-8 sm:h-80 sm:text-6xl dark:text-white/60 selection:dark:text-white/60",
+        "relative mb-6 flex h-40 flex-col justify-center overflow-hidden overflow-x-hidden rounded-xl text-center font-sans text-3xl font-semibold text-white/80 selection:text-white/80 sm:mb-8 sm:h-80 sm:text-6xl selection:dark:text-white/70",
         gradientClasses,
     ]}
 >
-    <div
-        class="absolute inset-0 rounded-xl opacity-60 brightness-100 contrast-150"
-        style=`background-image: url(${optiNoise.src})`
-    >
-    </div>
-
     <div
         class="absolute inset-0 rounded-xl bg-cover bg-center bg-no-repeat opacity-30"
         style=`background-image: url(${optiDuck.src})`
@@ -73,9 +65,3 @@ const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
         ))
     }
 </div>
-
-<style>
-    .noise {
-        background-image: url("/noise.svg");
-    }
-</style>
