@@ -10,7 +10,7 @@ interface Props {
 ---
 
 <H1 classes="font-serif font-bold mb-1 text-xl sm:text-3xl">{Astro.props.title}</H1>
-<p class:list={["mb-6 font-sans text-balance sm:text-lg", articleCardWidth]}><slot /></p>
+<p class:list={["mb-6 font-sans sm:text-lg sm:text-pretty", articleCardWidth]}><slot /></p>
 {
     Astro.props.noDivider ? (
         <div class="mb-10" />

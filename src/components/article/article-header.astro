@@ -20,7 +20,7 @@ const formattedEditDate = getFormattedDate(article.data.editDate);
         >{article.data.title}</H1
     >
     <time
-        class="text-font-color-muted"
+        class="text-font-color-muted text-sm"
         datetime={formatDateForDatetime(article.data.publicationDate)}>{formattedPubDate}</time
     >
     {
@@ -28,7 +28,7 @@ const formattedEditDate = getFormattedDate(article.data.editDate);
             <>
                 <MiddleDot />
                 <time
-                    class="text-font-color-muted"
+                    class="text-font-color-muted text-sm"
                     datetime={formatDateForDatetime(article.data.editDate)}
                 >
                     Updated {formattedEditDate}
@@ -37,5 +37,5 @@ const formattedEditDate = getFormattedDate(article.data.editDate);
         )
     }
     <MiddleDot />
-    <span class="text-font-color-muted">{article.data.readingTime} min read</span>
+    <span class="text-font-color-muted text-sm">{article.data.readingTime} min read</span>
 </header>
