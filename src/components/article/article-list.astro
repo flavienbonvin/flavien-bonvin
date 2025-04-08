@@ -20,32 +20,3 @@ interface Props {
         ))
     }
 </ul>
-
-<script>
-    const handleAnimation = () => {
-        const alreadySawAnimation = sessionStorage.getItem("already-saw-animation");
-        const articleItems = document.getElementById("article-list");
-
-        if (!articleItems) {
-            return;
-        }
-
-        if (alreadySawAnimation) {
-            articleItems.classList.add("opacity-100", "translate-y-0");
-        } else {
-            articleItems.classList.add(
-                "opacity-0",
-                "motion-safe:animate-fade-in-up",
-                "motion-safe:translate-y-10",
-                "motion-reduce:opacity-100",
-            );
-        }
-
-        if (!alreadySawAnimation) {
-            sessionStorage.setItem("already-saw-animation", "true");
-        }
-    };
-
-    handleAnimation();
-    document.addEventListener("astro:after-swap", handleAnimation);
-</script>
