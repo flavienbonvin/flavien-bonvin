@@ -86,7 +86,7 @@
         sans-serif;
     --font-serif: Suisse Works, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono:
-        iA Writer Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        Berkeley Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     /* Animation */
     --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
