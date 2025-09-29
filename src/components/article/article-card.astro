@@ -21,7 +21,7 @@ const isHome = Astro.url.pathname === "/";
 
 <article class:list={["group py-4", articleCardWidth]}>
     <a href={getArticleLink(article.id)}>
-        <h2 class="text-lg font-medium tracking-tighter text-balance sm:text-2xl">
+        <h2 class="text-xl font-medium tracking-tighter sm:text-2xl sm:text-pretty">
             {title}
         </h2>
         <div
