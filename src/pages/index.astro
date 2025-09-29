@@ -14,7 +14,7 @@ const allBlogPosts = await getAllPublishedArticles();
 <PageLayout>
     <SeoPage slot="head" title={CONFIG.author} description={CONFIG.description} />
     <ArticleList
-        title="Latest Insights: Coding & Beyond"
+        title="Code & Other Curiosities"
         articles={allBlogPosts}
         pageDescription={CONFIG.homeDescription}
     />
