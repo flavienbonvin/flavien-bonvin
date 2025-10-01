@@ -1,11 +1,11 @@
 ---
+import { Font } from "astro:assets";
 import Footer from "@layouts/footer.astro";
 import Navigation from "@layouts/navigation.astro";
 
 import { ClientRouter } from "astro:transitions";
 import { CONFIG } from "const";
 import "../styles/theme.css";
-import "../styles/fonts.css";
 import "../styles/code.css";
 import FaviconLayout from "./favicon-layout.astro";
 
@@ -37,6 +37,10 @@ const { hideFooter = false } = Astro.props;
         />
 
         <ClientRouter />
+
+        <Font cssVariable="--font-swiss-works" preload />
+        <Font cssVariable="--font-berkeley-mono" preload />
+        <Font cssVariable="--font-open-sans" preload />
 
         <meta name="theme-color" content="var(--background)" />
     </head>

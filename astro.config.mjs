@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 import embeds from "astro-embed/integration";
 import icon from "astro-icon";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +13,51 @@ export default defineConfig({
     site: "https://flavienbonvin.com",
     vite: {
         plugins: [tailwindcss()],
+    },
+    experimental: {
+        fonts: [
+            {
+                provider: fontProviders.google(),
+                name: "Open Sans",
+                cssVariable: "--font-open-sans",
+                subsets: ["latin"],
+                fallbacks: [
+                    "system-ui",
+                    "-apple-system",
+                    "BlinkMacSystemFont",
+                    "Segoe UI",
+                    "Roboto",
+                ],
+            },
+            {
+                provider: "local",
+                name: "Swiss works",
+                cssVariable: "--font-swiss-works",
+                variants: [
+                    { src: ["./src/assets/fonts/SuisseWorks-Bold-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-BoldItalic-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-Medium-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-MediumItalic-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-Regular-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-RegularItalic-WebS.woff2"] },
+                ],
+                fallbacks: ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+            },
+            {
+                provider: "local",
+                name: "Berkeley mono",
+                cssVariable: "--font-berkeley-mono",
+                variants: [{ src: ["./src/assets/fonts/BerkeleyMono-Regular.woff2"] }],
+                fallbacks: [
+                    "Menlo",
+                    "Monaco",
+                    "Consolas",
+                    "Liberation Mono",
+                    "Courier New",
+                    "monospace",
+                ],
+            },
+        ],
     },
     integrations: [
         sitemap({

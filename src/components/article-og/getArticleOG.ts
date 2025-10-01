@@ -5,7 +5,7 @@ import { resolve } from "path";
 
 export const getArticleOG = async (article: CollectionEntry<"blog">) => {
     const postCover = readFileSync(resolve("./public/article-og.png"));
-    const fontData = readFileSync(resolve("./public/fonts/open-sans-600.ttf"));
+    const fontData = readFileSync(resolve("./src/assets/fonts/open-sans-600.ttf"));
 
     const html = {
         type: "div",
