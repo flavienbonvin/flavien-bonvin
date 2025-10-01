@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 import embeds from "astro-embed/integration";
 import icon from "astro-icon";
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig, envField, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +13,13 @@ export default defineConfig({
     site: "https://flavienbonvin.com",
     vite: {
         plugins: [tailwindcss()],
+    },
+    env: {
+        schema: {
+            BLOG_AUDIENCE_ID: envField.string({ context: "server", access: "secret" }),
+            RESEND_API_KEY: envField.string({ context: "server", access: "secret" }),
+        },
+        validateSecrets: true,
     },
     image: {
         responsiveStyles: true,
