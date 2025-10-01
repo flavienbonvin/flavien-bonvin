@@ -2,19 +2,21 @@
 import { validateNewsletterSubscription } from "@helpers/newsletterValidation";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
-// @ts-ignore
-import { PATHS } from "const";
+import { ROUTES } from "const";
 
 export const prerender = false;
 
-try {
-    const token = Astro.url.searchParams.get("token") || undefined;
-    await validateNewsletterSubscription(token);
-} catch (error) {
-    return Astro.redirect(PATHS.error404);
+async function validateSubscription(): Promise<string> {
+    try {
+        const token = Astro.url.searchParams.get("token") ?? undefined;
+        await validateNewsletterSubscription(token);
+        return ROUTES.newsletterValidated;
+    } catch {
+        return ROUTES.error404;
+    }
 }
 
-return Astro.redirect(PATHS.newsletterValidated);
+return Astro.redirect(await validateSubscription());
 ---
 
 <PageLayout>

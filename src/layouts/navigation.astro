@@ -1,6 +1,6 @@
 ---
 import Logo from "@components/atoms/logo.astro";
-import { PATHS } from "const";
+import { ROUTES } from "const";
 
 const getIsActive = (href: string) => {
     return Astro.url.pathname.includes(href);
@@ -10,17 +10,17 @@ const getIsActive = (href: string) => {
 <nav class="text-font-color w-full py-6 font-mono">
     <ul class="flex items-center justify-between">
         <li>
-            <a href={PATHS.home}>
+            <a href={ROUTES.home}>
                 <Logo />
             </a>
             <li>
                 <ul class="flex gap-3 tracking-tight sm:gap-6">
                     <li>
                         <a
-                            href={PATHS.dev}
+                            href={ROUTES.dev}
                             class:list={[
                                 "decoration-dev hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
-                                getIsActive(PATHS.dev)
+                                getIsActive(ROUTES.dev)
                                     ? "text-font-color underline"
                                     : "text-font-color-muted",
                             ]}>Dev</a
@@ -28,10 +28,10 @@ const getIsActive = (href: string) => {
                     </li>
                     <li>
                         <a
-                            href={PATHS.beyond}
+                            href={ROUTES.beyond}
                             class:list={[
                                 "decoration-beyond hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
-                                getIsActive(PATHS.beyond)
+                                getIsActive(ROUTES.beyond)
                                     ? "text-font-color underline"
                                     : "text-font-color-muted",
                             ]}>Beyond</a
@@ -39,10 +39,10 @@ const getIsActive = (href: string) => {
                     </li>
                     <li>
                         <a
-                            href={PATHS.about}
+                            href={ROUTES.about}
                             class:list={[
                                 "decoration-accent hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
-                                getIsActive(PATHS.about)
+                                getIsActive(ROUTES.about)
                                     ? "text-font-color underline"
                                     : "text-font-color-muted",
                             ]}>About</a

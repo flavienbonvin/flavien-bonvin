@@ -1,4 +1,4 @@
-import { db, eq, PageView, sql } from "astro:db";
+import { db, PageView, sql } from "astro:db";
 
 export const upsertPageView = async (pathname: string) => {
     await db

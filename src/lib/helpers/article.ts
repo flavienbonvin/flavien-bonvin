@@ -1,6 +1,6 @@
-import { PATHS } from "const";
+import { ROUTES } from "const";
 
-export const getArticleLink = (slug: string) => `${PATHS.articles}/${slug}`;
+export const getArticleLink = (slug: string) => `${ROUTES.articles}/${slug}`;
 
 export const getFormattedDate = (date?: Date) => {
     if (!date) {

@@ -3,10 +3,10 @@ import { getArticleLink, getFormattedDate } from "@helpers/article";
 import { formatDateForDatetime } from "@helpers/date";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
-import { articleCardWidth } from "const";
 import { BlogType } from "content.config";
 import MiddleDot from "../atoms/middle-dot.astro";
 import ReadArticle from "./read-article.astro";
+import { articleCardWidth } from "const";
 
 interface Props {
     article: CollectionEntry<"blog">;

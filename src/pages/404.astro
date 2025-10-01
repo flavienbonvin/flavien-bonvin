@@ -1,14 +1,14 @@
 ---
 import H1 from "@components/atoms/h1.astro";
 import PageLayout from "@layouts/page-layout.astro";
-import { PATHS } from "const";
+import { ROUTES } from "const";
 ---
 
 <PageLayout>
     <section class="text-center">
         <H1 classes="font-serif text-2xl">404</H1>
         <p class="mb-4">Page not found</p>
-        <a href={PATHS.home} class="hover:text-accent underline transition-colors duration-200"
+        <a href={ROUTES.home} class="hover:text-accent underline transition-colors duration-200"
             >Take me home</a
         >
     </section>

@@ -3,6 +3,7 @@
     "compilerOptions": {
         "baseUrl": "src",
         "paths": {
+            "@constants": ["constants.ts"],
             "@layouts/*": ["layouts/*"],
             "@components/*": ["components/*"],
             "@data/*": ["lib/data/*"],

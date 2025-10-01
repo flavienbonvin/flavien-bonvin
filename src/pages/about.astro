@@ -7,7 +7,7 @@ import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import { CONFIG, PATHS, URLS } from "const";
+import { CONFIG, ROUTES, URLS } from "const";
 import alps from "../content/assets/about/alps.png";
 import flavien from "../content/assets/about/flavien_bonvin.jpg";
 import lausanne from "../content/assets/about/lausanne.png";
@@ -70,10 +70,10 @@ import lausanne from "../content/assets/about/lausanne.png";
         <p>
             Web development is just one of my passions; I have many more! This is why you can find
             two main sections in this blog: <a
-                href={PATHS.dev}
+                href={ROUTES.dev}
                 class="hover:text-dev font-sans transition-colors duration-150">dev</a
             >, where I share my technical knowledge and experience, and <a
-                href={PATHS.beyond}
+                href={ROUTES.beyond}
                 class="hover:text-beyond font-sans transition-colors duration-150">beyond</a
             >, where I explore my other interests. In the "beyond" section, you'll find reviews of
             coffee machines, productivity tools I can't stop myself from testing, and takes on

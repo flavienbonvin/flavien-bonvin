@@ -1,6 +1,6 @@
 import { createNewSubscription, isEmailAlreadySubscribed } from "@data/subscriptionValidation";
 import { BLOG_AUDIENCE_ID, RESEND_API_KEY } from "astro:env/server";
-import { PATHS } from "const";
+import { ROUTES } from "const";
 import { Resend } from "resend";
 
 const resend = new Resend(RESEND_API_KEY);
@@ -91,7 +91,7 @@ const getNewsletterTemplate = (token: string) => {
                             addresses!
                         </p>
                         <a
-                            href="https://flavienbonvin.com${PATHS.newsletterValidate}?token=${token}"
+                            href="https://flavienbonvin.com${ROUTES.newsletterValidate}?token=${token}"
                             style="
                                 text-decoration: underline;
                                 display: block;
@@ -116,7 +116,7 @@ const getNewsletterTemplate = (token: string) => {
                                 border: 1px solid #eee;
                                 margin-bottom: 24px;
                             "
-                            >https://flavienbonvin.com${PATHS.newsletterValidate}?token=${token}</code
+                            >https://flavienbonvin.com${ROUTES.newsletterValidate}?token=${token}</code
                         >
                         <p>Have a lovely day!</p>
                         <p>Flavien 🦆</p>
