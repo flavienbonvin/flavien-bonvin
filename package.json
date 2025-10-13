@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@astrojs/db": "0.18.0",
-        "@astrojs/mdx": "4.3.6",
+        "@astrojs/mdx": "4.3.7",
         "@astrojs/vercel": "8.2.8",
         "@vercel/og": "^0.6.8",
         "astro": "5.14.1",
