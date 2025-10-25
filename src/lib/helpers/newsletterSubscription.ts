@@ -25,17 +25,12 @@ export const generateTokenForEmail = async (email: string) => {
 };
 
 export const sendNewsletterSubscriptionEmail = async (token: string, email: string) => {
-    try {
-        await resend.emails.send({
-            from: "Flavien Bonvin <hello@flavienbonvin.com>",
-            to: [email],
-            subject: "Welcome to my newsletter 🦆!",
-            html: getNewsletterTemplate(token),
-        });
-    } catch (error) {
-        console.error("Error sending newsletter subscription email:", error);
-        throw error;
-    }
+    await resend.emails.send({
+        from: "Flavien Bonvin <hello@flavienbonvin.com>",
+        to: [email],
+        subject: "Welcome to my newsletter 🦆!",
+        html: getNewsletterTemplate(token),
+    });
 };
 
 const getNewsletterTemplate = (token: string) => {

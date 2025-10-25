@@ -16,24 +16,7 @@ export const server = {
                 return { success: true };
             } catch (error: any) {
                 throw new ActionError({
-                    message: error.message,
-                    code: "INTERNAL_SERVER_ERROR",
-                    stack: error.stack,
-                });
-            }
-        },
-    }),
-    testAction: defineAction({
-        accept: "form",
-        handler: async () => {
-            try {
-                console.log("testAction called");
-                const test = await generateTokenForEmail("test@example.com");
-                await sendNewsletterSubscriptionEmail(test, "test@example.com");
-                return { success: JSON.stringify(test) };
-            } catch (error: any) {
-                throw new ActionError({
-                    message: error.message,
+                    message: "An error occurred, did you already subscribe?",
                     code: "INTERNAL_SERVER_ERROR",
                     stack: error.stack,
                 });
