@@ -16,7 +16,8 @@ export const server = {
                 return { success: true };
             } catch (error: any) {
                 throw new ActionError({
-                    message: "An error occurred, did you already subscribe?",
+                    // message: "An error occurred, did you already subscribe?",
+                    message: error.message,
                     code: "INTERNAL_SERVER_ERROR",
                     stack: error.stack,
                 });
