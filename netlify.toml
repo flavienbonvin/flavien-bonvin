@@ -1,0 +1,109 @@
+[build]
+  publish = "dist"
+  command = "bun run build"
+
+# Redirects for Plausible analytics proxy
+[[redirects]]
+  from = "/plausible/js/script.js"
+  to = "https://plausible.io/js/script.js"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/plausible/api/event"
+  to = "https://plausible.io/api/event"
+  status = 200
+  force = true
+
+# Security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "0"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Feature-Policy = "camera 'none'; microphone 'none'; geolocation 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' ; style-src 'self' 'unsafe-inline'; img-src 'self' i.ytimg.com data:; frame-ancestors 'none'; object-src 'none'; frame-src 'self' https://www.youtube-nocookie.com;"
+
+# Cache headers for Astro ClientRouter files
+[[headers]]
+  for = "/_astro/ClientRouter*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, immutable"
+
+# Cache headers for fonts and manifest
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/manifest/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+# Cache headers for Astro assets
+[[headers]]
+  for = "/_astro/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/_astro/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/_astro/*.avif"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/_astro/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/_astro/*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/_astro/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/_astro/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+# Cache headers for favicon files
+[[headers]]
+  for = "/android-chrome-192x192.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/favicon*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/favicon*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/favicon*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+# Cache headers for Plausible proxy
+[[headers]]
+  for = "/plausible/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"

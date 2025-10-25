@@ -2,7 +2,7 @@ import db from "@astrojs/db";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import vercel from "@astrojs/vercel";
+import netlify from "@astrojs/netlify";
 import embeds from "astro-embed/integration";
 import icon from "astro-icon";
 import { defineConfig, envField, fontProviders } from "astro/config";
@@ -99,7 +99,7 @@ export default defineConfig({
             theme: "dracula",
         },
     },
-    adapter: vercel(),
+    adapter: netlify(),
     redirects: {
         "/reduce-next-js-bundle/": "/articles/reduce-next-js-bundle",
         "/amazing-nextjs-libraries-that-makes-coding-easier/":
