@@ -27,7 +27,8 @@ export const server = {
         handler: async () => {
             try {
                 console.log("testAction called");
-                const test = generateTokenForEmail("test@example.com");
+                const test = await generateTokenForEmail("test@example.com");
+                // await sendNewsletterSubscriptionEmail(test, "test@example.com");
                 return { success: JSON.stringify(test) };
             } catch (error) {
                 throw new ActionError({
