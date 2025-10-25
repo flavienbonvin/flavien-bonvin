@@ -15,14 +15,14 @@ export const generateTokenForEmail = async (email: string) => {
     // We do not want to save a new email if the user is already subscribed
     // Also, we don't want to send an error to avoid leaking information
     const emailAlreadySubscribed = await isEmailAlreadySubscribed(email);
-    return "hello";
-    // const emailAlreadyOnResend = await isEmailAlreadyOnResend(email);
-    // if (emailAlreadySubscribed || emailAlreadyOnResend) {
-    //     throw new Error("Email already subscribed");
-    // }
+    const emailAlreadyOnResend = await isEmailAlreadyOnResend(email);
+    if (emailAlreadySubscribed || emailAlreadyOnResend) {
+        throw new Error("Email already subscribed");
+    }
 
     // const token = await createNewSubscription(email);
     // return token;
+    return "hello";
 };
 
 export const sendNewsletterSubscriptionEmail = async (token: string, email: string) => {
