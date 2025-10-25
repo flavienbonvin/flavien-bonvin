@@ -4,7 +4,7 @@ export const prerender = false;
 import PageLayout from "@layouts/page-layout.astro";
 import { actions, isActionError } from "astro:actions";
 
-const result = Astro.getActionResult(actions.testAction);
+const result = Astro.getActionResult(actions.subscribeNewsletter);
 const actionError = isActionError(result?.error) ? result.error.message : false;
 const actionSuccess = result?.data?.success;
 console.log({ actionError, actionSuccess, result });
@@ -13,7 +13,7 @@ console.log({ actionError, actionSuccess, result });
 <PageLayout hideFooter>
     <form
         method="POST"
-        action={actions.testAction}
+        action={actions.subscribeNewsletter}
         class="flex w-2/3 flex-col gap-4"
         id="newsletter-form"
     >
@@ -33,4 +33,5 @@ console.log({ actionError, actionSuccess, result });
     {actionSuccess && <p>Success!</p>}
     {actionSuccess}
     {actionError && <p>Error: {actionError}</p>}
+    {result}
 </PageLayout>
