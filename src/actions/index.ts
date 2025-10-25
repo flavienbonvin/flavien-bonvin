@@ -28,7 +28,7 @@ export const server = {
             try {
                 console.log("testAction called");
                 const test = generateTokenForEmail("test@example.com");
-                return { success: test };
+                return { success: JSON.stringify(test) };
             } catch (error) {
                 throw new ActionError({
                     message: "An error occurred during the test",
