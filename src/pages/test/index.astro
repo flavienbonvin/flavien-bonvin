@@ -1,28 +1,19 @@
 ---
 export const prerender = false;
 
-import ExternalLink from "@components/atoms/external-link.astro";
-import PageHeader from "@layouts/page-header.astro";
 import PageLayout from "@layouts/page-layout.astro";
-import SeoPage from "@layouts/seo-page.astro";
-import { Icon } from "astro-icon/components";
 import { actions, isActionError } from "astro:actions";
-import { CONFIG, URLS } from "const";
 
 const result = Astro.getActionResult(actions.subscribeNewsletter);
 const actionError = isActionError(result?.error) ? result.error.message : false;
 const actionSuccess = result?.data?.success;
+console.log({ actionError, actionSuccess, result });
 ---
 
 <PageLayout hideFooter>
-    <button>Click me</button>
+    <form method="post" action={actions.testAction}>
+        <button type="submit">Click me</button>
+    </form>
+    {actionSuccess && <p>Success!</p>}
+    {actionError && <p>Error: {actionError}</p>}
 </PageLayout>
-<script>
-    import { actions } from "astro:actions";
-
-    const action = async () => {
-        const { data, error } = await actions.testAction();
-    };
-
-    action();
-</script>

@@ -24,6 +24,7 @@ export const server = {
         },
     }),
     testAction: defineAction({
+        accept: "form",
         handler: async () => {
             try {
                 return { success: RESEND_API_KEY };
