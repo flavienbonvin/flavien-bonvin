@@ -34,6 +34,7 @@ export const sendNewsletterSubscriptionEmail = async (token: string, email: stri
         });
     } catch (error) {
         console.error("Error sending newsletter subscription email:", error);
+        throw error;
     }
 };
 
