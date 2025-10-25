@@ -20,9 +20,8 @@ export const generateTokenForEmail = async (email: string) => {
         throw new Error("Email already subscribed");
     }
 
-    // const token = await createNewSubscription(email);
-    // return token;
-    return "hello";
+    const token = await createNewSubscription(email);
+    return token;
 };
 
 export const sendNewsletterSubscriptionEmail = async (token: string, email: string) => {
