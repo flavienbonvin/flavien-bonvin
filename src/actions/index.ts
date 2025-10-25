@@ -16,8 +16,7 @@ export const server = {
                 return { success: token };
             } catch (error: any) {
                 throw new ActionError({
-                    // message: "An error occurred, did you already subscribe?",
-                    message: error.message,
+                    message: "An error occurred, did you already subscribe?",
                     code: "INTERNAL_SERVER_ERROR",
                     stack: error.stack,
                 });
