@@ -12,7 +12,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# yarn 
+# yarn
 install-state.gz
 
 # environment variables
@@ -24,3 +24,4 @@ install-state.gz
 
 .vercel
 .env*.local
+.netlify
