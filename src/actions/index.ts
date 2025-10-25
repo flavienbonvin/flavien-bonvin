@@ -12,8 +12,8 @@ export const server = {
         handler: async ({ email }) => {
             try {
                 const token = await generateTokenForEmail(email);
-                await sendNewsletterSubscriptionEmail(token, email);
-                return { success: true };
+                // await sendNewsletterSubscriptionEmail(token, email);
+                return { success: token };
             } catch (error: any) {
                 throw new ActionError({
                     // message: "An error occurred, did you already subscribe?",
