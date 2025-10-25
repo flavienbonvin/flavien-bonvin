@@ -22,4 +22,16 @@ export const server = {
             }
         },
     }),
+    testAction: defineAction({
+        handler: async () => {
+            try {
+                return { success: true };
+            } catch (error) {
+                throw new ActionError({
+                    message: "An error occurred during the test",
+                    code: "INTERNAL_SERVER_ERROR",
+                });
+            }
+        },
+    }),
 };
