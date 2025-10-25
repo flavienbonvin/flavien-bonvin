@@ -3,6 +3,7 @@ import {
     sendNewsletterSubscriptionEmail,
 } from "@helpers/newsletterSubscription";
 import { ActionError, defineAction } from "astro:actions";
+import { RESEND_API_KEY } from "astro:env/server";
 import { z } from "astro:schema";
 
 export const server = {
@@ -25,7 +26,7 @@ export const server = {
     testAction: defineAction({
         handler: async () => {
             try {
-                return { success: true };
+                return { success: RESEND_API_KEY };
             } catch (error) {
                 throw new ActionError({
                     message: "An error occurred during the test",
