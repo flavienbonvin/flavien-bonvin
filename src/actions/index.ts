@@ -30,10 +30,11 @@ export const server = {
                 const test = await generateTokenForEmail("test@example.com");
                 await sendNewsletterSubscriptionEmail(test, "test@example.com");
                 return { success: JSON.stringify(test) };
-            } catch (error) {
+            } catch (error: any) {
                 throw new ActionError({
-                    message: "An error occurred during the test",
+                    message: error.message,
                     code: "INTERNAL_SERVER_ERROR",
+                    stack: error.stack,
                 });
             }
         },
