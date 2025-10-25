@@ -4,7 +4,7 @@ export const prerender = false;
 import PageLayout from "@layouts/page-layout.astro";
 import { actions, isActionError } from "astro:actions";
 
-const result = Astro.getActionResult(actions.subscribeNewsletter);
+const result = Astro.getActionResult(actions.testAction);
 const actionError = isActionError(result?.error) ? result.error.message : false;
 const actionSuccess = result?.data?.success;
 console.log({ actionError, actionSuccess, result });
@@ -15,5 +15,6 @@ console.log({ actionError, actionSuccess, result });
         <button type="submit">Click me</button>
     </form>
     {actionSuccess && <p>Success!</p>}
+    {actionSuccess}
     {actionError && <p>Error: {actionError}</p>}
 </PageLayout>

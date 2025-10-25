@@ -27,6 +27,7 @@ export const server = {
         accept: "form",
         handler: async () => {
             try {
+                console.log("testAction called");
                 return { success: RESEND_API_KEY };
             } catch (error) {
                 throw new ActionError({
