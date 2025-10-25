@@ -14,10 +14,11 @@ export const server = {
                 const token = await generateTokenForEmail(email);
                 await sendNewsletterSubscriptionEmail(token, email);
                 return { success: true };
-            } catch (error) {
+            } catch (error: any) {
                 throw new ActionError({
-                    message: "An error occurred, did you already subscribe?",
+                    message: error.message,
                     code: "INTERNAL_SERVER_ERROR",
+                    stack: error.stack,
                 });
             }
         },
