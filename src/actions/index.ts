@@ -3,9 +3,7 @@ import {
     sendNewsletterSubscriptionEmail,
 } from "@helpers/newsletterSubscription";
 import { ActionError, defineAction } from "astro:actions";
-import { RESEND_API_KEY } from "astro:env/server";
 import { z } from "astro:schema";
-import { Resend } from "resend";
 
 export const server = {
     subscribeNewsletter: defineAction({
@@ -29,8 +27,8 @@ export const server = {
         handler: async () => {
             try {
                 console.log("testAction called");
-                const resend = new Resend(RESEND_API_KEY);
-                return { success: RESEND_API_KEY };
+                const test = generateTokenForEmail("test@example.com");
+                return { success: test };
             } catch (error) {
                 throw new ActionError({
                     message: "An error occurred during the test",
