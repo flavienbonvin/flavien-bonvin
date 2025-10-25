@@ -12,7 +12,7 @@ export const server = {
         handler: async ({ email }) => {
             try {
                 const token = await generateTokenForEmail(email);
-                // await sendNewsletterSubscriptionEmail(token, email);
+                await sendNewsletterSubscriptionEmail(token, email);
                 return { success: token };
             } catch (error: any) {
                 throw new ActionError({
