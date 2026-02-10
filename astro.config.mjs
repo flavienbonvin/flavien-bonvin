@@ -26,6 +26,7 @@ export default defineConfig({
         layout: "constrained",
     },
     experimental: {
+        svgo: true,
         fonts: [
             {
                 provider: fontProviders.google(),
@@ -41,24 +42,28 @@ export default defineConfig({
                 ],
             },
             {
-                provider: "local",
+                provider: fontProviders.local(),
                 name: "Swiss works",
                 cssVariable: "--font-swiss-works",
-                variants: [
-                    { src: ["./src/assets/fonts/SuisseWorks-Bold-WebS.woff2"] },
-                    { src: ["./src/assets/fonts/SuisseWorks-BoldItalic-WebS.woff2"] },
-                    { src: ["./src/assets/fonts/SuisseWorks-Medium-WebS.woff2"] },
-                    { src: ["./src/assets/fonts/SuisseWorks-MediumItalic-WebS.woff2"] },
-                    { src: ["./src/assets/fonts/SuisseWorks-Regular-WebS.woff2"] },
-                    { src: ["./src/assets/fonts/SuisseWorks-RegularItalic-WebS.woff2"] },
-                ],
+                options: {
+                    variants: [
+                        { src: ["./src/assets/fonts/SuisseWorks-Bold-WebS.woff2"] },
+                        { src: ["./src/assets/fonts/SuisseWorks-BoldItalic-WebS.woff2"] },
+                        { src: ["./src/assets/fonts/SuisseWorks-Medium-WebS.woff2"] },
+                        { src: ["./src/assets/fonts/SuisseWorks-MediumItalic-WebS.woff2"] },
+                        { src: ["./src/assets/fonts/SuisseWorks-Regular-WebS.woff2"] },
+                        { src: ["./src/assets/fonts/SuisseWorks-RegularItalic-WebS.woff2"] },
+                    ],
+                },
                 fallbacks: ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
             },
             {
-                provider: "local",
+                provider: fontProviders.local(),
                 name: "Berkeley mono",
                 cssVariable: "--font-berkeley-mono",
-                variants: [{ src: ["./src/assets/fonts/BerkeleyMono-Regular.woff2"] }],
+                options: {
+                    variants: [{ src: ["./src/assets/fonts/BerkeleyMono-Regular.woff2"] }],
+                },
                 fallbacks: [
                     "Menlo",
                     "Monaco",

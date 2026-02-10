@@ -9,19 +9,19 @@
         "format": "pnpx prettier --write ."
     },
     "dependencies": {
-        "@astrojs/db": "0.18.1",
-        "@astrojs/mdx": "4.3.8",
-        "@astrojs/vercel": "9.0.0",
+        "@astrojs/db": "0.19.0",
+        "@astrojs/mdx": "4.3.13",
+        "@astrojs/vercel": "9.0.4",
         "@vercel/og": "^0.8.6",
-        "astro": "5.15.1",
-        "astro-embed": "^0.9.0",
+        "astro": "5.17.1",
+        "astro-embed": "^0.12.0",
         "astro-icon": "^1.1.5",
         "resend": "^6.9.2"
     },
     "devDependencies": {
-        "@astrojs/check": "0.9.5",
-        "@astrojs/rss": "4.0.13",
-        "@astrojs/sitemap": "3.6.0",
+        "@astrojs/check": "0.9.6",
+        "@astrojs/rss": "4.0.15",
+        "@astrojs/sitemap": "3.7.0",
         "@astrojs/tailwind": "6.0.2",
         "@tailwindcss/forms": "^0.5.11",
         "@tailwindcss/typography": "^0.5.16",
