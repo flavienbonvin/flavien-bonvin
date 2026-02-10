@@ -90,8 +90,8 @@ export default defineConfig({
             syntaxHighlight: "shiki",
             shikiConfig: {
                 themes: {
-                    light: "one-light",
-                    dark: "github-dark-default",
+                    light: "rose-pine-dawn",
+                    dark: "catppuccin-frappe",
                 },
             },
         }),
@@ -101,7 +101,10 @@ export default defineConfig({
     markdown: {
         syntaxHighlight: "shiki",
         shikiConfig: {
-            theme: "dracula",
+            themes: {
+                light: "rose-pine-dawn",
+                dark: "catppuccin-frappe",
+            },
         },
     },
     adapter: vercel(),
