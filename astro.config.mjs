@@ -25,55 +25,49 @@ export default defineConfig({
         responsiveStyles: true,
         layout: "constrained",
     },
+    fonts: [
+        {
+            provider: fontProviders.fontsource(),
+            name: "Open Sans",
+            cssVariable: "--font-open-sans",
+            subsets: ["latin"],
+            fallbacks: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto"],
+        },
+        {
+            provider: fontProviders.local(),
+            name: "Swiss works",
+            cssVariable: "--font-swiss-works",
+            options: {
+                variants: [
+                    { src: ["./src/assets/fonts/SuisseWorks-Bold-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-BoldItalic-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-Medium-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-MediumItalic-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-Regular-WebS.woff2"] },
+                    { src: ["./src/assets/fonts/SuisseWorks-RegularItalic-WebS.woff2"] },
+                ],
+            },
+            fallbacks: ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+        },
+        {
+            provider: fontProviders.local(),
+            name: "Berkeley mono",
+            cssVariable: "--font-berkeley-mono",
+            options: {
+                variants: [{ src: ["./src/assets/fonts/BerkeleyMono-Regular.woff2"] }],
+            },
+            fallbacks: [
+                "Menlo",
+                "Monaco",
+                "Consolas",
+                "Liberation Mono",
+                "Courier New",
+                "monospace",
+            ],
+        },
+    ],
     experimental: {
         svgo: true,
-        fonts: [
-            {
-                provider: fontProviders.google(),
-                name: "Open Sans",
-                cssVariable: "--font-open-sans",
-                subsets: ["latin"],
-                fallbacks: [
-                    "system-ui",
-                    "-apple-system",
-                    "BlinkMacSystemFont",
-                    "Segoe UI",
-                    "Roboto",
-                ],
-            },
-            {
-                provider: fontProviders.local(),
-                name: "Swiss works",
-                cssVariable: "--font-swiss-works",
-                options: {
-                    variants: [
-                        { src: ["./src/assets/fonts/SuisseWorks-Bold-WebS.woff2"] },
-                        { src: ["./src/assets/fonts/SuisseWorks-BoldItalic-WebS.woff2"] },
-                        { src: ["./src/assets/fonts/SuisseWorks-Medium-WebS.woff2"] },
-                        { src: ["./src/assets/fonts/SuisseWorks-MediumItalic-WebS.woff2"] },
-                        { src: ["./src/assets/fonts/SuisseWorks-Regular-WebS.woff2"] },
-                        { src: ["./src/assets/fonts/SuisseWorks-RegularItalic-WebS.woff2"] },
-                    ],
-                },
-                fallbacks: ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
-            },
-            {
-                provider: fontProviders.local(),
-                name: "Berkeley mono",
-                cssVariable: "--font-berkeley-mono",
-                options: {
-                    variants: [{ src: ["./src/assets/fonts/BerkeleyMono-Regular.woff2"] }],
-                },
-                fallbacks: [
-                    "Menlo",
-                    "Monaco",
-                    "Consolas",
-                    "Liberation Mono",
-                    "Courier New",
-                    "monospace",
-                ],
-            },
-        ],
     },
     integrations: [
         sitemap({
