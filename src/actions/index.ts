@@ -3,12 +3,12 @@ import {
     sendNewsletterSubscriptionEmail,
 } from "@helpers/newsletterSubscription";
 import { ActionError, defineAction } from "astro:actions";
-import { z } from "astro:schema";
+import { z } from "astro/zod";
 
 export const server = {
     subscribeNewsletter: defineAction({
         accept: "form",
-        input: z.object({ email: z.string().email() }),
+        input: z.object({ email: z.email() }),
         handler: async ({ email }) => {
             try {
                 const token = await generateTokenForEmail(email);

@@ -1,5 +1,6 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 
 export enum BlogType {
     dev = "dev",
@@ -11,7 +12,7 @@ const blog = defineCollection({
     schema: z.object({
         title: z.string(),
         description: z.string(),
-        category: z.nativeEnum(BlogType),
+        category: z.enum(BlogType),
         publicationDate: z.coerce.date(),
         editDate: z.coerce.date().optional(),
         preview: z.boolean().optional(),
