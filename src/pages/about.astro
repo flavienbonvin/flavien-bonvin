@@ -16,7 +16,7 @@ import lausanne from "../content/assets/about/lausanne.png";
 <PageLayout>
     <SeoPage slot="head" title=`About ${CONFIG.author}` description={CONFIG.description} />
     <PageHeader title={`Hello, I'm ${CONFIG.author}`}>
-        I'm a software engineer based in Lausanne, Switzerland. Curently working at <ExternalLink
+        I'm a frontend software engineer based in Lausanne, Switzerland. Curently working at <ExternalLink
             href="https://www.proton.me"
             variant="inline">Proton</ExternalLink
         >
@@ -31,53 +31,23 @@ import lausanne from "../content/assets/about/lausanne.png";
             class="mx-auto rounded-lg sm:w-2/3"
             width={750}
         />
+        <p>Hello and welcome! I'm Flavien Bonvin, a swiss frontend engineer.</p>
         <p>
-            Hello! I'm Flavien Bonvin and welcome to my blog! I've been working as a frontend
-            engineer for quite some time now, crafting user-friendly interfaces and optimizing web
-            performance.
-        </p>
-        <p>
-            My early career was spent at an agency called <ExternalLink
-                href="https://coteries.com/"
-                variant="inline">Coteries</ExternalLink
-            >, where I honed my skills and learned the ins and outs of web development.
-        </p>
-        <p>
-            After some time, I wanted to contribute towards a product that I could help grow over
-            time. That's when I joined <ExternalLink href="https://www.proton.me" variant="inline"
+            I'm currently working at <ExternalLink href="https://www.proton.me" variant="inline"
                 >Proton</ExternalLink
-            >, a Swiss-based privacy-focused company that wants to build a web where privacy is the
-            default. It's a mission I can identify with, and one that offers endless learning
-            opportunities!
+            >, more specifically on Proton Mail and Proton Calendar. Before that, I worked in a
+            small Lausanne-based agency.
         </p>
         <Divider classes="w-1/2 mx-auto" />
         <p>
-            Jumping from project to project in an agency was not my cup of tea. We often had to cut
-            corners to meet budget and deadlines, and we didn't always see the fruits of our hard
-            labor. I realized early on in my web development journey that I need to see the value,
-            the essence of the feature to enjoy working on it. Offering a stellar experience for
-            users is what motivates me the most and what drives me.
-        </p>
-        <p>
-            I'm currently working on Proton Mail, which is the very first product Proton released in
-            2014 and one of their flagship. You might think that email is not exciting and is an
-            outdated technology. I disagree! Emails are deeply rooted in our lives and are an
-            essential tool for communicating between companies, managing our online identities, and
-            handling private exchanges. Working on one of the cornerstones of the internet is really
-            exciting.
-        </p>
-        <Divider classes="w-1/2 mx-auto" />
-        <p>
-            Web development is just one of my passions; I have many more! This is why you can find
-            two main sections in this blog: <a
-                href={ROUTES.dev}
-                class="hover:text-dev font-sans transition-colors duration-150">dev</a
-            >, where I share my technical knowledge and experience, and <a
+            I have many hobbies, ranging from mountaineering, sports, cold plung in Geneva lake,
+            coffee or reading. You'll see some of my other interests in the <a
                 href={ROUTES.beyond}
                 class="hover:text-beyond font-sans transition-colors duration-150">beyond</a
-            >, where I explore my other interests. In the "beyond" section, you'll find reviews of
-            coffee machines, productivity tools I can't stop myself from testing, and takes on
-            subjects I'm sure to disagree with in a few years.
+            > section of the blog. Technical article will be in the <a
+                href={ROUTES.dev}
+                class="hover:text-dev font-sans transition-colors duration-150">dev</a
+            > section.
         </p>
         <figure>
             <Image
@@ -86,18 +56,22 @@ import lausanne from "../content/assets/about/lausanne.png";
                 class="mx-auto rounded-lg sm:w-2/3"
                 width={750}
             />
-            <figcaption class="text-center text-sm text-pretty">
-                This is the view I had every morning while growing up
-            </figcaption>
+            <figcaption class="text-center text-sm text-pretty">Grewing up in the alps</figcaption>
         </figure>
+
         <p>
-            That's a lot of information about my current self. What about my origins? As mentioned
-            above, I currently live in the beautiful city of Lausanne, nestled on the shores of Lake
-            Geneva and surrounded by jaw-dropping vineyards. I've moved there to do my Master's
-            degree and never left. However, I was not raised in a city; I grew up in a small village
-            nestled in the heart of the Swiss Alps. Although beautiful, I decided to leave my
-            village and the mountains behind and enjoy their majestic presence from the other side
-            of Lake Geneva.
+            You can find me on <Icon name="twitter" class="inline-block h-4 w-4" />
+            <ExternalLink classes="font-sans" href={URLS.twitter} variant="inline"
+                >@FlavienBonvin</ExternalLink
+            >. I'm also on <ExternalLink classes="font-sans" href={URLS.github} variant="inline"
+                >GitHub</ExternalLink
+            >, or even <ExternalLink classes="font-sans" href={URLS.linkedin} variant="inline"
+                >LinkedIn</ExternalLink
+            >. Finally, feel free to drop a message at <ExternalLink
+                classes="font-sans"
+                href={URLS.mailto}
+                variant="inline">hello@flavienbonvin.com</ExternalLink
+            >.
         </p>
 
         <figure>
@@ -111,21 +85,6 @@ import lausanne from "../content/assets/about/lausanne.png";
                 This is the view of the Geneva lake next to my place in Lausanne
             </figcaption>
         </figure>
-        <p>
-            You can find me on <Icon name="twitter" class="inline-block h-4 w-4" />, <ExternalLink
-                classes="font-sans"
-                href={URLS.twitter}
-                variant="inline">@FlavienBonvin</ExternalLink
-            >. I'm also on <ExternalLink classes="font-sans" href={URLS.github} variant="inline"
-                >GitHub</ExternalLink
-            >, or even <ExternalLink classes="font-sans" href={URLS.linkedin} variant="inline"
-                >LinkedIn</ExternalLink
-            >. Finally, feel free to drop a message at <ExternalLink
-                classes="font-sans"
-                href={URLS.mailto}
-                variant="inline">hello@flavienbonvin.com</ExternalLink
-            >.
-        </p>
     </section>
     <PageView slug="about" />
 </PageLayout>
