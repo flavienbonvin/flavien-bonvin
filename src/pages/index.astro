@@ -1,6 +1,5 @@
 ---
 import ArticleListHome from "@components/article/article-list-home.astro";
-import Divider from "@components/atoms/divider.astro";
 import PageView from "@components/atoms/page-view.astro";
 import NewsletterButton from "@components/newsletter/newsletter-button.astro";
 import { getBeyondArticle, getDevArticles } from "@data/articles";
@@ -15,10 +14,12 @@ const beyondPost = await getBeyondArticle(5);
 
 <PageLayout>
     <SeoPage slot="head" title={CONFIG.author} description={CONFIG.description} />
+
     <ArticleListHome articleType={BlogType.dev} articles={devPost} />
     <ArticleListHome articleType={BlogType.beyond} articles={beyondPost} />
-    <Divider classes="mb-10 mt-6" />
-    <NewsletterButton />
+    <div class="border-t border-zinc-200 dark:border-zinc-800 pt-10">
+        <NewsletterButton />
+    </div>
 
     <PageView slug="home" />
 </PageLayout>

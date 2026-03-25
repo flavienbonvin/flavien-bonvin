@@ -3,7 +3,6 @@ import { getFormattedDate } from "@helpers/article";
 import { formatDateForDatetime } from "@helpers/date";
 import type { CollectionEntry } from "astro:content";
 import H1 from "../atoms/h1.astro";
-import MiddleDot from "../atoms/middle-dot.astro";
 
 interface Props {
     article: CollectionEntry<"blog">;
@@ -14,28 +13,25 @@ const formattedPubDate = getFormattedDate(article.data.publicationDate);
 const formattedEditDate = getFormattedDate(article.data.editDate);
 ---
 
-<header class="mb-8">
-    <H1
-        classes="mb-2 text-3xl text-font-color font-bold sm:text-5xl text-pretty tracking-tighter sm:leading-tight"
-        >{article.data.title}</H1
-    >
-    <time
-        class="text-font-color-muted text-sm"
-        datetime={formatDateForDatetime(article.data.publicationDate)}>{formattedPubDate}</time
-    >
-    {
-        article.data.editDate && formattedEditDate && (
-            <>
-                <MiddleDot />
-                <time
-                    class="text-font-color-muted text-sm"
-                    datetime={formatDateForDatetime(article.data.editDate)}
-                >
-                    Updated {formattedEditDate}
-                </time>
-            </>
-        )
-    }
-    <MiddleDot />
-    <span class="text-font-color-muted text-sm">{article.data.readingTime} min read</span>
+<header class="mb-10">
+    <div class="flex items-center gap-3 mb-5 font-mono text-xs text-font-color-muted tracking-wider uppercase">
+        <time datetime={formatDateForDatetime(article.data.publicationDate)}>
+            {formattedPubDate}
+        </time>
+        <span aria-hidden="true">·</span>
+        <span>{article.data.readingTime} min read</span>
+        {
+            article.data.editDate && formattedEditDate && (
+                <>
+                    <span aria-hidden="true">·</span>
+                    <time datetime={formatDateForDatetime(article.data.editDate)}>
+                        Updated {formattedEditDate}
+                    </time>
+                </>
+            )
+        }
+    </div>
+    <H1 classes="text-3xl sm:text-5xl font-serif font-bold tracking-tighter text-pretty leading-tight">
+        {article.data.title}
+    </H1>
 </header>

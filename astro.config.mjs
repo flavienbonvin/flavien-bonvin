@@ -27,13 +27,6 @@ export default defineConfig({
     },
     fonts: [
         {
-            provider: fontProviders.fontsource(),
-            name: "Open Sans",
-            cssVariable: "--font-open-sans",
-            subsets: ["latin"],
-            fallbacks: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto"],
-        },
-        {
             provider: fontProviders.local(),
             name: "Swiss works",
             cssVariable: "--font-swiss-works",

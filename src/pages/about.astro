@@ -1,11 +1,9 @@
 ---
-import Divider from "@components/atoms/divider.astro";
 import ExternalLink from "@components/atoms/external-link.astro";
 import PageView from "@components/atoms/page-view.astro";
 import PageHeader from "@layouts/page-header.astro";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
-import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import { CONFIG, ROUTES, URLS } from "const";
 import alps from "../content/assets/about/alps.png";
@@ -16,7 +14,7 @@ import lausanne from "../content/assets/about/lausanne.png";
 <PageLayout>
     <SeoPage slot="head" title=`About ${CONFIG.author}` description={CONFIG.description} />
     <PageHeader title={`Hello, I'm ${CONFIG.author}`}>
-        I'm a frontend software engineer based Switzerland.<br /> Currently working at <ExternalLink
+        I'm a frontend software engineer based in Switzerland.<br /> Currently working at <ExternalLink
             href="https://www.proton.me"
             variant="inline">Proton</ExternalLink
         >
@@ -28,7 +26,7 @@ import lausanne from "../content/assets/about/lausanne.png";
         <Image
             src={flavien}
             alt="Blog author picture"
-            class="mx-auto rounded-lg sm:w-2/3"
+            class="mx-auto sm:w-2/3"
             width={750}
         />
         <p>Hello and welcome! I'm Flavien Bonvin, a swiss frontend engineer.</p>
@@ -38,37 +36,35 @@ import lausanne from "../content/assets/about/lausanne.png";
             >, more specifically on Proton Mail and Proton Calendar. Before that, I worked in a
             small Lausanne-based agency.
         </p>
-        <Divider classes="w-1/2 mx-auto" />
+        <hr class="mx-auto w-1/2 border-zinc-200 dark:border-zinc-700" />
         <p>
             I have many hobbies, ranging from mountaineering, sports, cold plung in Geneva lake,
             coffee or reading. You'll see some of my other interests in the <a
                 href={ROUTES.beyond}
-                class="hover:text-beyond font-sans transition-colors duration-150">beyond</a
+                class="hover:text-beyond transition-colors duration-150">beyond</a
             > section of the blog. Technical article will be in the <a
                 href={ROUTES.dev}
-                class="hover:text-dev font-sans transition-colors duration-150">dev</a
+                class="hover:text-dev transition-colors duration-150">dev</a
             > section.
         </p>
         <figure>
             <Image
                 src={alps}
                 alt="Picture taken in the middle of the alps, in the village where I grew up"
-                class="mx-auto rounded-lg sm:w-2/3"
+                class="mx-auto sm:w-2/3"
                 width={750}
             />
             <figcaption class="text-center text-sm text-pretty">Grewing up in the alps</figcaption>
         </figure>
 
         <p>
-            You can find me on <Icon name="twitter" class="inline-block h-4 w-4" />
-            <ExternalLink classes="font-sans" href={URLS.twitter} variant="inline"
+            You can find me on <ExternalLink href={URLS.twitter} variant="inline"
                 >@FlavienBonvin</ExternalLink
-            >. I'm also on <ExternalLink classes="font-sans" href={URLS.github} variant="inline"
+            >. I'm also on <ExternalLink href={URLS.github} variant="inline"
                 >GitHub</ExternalLink
-            >, or even <ExternalLink classes="font-sans" href={URLS.linkedin} variant="inline"
+            >, or even <ExternalLink href={URLS.linkedin} variant="inline"
                 >LinkedIn</ExternalLink
             >. Finally, feel free to drop a message at <ExternalLink
-                classes="font-sans"
                 href={URLS.mailto}
                 variant="inline">hello@flavienbonvin.com</ExternalLink
             >.
@@ -78,7 +74,7 @@ import lausanne from "../content/assets/about/lausanne.png";
             <Image
                 src={lausanne}
                 alt="Picture of the Geneva lake, in the city of Lausanne where I currently live"
-                class="mx-auto rounded-lg"
+                class="mx-auto"
                 width={750}
             />
             <figcaption class="text-center text-sm">

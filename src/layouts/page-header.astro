@@ -1,5 +1,4 @@
 ---
-import Divider from "@components/atoms/divider.astro";
 import H1 from "@components/atoms/h1.astro";
 
 interface Props {
@@ -7,6 +6,11 @@ interface Props {
 }
 ---
 
-<H1 classes="font-serif font-bold mb-1 text-xl">{Astro.props.title}</H1>
-<p class="mb-4 font-sans sm:mb-6 sm:text-pretty"><slot /></p>
-<Divider variant="light" classes="mb-10 sm:mb-14" />
+<div class="mb-12">
+    <H1 classes="font-serif font-bold text-4xl sm:text-5xl tracking-tighter mb-3 text-pretty leading-tight">
+        {Astro.props.title}
+    </H1>
+    <p class="font-serif text-sm text-font-color-muted italic">
+        <slot />
+    </p>
+</div>

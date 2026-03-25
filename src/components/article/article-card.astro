@@ -2,7 +2,7 @@
 import { getArticleLink, getFormattedDate } from "@helpers/article";
 import { formatDateForDatetime } from "@helpers/date";
 import type { CollectionEntry } from "astro:content";
-import MiddleDot from "../atoms/middle-dot.astro";
+import { BlogType } from "content.config";
 
 interface Props {
     article: CollectionEntry<"blog">;
@@ -10,32 +10,41 @@ interface Props {
 }
 
 const { article, showEditDate } = Astro.props;
-const { title, publicationDate, editDate } = article.data;
+const { title, publicationDate, editDate, category } = article.data;
 const formattedPubTime = getFormattedDate(publicationDate);
 const formattedEditDate = getFormattedDate(editDate);
+const isDev = category === BlogType.dev;
 ---
 
-<a class="mb-3 sm:mb-4" href={getArticleLink(article.id)}>
-    <li>
-        <h3 class="font-font-medium tracking-tighter sm:tracking-normal sm:text-pretty">{title}</h3>
+<li>
+    <a
+        href={getArticleLink(article.id)}
+        class:list={[
+            "group flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-5 py-4 border-b border-zinc-200 dark:border-zinc-800 transition-colors",
+        ]}
+    >
         <time
-            class="text-font-color-muted text-sm"
+            class="font-mono text-xs text-font-color-muted tabular-nums shrink-0 sm:w-24"
             datetime={formatDateForDatetime(publicationDate)}
         >
             {formattedPubTime}
         </time>
-        {
-            showEditDate && editDate && formattedEditDate && (
-                <>
-                    <MiddleDot />
-                    <time
-                        class="text-font-color-muted text-sm"
-                        datetime={formatDateForDatetime(editDate)}
-                    >
-                        Updated, {formattedEditDate}
-                    </time>
-                </>
-            )
-        }
-    </li>
-</a>
+        <div class="min-w-0">
+            <h3
+                class:list={[
+                    "font-serif tracking-tight leading-snug transition-colors",
+                    isDev ? "group-hover:text-dev" : "group-hover:text-beyond",
+                ]}
+            >
+                {title}
+            </h3>
+            {
+                showEditDate && editDate && formattedEditDate && (
+                    <p class="font-mono text-xs text-font-color-muted mt-1">
+                        Updated {formattedEditDate}
+                    </p>
+                )
+            }
+        </div>
+    </a>
+</li>

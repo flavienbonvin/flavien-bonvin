@@ -6,62 +6,25 @@ interface Props {
     article: CollectionEntry<"blog">;
 }
 
-import { getImage } from "astro:assets";
-import duck from "./duck.png";
-
-const optiDuck = await getImage({ src: duck, width: 1000 });
-
-const gradientDireaction = () => {
-    const direction = ["bg-linear-to-tr", "bg-linear-to-tl", "bg-linear-to-br", "bg-linear-to-bl"];
-
-    return direction[Math.floor(Math.random() * direction.length)];
-};
-
-const colorDev = [
-    "from-gradient-dev5 to-gradient-dev4",
-    "from-gradient-dev1 to-gradient-dev2",
-    "from-gradient-dev5 to-gradient-dev6",
-    "from-gradient-dev1 to-gradient-dev3",
-    "from-gradient-dev2 to-gradient-dev5",
-    "from-gradient-dev4 to-gradient-dev6",
-];
-
-const colorBeyond = [
-    "from-gradient-beyond1 to-gradient-beyond2",
-    "from-gradient-beyond2 to-gradient-beyond5",
-    "from-gradient-beyond3 to-gradient-beyond6",
-    "from-gradient-beyond4 to-gradient-beyond6",
-    "from-gradient-beyond5 to-gradient-beyond6",
-    "from-gradient-beyond6 to-gradient-beyond1",
-];
-
-const gradientFromColor = () => {
-    const color = Astro.props.article.data.category === BlogType.dev ? colorDev : colorBeyond;
-    return color[Math.floor(Math.random() * color.length)];
-};
-
-const gradientClasses = `${gradientDireaction()} ${gradientFromColor()}`;
+const isDev = Astro.props.article.data.category === BlogType.dev;
+const tags = Astro.props.article.data.tags.slice(0, 4);
 ---
 
 <div
     class:list={[
-        "relative mb-6 flex h-40 flex-col justify-center overflow-hidden overflow-x-hidden rounded-xl text-center font-sans text-3xl font-semibold text-white/80 selection:text-white/80 sm:mb-8 sm:h-80 sm:text-6xl selection:dark:text-white/70",
-        gradientClasses,
+        "mb-8 flex items-end px-5 py-5 sm:px-6 sm:py-6 h-32 sm:h-48",
+        isDev ? "bg-dev" : "bg-beyond",
     ]}
 >
-    <div
-        class="absolute inset-0 rounded-xl bg-cover bg-center bg-no-repeat opacity-30"
-        style=`background-image: url(${optiDuck.src})`
-    >
-    </div>
     {
-        Astro.props.article.data.tags.slice(0, 3).map((tag, index) => (
-            <span
-                style={{ animationDelay: `${index * 200}ms` }}
-                class="motion-safe:animate-fade-in-up opacity-0 motion-reduce:opacity-100"
-            >
-                {tag}
-            </span>
-        ))
+        tags.length > 0 && (
+            <div class="flex flex-wrap gap-x-4 gap-y-1">
+                {tags.map((tag) => (
+                    <span class="font-mono text-xs tracking-widest uppercase text-zinc-900/50 dark:text-white/70">
+                        {tag}
+                    </span>
+                ))}
+            </div>
+        )
     }
 </div>

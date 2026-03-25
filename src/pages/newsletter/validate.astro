@@ -16,7 +16,7 @@ async function validateSubscription(): Promise<string> {
     }
 }
 
-return Astro.redirect(await validateSubscription());
+// return Astro.redirect(await validateSubscription());
 ---
 
 <PageLayout>
@@ -24,12 +24,12 @@ return Astro.redirect(await validateSubscription());
         title="Newsletter validation!"
         description="Please wait while we validate your email address."
     />
-    <section class="text-font-color flex flex-col items-center justify-center">
-        <h1 class="mb-12 text-5xl font-bold">Validation in progress</h1>
-        <p class="mb-2 font-serif">Please wait while we validate your email address.</p>
-        <p class="mb-20 font-serif">Here is a duck for your enjoyment.</p>
-        <div class="text-accent flex items-center justify-center">
-            <p class="absolute text-6xl">🦆</p>
-        </div>
-    </section>
+    <div class="py-20">
+        <h1 class="mb-4 font-serif text-4xl font-bold tracking-tighter sm:text-5xl">
+            Validating your email
+        </h1>
+        <p class="text-font-color-muted font-serif text-sm italic">
+            Please wait while we confirm your subscription.
+        </p>
+    </div>
 </PageLayout>

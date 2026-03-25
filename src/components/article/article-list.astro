@@ -11,6 +11,6 @@ interface Props {
 ---
 
 <PageHeader title={Astro.props.title}>{Astro.props.pageDescription}</PageHeader>
-<ul id="article-list" class="mb-4 flex flex-col gap-2 sm:gap-3">
+<ul class="border-t border-zinc-200 dark:border-zinc-800">
     {Astro.props.articles.map((article) => <ArticleCard {article} />)}
 </ul>

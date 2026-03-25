@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 import { ROUTES } from "const";
 import { BlogType } from "content.config";
@@ -14,23 +13,29 @@ interface Props {
 const isDev = Astro.props.articleType === BlogType.dev;
 ---
 
-<div class="mb-4 flex items-center gap-2">
-    <h2 class="font-serif text-xl font-semibold">
-        {isDev ? "Diving into web dev" : "Other explorations"}
-    </h2>
-    <Icon name="branch" class:list={["h-4 w-4", isDev ? "text-dev" : "text-beyond"]} />
-</div>
-
-<!-- <MiddleDot /> -->
-<ul id="article-list" class="mb-4 flex flex-col gap-2 sm:gap-3">
-    {Astro.props.articles.map((article) => <ArticleCard article={article} />)}
-</ul>
-
-<a
-    class:list={[
-        "text-font-color-muted transition-color inline-flex items-center gap-2 text-sm duration-150",
-        isDev ? "hover:text-dev mb-12" : "hover:text-beyond mb-24",
-    ]}
-    href={isDev ? ROUTES.dev : ROUTES.beyond}
-    >More <Icon name="arrow-right" />
-</a>
+<section class="mb-16">
+    <div
+        class:list={[
+            "flex items-center justify-between mb-4 pl-4 border-l-2",
+            isDev ? "border-l-dev" : "border-l-beyond",
+        ]}
+    >
+        <span
+            class:list={[
+                "font-mono text-xs tracking-widest uppercase",
+                isDev ? "text-dev" : "text-beyond",
+            ]}
+        >
+            {isDev ? "Dev" : "Beyond"}
+        </span>
+        <a
+            href={isDev ? ROUTES.dev : ROUTES.beyond}
+            class="font-serif text-sm italic text-font-color-muted hover:text-font-color transition-colors"
+        >
+            All articles
+        </a>
+    </div>
+    <ul class="border-t border-zinc-200 dark:border-zinc-800">
+        {Astro.props.articles.map((article) => <ArticleCard article={article} />)}
+    </ul>
+</section>

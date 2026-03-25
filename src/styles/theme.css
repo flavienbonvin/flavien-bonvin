@@ -57,7 +57,7 @@
 @theme inline {
     --font-serif: var(--font-swiss-works);
     --font-mono: var(--font-berkeley-mono);
-    --font-sans: var(--font-open-sans);
+    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 @theme {
@@ -93,13 +93,11 @@
     @keyframes fadeInUp {
         0% {
             opacity: 0;
-            transform: translateY(40px);
-            filter: blur(4px);
+            transform: translateY(20px);
         }
         100% {
             opacity: 1;
             transform: translateY(0);
-            filter: blur(0);
         }
     }
 

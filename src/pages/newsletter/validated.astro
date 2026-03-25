@@ -1,7 +1,7 @@
 ---
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
-import { Image } from "astro:assets";
+import { ROUTES } from "const";
 ---
 
 <PageLayout>
@@ -9,10 +9,18 @@ import { Image } from "astro:assets";
         title="Welcome to the club!"
         description="You have successfully subscribed to my newsletter."
     />
-    <section class="flex flex-col items-center justify-center">
-        <h1 class="mb-12 text-5xl font-bold">Welcome to the club!</h1>
-        <p class="mb-2 font-serif">You have successfully subscribed to my newsletter.</p>
-        <p class="mb-8 font-serif">Here is a duck for your enjoyment.</p>
-        <Image width={200} height={200} src="/cat.jpeg" alt="A duck" />
-    </section>
+    <div class="py-20">
+        <h1 class="font-serif font-bold text-4xl sm:text-5xl tracking-tighter mb-4">
+            Welcome aboard
+        </h1>
+        <p class="font-serif text-sm text-font-color-muted italic mb-8">
+            You're in. New articles will land straight in your inbox.
+        </p>
+        <a
+            href={ROUTES.home}
+            class="font-mono text-xs tracking-widest uppercase text-font-color-muted hover:text-font-color transition-colors"
+        >
+            Back to home
+        </a>
+    </div>
 </PageLayout>

@@ -5,11 +5,16 @@ import { ROUTES } from "const";
 ---
 
 <PageLayout>
-    <section class="text-center">
-        <H1 classes="font-serif text-2xl">404</H1>
-        <p class="mb-4">Page not found</p>
-        <a href={ROUTES.home} class="hover:text-accent underline transition-colors duration-200"
-            >Take me home</a
+    <div class="py-20">
+        <H1 classes="font-serif font-bold text-6xl sm:text-8xl tracking-tighter mb-4">404</H1>
+        <p class="font-serif text-lg text-font-color-muted mb-8">
+            This page wandered off. Even the duck can't find it.
+        </p>
+        <a
+            href={ROUTES.home}
+            class="font-mono text-xs tracking-widest uppercase text-font-color-muted hover:text-font-color transition-colors"
         >
-    </section>
+            Back to home
+        </a>
+    </div>
 </PageLayout>

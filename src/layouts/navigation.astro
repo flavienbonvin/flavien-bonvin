@@ -7,49 +7,45 @@ const getIsActive = (href: string) => {
 };
 ---
 
-<nav class="text-font-color w-full py-6 font-mono">
-    <ul class="flex items-center justify-between">
-        <li>
-            <a href={ROUTES.home}>
-                <Logo />
-            </a>
+<nav class="w-full border-b border-zinc-200 dark:border-zinc-800">
+    <div class="flex items-center justify-between py-5">
+        <a href={ROUTES.home}>
+            <Logo />
+        </a>
+        <ul class="flex items-center gap-8">
             <li>
-                <ul class="flex gap-3 tracking-tight sm:gap-6">
-                    <li>
-                        <a
-                            href={ROUTES.dev}
-                            class:list={[
-                                "decoration-dev hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
-                                getIsActive(ROUTES.dev)
-                                    ? "text-font-color underline"
-                                    : "text-font-color-muted",
-                            ]}>Dev</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href={ROUTES.beyond}
-                            class:list={[
-                                "decoration-beyond hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
-                                getIsActive(ROUTES.beyond)
-                                    ? "text-font-color underline"
-                                    : "text-font-color-muted",
-                            ]}>Beyond</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href={ROUTES.about}
-                            class:list={[
-                                "decoration-accent hover:text-font-color decoration-2 underline-offset-2 transition-colors hover:underline",
-                                getIsActive(ROUTES.about)
-                                    ? "text-font-color underline"
-                                    : "text-font-color-muted",
-                            ]}>About</a
-                        >
-                    </li>
-                </ul>
+                <a
+                    href={ROUTES.dev}
+                    class:list={[
+                        "font-mono text-xs tracking-widest uppercase transition-colors",
+                        getIsActive(ROUTES.dev)
+                            ? "text-dev"
+                            : "text-font-color-muted hover:text-font-color",
+                    ]}>Dev</a
+                >
             </li>
-        </li>
-    </ul>
+            <li>
+                <a
+                    href={ROUTES.beyond}
+                    class:list={[
+                        "font-mono text-xs tracking-widest uppercase transition-colors",
+                        getIsActive(ROUTES.beyond)
+                            ? "text-beyond"
+                            : "text-font-color-muted hover:text-font-color",
+                    ]}>Beyond</a
+                >
+            </li>
+            <li>
+                <a
+                    href={ROUTES.about}
+                    class:list={[
+                        "font-mono text-xs tracking-widest uppercase transition-colors",
+                        getIsActive(ROUTES.about)
+                            ? "text-font-color"
+                            : "text-font-color-muted hover:text-font-color",
+                    ]}>About</a
+                >
+            </li>
+        </ul>
+    </div>
 </nav>
