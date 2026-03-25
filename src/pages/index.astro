@@ -1,23 +1,22 @@
 ---
-import ArticleList from "@components/article/article-list.astro";
+import ArticleListHome from "@components/article/article-list-home.astro";
 import Divider from "@components/atoms/divider.astro";
 import PageView from "@components/atoms/page-view.astro";
 import NewsletterButton from "@components/newsletter/newsletter-button.astro";
-import { getAllPublishedArticles } from "@data/articles";
+import { getBeyondArticle, getDevArticles } from "@data/articles";
 import PageLayout from "@layouts/page-layout.astro";
 import SeoPage from "@layouts/seo-page.astro";
 import { CONFIG } from "const";
+import { BlogType } from "content.config";
 
-const allBlogPosts = await getAllPublishedArticles();
+const devPost = await getDevArticles(5);
+const beyondPost = await getBeyondArticle(5);
 ---
 
 <PageLayout>
     <SeoPage slot="head" title={CONFIG.author} description={CONFIG.description} />
-    <ArticleList
-        title="Code & Other Curiosities"
-        articles={allBlogPosts}
-        pageDescription={CONFIG.homeDescription}
-    />
+    <ArticleListHome articleType={BlogType.dev} articles={devPost} />
+    <ArticleListHome articleType={BlogType.beyond} articles={beyondPost} />
     <Divider classes="mb-10 mt-6" />
     <NewsletterButton />
 
