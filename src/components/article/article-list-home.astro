@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+import { ROUTES } from "const";
+import { BlogType } from "content.config";
+import ArticleCard from "./article-card.astro";
+
+interface Props {
+    articleType: BlogType;
+    articles: CollectionEntry<"blog">[];
+    classes?: string;
+}
+
+const isDev = Astro.props.articleType === BlogType.dev;
+---
+
+<div class="mb-4 flex items-center gap-2">
+    <h2 class="font-serif text-xl font-semibold">
+        {isDev ? "Diving into web dev" : "Other explorations"}
+    </h2>
+    <Icon name="branch" class:list={["h-4 w-4", isDev ? "text-dev" : "text-beyond"]} />
+</div>
+
+<!-- <MiddleDot /> -->
+<ul id="article-list" class="mb-4 flex flex-col gap-2 sm:gap-3">
+    {Astro.props.articles.map((article) => <ArticleCard article={article} />)}
+</ul>
+
+<a
+    class:list={[
+        "text-font-color-muted transition-color inline-flex items-center gap-2 text-sm duration-150",
+        isDev ? "hover:text-dev mb-12" : "hover:text-beyond mb-24",
+    ]}
+    href={isDev ? ROUTES.dev : ROUTES.beyond}
+    >More <Icon name="arrow-right" />
+</a>
