@@ -49,7 +49,7 @@ Looks aside, performances are top-notch with Raycast. I find that it finds files
 
 I said it before, but being able to use Raycast only with the keyboard is excellent. The shortcuts are well-defined, don’t clash with existing software (I didn’t have an issue). Besides that, the UI makes sure to show the shortcuts, so it’s easy to learn them.
 
-Last point, Raycast is accessible without an account. You can download Raycast using brew (here: [raycast—Homebrew Formulae](https://formulae.brew.sh/cask/raycast)) and you’re all set. You only need to create an account if you want to publish an extension, which seems fair. Raycast intent to make money with the team plan where a team can share private extensions and secrets. Let’s hope they find the success they deserve.
+Last point, Raycast is accessible without an account. You can download Raycast using brew (here: [raycast-Homebrew Formulae](https://formulae.brew.sh/cask/raycast)) and you’re all set. You only need to create an account if you want to publish an extension, which seems fair. Raycast intent to make money with the team plan where a team can share private extensions and secrets. Let’s hope they find the success they deserve.
 
 Those are the main reasons why I would recommend that you try Raycast. I was skeptical at first since the offering looked a bit too good, but I switched to it right after my first testing.
 
