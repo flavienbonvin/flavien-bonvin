@@ -13,7 +13,7 @@
         "@astrojs/mdx": "5.0.2",
         "@astrojs/vercel": "10.0.2",
         "@vercel/og": "^0.11.1",
-        "astro": "6.0.8",
+        "astro": "6.1.2",
         "astro-embed": "^0.12.0",
         "astro-icon": "^1.1.5",
         "resend": "^6.9.4"
