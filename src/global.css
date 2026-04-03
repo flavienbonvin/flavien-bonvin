@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+@theme inline {
+    --font-serif: var(--font-swiss-works);
+    --font-mono: var(--font-berkeley-mono);
+}
+
+:root {
+    --background: oklch(98% 0 0);
+    --dev: oklch(78% 0.348 231.09);
+    --beyond: oklch(75% 0.227 32.82);
+    --accent: oklch(89% 0.05 135);
+    --ink: oklch(25% 0 102.07);
+    --muted: oklch(55% 0 102.07);
+    --divider: var(--color-zinc-200);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --background: oklch(21% 0 0);
+        --dev: oklch(65% 0.2 210);
+        --beyond: oklch(70% 0.22 45);
+        --accent: oklch(89% 0.09 135);
+        --ink: oklch(90% 0 0);
+        --muted: oklch(65% 0 0);
+        --divider: var(--color-zinc-800);
+    }
+}
+
+@theme {
+    --color-background: var(--background);
+    --color-dev: var(--dev);
+    --color-beyond: var(--beyond);
+    --color-accent: var(--accent);
+    --color-muted: var(--muted);
+    --color-ink: var(--ink);
+    --color-divider: var(--divider);
+}

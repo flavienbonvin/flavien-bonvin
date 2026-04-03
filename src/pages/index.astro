@@ -7,29 +7,17 @@ const articlesLinks = articles.map((article) => article.id);
 ---
 
 <Layout>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8" />
-            <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-            <link rel="icon" href="/favicon.ico" />
-            <meta name="viewport" content="width=device-width" />
-            <meta name="generator" content={Astro.generator} />
-            <title>Astro</title>
-        </head>
-        <body>
-            <h1>Astro</h1>
-            <a href="/dev">Dev articles</a>
-            <a href="/beyond">Beyond articles</a>
-            <a href="/about">About</a>
-            <ul>
-                {
-                    articlesLinks.map((link) => (
-                        <li>
-                            <a href={`/articles/${link}`}>{link}</a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </body>
-    </html>
+    <h1 class="font-serif">Astro</h1>
+    <a class="font-serif" href="/dev">Dev articles</a>
+    <a class="font-serif" href="/beyond">Beyond articles</a>
+    <a class="font-serif" href="/about">About</a>
+    <ul>
+        {
+            articlesLinks.map((link) => (
+                <li class="font-mono">
+                    <a href={`/articles/${link}`}>{link}</a>
+                </li>
+            ))
+        }
+    </ul>
 </Layout>

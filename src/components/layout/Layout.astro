@@ -1,5 +1,23 @@
 ---
+import { Font } from "astro:assets";
+
 import "../../global.css";
 ---
 
-<slot />
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+
+        <Font cssVariable="--font-swiss-works" preload />
+        <Font cssVariable="--font-berkeley-mono" preload />
+    </head>
+
+    <body class="bg-background mx-auto max-w-3xl px-4 antialiased lg:px-0">
+        <slot />
+    </body>
+</html>
