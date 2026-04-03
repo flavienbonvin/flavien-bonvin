@@ -1,16 +1,19 @@
 ---
-import { getDevArticles } from "../data/articles";
+import Layout from "@ui/layout/Layout.astro";
+import { getDevArticles } from "@data/articles";
 
 const devArticles = await getDevArticles();
 ---
 
-<h1>Dev articles</h1>
-<ul>
-    {
-        devArticles.map((item) => (
-            <li>
-                <a href={`/articles/${item.id}`}>{item.data.title}</a>
-            </li>
-        ))
-    }
-</ul>
+<Layout>
+    <h1>Dev articles</h1>
+    <ul>
+        {
+            devArticles.map((item) => (
+                <li>
+                    <a href={`/articles/${item.id}`}>{item.data.title}</a>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>

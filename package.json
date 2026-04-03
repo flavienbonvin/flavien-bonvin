@@ -11,16 +11,22 @@
         "preview": "pnpm run build && wrangler dev",
         "deploy": "pnpm run build && wrangler deploy",
         "astro": "astro",
-        "generate-types": "wrangler types"
+        "generate-types": "wrangler types",
+        "pretty": "prettier --write ."
     },
     "dependencies": {
         "@astrojs/cloudflare": "^13.1.7",
-        "astro": "^6.1.3"
+        "@tailwindcss/vite": "^4.2.2",
+        "astro": "^6.1.3",
+        "tailwindcss": "^4.2.2"
     },
     "overrides": {
         "vite": "^7"
     },
     "devDependencies": {
+        "prettier": "^3.8.1",
+        "prettier-plugin-astro": "^0.14.1",
+        "prettier-plugin-tailwindcss": "^0.7.2",
         "wrangler": "^4.80.0"
     }
 }

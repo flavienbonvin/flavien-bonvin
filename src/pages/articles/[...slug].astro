@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
-import { getAllArticles } from "../../data/articles";
+import { getAllArticles } from "@data/articles";
+import Layout from "@ui/layout/Layout.astro";
 
 export async function getStaticPaths() {
     const articles = await getAllArticles();
@@ -14,5 +15,7 @@ const article = Astro.props;
 const { Content } = await render(article);
 ---
 
-<a href="/">Home</a>
-<Content />
+<Layout>
+    <a href="/">Home</a>
+    <Content />
+</Layout>

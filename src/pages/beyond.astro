@@ -1,16 +1,19 @@
 ---
-import { getBeyondArticles } from "../data/articles";
+import Layout from "@ui/layout/Layout.astro";
+import { getBeyondArticles } from "@data/articles";
 
 const beyondArticles = await getBeyondArticles();
 ---
 
-<h1>Beyond articles</h1>
-<ul>
-    {
-        beyondArticles.map((item) => (
-            <li>
-                <a href={`/articles/${item.id}`}>{item.data.title}</a>
-            </li>
-        ))
-    }
-</ul>
+<Layout>
+    <h1>Beyond articles</h1>
+    <ul>
+        {
+            beyondArticles.map((item) => (
+                <li>
+                    <a href={`/articles/${item.id}`}>{item.data.title}</a>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>
