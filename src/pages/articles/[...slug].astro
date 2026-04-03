@@ -1,0 +1,18 @@
+---
+import { render } from "astro:content";
+import { getAllArticles } from "../../data/articles";
+
+export async function getStaticPaths() {
+    const articles = await getAllArticles();
+    return articles.map((article) => ({
+        params: { slug: article.id },
+        props: article,
+    }));
+}
+
+const article = Astro.props;
+const { Content } = await render(article);
+---
+
+<a href="/">Home</a>
+<Content />
