@@ -6,15 +6,15 @@ import MetaPage from "@ui/layout/MetaPage.astro";
 import MetaTwitterPage from "@ui/layout/MetaTwitterPage.astro";
 import MetaFavicon from "@ui/layout/MetaFavicon.astro";
 
-import Header from "@ui/container/Header.astro";
-import Footer from "@ui/container/Footer.astro";
+import Header from "@ui/shared/Header.astro";
+import Footer from "@ui/shared/Footer.astro";
 
-import type { PageMeta } from "interface";
+import type { ArticleMeta, PageMeta } from "interface";
 
 import "../../global.css";
 
 interface Props {
-    pageMeta: PageMeta;
+    pageMeta: PageMeta | ArticleMeta;
 }
 ---
 

@@ -10,7 +10,8 @@ const { href, target, className } = Astro.props;
 
 <a
     href={href}
-    class:list={["underline transition-colors duration-150", className]}
     target={target}
-    rel="noopener noreferrer"><slot /></a
+    rel={target === "_blank" ? "noopener noreferrer" : undefined}
+    class:list={["underline transition-colors duration-150", className]}
+    ><slot /></a
 >

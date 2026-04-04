@@ -1,14 +1,14 @@
 ---
-import type { PageMeta } from "interface";
+import type { ArticleMeta, PageMeta } from "interface";
 
 interface Props {
-    pageMeta: PageMeta;
+    pageMeta: PageMeta | ArticleMeta;
 }
 
 const { pageMeta } = Astro.props;
+const isArticle = "article" in pageMeta;
 ---
 
-<meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content={pageMeta.title} />
 <meta name="twitter:description" content={pageMeta.description} />
 <meta name="twitter:url" content={Astro.request.url} />
@@ -19,3 +19,11 @@ const { pageMeta } = Astro.props;
     property="twitter:image"
     content="https://flavienbonvin.com/main_og.png"
 />
+
+{
+    isArticle ? (
+        <meta name="twitter:card" content="summary_large_image" />
+    ) : (
+        <meta name="twitter:card" content="summary" />
+    )
+}

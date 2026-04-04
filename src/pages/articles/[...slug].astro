@@ -3,9 +3,9 @@ import { render } from "astro:content";
 import { getAllArticles } from "@data/articles";
 import Layout from "@ui/layout/Layout.astro";
 import LayoutContent from "@ui/layout/LayoutContent.astro";
-import ArticleHeader from "@ui/container/ArticleHeader.astro";
+import ArticleHeader from "@ui/article/ArticleHeader.astro";
 import type { ArticleMeta } from "interface";
-import ArticleHero from "@ui/container/ArticleHero.astro";
+import ArticleHero from "@ui/article/ArticleHero.astro";
 
 export async function getStaticPaths() {
     const articles = await getAllArticles();

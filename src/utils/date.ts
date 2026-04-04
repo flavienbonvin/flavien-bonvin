@@ -1,8 +1,4 @@
-export const getFormattedDate = (date?: Date) => {
-    if (!date) {
-        return null;
-    }
-
+export const getFormattedDate = (date: Date) => {
     return date.toLocaleDateString("en", {
         day: "numeric",
         month: "short",
