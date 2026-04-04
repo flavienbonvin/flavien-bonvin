@@ -1,19 +1,13 @@
 ---
 import Layout from "@ui/layout/Layout.astro";
-import { getAllArticles } from "@data/articles";
+import { getBeyondArticles, getDevArticles } from "@data/articles";
+import ArticleList from "@ui/container/ArticleList.astro";
 
-const articles = await getAllArticles();
-const articlesLinks = articles.map((article) => article.id);
+const devArticles = await getDevArticles();
+const beyondArticles = await getBeyondArticles();
 ---
 
 <Layout>
-    <ul>
-        {
-            articlesLinks.map((link) => (
-                <li class="font-mono">
-                    <a href={`/articles/${link}`}>{link}</a>
-                </li>
-            ))
-        }
-    </ul>
+    <ArticleList articles={devArticles} />
+    <ArticleList articles={beyondArticles} />
 </Layout>

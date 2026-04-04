@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getFormattedDate } from "@utils/date";
+import { ArticleType } from "interface";
+
+interface Props {
+    articles: CollectionEntry<"articles">[];
+}
+
+const { articles } = Astro.props;
+---
+
+<ul class="mb-16">
+    {
+        articles.map((article) => {
+            return (
+                <li>
+                    <a
+                        href={`/articles/${article.id}`}
+                        class="group border-divider flex flex-col border-b py-4 sm:flex-row sm:items-baseline sm:gap-5"
+                    >
+                        <time
+                            datetime={article.data.publicationDate.toISOString()}
+                            class="text-muted mb-2 shrink-0 font-mono text-xs sm:mb-0"
+                        >
+                            {getFormattedDate(article.data.publicationDate)}
+                        </time>
+                        <h2
+                            class:list={[
+                                "font-serif leading-snug tracking-tight transition-colors",
+                                article.data.type === ArticleType.DEV
+                                    ? "group-hover:text-dev"
+                                    : "group-hover:text-beyond",
+                            ]}
+                        >
+                            {article.data.title}
+                        </h2>
+                    </a>
+                </li>
+            );
+        })
+    }
+</ul>

@@ -7,6 +7,7 @@ const articles = defineCollection({
     schema: z.object({
         title: z.string(),
         type: z.enum(ArticleType),
+        publicationDate: z.coerce.date(),
     }),
 });
 
