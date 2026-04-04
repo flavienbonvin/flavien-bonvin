@@ -2,12 +2,17 @@
 import Layout from "@ui/layout/Layout.astro";
 import { getBeyondArticles, getDevArticles } from "@data/articles";
 import ArticleList from "@ui/container/ArticleList.astro";
+import ArticleSection from "@ui/container/ArticleSection.astro";
+
+import { ArticleType } from "interface";
 
 const devArticles = await getDevArticles();
 const beyondArticles = await getBeyondArticles();
 ---
 
 <Layout>
+    <ArticleSection type={ArticleType.DEV} />
     <ArticleList articles={devArticles} />
+    <ArticleSection type={ArticleType.BEYOND} />
     <ArticleList articles={beyondArticles} />
 </Layout>

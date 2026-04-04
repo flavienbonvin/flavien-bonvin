@@ -1,0 +1,26 @@
+---
+import { ArticleType } from "interface";
+
+interface Props {
+    type: ArticleType;
+}
+
+const { type } = Astro.props;
+const isDev = type === ArticleType.DEV;
+---
+
+<div class="border-divider flex justify-between border-b py-4">
+    <h2
+        class:list={[
+            "border-l-2 pl-3 font-mono text-xs font-bold tracking-wider uppercase",
+            isDev ? "text-dev" : "text-beyond",
+        ]}
+    >
+        {isDev ? "Dev" : "Beyond"}
+    </h2>
+    <a
+        href={isDev ? "/dev" : "/beyond"}
+        class="text-muted hover:text-ink transition-color font-mono text-xs tracking-tighter italic duration-150"
+        >All articles</a
+    >
+</div>
