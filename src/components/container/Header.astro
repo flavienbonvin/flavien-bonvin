@@ -1,0 +1,37 @@
+---
+import LinkGhost from "@ui/atoms/LinkGhost.astro";
+
+const isActive = (path: string) => Astro.url.pathname === path;
+---
+
+<header class="border-divider mb-10 flex h-14 items-center border-b">
+    <nav class="flex w-full justify-between">
+        <a
+            class="text-ink hover:text-muted font-mono text-sm font-medium"
+            href="/">flavien bonvin</a
+        >
+        <div class="flex gap-4">
+            <LinkGhost
+                target="_self"
+                className={isActive("/dev")
+                    ? undefined
+                    : "text-muted hover:text-ink"}
+                href="/dev">Dev</LinkGhost
+            >
+            <LinkGhost
+                target="_self"
+                className={isActive("/beyond")
+                    ? undefined
+                    : "text-muted hover:text-ink"}
+                href="/beyond">Beyond</LinkGhost
+            >
+            <LinkGhost
+                target="_self"
+                className={isActive("/about")
+                    ? undefined
+                    : "text-muted hover:text-ink"}
+                href="/about">About</LinkGhost
+            >
+        </div>
+    </nav>
+</header>
