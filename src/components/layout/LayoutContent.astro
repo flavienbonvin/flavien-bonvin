@@ -1,0 +1,33 @@
+---
+import { ArticleType } from "interface";
+
+interface Props {
+    type: ArticleType;
+}
+---
+
+<article
+    class:list={[
+        // Base
+        "prose prose-zinc dark:prose-invert mb-10",
+        // Headings
+        "prose-headings:font-serif prose-headings:font-medium prose-headings:tracking-tight prose-h3:text-xl prose-h4:text-lg font-serif",
+        // Links
+        "prose-a:underline-offset-4 prose-a:decoration-divider",
+        // Strong
+        "prose-strong:font-medium",
+        // Code
+        "prose-code:font-mono sm:prose-code:text-wrap",
+        // Blockquote
+        "prose-blockquote:border-l-divider prose-blockquote:font-medium",
+        // Divider (hr)
+        "prose-hr:border-divider prose-hr:mx-auto prose-hr:w-1/2",
+        // Category theme
+        Astro.props.type === ArticleType.DEV &&
+            "selection:bg-dev/90 prose-a:hover:decoration-dev/90",
+        Astro.props.type === ArticleType.BEYOND &&
+            "selection:bg-beyond/90 prose-a:hover:decoration-beyond/90",
+    ]}
+>
+    <slot />
+</article>

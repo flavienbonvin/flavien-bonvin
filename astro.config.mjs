@@ -2,21 +2,22 @@
 import { defineConfig, fontProviders } from "astro/config";
 
 import cloudflare from "@astrojs/cloudflare";
+import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
 
 import tailwindcss from "@tailwindcss/vite";
-
-import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
     output: "static",
+    site: "https://flavienbonvin.com",
+    integrations: [sitemap(), mdx()],
+
     adapter: cloudflare({
         // Fix to have images displayed on static pages
         // https://github.com/withastro/astro/issues/16035#issuecomment-4180472710
         imageService: { build: "compile", runtime: "cloudflare-binding" },
     }),
-    site: "https://flavienbonvin.com",
-    integrations: [sitemap()],
 
     vite: {
         plugins: [tailwindcss()],

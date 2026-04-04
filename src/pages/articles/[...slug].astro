@@ -2,6 +2,10 @@
 import { render } from "astro:content";
 import { getAllArticles } from "@data/articles";
 import Layout from "@ui/layout/Layout.astro";
+import LayoutContent from "@ui/layout/LayoutContent.astro";
+import ArticleHeader from "@ui/container/ArticleHeader.astro";
+import type { ArticleMeta } from "interface";
+import ArticleHero from "@ui/container/ArticleHero.astro";
 
 export async function getStaticPaths() {
     const articles = await getAllArticles();
@@ -13,9 +17,18 @@ export async function getStaticPaths() {
 
 const article = Astro.props;
 const { Content } = await render(article);
+
+const pageMeta: ArticleMeta = {
+    title: article.data.title,
+    description: article.data.description,
+    article,
+};
 ---
 
-<Layout>
-    <a href="/">Home</a>
-    <Content />
+<Layout pageMeta={pageMeta}>
+    <ArticleHeader article={article} />
+    <ArticleHero article={article} />
+    <LayoutContent type={article.data.type}>
+        <Content />
+    </LayoutContent>
 </Layout>

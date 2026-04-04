@@ -1,11 +1,12 @@
 ---
-import type { PageMeta } from "interface";
+import type { ArticleMeta, PageMeta } from "interface";
 
 interface Props {
-    pageMeta: PageMeta;
+    pageMeta: PageMeta | ArticleMeta;
 }
 
 const { pageMeta } = Astro.props;
+const isArticle = "article" in pageMeta;
 ---
 
 <title>{pageMeta.title}</title>
@@ -26,3 +27,13 @@ const { pageMeta } = Astro.props;
 <meta property="og:image" content="https://flavienbonvin.com/main_og.png" />
 <meta property="og:image:width" content="1920" />
 <meta property="og:image:height" content="1080" />
+
+{
+    isArticle && (
+        <meta
+            property="article:published_time"
+            content={pageMeta.article.data.publicationDate.toISOString()}
+        />
+        <meta property="article:tag" content={pageMeta.article.data.tags.join(", ")} />
+    )
+}
