@@ -8,9 +8,17 @@ import LinkInline from "@ui/atoms/LinkInline.astro";
 import alps from "../assets/about/alps.png";
 import flavien from "../assets/about/flavien_bonvin.jpg";
 import lausanne from "../assets/about/lausanne.png";
+
+import type { PageMeta } from "interface";
+
+const pageMeta: PageMeta = {
+    title: "About | Flavien Bonvin",
+    description:
+        "Flavien Bonvin personal blog where I speak about web development and beyond.",
+};
 ---
 
-<Layout>
+<Layout pageMeta={pageMeta}>
     <PageHeader title="Hello, I'm Flavien Bonvin">
         I'm a frontend software engineer based in Switzerland.<br /> Currently working
         at <LinkInline

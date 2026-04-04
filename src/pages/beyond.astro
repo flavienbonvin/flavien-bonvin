@@ -2,13 +2,19 @@
 import Layout from "@ui/layout/Layout.astro";
 import PageHeader from "@ui/container/PageHeader.astro";
 import ArticleList from "@ui/container/ArticleList.astro";
+import type { PageMeta } from "interface";
 
 import { getBeyondArticles } from "@data/articles";
 
 const beyondArticles = await getBeyondArticles();
+
+const pageMeta: PageMeta = {
+    title: "Beyond dev | Flavien Bonvin",
+    description: "Life outside of coding. Discover my interest.",
+};
 ---
 
-<Layout>
+<Layout pageMeta={pageMeta}>
     <PageHeader title="Explorations of a developer">
         Life outside of coding. Discover my interest.
     </PageHeader>

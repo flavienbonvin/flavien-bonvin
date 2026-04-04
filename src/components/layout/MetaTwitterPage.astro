@@ -1,0 +1,21 @@
+---
+import type { PageMeta } from "interface";
+
+interface Props {
+    pageMeta: PageMeta;
+}
+
+const { pageMeta } = Astro.props;
+---
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={pageMeta.title} />
+<meta name="twitter:description" content={pageMeta.description} />
+<meta name="twitter:url" content={Astro.request.url} />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Flavien Bonvin" />
+<meta name="twitter:creator" content="FlavienBonvin" />
+<meta
+    property="twitter:image"
+    content="https://flavienbonvin.com/main_og.png"
+/>

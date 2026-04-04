@@ -4,13 +4,19 @@ import { getBeyondArticles, getDevArticles } from "@data/articles";
 import ArticleList from "@ui/container/ArticleList.astro";
 import ArticleSection from "@ui/container/ArticleSection.astro";
 
-import { ArticleType } from "interface";
+import { ArticleType, type PageMeta } from "interface";
 
 const devArticles = await getDevArticles();
 const beyondArticles = await getBeyondArticles();
+
+const pageMeta: PageMeta = {
+    title: "Flavien Bonvin",
+    description:
+        "Flavien Bonvin personal blog where I speak about web development and beyond.",
+};
 ---
 
-<Layout>
+<Layout pageMeta={pageMeta}>
     <ArticleSection type={ArticleType.DEV} />
     <ArticleList articles={devArticles} />
     <ArticleSection type={ArticleType.BEYOND} />

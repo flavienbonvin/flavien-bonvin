@@ -1,0 +1,28 @@
+---
+import type { PageMeta } from "interface";
+
+interface Props {
+    pageMeta: PageMeta;
+}
+
+const { pageMeta } = Astro.props;
+---
+
+<title>{pageMeta.title}</title>
+<meta name="description" content={pageMeta.description} />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+
+<meta property="og:site_name" content="Flavien Bonvin" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={pageMeta.title} />
+<meta property="og:description" content={pageMeta.description} />
+<meta property="og:url" content={Astro.request.url} />
+
+<meta property="og:image" content="https://flavienbonvin.com/main_og.png" />
+<meta property="og:image:width" content="1920" />
+<meta property="og:image:height" content="1080" />
