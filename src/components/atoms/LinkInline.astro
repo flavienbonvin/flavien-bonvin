@@ -1,0 +1,16 @@
+---
+interface Props {
+    href: string;
+    target?: "_blank" | "_self";
+    className?: string;
+}
+
+const { href, target, className } = Astro.props;
+---
+
+<a
+    href={href}
+    class:list={["underline transition-colors duration-150", className]}
+    target={target}
+    rel="noopener noreferrer"><slot /></a
+>

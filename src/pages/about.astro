@@ -1,16 +1,93 @@
 ---
+import { Image } from "astro:assets";
+
 import Layout from "@ui/layout/Layout.astro";
 import PageHeader from "@ui/container/PageHeader.astro";
+import LinkInline from "@ui/atoms/LinkInline.astro";
+
+import alps from "../assets/about/alps.png";
+import flavien from "../assets/about/flavien_bonvin.jpg";
+import lausanne from "../assets/about/lausanne.png";
 ---
 
 <Layout>
     <PageHeader title="Hello, I'm Flavien Bonvin">
         I'm a frontend software engineer based in Switzerland.<br /> Currently working
-        at <a
+        at <LinkInline
             href="https://www.proton.me"
-            class="hover:text-ink underline"
             target="_blank"
-            rel="noopener noreferrer">Proton</a
-        ></PageHeader
+            className="hover:text-ink">Proton</LinkInline
+        >
+    </PageHeader>
+
+    <section
+        class="prose text-ink prose-p:font-serif prose-p:text-ink prose-a:text-ink prose-strong:text-ink prose-figcaption:font-serif pt-4"
     >
+        <Image
+            src={flavien}
+            alt="Blog author picture"
+            class="mx-auto sm:w-2/3"
+            width={1200}
+        />
+        <p>Hello and welcome! I'm Flavien Bonvin, a swiss frontend engineer.</p>
+        <p>
+            I'm currently working at <LinkInline
+                href="https://www.proton.me"
+                target="_blank"
+                className="hover:text-ink">Proton</LinkInline
+            >, more specifically on Proton Mail and Proton Calendar. Before
+            that, I worked in a small Lausanne-based agency.
+        </p>
+        <hr class="mx-auto w-1/2 border-zinc-200 dark:border-zinc-700" />
+        <p>
+            I have many hobbies, ranging from mountaineering, sports, cold plung
+            in Geneva lake, coffee or reading. You'll see some of my other
+            interests in the <a
+                href="/beyond"
+                class="hover:text-beyond transition-colors duration-150"
+                >beyond</a
+            > section of the blog. Technical article will be in the <a
+                href="/dev"
+                class="hover:text-dev transition-colors duration-150">dev</a
+            > section.
+        </p>
+        <figure>
+            <Image
+                src={alps}
+                alt="Picture taken in the middle of the alps, in the village where I grew up"
+                class="mx-auto sm:w-2/3"
+                width={1200}
+            />
+            <figcaption class="text-center text-sm text-pretty">
+                View of the alps from the village where I grew up
+            </figcaption>
+        </figure>
+
+        <p>
+            You can find me on <LinkInline
+                href="https://twitter.com/flavienbonvin"
+                >@FlavienBonvin</LinkInline
+            >. I'm also on <LinkInline href="https://github.com/flavienbonvin"
+                >GitHub</LinkInline
+            >, or even <LinkInline
+                href="https://www.linkedin.com/in/flavienbonvin/"
+                >LinkedIn</LinkInline
+            >. Finally, feel free to drop a message at <LinkInline
+                href="mailto:hello@flavienbonvin.com"
+                >hello@flavienbonvin.com</LinkInline
+            >.
+        </p>
+
+        <figure>
+            <Image
+                src={lausanne}
+                alt="Picture of the Geneva lake, in the city of Lausanne where I currently live"
+                class="mx-auto"
+                width={1200}
+            />
+            <figcaption class="text-center text-sm">
+                Geneva Lake in Lausanne where I actually live
+            </figcaption>
+        </figure>
+    </section>
 </Layout>
