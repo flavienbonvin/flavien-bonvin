@@ -1,12 +1,16 @@
 ---
 import Layout from "@ui/layout/Layout.astro";
+import PageHeader from "@ui/container/PageHeader.astro";
+
 import { getBeyondArticles } from "@data/articles";
 
 const beyondArticles = await getBeyondArticles();
 ---
 
 <Layout>
-    <h1>Beyond articles</h1>
+    <PageHeader title="Explorations of a developer">
+        Life outside of coding. Discover my interest.
+    </PageHeader>
     <ul>
         {
             beyondArticles.map((item) => (

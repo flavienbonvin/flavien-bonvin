@@ -1,12 +1,16 @@
 ---
 import Layout from "@ui/layout/Layout.astro";
+import PageHeader from "@ui/container/PageHeader.astro";
+
 import { getDevArticles } from "@data/articles";
 
 const devArticles = await getDevArticles();
 ---
 
 <Layout>
-    <h1>Dev articles</h1>
+    <PageHeader title="Diving into web dev">
+        Exploring web development. Join my journey.
+    </PageHeader>
     <ul>
         {
             devArticles.map((item) => (
