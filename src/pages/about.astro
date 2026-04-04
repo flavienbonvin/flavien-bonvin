@@ -14,7 +14,7 @@ import type { PageMeta } from "interface";
 const pageMeta: PageMeta = {
     title: "About | Flavien Bonvin",
     description:
-        "Flavien Bonvin personal blog where I speak about web development and beyond.",
+        "Frontend engineer based in Switzerland. I write about web development, life in the mountains, and everything in between.",
 };
 ---
 
@@ -46,18 +46,13 @@ const pageMeta: PageMeta = {
             >, more specifically on Proton Mail and Proton Calendar. Before
             that, I worked in a small Lausanne-based agency.
         </p>
-        <hr class="mx-auto w-1/2 border-zinc-200 dark:border-zinc-700" />
+        <hr class="border-divider mx-auto w-1/2" />
         <p>
-            I have many hobbies, ranging from mountaineering, sports, cold plung
-            in Geneva lake, coffee or reading. You'll see some of my other
-            interests in the <a
-                href="/beyond"
-                class="hover:text-beyond transition-colors duration-150"
-                >beyond</a
-            > section of the blog. Technical article will be in the <a
-                href="/dev"
-                class="hover:text-dev transition-colors duration-150">dev</a
-            > section.
+            I have many hobbies, ranging from mountaineering, sports, cold
+            plunge in Geneva lake, coffee or reading. You'll see some of my
+            other interests in the
+            <LinkInline href="/beyond">beyond</LinkInline> section of the blog. Technical
+            article will be in the <LinkInline href="/dev">dev</LinkInline> section.
         </p>
         <figure>
             <Image
@@ -73,11 +68,14 @@ const pageMeta: PageMeta = {
 
         <p>
             You can find me on <LinkInline
+                target="_blank"
                 href="https://twitter.com/flavienbonvin"
                 >@FlavienBonvin</LinkInline
-            >. I'm also on <LinkInline href="https://github.com/flavienbonvin"
-                >GitHub</LinkInline
+            >. I'm also on <LinkInline
+                target="_blank"
+                href="https://github.com/flavienbonvin">GitHub</LinkInline
             >, or even <LinkInline
+                target="_blank"
                 href="https://www.linkedin.com/in/flavienbonvin/"
                 >LinkedIn</LinkInline
             >. Finally, feel free to drop a message at <LinkInline

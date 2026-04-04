@@ -16,7 +16,7 @@ const pageMeta: PageMeta = {
 
 <Layout pageMeta={pageMeta}>
     <PageHeader title="Diving into web dev">
-        Exploring web development. Join my journey.
+        {pageMeta.description}
     </PageHeader>
     <ArticleList articles={devArticles} />
 </Layout>
