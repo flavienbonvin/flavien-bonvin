@@ -13,19 +13,21 @@
     --beyond: oklch(75% 0.227 32.82);
     --accent: oklch(89% 0.05 135);
     --ink: oklch(25% 0 102.07);
-    --muted: oklch(55% 0 102.07);
+    --muted: var(--color-zinc-500);
+    --focus: var(--color-zinc-400);
     --divider: var(--color-zinc-200);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         color-scheme: dark;
-        --background: oklch(21% 0 0);
+        --background: oklch(16% 0 0);
         --dev: oklch(65% 0.2 210);
         --beyond: oklch(70% 0.22 45);
         --accent: oklch(89% 0.09 135);
         --ink: oklch(90% 0 0);
-        --muted: oklch(65% 0 0);
+        --muted: var(--color-zinc-500);
+        --focus: var(--color-zinc-600);
         --divider: var(--color-zinc-800);
     }
 }
@@ -38,4 +40,5 @@
     --color-muted: var(--muted);
     --color-ink: var(--ink);
     --color-divider: var(--divider);
+    --color-focus: var(--focus);
 }
