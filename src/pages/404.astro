@@ -1,0 +1,28 @@
+---
+import LinkGhost from "@ui/atoms/LinkGhost.astro";
+import Layout from "@ui/layout/Layout.astro";
+import { type PageMeta } from "interface";
+
+const pageMeta: PageMeta = {
+    title: "404 - Page Not Found",
+    description: "This page wandered off. Even the duck can't find it.",
+};
+---
+
+<Layout pageMeta={pageMeta} hideNewsletter>
+    <div class="py-20">
+        <h1
+            class="mb-4 font-serif text-6xl font-bold tracking-tighter sm:text-8xl"
+        >
+            404
+        </h1>
+        <p class="text-muted mb-8 font-serif text-lg">You're lost my friend.</p>
+        <LinkGhost
+            className="text-muted hover:text-ink"
+            target="_self"
+            href="/"
+        >
+            Back to home
+        </LinkGhost>
+    </div>
+</Layout>
