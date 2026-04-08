@@ -1,0 +1,45 @@
+---
+import ButtonLinkedIn from "@ui/atoms/ButtonLinkedIn.astro";
+import ButtonTwitter from "@ui/atoms/ButtonTwitter.astro";
+import Layout from "@ui/layout/Layout.astro";
+import PageHeader from "@ui/shared/PageHeader.astro";
+import type { PageMeta } from "interface";
+
+const pageMeta: PageMeta = {
+    title: "Flavien Bonvin",
+    description:
+        "No spam, no advertisement, just the article that you can read right from your inbox.",
+};
+---
+
+<Layout pageMeta={pageMeta} hideNewsletter>
+    <PageHeader title="Subscribe to the newsletter">
+        {pageMeta.description}
+    </PageHeader>
+    <form class="flex max-w-sm flex-col gap-3">
+        <input
+            required
+            type="email"
+            name="email"
+            autocomplete="email"
+            class="text-ink placeholder:text-muted border-divider focus:border-focus w-full border bg-transparent px-3 py-2.5 font-mono text-sm focus:outline-none"
+            placeholder="your@email.com"
+        />
+        <button
+            class="border-divider hover:border-focus w-full cursor-pointer border px-4 py-2.5 font-mono text-xs tracking-widest uppercase transition-colors"
+            type="submit"
+        >
+            Subscribe
+        </button>
+    </form>
+
+    <div class="mt-16 mb-20">
+        <p class="text-muted mb-6 font-mono text-xs tracking-widest uppercase">
+            Or follow me on socials
+        </p>
+        <nav class="flex gap-8">
+            <ButtonLinkedIn />
+            <ButtonTwitter />
+        </nav>
+    </div>
+</Layout>
