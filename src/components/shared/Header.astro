@@ -13,17 +13,17 @@ const isActive = (path: string) => Astro.url.pathname === path;
         <div class="flex gap-4">
             <LinkGhost
                 target="_self"
-                className={isActive("/dev")
+                className={isActive("/articles/dev")
                     ? undefined
                     : "text-muted hover:text-ink"}
-                href="/dev">Dev</LinkGhost
+                href="/articles/dev">Dev</LinkGhost
             >
             <LinkGhost
                 target="_self"
-                className={isActive("/beyond")
+                className={isActive("/articles/beyond")
                     ? undefined
                     : "text-muted hover:text-ink"}
-                href="/beyond">Beyond</LinkGhost
+                href="/articles/beyond">Beyond</LinkGhost
             >
             <LinkGhost
                 target="_self"
