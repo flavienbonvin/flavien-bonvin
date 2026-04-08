@@ -23,6 +23,13 @@ const isArticle = "article" in pageMeta;
 <meta property="og:description" content={pageMeta.description} />
 <meta property="og:url" content={Astro.request.url} />
 
+<link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Flavien Bonvin blog"
+    href={new URL("rss.xml", Astro.site)}
+/>
+
 <meta property="og:image" content="https://flavienbonvin.com/main_og.png" />
 <meta property="og:image:width" content="1920" />
 <meta property="og:image:height" content="1080" />

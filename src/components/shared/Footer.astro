@@ -1,6 +1,7 @@
 ---
 import ButtonGitHub from "@ui/atoms/ButtonGitHub.astro";
 import ButtonTwitter from "@ui/atoms/ButtonTwitter.astro";
+import ButtonRSS from "@ui/atoms/ButtonRss.astro";
 
 const year = new Date().getFullYear();
 ---
@@ -9,8 +10,9 @@ const year = new Date().getFullYear();
     class="border-divider mt-10 flex h-14 items-center justify-between border-t"
 >
     <p class="text-muted font-mono text-xs">&copy; {year} Flavien Bonvin</p>
-    <div class="flex gap-4">
+    <div class="flex gap-6">
         <ButtonTwitter />
         <ButtonGitHub />
+        <ButtonRSS />
     </div>
 </footer>
