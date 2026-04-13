@@ -1,0 +1,11 @@
+---
+interface Props {
+    className: string;
+}
+
+const className = Astro.props.className;
+---
+
+<div class:list={["shink-0 grid h-20 w-20 content-center justify-center text-white", className]}>
+    <slot />
+</div>

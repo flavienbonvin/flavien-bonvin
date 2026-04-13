@@ -1,0 +1,22 @@
+---
+import ColorItem from "./color-item.astro";
+
+const colors = [
+    { className: "bg-dev", text: "dev" },
+    { className: "bg-beyond", text: "beyond" },
+    { className: "bg-accent", text: "accent" },
+];
+---
+
+<section
+    class="border-divider dark:border-divider my-12 flex flex-col gap-6 border p-6 text-sm"
+>
+    <p class="text-muted font-mono text-xs tracking-widest uppercase">Colors</p>
+    <div class="flex flex-wrap gap-3">
+        {
+            colors.map(({ className, text }) => (
+                <ColorItem className={className}>{text}</ColorItem>
+            ))
+        }
+    </div>
+</section>
