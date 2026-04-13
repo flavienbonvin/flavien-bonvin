@@ -26,9 +26,9 @@ const pageMeta: ArticleMeta = {
 ---
 
 <Layout pageMeta={pageMeta}>
-    <ArticleHeader article={article} />
-    <ArticleHero article={article} />
     <LayoutContent type={article.data.type}>
+        <ArticleHeader article={article} />
+        <ArticleHero article={article} />
         <Content />
     </LayoutContent>
 </Layout>

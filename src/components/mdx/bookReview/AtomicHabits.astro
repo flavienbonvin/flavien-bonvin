@@ -1,0 +1,22 @@
+---
+import { ArticleType } from "interface";
+import BookReview from "./BookReview.astro";
+---
+
+<BookReview
+    title="Atomic Habits"
+    description="Atomic Habits by James Clear is a guide that focuses on small 1% improvements that lead to great payoff in the long term. The 4 laws of behaviour changes supports the creation of healthy and lasting habits."
+    author="James Clear"
+    rating={3}
+    type={ArticleType.BEYOND}
+    positivePoints={[
+        "Actionable Advice - Practical tips for habit formation that can be applied immediately",
+        "Easy to Understand - Clear, straightforward language",
+        "Incremental Change - Focuses on small, manageable changes that lead to long-term habit formation",
+    ]}
+    negativePoints={[
+        "Repetitive - Concepts can feel redundant and the book is a bit lengthy",
+        "Lack of Depth - Some topics are not explored in depth leaving the reader with limited knowledge",
+        "Case Study Overuse - Heavy reliance on anecdotes which make them feel stretched",
+    ]}
+/>

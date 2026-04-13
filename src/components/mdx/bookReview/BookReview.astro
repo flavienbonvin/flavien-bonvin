@@ -1,0 +1,107 @@
+---
+import { ArticleType } from "interface";
+
+interface Props {
+    title: string;
+    author: string;
+    rating: number;
+    type: ArticleType;
+    description: string;
+    positivePoints: string[];
+    negativePoints: string[];
+}
+
+const {
+    title,
+    author,
+    rating,
+    type,
+    description,
+    positivePoints,
+    negativePoints,
+} = Astro.props;
+---
+
+<section
+    class="not-prose text-ink border-divider flex flex-col gap-6 border p-8 font-serif"
+>
+    <header class="flex flex-col gap-3">
+        <p class="text-muted font-mono text-xs tracking-widest uppercase">
+            {author}
+        </p>
+        <h2 class="font-serif text-2xl font-bold tracking-tighter sm:text-3xl">
+            {title}
+        </h2>
+        <p class="font-serif text-sm text-pretty">
+            {description}
+        </p>
+    </header>
+
+    <hr class="border-divider" />
+
+    <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4">
+            <p class="text-muted font-mono text-xs tracking-widest uppercase">
+                Merits
+            </p>
+            <ul class="flex flex-col gap-2">
+                {
+                    positivePoints.map((point) => (
+                        <li class="flex gap-3 text-sm">
+                            <span
+                                class:list={[
+                                    "shrink-0 font-mono font-bold",
+                                    type === ArticleType.DEV
+                                        ? "text-dev"
+                                        : "text-beyond",
+                                ]}
+                            >
+                                +
+                            </span>
+                            <span class="font-serif">{point}</span>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+        <div class="flex flex-col gap-4">
+            <p class="text-muted font-mono text-xs tracking-widest uppercase">
+                Criticism
+            </p>
+            <ul class="flex flex-col gap-2">
+                {
+                    negativePoints.map((point) => (
+                        <li class="flex gap-3 text-sm">
+                            <span class="text-muted shrink-0 font-mono font-bold">
+                                &minus;
+                            </span>
+                            <span class="font-serif">{point}</span>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+
+    <hr class="border-divider" />
+
+    <div class="border-divider flex items-center gap-2">
+        <p class="text-muted font-mono text-xs tracking-widest uppercase">
+            Rating
+        </p>
+        <div class="flex">
+            {
+                Array.from({ length: 5 }).map((_, index) => {
+                    return (
+                        <p class="text-muted">{index < rating ? "★" : "☆"}</p>
+                    );
+                })
+            }
+        </div>
+        <p
+            class="sr-only"
+            aria-label={`My raring of ${title} is ${rating} out of 5 stars`}
+        >
+        </p>
+    </div>
+</section>
