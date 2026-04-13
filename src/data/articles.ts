@@ -1,20 +1,31 @@
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { ArticleType } from "../interface";
 
 export const getAllArticles = async () => {
     return await getCollection("articles");
 };
 
-export const getDevArticles = async () => {
-    const articles = await getAllArticles();
-
-    return articles.filter((article) => article.data.type === ArticleType.DEV);
+const sortArticlesByPublicationDate = (
+    a: CollectionEntry<"articles">,
+    b: CollectionEntry<"articles">,
+) => {
+    return b.data.publicationDate.getTime() - a.data.publicationDate.getTime();
 };
 
-export const getBeyondArticles = async () => {
+export const getDevArticles = async (limit?: number) => {
     const articles = await getAllArticles();
 
-    return articles.filter(
-        (article) => article.data.type === ArticleType.BEYOND,
-    );
+    return articles
+        .filter((article) => article.data.type === ArticleType.DEV)
+        .sort(sortArticlesByPublicationDate)
+        .slice(0, limit);
+};
+
+export const getBeyondArticles = async (limit?: number) => {
+    const articles = await getAllArticles();
+
+    return articles
+        .filter((article) => article.data.type === ArticleType.BEYOND)
+        .sort(sortArticlesByPublicationDate)
+        .slice(0, limit);
 };

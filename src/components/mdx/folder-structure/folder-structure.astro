@@ -1,0 +1,46 @@
+---
+export type FolderStructureType = {
+    name: string;
+    highlighted?: boolean;
+    folders?: FolderStructureType[];
+};
+
+interface Props {
+    title?: string;
+    sub?: boolean;
+    containerClass?: string;
+    folderStructure: FolderStructureType[];
+}
+
+const { folderStructure, containerClass, title, sub } = Astro.props;
+---
+
+<ul class:list={["font-mono text-sm leading-relaxed", containerClass]}>
+    {
+        title && (
+            <p class="text-muted mb-3 font-mono text-xs tracking-widest uppercase">
+                {title}
+            </p>
+        )
+    }
+    {
+        folderStructure.map((folder, index) => {
+            const isFolder = !!folder.folders;
+            const isLast = index === folderStructure.length - 1;
+            const prefix = sub ? (isLast ? "└─ " : "├─ ") : "";
+
+            return (
+                <li class:list={[sub && "ml-5"]}>
+                    <span class:list={[folder.highlighted && "font-bold"]}>
+                        {prefix}
+                        {folder.name}
+                        {isFolder ? "/" : ""}
+                    </span>
+                    {folder.folders && (
+                        <Astro.self folderStructure={folder.folders} sub />
+                    )}
+                </li>
+            );
+        })
+    }
+</ul>

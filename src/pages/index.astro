@@ -6,8 +6,8 @@ import ArticleSection from "@ui/article/ArticleSection.astro";
 
 import { ArticleType, type PageMeta } from "interface";
 
-const devArticles = await getDevArticles();
-const beyondArticles = await getBeyondArticles();
+const devArticles = await getDevArticles(5);
+const beyondArticles = await getBeyondArticles(5);
 
 const pageMeta: PageMeta = {
     title: "Flavien Bonvin",

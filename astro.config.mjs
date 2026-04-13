@@ -23,6 +23,16 @@ export default defineConfig({
         plugins: [tailwindcss()],
     },
 
+    markdown: {
+        syntaxHighlight: "shiki",
+        shikiConfig: {
+            themes: {
+                light: "catppuccin-latte",
+                dark: "catppuccin-frappe",
+            },
+        },
+    },
+
     fonts: [
         {
             provider: fontProviders.local(),

@@ -21,7 +21,7 @@ const { articles } = Astro.props;
                     >
                         <time
                             datetime={article.data.publicationDate.toISOString()}
-                            class="text-muted mb-2 shrink-0 font-mono text-xs sm:mb-0"
+                            class="text-muted mb-2 shrink-0 font-mono text-xs sm:mb-0 sm:w-24"
                         >
                             {getFormattedDate(article.data.publicationDate)}
                         </time>
