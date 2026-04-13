@@ -6,15 +6,12 @@ import xss from "xss";
 export const GET = async ({ site }: { site: string | undefined }) => {
     const articles = await getAllArticles();
     if (!articles || !site) {
-        return {
-            status: 404,
-            error: "Not found",
-        };
+        return new Response("Not found", { status: 404 });
     }
 
     const articleContent = await Promise.all(
         articles.map(async (article) => {
-            return marked.parse(article?.body ?? "");
+            return marked.parse(article.body ?? "");
         }),
     );
 
@@ -30,7 +27,7 @@ export const GET = async ({ site }: { site: string | undefined }) => {
             pubDate: article.data.publicationDate,
             description: article.data.description,
             content: xss(articleContent[index]),
-            link: `articles/${article.id}`,
+            link: `/articles/${article.id}`,
         })),
     });
 };
