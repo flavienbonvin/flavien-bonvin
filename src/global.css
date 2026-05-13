@@ -16,6 +16,8 @@
     --muted: var(--color-zinc-500);
     --focus: var(--color-zinc-400);
     --divider: var(--color-zinc-200);
+    --error: oklch(52% 0.2 15);
+    --success: oklch(48% 0.13 165);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,6 +31,8 @@
         --muted: var(--color-zinc-500);
         --focus: var(--color-zinc-600);
         --divider: var(--color-zinc-800);
+        --error: oklch(68% 0.2 15);
+        --success: oklch(65% 0.13 165);
     }
 }
 
@@ -41,6 +45,8 @@
     --color-ink: var(--ink);
     --color-divider: var(--divider);
     --color-focus: var(--focus);
+    --color-error: var(--error);
+    --color-success: var(--success);
 }
 
 /* Inline code styling */

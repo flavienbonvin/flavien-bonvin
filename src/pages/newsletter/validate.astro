@@ -1,0 +1,34 @@
+---
+import Layout from "@ui/layout/Layout.astro";
+import { resend } from "@utils/resend";
+import { env } from "cloudflare:workers";
+import type { PageMeta } from "interface";
+
+const pageMeta: PageMeta = {
+    title: "Newsletter | Flavien Bonvin",
+    description:
+        "No spam, no advertisement, just the article that you can read right from your inbox.",
+};
+
+const token = Astro.url.searchParams.get("token");
+if (!token) {
+    return Astro.redirect("/404");
+}
+
+const subKV = env.NEWSLETTER_TOKENS;
+const email = await subKV.get(`uuid:${token}`);
+if (!email) {
+    return Astro.redirect("/404");
+}
+
+await resend.contacts.create({
+    email,
+    unsubscribed: false,
+});
+
+await subKV.delete(`uuid:${token}`);
+await subKV.delete(`email:${email}`);
+return Astro.redirect("/");
+---
+
+<Layout hideNewsletter pageMeta={pageMeta} />

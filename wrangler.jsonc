@@ -10,4 +10,11 @@
     "observability": {
         "enabled": true,
     },
+    "kv_namespaces": [
+        {
+            "binding": "NEWSLETTER_TOKENS",
+            "id": "195fd9e1bc51470a8320400ebcec8ee0",
+            "preview_id": "6fa7fdd11d344e6498a4703d853c70d6",
+        },
+    ],
 }
