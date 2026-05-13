@@ -2,6 +2,10 @@
 
 @plugin "@tailwindcss/typography";
 
+html {
+    scrollbar-gutter: stable;
+}
+
 @theme inline {
     --font-serif: var(--font-swiss-works);
     --font-mono: var(--font-berkeley-mono);
