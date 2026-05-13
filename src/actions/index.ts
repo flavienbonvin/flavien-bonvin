@@ -2,6 +2,7 @@ import { ActionError, defineAction } from "astro:actions";
 import { z } from "astro/zod";
 import { env } from "cloudflare:workers";
 import { resend } from "@utils/resend";
+import { sendNewsletterEmail } from "@emails/sendEmail";
 
 const tokenTtl = { expirationTtl: 60 * 30 };
 
@@ -32,6 +33,8 @@ export const server = {
                 const uuid = crypto.randomUUID();
                 await subKV.put(`email:${email}`, uuid, tokenTtl);
                 await subKV.put(`uuid:${uuid}`, email, tokenTtl);
+
+                await sendNewsletterEmail(email, uuid);
                 return { success: true };
             } catch (e: any) {
                 if (e instanceof ActionError) {

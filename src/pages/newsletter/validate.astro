@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 import Layout from "@ui/layout/Layout.astro";
 import { resend } from "@utils/resend";
 import { env } from "cloudflare:workers";
@@ -28,7 +30,7 @@ await resend.contacts.create({
 
 await subKV.delete(`uuid:${token}`);
 await subKV.delete(`email:${email}`);
-return Astro.redirect("/");
+return Astro.redirect("/newsletter/validated");
 ---
 
 <Layout hideNewsletter pageMeta={pageMeta} />
