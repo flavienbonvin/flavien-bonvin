@@ -10,12 +10,13 @@ const beyondArticles = await getBeyondArticles();
 
 const pageMeta: PageMeta = {
     title: "Beyond dev | Flavien Bonvin",
-    description: "Life outside of coding. Discover my interest.",
+    description:
+        "Books, tools, places, and the systems that shape a life in progress.",
 };
 ---
 
 <Layout pageMeta={pageMeta}>
-    <PageHeader title="Explorations of a developer">
+    <PageHeader title="Beyond the editor">
         {pageMeta.description}
     </PageHeader>
     <ArticleList articles={beyondArticles} />

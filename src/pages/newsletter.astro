@@ -11,8 +11,7 @@ import { isInputError } from "astro:actions";
 
 const pageMeta: PageMeta = {
     title: "Newsletter | Flavien Bonvin",
-    description:
-        "No spam, no advertisement, just the article that you can read right from your inbox.",
+    description: "One article at a time. No campaigns, no filler.",
 };
 
 const result = Astro.getActionResult(actions.subscribeNewsletter);
@@ -32,7 +31,7 @@ const successMessage = result?.data?.success
 ---
 
 <Layout pageMeta={pageMeta} hideNewsletter>
-    <PageHeader title="Subscribe to the newsletter">
+    <PageHeader title="Read the blog by email">
         {pageMeta.description}
     </PageHeader>
     <form
