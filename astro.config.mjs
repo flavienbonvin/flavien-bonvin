@@ -13,11 +13,7 @@ export default defineConfig({
     site: "https://flavienbonvin.com",
     integrations: [sitemap(), mdx()],
 
-    adapter: cloudflare({
-        // Fix to have images displayed on static pages
-        // https://github.com/withastro/astro/issues/16035#issuecomment-4180472710
-        imageService: { build: "compile", runtime: "cloudflare-binding" },
-    }),
+    adapter: cloudflare({}),
 
     vite: {
         plugins: [tailwindcss()],
