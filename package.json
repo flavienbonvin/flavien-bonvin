@@ -13,7 +13,8 @@
         "astro": "astro",
         "generate-types": "wrangler types",
         "pretty": "prettier --write .",
-        "og": "node src/utils/og/ogGeneration.mts"
+        "og": "node src/utils/og/ogGeneration.mts",
+        "og-dev": "node --watch src/utils/og/ogDevServer.mts"
     },
     "dependencies": {
         "@astrojs/cloudflare": "^13.6.1",

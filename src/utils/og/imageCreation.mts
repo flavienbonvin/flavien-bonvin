@@ -6,7 +6,7 @@ import { writeFileSync } from "fs";
 
 const FONTS = getFonts();
 
-const generateSVG = async (metadata: Metadata) => {
+export const generateSVG = async (metadata: Metadata) => {
     const svg = await satori(`<p>${metadata.title}</p>`, {
         width: 1200,
         height: 630,

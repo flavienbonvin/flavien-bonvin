@@ -9,6 +9,7 @@ const PROJECT = join(ROOT, "../../..");
 const ARTICLES_DIR = join(PROJECT, "src/articles");
 const FONT_DIR = join(PROJECT, "src/assets/fonts");
 const IMAGES_DIR = join(PROJECT, "public/og");
+const OG_DIR = join(PROJECT, "src/utils/og");
 
 export const getArticlePath = (): Article[] => {
     if (!existsSync(ARTICLES_DIR)) {
@@ -35,4 +36,8 @@ export const createOGFolder = () => {
     if (!existsSync(IMAGES_DIR)) {
         mkdirSync(IMAGES_DIR, { recursive: true });
     }
+};
+
+export const getOGDirFolder = () => {
+    return OG_DIR;
 };
