@@ -7,12 +7,13 @@
     },
     "scripts": {
         "dev": "astro dev",
-        "build": "astro build",
+        "build": "node src/utils/og/ogGeneration.mts && astro build",
         "preview": "pnpm run build && wrangler dev",
         "deploy": "pnpm run build && wrangler deploy",
         "astro": "astro",
         "generate-types": "wrangler types",
-        "pretty": "prettier --write ."
+        "pretty": "prettier --write .",
+        "og": "node src/utils/og/ogGeneration.mts"
     },
     "dependencies": {
         "@astrojs/cloudflare": "^13.6.1",
