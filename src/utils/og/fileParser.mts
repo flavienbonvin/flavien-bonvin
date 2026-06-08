@@ -22,13 +22,19 @@ export const getArticlePath = (): Article[] => {
     });
 };
 
-export const getFonts = (): Buffer[] => {
-    const inter = readFileSync(join(FONT_DIR, "Inter-Regular.ttf"));
-    return [inter];
+export const getFonts = () => {
+    return {
+        inter: readFileSync(join(FONT_DIR, "Inter.ttf")),
+        lora: readFileSync(join(FONT_DIR, "Lora.ttf")),
+        iBMPlexMono: readFileSync(join(FONT_DIR, "IBMPlexMono.ttf")),
+        iBMPlexMonoSemiBold: readFileSync(
+            join(FONT_DIR, "IBMPlexMono-SemiBold.ttf"),
+        ),
+    };
 };
 
 export const getImagePath = (metadata: Metadata) => {
-    const path = metadata.fileName.replace(/\.mdx$/, ".png");
+    const path = metadata.fileName.replace(/\.mdx?$/, ".png");
     return join(IMAGES_DIR, path);
 };
 
