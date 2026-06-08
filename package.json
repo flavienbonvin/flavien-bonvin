@@ -7,7 +7,7 @@
     },
     "scripts": {
         "dev": "astro dev",
-        "build": "node src/utils/og/ogGeneration.mts && astro build",
+        "build": "astro build",
         "preview": "pnpm run build && wrangler dev",
         "deploy": "pnpm run build && wrangler deploy",
         "astro": "astro",
