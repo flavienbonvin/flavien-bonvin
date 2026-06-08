@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
+import { fileURLToPath } from "node:url";
 
 import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
@@ -11,9 +12,24 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
     output: "static",
     site: "https://flavienbonvin.com",
-    integrations: [sitemap(), mdx()],
+    integrations: [
+        sitemap({
+            filter: (page) =>
+                page !== "https://flavienbonvin.com/newsletter/validate/" &&
+                page !== "https://flavienbonvin.com/newsletter/validated/",
+        }),
+        mdx({
+            syntaxHighlight: "shiki",
+            shikiConfig: {
+                themes: {
+                    light: "rose-pine-dawn",
+                    dark: "catppuccin-frappe",
+                },
+            },
+        }),
+    ],
 
-    adapter: cloudflare({}),
+    adapter: cloudflare(),
 
     vite: {
         plugins: [tailwindcss()],
