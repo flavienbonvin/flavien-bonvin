@@ -7,6 +7,12 @@ interface Props {
 
 const { pageMeta } = Astro.props;
 const isArticle = "article" in pageMeta;
+
+const ogImageUrl = isArticle
+    ? new URL(`/og/${pageMeta.article.id}.png`, Astro.site).toString()
+    : "https://flavienbonvin.com/main_og.png";
+const ogImageWidth = isArticle ? 1200 : 1920;
+const ogImageHeight = isArticle ? 630 : 1080;
 ---
 
 <title>{pageMeta.title}</title>
@@ -30,9 +36,9 @@ const isArticle = "article" in pageMeta;
     href={new URL("rss.xml", Astro.site)}
 />
 
-<meta property="og:image" content="https://flavienbonvin.com/main_og.png" />
-<meta property="og:image:width" content="1920" />
-<meta property="og:image:height" content="1080" />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content={ogImageWidth.toString()} />
+<meta property="og:image:height" content={ogImageHeight.toString()} />
 
 {
     isArticle ? (

@@ -7,6 +7,10 @@ interface Props {
 
 const { pageMeta } = Astro.props;
 const isArticle = "article" in pageMeta;
+
+const twitterImageUrl = isArticle
+    ? new URL(`/og/${pageMeta.article.id}.png`, Astro.site).toString()
+    : "https://flavienbonvin.com/main_og.png";
 ---
 
 <meta name="twitter:title" content={pageMeta.title} />
@@ -15,10 +19,7 @@ const isArticle = "article" in pageMeta;
 <meta name="twitter:label1" content="Written by" />
 <meta name="twitter:data1" content="Flavien Bonvin" />
 <meta name="twitter:creator" content="FlavienBonvin" />
-<meta
-    property="twitter:image"
-    content="https://flavienbonvin.com/main_og.png"
-/>
+<meta property="twitter:image" content={twitterImageUrl} />
 
 {
     isArticle ? (
