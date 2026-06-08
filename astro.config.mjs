@@ -17,6 +17,11 @@ export default defineConfig({
 
     vite: {
         plugins: [tailwindcss()],
+        ssr: {
+            optimizeDeps: {
+                exclude: ["@resvg/resvg-js", "resend"],
+            },
+        },
     },
 
     markdown: {
