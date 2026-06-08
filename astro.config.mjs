@@ -1,6 +1,4 @@
-// @ts-check
 import { defineConfig, fontProviders } from "astro/config";
-import { fileURLToPath } from "node:url";
 
 import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
@@ -33,6 +31,11 @@ export default defineConfig({
 
     vite: {
         plugins: [tailwindcss()],
+        ssr: {
+            optimizeDeps: {
+                exclude: ["@resvg/resvg-js", "resend"],
+            },
+        },
     },
 
     markdown: {
